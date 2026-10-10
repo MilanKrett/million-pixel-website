@@ -1,0 +1,48 @@
+{
+  "name": "million-pixel-wall",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "tsx scripts/dev.ts",
+    "dev:next": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "vercel-build": "npm run db:migrate && next build",
+    "lint": "eslint",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "db:start": "tsx scripts/db.ts start",
+    "db:stop": "tsx scripts/db.ts stop",
+    "db:migrate": "tsx scripts/db.ts migrate",
+    "db:reset": "tsx scripts/db.ts reset",
+    "seed": "tsx scripts/seed.ts",
+    "seed:clear": "tsx scripts/seed.ts --clear",
+    "wall:render": "tsx scripts/wall.ts",
+    "test:db": "vitest run --config vitest.integration.config.mts",
+    "test:all": "npm run test && npm run test:db"
+  },
+  "dependencies": {
+    "next": "16.4.0",
+    "postgres": "^3.4.9",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "server-only": "^0.0.1",
+    "sharp": "^0.35.5",
+    "use-intl": "^4.14.9",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@types/node": "^24.19.2",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "embedded-postgres": "^17.10.0-beta.17",
+    "eslint": "^9",
+    "eslint-config-next": "16.4.0",
+    "tsx": "^4.23.15",
+    "typescript": "^5",
+    "vitest": "^5.0.3"
+  },
+  "engines": {
+    "node": ">=22.12"
+  }
+}

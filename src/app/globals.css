@@ -1,0 +1,787 @@
+/*
+ * Retro look of a 2005 website: white background, narrow header, system
+ * fonts, 1 px grey borders, classic blue underlined links. Colour accent only
+ * in the logo and on the "Rent pixels" button. No gradients, big rounded
+ * corners, shadows or animated sections.
+ */
+
+:root {
+  --text: #000000;
+  --muted: #555555;
+  --border: #cccccc;
+  --border-strong: #999999;
+  --link: #0000ee;
+  --visited: #551a8b;
+  --accent: #e8590c;
+  --accent-dark: #b8440a;
+  --accent-hover: #d9480f;
+  --free: #f4f4f4;
+  --panel: #f6f6f6;
+  --tip: #ffffe1;
+  --page-width: 1002px;
+  color-scheme: light;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  scrollbar-gutter: stable;
+}
+
+body {
+  margin: 0;
+  background: #ffffff;
+  color: var(--text);
+  font: 13px/1.45 Verdana, Tahoma, Arial, sans-serif;
+}
+
+a {
+  color: var(--link);
+  text-decoration: underline;
+}
+
+a:visited {
+  color: var(--visited);
+}
+
+a:hover {
+  color: #cc0000;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0 0 0.6em;
+  font-weight: bold;
+  line-height: 1.25;
+}
+
+h1 {
+  font-size: 18px;
+}
+
+h2 {
+  font-size: 15px;
+}
+
+h3 {
+  font-size: 13px;
+}
+
+p {
+  margin: 0 0 0.8em;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid #000000;
+  outline-offset: 1px;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 4px;
+  z-index: 100;
+  background: #ffffff;
+  border: 1px solid #000000;
+  padding: 4px 8px;
+}
+
+.skip-link:focus {
+  left: 8px;
+}
+
+/* ---------------------------------------------------------------- buttons */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 2px 8px;
+  border: 1px solid var(--border-strong);
+  border-radius: 0;
+  background: #f0f0f0;
+  color: #000000;
+  line-height: 1.5;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+a.btn:visited {
+  color: #000000;
+}
+
+.btn:hover {
+  background: #e4e4e4;
+  color: #000000;
+}
+
+.btn:active {
+  background: #d8d8d8;
+}
+
+.btn[aria-pressed="true"] {
+  background: #d4d4d4;
+  border-color: #333333;
+  outline: 1px solid #333333;
+  outline-offset: -2px;
+}
+
+.btn:disabled {
+  color: #999999;
+  cursor: default;
+  background: #f4f4f4;
+}
+
+.btn-icon {
+  min-width: 26px;
+  font-weight: bold;
+}
+
+.btn-rent,
+a.btn-rent:visited {
+  background: var(--accent);
+  border-color: var(--accent-dark);
+  color: #ffffff;
+  font-weight: bold;
+  padding: 3px 12px;
+}
+
+.btn-rent:hover {
+  background: var(--accent-hover);
+  color: #ffffff;
+}
+
+.link-button {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--link);
+  text-decoration: underline;
+  cursor: pointer;
+  text-align: left;
+}
+
+/* ------------------------------------------------------------ page frame */
+
+.page {
+  width: var(--page-width);
+  margin: 0 auto;
+  padding: 10px 0 24px;
+}
+
+.site-header {
+  padding-bottom: 8px;
+}
+
+.site-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.announcement {
+  margin: 0 0 8px;
+  padding: 4px 8px;
+  border: 1px solid #e0c060;
+  background: #fff8d0;
+}
+
+.brand {
+  min-width: 0;
+}
+
+.logo,
+.logo:visited,
+.logo:hover {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #000000;
+  text-decoration: none;
+}
+
+.logo-mark {
+  flex: none;
+  display: block;
+}
+
+.logo-name {
+  font: bold 30px/1 Verdana, Tahoma, Arial, sans-serif;
+  letter-spacing: -1px;
+}
+
+.tagline {
+  margin: 8px 0 0;
+  font-size: 13px;
+}
+
+.tagline .dot {
+  color: var(--muted);
+}
+
+.stats {
+  flex: none;
+  min-width: 330px;
+  padding: 5px 8px;
+  border: 1px solid var(--border);
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.stats .sep,
+.site-footer .sep {
+  color: var(--border-strong);
+}
+
+.progress {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 2px;
+}
+
+.progress-bar {
+  display: flex;
+  gap: 1px;
+  padding: 1px;
+  border: 1px solid var(--border-strong);
+  background: #ffffff;
+}
+
+.progress-bar span {
+  width: 7px;
+  height: 8px;
+  background: #e8e8e8;
+}
+
+.progress-bar span.on {
+  background: #1a3a8a;
+}
+
+.site-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 4px 16px;
+  margin-bottom: 8px;
+  padding: 4px 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.site-nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Separator after each item, so a wrapped line never starts with "|". */
+.site-nav li:not(:last-child)::after {
+  content: "|";
+  padding: 0 7px;
+  color: var(--border-strong);
+}
+
+.site-nav a[aria-current="page"] {
+  color: #000000;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.site-footer {
+  margin-top: 18px;
+  padding-top: 8px;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 11px;
+  text-align: center;
+}
+
+.site-footer p {
+  margin: 0 0 4px;
+}
+
+/* ------------------------------------------------------------ text pages */
+
+.content {
+  max-width: 700px;
+  padding: 8px 0;
+}
+
+.notice {
+  margin: 0 0 12px;
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  background: var(--panel);
+}
+
+/* ------------------------------------------------------------------ wall */
+
+/* content-box: the wall itself is exactly 1000 CSS px wide on desktop, the
+   1 px border is added outside it (whatever the screen's pixel ratio is). */
+.wall-frame {
+  position: relative;
+  box-sizing: content-box;
+  width: calc(100% - 2px);
+  border: 1px solid var(--border);
+}
+
+.wall-viewport {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  contain: layout paint;
+  background: var(--free);
+  cursor: crosshair;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.wall-viewport[data-over="rental"] {
+  cursor: pointer;
+}
+
+.wall-viewport.is-dragging {
+  cursor: grabbing;
+}
+
+.wall-viewport.is-magnifier {
+  cursor: none;
+}
+
+.wall-viewport:focus-visible {
+  outline: 2px solid #000000;
+  outline-offset: 2px;
+}
+
+.wall-img {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+}
+
+.wall-canvas {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+
+.wall-viewport.is-ready .wall-canvas {
+  opacity: 1;
+}
+
+.wall-tip {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  max-width: 260px;
+  padding: 2px 6px;
+  border: 1px solid #000000;
+  background: var(--tip);
+  font-size: 11px;
+  line-height: 1.4;
+  pointer-events: none;
+  overflow-wrap: anywhere;
+  contain: layout paint;
+}
+
+.wall-tip[hidden],
+.wall-loupe[hidden] {
+  display: none;
+}
+
+.wall-tip-domain {
+  color: #006600;
+}
+
+.wall-loupe {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 4;
+  width: 168px;
+  height: 168px;
+  border: 2px solid #333333;
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--free);
+  pointer-events: none;
+}
+
+.wall-loupe canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.wall-noscript {
+  margin: 6px 0 0;
+  color: var(--muted);
+}
+
+/* Spot window */
+
+.wall-popup {
+  position: absolute;
+  z-index: 10;
+  width: 320px;
+  max-width: calc(100% - 8px);
+  border: 1px solid #666666;
+  background: #ffffff;
+  font-size: 12px;
+}
+
+.wall-popup.is-sheet {
+  position: fixed;
+  left: 8px;
+  right: 8px;
+  bottom: calc(64px + env(safe-area-inset-bottom));
+  width: auto;
+  max-width: none;
+  max-height: 60vh;
+  overflow: auto;
+  z-index: 30;
+}
+
+.wall-popup-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 3px 4px 3px 8px;
+  border-bottom: 1px solid var(--border);
+  background: #eeeeee;
+}
+
+.wall-popup-title {
+  padding-top: 1px;
+  overflow-wrap: anywhere;
+}
+
+.wall-popup-close {
+  flex: none;
+  width: 22px;
+  height: 20px;
+  padding: 0;
+  border: 1px solid var(--border-strong);
+  background: #ffffff;
+  font-size: 15px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.wall-popup-body {
+  padding: 8px;
+}
+
+.wall-popup-main {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  margin-bottom: 8px;
+}
+
+.wall-popup-preview {
+  flex: none;
+  display: block;
+  border: 1px solid var(--border);
+  image-rendering: pixelated;
+}
+
+.wall-popup-info {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.wall-popup-domain {
+  color: #006600;
+}
+
+.wall-popup-meta {
+  margin: 2px 0 0;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.wall-popup-text,
+.wall-popup-note {
+  margin: 0 0 8px;
+}
+
+.wall-popup-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.wall-popup-copy {
+  width: 100%;
+  margin-top: 4px;
+  padding: 2px 4px;
+  border: 1px solid var(--border-strong);
+  font-size: 11px;
+}
+
+/* Toolbar under the wall */
+
+.wall-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 14px;
+  padding: 6px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.tb-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+}
+
+.tb-label {
+  margin-right: 2px;
+}
+
+.tb-check {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.tb-coords {
+  width: 230px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--muted);
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+}
+
+.tb-search {
+  position: relative;
+  display: flex;
+  gap: 4px;
+  margin-left: auto;
+}
+
+.tb-search input {
+  width: 190px;
+  padding: 2px 4px;
+  border: 1px solid var(--border-strong);
+  border-radius: 0;
+  background: #ffffff;
+}
+
+.tb-results {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 4px);
+  z-index: 20;
+  width: 360px;
+  max-width: calc(100vw - 32px);
+  max-height: 300px;
+  overflow: auto;
+  padding: 6px 8px;
+  border: 1px solid #666666;
+  background: #ffffff;
+  font-size: 12px;
+}
+
+.tb-results p {
+  margin: 0 0 4px;
+}
+
+.tb-results ul {
+  margin: 0;
+  padding-left: 16px;
+}
+
+.tb-results-domain {
+  color: #006600;
+}
+
+.rent-sticky {
+  display: none;
+}
+
+/* ---------------------------------------------------------- small screens */
+
+@media (max-width: 1033px) {
+  .page {
+    width: auto;
+    padding: 8px 16px 24px;
+  }
+
+  .site-header-row {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .stats {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .tb-search {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 700px) {
+  .page {
+    padding-bottom: 76px;
+  }
+
+  .logo-name {
+    font-size: 22px;
+  }
+
+  .tagline {
+    font-size: 12px;
+  }
+
+  .site-nav {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .tb-rent {
+    display: none;
+  }
+
+  .tb-zoom .tb-label {
+    display: none;
+  }
+
+  .tb-zoom {
+    flex-wrap: nowrap;
+  }
+
+  .tb-coords {
+    min-width: 0;
+    width: 100%;
+    order: 10;
+  }
+
+  .tb-search {
+    width: 100%;
+  }
+
+  .tb-search input {
+    flex: 1;
+    width: auto;
+    min-width: 0;
+  }
+
+  .rent-sticky {
+    display: block;
+    position: fixed;
+    left: 16px;
+    right: 16px;
+    bottom: calc(10px + env(safe-area-inset-bottom));
+    z-index: 25;
+  }
+
+  .rent-sticky .btn-rent {
+    display: block;
+    padding: 10px;
+    border-width: 2px;
+    font-size: 15px;
+    text-align: center;
+  }
+}
+
+@media (pointer: coarse) {
+  .btn {
+    min-height: 32px;
+    padding: 4px 10px;
+  }
+
+  .tb-zoom .btn {
+    padding: 4px 6px;
+  }
+
+  /* No mouse to point with: coordinates appear after a tap instead. */
+  .tb-coords[data-idle="1"] {
+    display: none;
+  }
+
+  .btn-icon {
+    min-width: 34px;
+  }
+
+  .tb-search input {
+    min-height: 32px;
+    font-size: 16px;
+  }
+
+  .wall-popup-close {
+    width: 32px;
+    height: 30px;
+  }
+}
+
+@media print {
+  .wall-toolbar,
+  .site-nav,
+  .rent-sticky {
+    display: none;
+  }
+}
+
+.wall-toolbar-placeholder {
+  min-height: 37px;
+}
+
+.stats-placeholder {
+  min-height: 66px;
+}
