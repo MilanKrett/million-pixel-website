@@ -55,7 +55,7 @@ export async function loadWallSnapshot(sql: Sql, settings: Settings): Promise<Wa
     `,
     sql<{ x: number; y: number; w: number; h: number }[]>`
       select x, y, w, h from rentals
-      where status in ('hold', 'awaiting_payment') and hold_expires_at > now()
+      where status in ('hold', 'awaiting_payment') and not rental_hold_is_stale(status, hold_expires_at)
     `,
   ]);
 

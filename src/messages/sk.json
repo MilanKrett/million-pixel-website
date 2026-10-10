@@ -105,5 +105,51 @@
     "comingInPhase": "Bude hotová vo fáze {phase} projektu.",
     "notFoundTitle": "Stránka sa nenašla",
     "notFoundText": "Prepáč, na tejto adrese nič nie je. Odkaz je možno starý alebo v ňom je preklep."
+  },
+  "email": {
+    "footer": "{site} — stena s miliónom pixelov na prenájom.",
+    "greeting": "Dobrý deň,",
+    "position": "x {x0}–{x1}, y {y0}–{y1}",
+    "size": "{w} × {h} px",
+    "years": "{years, plural, one {# rok} few {# roky} other {# rokov}}",
+    "companyId": "IČO {id}",
+    "item": "Prenájom plochy {w} × {h} px na stene ({position}) na {years, plural, one {# rok} few {# roky} other {# rokov}}",
+    "vatIncluded": "Cena obsahuje DPH {rate} %: {vat}",
+    "notVatPayer": "Predávajúci nie je platiteľ DPH.",
+    "labels": {
+      "title": "Názov",
+      "position": "Poloha",
+      "size": "Rozmer",
+      "period": "Doba prenájmu",
+      "number": "Doklad č.",
+      "date": "Dátum",
+      "seller": "Predávajúci",
+      "buyer": "Kupujúci",
+      "item": "Položka",
+      "total": "Zaplatené spolu",
+      "vat": "DPH"
+    },
+    "paid": {
+      "subject": "Platba prijatá — tvoje pixely čakajú na schválenie",
+      "intro": "Ďakujeme za objednávku. Prijali sme tvoju platbu {amount}. Obsah skontrolujeme zvyčajne do {hours} hodín a dáme ti vedieť, keď bude na stene.",
+      "start": "Doba prenájmu začína plynúť dňom schválenia obsahu.",
+      "rentalHeading": "Tvoj prenájom",
+      "receiptHeading": "Doklad {number}",
+      "mine": "Svoje prenájmy nájdeš v sekcii Moje pixely:"
+    },
+    "approved": {
+      "subject": "Tvoje pixely sú na stene!",
+      "intro": "Dobrá správa: „{title}“ sme schválili a už je na stene na mieste {position}. Prenájom platí do {until}.",
+      "see": "Pozrieť na stene",
+      "share": "Ukáž ho priateľom:",
+      "shareText": "Mám svoje miesto na {site}!",
+      "shareEmail": "E-mail"
+    },
+    "lateRefund": {
+      "subject": "Prepáč — platbu sme ti vrátili",
+      "intro": "Tvoja platba {amount} k nám prišla až po skončení rezervácie miesta a medzitým si ho prenajal niekto iný.",
+      "refund": "Celú sumu sme ti vrátili. Podľa banky môže trvať niekoľko dní, kým sa objaví na účte.",
+      "again": "Vybrať iné miesto"
+    }
   }
 }

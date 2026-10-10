@@ -1,5 +1,6 @@
 import { mkdir, readFile, rename, rm, writeFile } from "node:fs/promises";
 import path from "node:path";
+import { signUpload } from "@/lib/signing";
 import { safeStoragePath, type Bucket, type StorageDriver } from "./types";
 
 /** Development driver: files in .data/storage, served by /storage/[...path]. */
@@ -31,6 +32,10 @@ export function localStorageDriver(): StorageDriver {
     },
     publicUrl(bucket, p) {
       return `/storage/${bucket}/${safeStoragePath(p)}`;
+    },
+    async createUploadUrl(bucket, p, options) {
+      const query = signUpload({ bucket, path: safeStoragePath(p), maxBytes: options.maxBytes, contentType: options.contentType });
+      return { url: `/api/uploads/local?${query}`, method: "PUT", headers: { "Content-Type": options.contentType } };
     },
   };
 }

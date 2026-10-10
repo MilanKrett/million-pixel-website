@@ -52,5 +52,22 @@ export function supabaseStorageDriver(): StorageDriver {
     publicUrl(bucket, p) {
       return `${baseUrl}/storage/v1/object/public/${bucket}/${safeStoragePath(p)}`;
     },
+    async createUploadUrl(bucket, p, options) {
+      // Signed upload URLs are valid for two hours; the size limit is enforced
+      // again when the server processes the file.
+      const path = safeStoragePath(p).split("/").map(encodeURIComponent).join("/");
+      const res = await fetch(`${baseUrl}/storage/v1/object/upload/sign/${bucket}/${path}`, {
+        method: "POST",
+        headers: headers({ "Content-Type": "application/json" }),
+        body: "{}",
+      });
+      if (!res.ok) throw new Error(`Storage signed upload failed (${res.status}): ${await res.text()}`);
+      const { url } = (await res.json()) as { url: string };
+      return {
+        url: `${baseUrl}/storage/v1${url}`,
+        method: "PUT",
+        headers: { "Content-Type": options.contentType, "x-upsert": "true" },
+      };
+    },
   };
 }

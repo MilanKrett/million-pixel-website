@@ -1,6 +1,6 @@
 import sharp from "sharp";
 import { describe, expect, it } from "vitest";
-import { drawText, GLYPH_HEIGHT, GLYPH_WIDTH, glyph, textWidth, wrapText } from "@/lib/pixel-font";
+import { drawText, GLYPH_HEIGHT, GLYPH_WIDTH, glyph, hasGlyph, textWidth, wrapText } from "@/lib/pixel-font";
 import { EMPTY_COLOR, Raster } from "@/lib/wall/raster";
 
 describe("raster", () => {
@@ -45,9 +45,16 @@ describe("pixel font", () => {
     }
   });
 
-  it("falls back to the base letter for diacritics", () => {
-    expect(glyph("č")).toEqual(glyph("c"));
-    expect(glyph("Ž")).toEqual(glyph("Z"));
+  it("has Slovak letters and falls back to the base letter for other diacritics", () => {
+    for (const ch of "áäčďéíĺľňóôŕšťúýžÁÄČĎÉÍĹĽŇÓÔŔŠŤÚÝŽ") {
+      expect(hasGlyph(ch), ch).toBe(true);
+      expect(glyph(ch), ch).not.toEqual(glyph(ch.normalize("NFD")[0]));
+      expect(glyph(ch), ch).toHaveLength(GLYPH_HEIGHT);
+      for (const row of glyph(ch)) expect(row, ch).toHaveLength(GLYPH_WIDTH);
+    }
+    expect(glyph("ö")).toEqual(glyph("o"));
+    // Lowercase and uppercase with the same accent stay distinguishable.
+    expect(glyph("ó")).not.toEqual(glyph("Ó"));
   });
 
   it("measures and wraps text", () => {

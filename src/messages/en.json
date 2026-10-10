@@ -105,5 +105,51 @@
     "comingInPhase": "It will be ready in phase {phase} of the project.",
     "notFoundTitle": "Page not found",
     "notFoundText": "Sorry, there is nothing at this address. Maybe the link is old or mistyped."
+  },
+  "email": {
+    "footer": "{site} — a wall of a million pixels for rent.",
+    "greeting": "Hello,",
+    "position": "x {x0}–{x1}, y {y0}–{y1}",
+    "size": "{w} × {h} px",
+    "years": "{years, plural, one {# year} other {# years}}",
+    "companyId": "company ID {id}",
+    "item": "Rental of a {w} × {h} px area on the wall ({position}) for {years, plural, one {# year} other {# years}}",
+    "vatIncluded": "The price includes VAT {rate} %: {vat}",
+    "notVatPayer": "The seller is not a VAT payer.",
+    "labels": {
+      "title": "Title",
+      "position": "Position",
+      "size": "Size",
+      "period": "Rental period",
+      "number": "Receipt no.",
+      "date": "Date",
+      "seller": "Seller",
+      "buyer": "Buyer",
+      "item": "Item",
+      "total": "Total paid",
+      "vat": "VAT"
+    },
+    "paid": {
+      "subject": "Payment received — your pixels are waiting for approval",
+      "intro": "Thank you for your order. We received your payment of {amount}. We will check your content, usually within {hours} hours, and let you know when it is on the wall.",
+      "start": "The rental period starts on the day the content is approved.",
+      "rentalHeading": "Your rental",
+      "receiptHeading": "Receipt {number}",
+      "mine": "You can see your rentals in My pixels:"
+    },
+    "approved": {
+      "subject": "Your pixels are on the wall!",
+      "intro": "Good news: “{title}” was approved and is now on the wall at {position}. Your rental is valid until {until}.",
+      "see": "See it on the wall",
+      "share": "Show it to your friends:",
+      "shareText": "I have my own spot on {site}!",
+      "shareEmail": "E-mail"
+    },
+    "lateRefund": {
+      "subject": "We are sorry — your payment was refunded",
+      "intro": "Your payment of {amount} reached us after the reservation of your spot had ended, and meanwhile someone else rented that space.",
+      "refund": "We have refunded the whole amount. Depending on your bank it can take a few days to appear on your account.",
+      "again": "Choose another spot"
+    }
   }
 }

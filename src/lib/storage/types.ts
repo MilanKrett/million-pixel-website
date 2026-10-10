@@ -18,6 +18,17 @@ export interface StorageDriver {
   remove(bucket: Bucket, paths: string[]): Promise<void>;
   /** Public URL of a file in the public "wall" bucket. */
   publicUrl(bucket: "wall", path: string): string;
+  /**
+   * A short-lived URL the browser can PUT one file to directly (large uploads
+   * bypass the app server, whose request size is limited on Vercel).
+   */
+  createUploadUrl(bucket: Bucket, path: string, options: { contentType: string; maxBytes: number }): Promise<UploadTarget>;
+}
+
+export interface UploadTarget {
+  url: string;
+  method: "PUT";
+  headers: Record<string, string>;
 }
 
 /** Normalise and validate a storage path (no "..", no backslashes, no leading slash). */

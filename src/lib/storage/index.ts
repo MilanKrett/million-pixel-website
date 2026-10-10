@@ -2,7 +2,7 @@ import { localStorageDriver } from "./local";
 import { supabaseStorageDriver } from "./supabase";
 import type { StorageDriver } from "./types";
 
-export { safeStoragePath, type Bucket, type PutOptions, type StorageDriver } from "./types";
+export { safeStoragePath, type Bucket, type PutOptions, type StorageDriver, type UploadTarget } from "./types";
 
 let driver: StorageDriver | null = null;
 
