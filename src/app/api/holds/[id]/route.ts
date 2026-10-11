@@ -5,7 +5,7 @@ import { releaseHold } from "@/lib/orders/holds";
 import { findOrder } from "@/lib/orders/order";
 import { revalidateWall } from "@/lib/revalidate";
 
-/** Give up a reservation ("Change place" or leaving the order). */
+/** Give up a reservation on purpose ("Change place" keeps it until a new place is reserved). */
 export async function DELETE(request: NextRequest, ctx: RouteContext<"/api/holds/[id]">) {
   if (!isSameOrigin(request)) return jsonError(403, "forbidden");
   const { id } = await ctx.params;

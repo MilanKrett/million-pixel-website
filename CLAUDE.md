@@ -23,6 +23,15 @@
 - Prices are computed only on the server. Space is reserved by inserting into `block_cells` in the same
   transaction as the rental (primary key (bx, by) prevents overlaps).
 - Wall image: `src/lib/wall/render.ts` redraws rectangles queued in `wall_dirty` (filled by a trigger).
+- Orders have no account: the httpOnly cookie `pw_order` = `<rentalId>.<token>`, only the token hash is
+  stored (`src/lib/orders/tokens.ts`). API routes check it with `authorizeOrder` (`src/lib/orders/request.ts`).
+  A hold past its time is free everywhere via `rental_hold_is_stale()`, even before the cron job runs.
+  A new hold from the same cookie replaces the old order and copies its draft (`createHold`).
+- Payments go through `src/lib/payments/provider.ts` (`dev` now, `stripe` later). `completeCheckout` must
+  stay idempotent and takes amount and period from the payment row, never from the editable order.
+- E-mails: `src/lib/email` (`log` driver → `/dev/emails`, or `resend`); `notify*` functions never throw.
+- Uploads go straight to storage (`createUploadUrl`), then the server processes them (`src/lib/content`).
+- `/admin` is a temporary Basic-auth page (proxy) until phase 3 replaces it with real accounts.
 - Retro UI rules (spec section 4): white background, Verdana/Tahoma 11–13 px, 1 px #ccc borders, blue
   underlined links, accent colour only in the logo and the "Rent pixels" button, no gradients, shadows,
   big radii or animated sections.

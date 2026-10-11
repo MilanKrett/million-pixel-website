@@ -94,8 +94,8 @@ export async function completeCheckout(
   paid: { amountCents: number; paymentRef: string },
 ): Promise<CompleteResult> {
   const result = await sql.begin(async (tx): Promise<CompleteResult> => {
-    const [payment] = await tx<{ id: string; rental_id: string; status: string; amount_cents: number }[]>`
-      select id, rental_id, status, amount_cents from payments where stripe_session_id = ${sessionId} for update
+    const [payment] = await tx<{ id: string; rental_id: string; status: string; amount_cents: number; period_years: number }[]>`
+      select id, rental_id, status, amount_cents, period_years from payments where stripe_session_id = ${sessionId} for update
     `;
     if (!payment) return { outcome: "unknown_session" };
     if (payment.status !== "pending" && payment.status !== "expired") return { outcome: "already_processed" };
@@ -147,8 +147,12 @@ export async function completeCheckout(
       set status = 'paid', paid_at = now(), invoice_number = ${invoice}, stripe_payment_intent_id = ${paid.paymentRef}
       where id = ${payment.id}
     `;
+    // The period is the one this payment was for: the order could have been
+    // changed in another tab after the payment page was opened.
     await tx`
-      update rentals set status = 'in_review', paid_at = now(), hold_expires_at = null, price_cents = ${paid.amountCents}
+      update rentals
+      set status = 'in_review', paid_at = now(), hold_expires_at = null, price_cents = ${paid.amountCents},
+          period_years = ${payment.period_years}
       where id = ${rental.id}
     `;
     await tx`

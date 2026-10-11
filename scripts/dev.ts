@@ -33,10 +33,28 @@ async function main(): Promise<void> {
     env: process.env,
   });
 
+  // The every-minute job (Vercel Cron in production): release expired
+  // reservations and redraw the wall. The first run waits for the server.
+  const portArg = extraArgs.findIndex((a) => a === "-p" || a === "--port");
+  const port = portArg >= 0 ? Number(extraArgs[portArg + 1]) : Number(process.env.PORT ?? 3000);
+  const cron = setInterval(async () => {
+    try {
+      const res = await fetch(`http://127.0.0.1:${port}/api/cron/minute`, {
+        headers: { Authorization: `Bearer ${process.env.CRON_SECRET ?? ""}` },
+        signal: AbortSignal.timeout(50_000),
+      });
+      const body = (await res.json().catch(() => null)) as { expired?: number; rendered?: number | null } | null;
+      if (body?.expired) console.log(`• cron: released ${body.expired} expired reservation(s)`);
+    } catch {
+      // The dev server may still be compiling; next minute it will answer.
+    }
+  }, 60_000);
+
   let stopping = false;
   const shutdown = async (code: number) => {
     if (stopping) return;
     stopping = true;
+    clearInterval(cron);
     if (!next.killed && next.exitCode === null) next.kill();
     if (handle && !handle.alreadyRunning) {
       await handle.stop().catch(() => {});

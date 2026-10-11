@@ -26,6 +26,8 @@ export interface TextLayout {
   /** Top-left corner of every line, in pixels. */
   positions: { x: number; y: number }[];
   fits: boolean;
+  /** A word was too long for a line and had to be split. */
+  brokeWords: boolean;
 }
 
 export function isHexColor(value: string): boolean {
@@ -46,7 +48,7 @@ function tryLayout(text: string, width: number, height: number, scale: number, a
   const pad = padding(width, height, scale);
   const innerW = Math.floor((width - 2 * pad) / scale);
   const innerH = Math.floor((height - 2 * pad) / scale);
-  const { lines, fits } = wrapText(text, innerW, innerH);
+  const { lines, fits, brokeWords } = wrapText(text, innerW, innerH);
   const blockH = lines.length > 0 ? (lines.length - 1) * LINE_HEIGHT + GLYPH_HEIGHT : 0;
   const top = Math.floor((height - blockH * scale) / 2);
   const positions = lines.map((line, i) => {
@@ -54,20 +56,24 @@ function tryLayout(text: string, width: number, height: number, scale: number, a
     const x = align === "left" ? pad : align === "right" ? width - pad - lw : Math.floor((width - lw) / 2);
     return { x, y: top + i * LINE_HEIGHT * scale };
   });
-  return { scale, lines, positions, fits };
+  return { scale, lines, positions, fits, brokeWords };
 }
 
 /** Lay out text in a width × height tile (pixels). */
 export function layoutText(params: Pick<TextTileParams, "text" | "align" | "scale">, width: number, height: number): TextLayout {
   const text = params.text.trim();
-  if (!text) return { scale: 1, lines: [], positions: [], fits: true };
+  if (!text) return { scale: 1, lines: [], positions: [], fits: true, brokeWords: false };
   if (params.scale > 0) return tryLayout(text, width, height, Math.min(MAX_TEXT_SCALE, params.scale), params.align);
-  for (let scale = MAX_TEXT_SCALE; scale > 1; scale--) {
+  // Automatic: the largest size that fits without splitting words, else the largest that fits at all.
+  let fallback: TextLayout | null = null;
+  for (let scale = MAX_TEXT_SCALE; scale >= 1; scale--) {
     if (GLYPH_HEIGHT * scale > height) continue;
     const layout = tryLayout(text, width, height, scale, params.align);
-    if (layout.fits) return layout;
+    if (!layout.fits) continue;
+    if (!layout.brokeWords) return layout;
+    fallback ??= layout;
   }
-  return tryLayout(text, width, height, 1, params.align);
+  return fallback ?? tryLayout(text, width, height, 1, params.align);
 }
 
 /** Draw a text tile through a pixel callback (server raster or browser canvas). */

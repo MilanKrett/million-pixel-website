@@ -1,4 +1,4 @@
-import type { Rect } from "@/lib/geometry";
+import { rectContainsPoint, type Rect } from "@/lib/geometry";
 import { CELL_FREE, type WallModel } from "./model";
 import { fitOf, type Dims, type View } from "./view";
 
@@ -16,6 +16,14 @@ export interface Overlay {
   selected: Rect | null;
   cursor: { bx: number; by: number } | null;
   showFree: boolean;
+  /** Rent mode: the area being chosen, with corner handles. */
+  selection: Rect | null;
+  /** Rent mode: free spots offered by "Find me a spot". */
+  suggestions: Rect[];
+  /** Rent mode: the buyer's current reservation while choosing a new place. */
+  own: Rect | null;
+  /** Handle size in CSS px (bigger on touch screens). */
+  handleSize: number;
 }
 
 /** One pixel per block, free blocks tinted; drawn scaled up over the wall. */
@@ -164,6 +172,56 @@ export function drawWall(
     outline(ctx, d, px, "#000000", 3 * px);
     outline(ctx, d, px, "#000000", -px);
   }
+  if (overlay.suggestions.length) {
+    ctx.setLineDash([4 * px, 3 * px]);
+    for (const r of overlay.suggestions) {
+      const d = deviceRect(r, model.block, t);
+      ctx.fillStyle = "rgba(47,158,68,0.25)";
+      ctx.fillRect(d.x, d.y, d.w, d.h);
+      outline(ctx, d, 2 * px, "#2f9e44", 0);
+    }
+    ctx.setLineDash([]);
+  }
+  if (overlay.own) {
+    ctx.setLineDash([4 * px, 3 * px]);
+    outline(ctx, deviceRect(overlay.own, model.block, t), 2 * px, "#e8590c", 0);
+    ctx.setLineDash([]);
+  }
+
+  if (overlay.selection) {
+    const sel = overlay.selection;
+    const own = overlay.own;
+    const d = deviceRect(sel, model.block, t);
+    ctx.fillStyle = "rgba(25,113,194,0.25)";
+    ctx.fillRect(d.x, d.y, d.w, d.h);
+    // Blocks already taken inside the selection are shown in red.
+    ctx.fillStyle = "rgba(224,49,49,0.75)";
+    for (let by = sel.y; by < sel.y + sel.h; by++) {
+      for (let bx = sel.x; bx < sel.x + sel.w; bx++) {
+        if (bx < 0 || by < 0 || bx >= model.cols || by >= model.rows) continue;
+        if (model.cells[by * model.cols + bx] === CELL_FREE) continue;
+        if (own && rectContainsPoint(own, bx, by)) continue;
+        const c = deviceRect({ x: bx, y: by, w: 1, h: 1 }, model.block, t);
+        ctx.fillRect(c.x, c.y, c.w, c.h);
+      }
+    }
+    outline(ctx, d, px, "#ffffff", px);
+    outline(ctx, d, 2 * px, "#1971c2", -px);
+    const hs = Math.round(overlay.handleSize * dpr);
+    for (const [cx, cy] of [
+      [d.x, d.y],
+      [d.x + d.w, d.y],
+      [d.x, d.y + d.h],
+      [d.x + d.w, d.y + d.h],
+    ]) {
+      ctx.fillStyle = "#ffffff";
+      ctx.fillRect(cx - hs / 2, cy - hs / 2, hs, hs);
+      ctx.lineWidth = px;
+      ctx.strokeStyle = "#1971c2";
+      ctx.strokeRect(cx - hs / 2 + 0.5 * px, cy - hs / 2 + 0.5 * px, hs - px, hs - px);
+    }
+  }
+
   if (overlay.cursor) {
     const d = deviceRect({ x: overlay.cursor.bx, y: overlay.cursor.by, w: 1, h: 1 }, model.block, t);
     ctx.setLineDash([3 * px, 2 * px]);

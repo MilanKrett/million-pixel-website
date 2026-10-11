@@ -62,9 +62,9 @@ describe("pixel font", () => {
     expect(textWidth("A")).toBe(5);
     expect(textWidth("AB")).toBe(11);
     // One 10 × 10 block holds exactly one character.
-    expect(wrapText("A", 10, 10)).toEqual({ lines: ["A"], fits: true });
+    expect(wrapText("A", 10, 10)).toEqual({ lines: ["A"], fits: true, brokeWords: false });
     expect(wrapText("AB", 10, 10).fits).toBe(false);
-    expect(wrapText("Hello world", 40, 20)).toEqual({ lines: ["Hello", "world"], fits: true });
+    expect(wrapText("Hello world", 40, 20)).toEqual({ lines: ["Hello", "world"], fits: true, brokeWords: false });
     expect(wrapText("Supercalifragilistic", 30, 100).lines[0]).toBe("Super");
   });
 

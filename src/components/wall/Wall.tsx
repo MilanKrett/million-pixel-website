@@ -3,10 +3,11 @@
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import { useFormatter, useTranslations } from "use-intl/react";
 import { localePath } from "@/i18n/config";
+import { rectContainsPoint, type Rect } from "@/lib/geometry";
 import { useAppLocale } from "@/i18n/provider";
 import type { WallSnapshot } from "@/lib/wall/snapshot";
 import { createFreeLayer, drawLoupe, drawWall, type Overlay } from "./draw";
-import { areaRect, buildModel, hitAt, imageMapHtml, rentalRect, searchRentals, type Hit, type WallModel } from "./model";
+import { areaRect, buildModel, CELL_FREE, hitAt, imageMapHtml, rentalRect, searchRentals, type Hit, type WallModel } from "./model";
 import {
   centerOn,
   clampView,
@@ -27,8 +28,36 @@ import {
 } from "./view";
 import { WallPopup, type PopupState } from "./WallPopup";
 
+/** Rent mode: the wall is used to choose a rectangle of blocks. */
+export interface SelectOptions {
+  /** The chosen area in blocks (controlled by the parent). */
+  rect: Rect | null;
+  onChange: (rect: Rect | null) => void;
+  /** Free spots to highlight ("Find me a spot"). */
+  suggestions?: Rect[];
+  /** When this object changes, the view moves to show it. */
+  focus?: Rect | null;
+  /** Number of blocks inside the selection that are already taken (or reserved). */
+  onConflictsChange?: (count: number) => void;
+  /** The buyer's own current reservation: outlined, and not a conflict (it is given up for the new place). */
+  own?: Rect | null;
+}
+
+type Block = { bx: number; by: number };
+
+/** The rectangle spanned by two blocks (both included). */
+function spanRect(a: Block, b: Block): Rect {
+  return {
+    x: Math.min(a.bx, b.bx),
+    y: Math.min(a.by, b.by),
+    w: Math.abs(a.bx - b.bx) + 1,
+    h: Math.abs(a.by - b.by) + 1,
+  };
+}
+
 export interface WallProps {
   initial: WallSnapshot;
+  select?: SelectOptions;
   blockPriceCents: number;
   currency: string;
   /** Admin switch: on desktop, a click on a rental opens its link directly (like the original). */
@@ -48,7 +77,8 @@ const SHEET_BELOW = 560;
  * image map, zoom (wheel, buttons, pinch, double tap), pan, magnifier,
  * hover bubble, spot windows, search, random spot and shareable positions.
  */
-export function Wall({ initial, blockPriceCents, currency, directLinkOpen }: WallProps) {
+export function Wall({ initial, blockPriceCents, currency, directLinkOpen, select }: WallProps) {
+  const selectMode = Boolean(select);
   const t = useTranslations("wall");
   const locale = useAppLocale();
   const format = useFormatter();
@@ -69,7 +99,19 @@ export function Wall({ initial, blockPriceCents, currency, directLinkOpen }: Wal
   const modelRef = useRef<WallModel>(model);
   const viewRef = useRef<View>({ zoom: 1, ox: 0, oy: 0 });
   const sizeRef = useRef({ frameW: 0, frameH: 0, dpr: 1 });
-  const overlayRef = useRef<Overlay>({ hover: null, selected: null, cursor: null, showFree: false });
+  const overlayRef = useRef<Overlay>({
+    hover: null,
+    selected: null,
+    cursor: null,
+    showFree: selectMode,
+    selection: null,
+    suggestions: [],
+    own: null,
+    handleSize: 8,
+  });
+  const selectRef = useRef<SelectOptions | undefined>(select);
+  const pendingCornerRef = useRef<Block | null>(null);
+  const toolRef = useRef<"select" | "move">("select");
   const imageRef = useRef<HTMLImageElement | null>(null);
   const freeLayerRef = useRef<HTMLCanvasElement | null>(null);
   const rafRef = useRef(0);
@@ -92,7 +134,8 @@ export function Wall({ initial, blockPriceCents, currency, directLinkOpen }: Wal
   const [tip, setTip] = useState<Tip | null>(null);
   const [magnifier, setMagnifier] = useState(false);
   const [loupeVisible, setLoupeVisible] = useState(false);
-  const [showFree, setShowFree] = useState(false);
+  const [showFree, setShowFree] = useState(selectMode);
+  const [tool, setTool] = useState<"select" | "move">("select");
   const [query, setQuery] = useState("");
   const [results, setResults] = useState<number[] | null>(null);
   const [searchedFor, setSearchedFor] = useState("");
@@ -102,6 +145,7 @@ export function Wall({ initial, blockPriceCents, currency, directLinkOpen }: Wal
     tRef.current = t;
     settingsRef.current.directLinkOpen = directLinkOpen;
     settingsRef.current.magnifier = magnifier;
+    toolRef.current = tool;
   });
 
   const dims = useCallback((): Dims => {
@@ -254,6 +298,121 @@ export function Wall({ initial, blockPriceCents, currency, directLinkOpen }: Wal
     [cancelAnimation, commitZoomUi, dims, setView],
   );
 
+  // -------------------------------------------------------------- rent mode
+
+  useLayoutEffect(() => {
+    selectRef.current = select;
+    const overlay = overlayRef.current;
+    overlay.selection = select?.rect ?? null;
+    overlay.suggestions = select?.suggestions ?? [];
+    overlay.own = select?.own ?? null;
+    overlay.handleSize = window.matchMedia("(pointer: coarse)").matches ? 14 : 8;
+    requestDraw();
+  }, [select, requestDraw]);
+
+  // Tell the parent how many chosen blocks are not free (fresh data may change it).
+  const selRect = select?.rect ?? null;
+  const ownRect = select?.own ?? null;
+  const reportConflicts = select?.onConflictsChange;
+  useEffect(() => {
+    if (!reportConflicts) return;
+    let count = 0;
+    if (selRect) {
+      for (let by = selRect.y; by < selRect.y + selRect.h; by++) {
+        for (let bx = selRect.x; bx < selRect.x + selRect.w; bx++) {
+          if (bx >= model.cols || by >= model.rows) count++;
+          else if (model.cells[by * model.cols + bx] !== CELL_FREE && !(ownRect && rectContainsPoint(ownRect, bx, by))) count++;
+        }
+      }
+    }
+    reportConflicts(count);
+  }, [model, selRect, ownRect, reportConflicts]);
+
+  const focusRect = select?.focus ?? null;
+  useEffect(() => {
+    if (!focusRect || !sizeRef.current.frameW) return;
+    const m = modelRef.current;
+    const d = dims();
+    const zoom = Math.min(
+      viewRef.current.zoom > 1 ? Math.max(viewRef.current.zoom, 2) : 8,
+      zoomForRect(d, focusRect.w * m.block, focusRect.h * m.block),
+    );
+    animateTo(centerOn(d, (focusRect.x + focusRect.w / 2) * m.block, (focusRect.y + focusRect.h / 2) * m.block, zoom), 280);
+  }, [focusRect, animateTo, dims]);
+
+  /** Report a new selection (blocks); unchanged selections are not reported. */
+  const emitSelection = useCallback(
+    (r: Rect | null) => {
+      const options = selectRef.current;
+      if (!options) return;
+      const cur = overlayRef.current.selection;
+      if (r && cur && r.x === cur.x && r.y === cur.y && r.w === cur.w && r.h === cur.h) return;
+      if (!r && !cur) return;
+      overlayRef.current.selection = r;
+      requestDraw();
+      options.onChange(r);
+    },
+    [requestDraw],
+  );
+
+  /** The block under a frame point, clamped to the wall (the pointer may leave the frame while dragging). */
+  const clampedBlockAt = useCallback(
+    (x: number, y: number): Block => {
+      const m = modelRef.current;
+      const { wx, wy } = toWall(viewRef.current, dims(), x, y);
+      return {
+        bx: Math.min(m.cols - 1, Math.max(0, Math.floor(wx / m.block))),
+        by: Math.min(m.rows - 1, Math.max(0, Math.floor(wy / m.block))),
+      };
+    },
+    [dims],
+  );
+
+  /** Touch and keyboard: the first tap sets one corner, the second the opposite one. */
+  const selectCorner = useCallback(
+    (b: Block) => {
+      const pending = pendingCornerRef.current;
+      if (pending) {
+        pendingCornerRef.current = null;
+        emitSelection(spanRect(pending, b));
+      } else {
+        pendingCornerRef.current = b;
+        emitSelection(spanRect(b, b));
+      }
+    },
+    [emitSelection],
+  );
+
+  /** Index of the selection corner handle under a frame point (0 top-left, 1 top-right, 2 bottom-left, 3 bottom-right) or -1. */
+  const handleAt = useCallback(
+    (x: number, y: number, touch: boolean): number => {
+      const sel = overlayRef.current.selection;
+      if (!sel) return -1;
+      const m = modelRef.current;
+      const d = dims();
+      const a = toScreen(viewRef.current, d, sel.x * m.block, sel.y * m.block);
+      const b = toScreen(viewRef.current, d, (sel.x + sel.w) * m.block, (sel.y + sel.h) * m.block);
+      const corners = [
+        [a.sx, a.sy],
+        [b.sx, a.sy],
+        [a.sx, b.sy],
+        [b.sx, b.sy],
+      ];
+      const radius = touch ? 24 : 9;
+      let best = -1;
+      let bestDist = Infinity;
+      corners.forEach(([cx, cy], i) => {
+        const dist = Math.hypot(cx - x, cy - y);
+        if (dist <= radius && dist < bestDist) {
+          best = i;
+          bestDist = dist;
+        }
+      });
+      return best;
+    },
+    [dims],
+  );
+
   // ----------------------------------------------------------- data & image
 
   useLayoutEffect(() => {
@@ -319,7 +478,8 @@ export function Wall({ initial, blockPriceCents, currency, directLinkOpen }: Wal
       if (busy || document.visibilityState !== "visible") return;
       busy = true;
       try {
-        const res = await fetch("/api/wall.json", { cache: "no-store" });
+        // Rent mode wants the freshest reservations, past any CDN cache.
+        const res = await fetch(selectRef.current ? `/api/wall.json?fresh=${Date.now()}` : "/api/wall.json", { cache: "no-store" });
         if (!res.ok) return;
         const text = await res.text();
         if (text !== last) {
@@ -332,7 +492,8 @@ export function Wall({ initial, blockPriceCents, currency, directLinkOpen }: Wal
         busy = false;
       }
     };
-    const timer = window.setInterval(refresh, POLL_MS);
+    const timer = window.setInterval(refresh, selectRef.current ? POLL_MS / 2 : POLL_MS);
+    if (selectRef.current) void refresh();
     const onVisible = () => document.visibilityState === "visible" && refresh();
     document.addEventListener("visibilitychange", onVisible);
     return () => {
@@ -434,6 +595,10 @@ export function Wall({ initial, blockPriceCents, currency, directLinkOpen }: Wal
         return;
       }
       showCoords(at);
+      if (selectRef.current) {
+        if (pointerType !== "mouse") selectCorner({ bx: at.bx, by: at.by });
+        return;
+      }
       const m = modelRef.current;
       const hit = hitAt(m, at.bx, at.by)!;
       if (hit.kind === "rental" && pointerType === "mouse" && settingsRef.current.directLinkOpen && m.rentals[hit.index][7]) {
@@ -442,7 +607,7 @@ export function Wall({ initial, blockPriceCents, currency, directLinkOpen }: Wal
       }
       openPopup(hit, at.bx, at.by);
     },
-    [blockAt, closePopup, openPopup, showCoords],
+    [blockAt, closePopup, openPopup, selectCorner, showCoords],
   );
 
   const zoomToLevel = useCallback(
@@ -574,6 +739,27 @@ export function Wall({ initial, blockPriceCents, currency, directLinkOpen }: Wal
       }
       const m = modelRef.current;
       showCoords(at);
+      if (selectRef.current) {
+        // Rent mode: no bubbles; the cursor shows what a drag would do.
+        const el = viewportRef.current;
+        if (el) {
+          const corner = handleAt(x, y, false);
+          const sel = overlayRef.current.selection;
+          const inside = sel && at.bx >= sel.x && at.by >= sel.y && at.bx < sel.x + sel.w && at.by < sel.y + sel.h;
+          el.dataset.over =
+            toolRef.current === "move"
+              ? "move-tool"
+              : corner === 0 || corner === 3
+                ? "nwse"
+                : corner === 1 || corner === 2
+                  ? "nesw"
+                  : inside
+                    ? "inside"
+                    : "";
+        }
+        if (settingsRef.current.magnifier) showLoupeAt(x, y, false);
+        return;
+      }
       const hit = hitAt(m, at.bx, at.by)!;
       const rect = hit.kind === "free" ? null : areaRect(m, hit, at.bx, at.by);
       const key = rect ? `${hit.kind}:${rect.x},${rect.y}` : null;
@@ -587,7 +773,7 @@ export function Wall({ initial, blockPriceCents, currency, directLinkOpen }: Wal
       positionTip(x, y);
       if (settingsRef.current.magnifier) showLoupeAt(x, y, false);
     },
-    [blockAt, clearHover, positionTip, requestDraw, showCoords, showLoupeAt],
+    [blockAt, clearHover, handleAt, positionTip, requestDraw, showCoords, showLoupeAt],
   );
 
   useLayoutEffect(() => {
@@ -608,6 +794,10 @@ export function Wall({ initial, blockPriceCents, currency, directLinkOpen }: Wal
     let gesture:
       | { kind: "press" | "pan" | "loupe"; start: Point; view: View; moved: boolean; type: string }
       | { kind: "pinch"; dist: number; mid: Point; view: View }
+      // Rent mode: drawing a new area, dragging a corner, moving the whole area.
+      | { kind: "draw"; anchor: Block }
+      | { kind: "resize"; fixed: Block }
+      | { kind: "move-sel"; startBlock: Block; startRect: Rect }
       | null = null;
     let lastTap: { time: number; x: number; y: number } | null = null;
     let tapTimer = 0;
@@ -627,7 +817,9 @@ export function Wall({ initial, blockPriceCents, currency, directLinkOpen }: Wal
     const middle = (a: Point, b: Point) => ({ x: (a.x + b.x) / 2, y: (a.y + b.y) / 2 });
 
     const onPointerDown = (e: PointerEvent) => {
-      if (e.pointerType === "mouse" && e.button !== 0) return;
+      const options = selectRef.current;
+      // Rent mode: the middle or right mouse button drags the wall.
+      if (e.pointerType === "mouse" && e.button !== 0 && !(options && (e.button === 1 || e.button === 2))) return;
       const p = local(e);
       pointers.set(e.pointerId, { ...p, type: e.pointerType });
       try {
@@ -641,6 +833,32 @@ export function Wall({ initial, blockPriceCents, currency, directLinkOpen }: Wal
         keyboardRef.current = false;
         overlayRef.current.cursor = null;
         requestDraw();
+      }
+      if (pointers.size === 1 && options) {
+        const touch = e.pointerType !== "mouse";
+        const sel = overlayRef.current.selection;
+        const corner = handleAt(p.x, p.y, touch);
+        if (sel && corner >= 0 && (touch || (e.button === 0 && toolRef.current === "select"))) {
+          // The opposite corner stays where it is.
+          const fixed = {
+            bx: corner === 0 || corner === 2 ? sel.x + sel.w - 1 : sel.x,
+            by: corner === 0 || corner === 1 ? sel.y + sel.h - 1 : sel.y,
+          };
+          pendingCornerRef.current = null;
+          gesture = { kind: "resize", fixed };
+          return;
+        }
+        if (!touch && e.button === 0 && toolRef.current === "select") {
+          const b = clampedBlockAt(p.x, p.y);
+          pendingCornerRef.current = null;
+          if (sel && b.bx >= sel.x && b.by >= sel.y && b.bx < sel.x + sel.w && b.by < sel.y + sel.h) {
+            gesture = { kind: "move-sel", startBlock: b, startRect: sel };
+          } else {
+            gesture = { kind: "draw", anchor: b };
+            emitSelection(spanRect(b, b));
+          }
+          return;
+        }
       }
       if (pointers.size === 1) {
         const loupe = settingsRef.current.magnifier && e.pointerType !== "mouse";
@@ -677,6 +895,25 @@ export function Wall({ initial, blockPriceCents, currency, directLinkOpen }: Wal
         const m = middle(a, b);
         const s = fitOf(d) * zoom;
         setView({ zoom, ox: wx - m.x / s, oy: wy - m.y / s });
+        return;
+      }
+      if (gesture.kind === "draw" || gesture.kind === "resize" || gesture.kind === "move-sel") {
+        // Near the frame's edge the wall scrolls along with the pointer.
+        const d = dims();
+        const edge = 24;
+        const dx = p.x < edge ? 12 : p.x > d.frameW - edge ? -12 : 0;
+        const dy = p.y < edge ? 12 : p.y > d.frameH - edge ? -12 : 0;
+        if ((dx || dy) && viewRef.current.zoom > 1) setView(panBy(viewRef.current, d, dx, dy));
+        const b = clampedBlockAt(p.x, p.y);
+        if (gesture.kind === "draw") emitSelection(spanRect(gesture.anchor, b));
+        else if (gesture.kind === "resize") emitSelection(spanRect(gesture.fixed, b));
+        else {
+          const m = modelRef.current;
+          const r = gesture.startRect;
+          const x = Math.min(m.cols - r.w, Math.max(0, r.x + b.bx - gesture.startBlock.bx));
+          const y = Math.min(m.rows - r.h, Math.max(0, r.y + b.by - gesture.startBlock.by));
+          emitSelection({ x, y, w: r.w, h: r.h });
+        }
         return;
       }
       if (gesture.kind === "loupe") {
@@ -721,6 +958,7 @@ export function Wall({ initial, blockPriceCents, currency, directLinkOpen }: Wal
         if (ended?.kind === "loupe") hideLoupe();
         return;
       }
+      if (ended.kind === "draw" || ended.kind === "resize" || ended.kind === "move-sel") return;
       if (ended.kind === "loupe") {
         hideLoupe();
         if (ended.moved) return;
@@ -729,6 +967,11 @@ export function Wall({ initial, blockPriceCents, currency, directLinkOpen }: Wal
 
       if (e.pointerType === "mouse") {
         handleTap(p.x, p.y, "mouse");
+        return;
+      }
+      // Rent mode: every tap places a corner, so there is no double-tap zoom.
+      if (selectRef.current) {
+        handleTap(p.x, p.y, e.pointerType);
         return;
       }
       // Touch: wait a moment to tell a single tap from a double tap.
@@ -756,8 +999,13 @@ export function Wall({ initial, blockPriceCents, currency, directLinkOpen }: Wal
       clearHover();
     };
     const onDblClick = (e: MouseEvent) => {
+      if (selectRef.current) return;
       const p = local(e);
       toggleZoomAt(p.x, p.y);
+    };
+    // Rent mode: the right mouse button drags the wall instead of opening a menu.
+    const onContextMenu = (e: MouseEvent) => {
+      if (selectRef.current) e.preventDefault();
     };
 
     const onWheel = (e: WheelEvent) => {
@@ -788,6 +1036,7 @@ export function Wall({ initial, blockPriceCents, currency, directLinkOpen }: Wal
     el.addEventListener("pointercancel", onPointerCancel);
     el.addEventListener("pointerleave", onPointerLeave);
     el.addEventListener("dblclick", onDblClick);
+    el.addEventListener("contextmenu", onContextMenu);
     el.addEventListener("wheel", onWheel, { passive: false });
     el.addEventListener("gesturestart", onGesture);
     el.addEventListener("gesturechange", onGesture);
@@ -800,11 +1049,27 @@ export function Wall({ initial, blockPriceCents, currency, directLinkOpen }: Wal
       el.removeEventListener("pointercancel", onPointerCancel);
       el.removeEventListener("pointerleave", onPointerLeave);
       el.removeEventListener("dblclick", onDblClick);
+      el.removeEventListener("contextmenu", onContextMenu);
       el.removeEventListener("wheel", onWheel);
       el.removeEventListener("gesturestart", onGesture);
       el.removeEventListener("gesturechange", onGesture);
     };
-  }, [cancelAnimation, clearHover, commitZoomUi, dims, handleTap, hideLoupe, hoverAt, requestDraw, setView, showLoupeAt, toggleZoomAt]);
+  }, [
+    cancelAnimation,
+    clampedBlockAt,
+    clearHover,
+    commitZoomUi,
+    dims,
+    emitSelection,
+    handleAt,
+    handleTap,
+    hideLoupe,
+    hoverAt,
+    requestDraw,
+    setView,
+    showLoupeAt,
+    toggleZoomAt,
+  ]);
 
   // ------------------------------------------------------------- keyboard
 
@@ -864,10 +1129,19 @@ export function Wall({ initial, blockPriceCents, currency, directLinkOpen }: Wal
       case " ": {
         updateKeyboardCursor();
         const cursor = overlayRef.current.cursor;
-        if (cursor) openPopup(hitAt(modelRef.current, cursor.bx, cursor.by)!, cursor.bx, cursor.by, true);
+        if (!cursor) break;
+        if (selectRef.current) {
+          selectCorner(cursor);
+          setAnnouncement(
+            tRef.current(pendingCornerRef.current ? "cornerSet" : "areaSet", { bx: cursor.bx, by: cursor.by }),
+          );
+        } else {
+          openPopup(hitAt(modelRef.current, cursor.bx, cursor.by)!, cursor.bx, cursor.by, true);
+        }
         break;
       }
       case "Escape":
+        pendingCornerRef.current = null;
         closePopup();
         break;
       default:
@@ -907,6 +1181,7 @@ export function Wall({ initial, blockPriceCents, currency, directLinkOpen }: Wal
   // ---------------------------------------------- initial position from URL
 
   useEffect(() => {
+    if (selectRef.current) return;
     const params = new URLSearchParams(window.location.search);
     if (!params.has("x") || !params.has("y")) return;
     const m = modelRef.current;
@@ -985,7 +1260,7 @@ export function Wall({ initial, blockPriceCents, currency, directLinkOpen }: Wal
           className={`wall-viewport${ready ? " is-ready" : ""}${magnifier ? " is-magnifier" : ""}`}
           style={{
             aspectRatio: `${model.width} / ${model.height}`,
-            touchAction: zoomUi > 1.01 || magnifier ? "none" : "pan-y",
+            touchAction: zoomUi > 1.01 || magnifier || (selectMode && select?.rect) ? "none" : "pan-y",
           }}
           tabIndex={0}
           role="application"
@@ -1073,13 +1348,25 @@ export function Wall({ initial, blockPriceCents, currency, directLinkOpen }: Wal
             +
           </button>
         </div>
+        {selectMode && (
+          <div className="tb-group tb-tool" role="group" aria-label={t("tool")}>
+            <button type="button" className="btn" aria-pressed={tool === "select"} onClick={() => setTool("select")}>
+              {t("toolSelect")}
+            </button>
+            <button type="button" className="btn" aria-pressed={tool === "move"} onClick={() => setTool("move")}>
+              {t("toolMove")}
+            </button>
+          </div>
+        )}
         <div className="tb-group">
           <button type="button" className="btn" aria-pressed={magnifier} onClick={toggleMagnifier}>
             {t("magnifier")}
           </button>
-          <button type="button" className="btn" onClick={randomSpot} disabled={model.rentals.length === 0}>
-            {t("random")}
-          </button>
+          {!selectMode && (
+            <button type="button" className="btn" onClick={randomSpot} disabled={model.rentals.length === 0}>
+              {t("random")}
+            </button>
+          )}
           <label className="tb-check">
             <input type="checkbox" checked={showFree} onChange={(e) => toggleShowFree(e.target.checked)} /> {t("showFree")}
           </label>
@@ -1087,6 +1374,7 @@ export function Wall({ initial, blockPriceCents, currency, directLinkOpen }: Wal
         <span className="tb-coords" ref={coordsRef} aria-hidden="true" data-idle="1">
           {t("coordsIdle")}
         </span>
+        {!selectMode && (
         <form className="tb-search" role="search" onSubmit={onSearch}>
           <label className="visually-hidden" htmlFor="wall-search">
             {t("searchLabel")}
@@ -1133,9 +1421,12 @@ export function Wall({ initial, blockPriceCents, currency, directLinkOpen }: Wal
             </div>
           )}
         </form>
-        <a className="btn btn-rent tb-rent" href={localePath(locale, "/rent")}>
-          {t("rent")}
-        </a>
+        )}
+        {!selectMode && (
+          <a className="btn btn-rent tb-rent" href={localePath(locale, "/rent")}>
+            {t("rent")}
+          </a>
+        )}
       </div>
     </section>
   );

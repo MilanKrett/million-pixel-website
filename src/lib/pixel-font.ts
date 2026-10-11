@@ -184,11 +184,16 @@ export function textWidth(text: string): number {
  * line are broken. Returns the lines and whether everything fit in
  * `maxHeight` pixels.
  */
-export function wrapText(text: string, maxWidth: number, maxHeight: number): { lines: string[]; fits: boolean } {
+export function wrapText(
+  text: string,
+  maxWidth: number,
+  maxHeight: number,
+): { lines: string[]; fits: boolean; brokeWords: boolean } {
   const perLine = Math.max(0, Math.floor((maxWidth + 1) / GLYPH_ADVANCE));
   const maxLines = Math.max(0, Math.floor((maxHeight + 1) / LINE_HEIGHT));
   const lines: string[] = [];
-  if (perLine === 0) return { lines, fits: text.trim().length === 0 };
+  let brokeWords = false;
+  if (perLine === 0) return { lines, fits: text.trim().length === 0, brokeWords };
 
   for (const paragraph of text.split(/\r?\n/)) {
     let line = "";
@@ -205,13 +210,14 @@ export function wrapText(text: string, maxWidth: number, maxHeight: number): { l
         } else {
           lines.push(rest.slice(0, perLine).join(""));
           rest = rest.slice(perLine);
+          brokeWords = true;
         }
       }
     }
     lines.push(line);
   }
   while (lines.length > 0 && lines[lines.length - 1] === "") lines.pop();
-  return { lines, fits: lines.length <= maxLines };
+  return { lines, fits: lines.length <= maxLines, brokeWords };
 }
 
 /**

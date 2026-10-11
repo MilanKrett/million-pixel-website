@@ -87,6 +87,13 @@ describe("text tiles", () => {
     expect(wrapped.positions[0].x).toBe(1);
   });
 
+  it("prefers a size that keeps words whole", () => {
+    const layout = layoutText({ text: "Ahoj Žilina", align: "center", scale: 0 }, 50, 50);
+    expect(layout.fits).toBe(true);
+    expect(layout.brokeWords).toBe(false);
+    expect(layout.lines).toEqual(["Ahoj", "Žilina"]);
+  });
+
   it("centres and right-aligns lines", () => {
     const c = layoutText({ text: "A", align: "center", scale: 1 }, 41, 20);
     expect(c.positions[0].x).toBe(18);
