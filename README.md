@@ -106,8 +106,13 @@ firewall pre Node.js prístup v súkromnej sieti.
   „Rezervovať znova“) nahradí starú a prenesie obrázok (pri rovnakom rozmere), e-mail a obdobie.
 - **Cena** sa počíta len na serveri. Platba je za konkrétnu sumu a obdobie; ak príde po vypršaní
   rezervácie a miesto medzitým obsadil niekto iný, peniaze sa automaticky vrátia.
+- **Pixelový filter**: nahratá fotka sa premení presne na toľko pixelov, koľko má prenajatá plocha
+  (napr. 100 × 60 = 6 000). Dá sa zvoliť veľkosť pixelu (1, 2, 5 alebo 10 px), štýl (fotka, retro
+  32/16/8 farieb, Game Boy, čiernobiela, odtiene sivej), rozptyl (dithering) a jas, kontrast,
+  sýtosť. Ten istý kód ([src/lib/content/pixel-filter.ts](src/lib/content/pixel-filter.ts)) robí
+  živý náhľad v prehliadači aj konečný obrázok na serveri.
 - **Obrázky** idú z prehliadača priamo do úložiska (obchádza limit 4,5 MB na Verceli), server ich
-  potom oreže, zmenší (lanczos3), prípadne zredukuje farby a uloží bez metadát (GPS, EXIF).
+  potom oreže, zmenší (lanczos3), prežene pixelovým filtrom a uloží bez metadát (GPS, EXIF).
 - **Všetky čísla** (ceny, rozmery, lehoty) sú v tabuľke `settings`. Predvolené hodnoty sú
   v [src/lib/settings/schema.ts](src/lib/settings/schema.ts); chýbajúce kľúče doplní `db:migrate`.
 - **Jazyky**: angličtina na `/…`, slovenčina na `/sk/…`, texty v [src/messages](src/messages).

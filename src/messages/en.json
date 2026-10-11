@@ -229,7 +229,7 @@
     "orReplace": "or replace it below.",
     "contentKinds": "Kind of content",
     "tabs": {
-      "upload": "Upload a picture",
+      "upload": "Photo + pixel filter",
       "draw": "Draw",
       "text": "Colour + text"
     },
@@ -254,17 +254,34 @@
       "error": "Something went wrong. Please try again."
     },
     "upload": {
-      "choose": "Choose a picture…",
+      "choose": "Choose a photo…",
       "limits": "PNG, JPG, WebP or GIF (first frame), up to {mb} MB and {px} × {px} px.",
       "frameHelp": "Drag the picture to choose the part you want; zoom with the slider or the mouse wheel. The frame has the exact proportions of your area.",
       "frameLabel": "Picture framing",
       "zoom": "Zoom",
-      "retro": "Retro effect",
-      "retroOff": "Off",
-      "retroColours": "{n} colours",
       "smallWarning": "Your area is small: fine details and small text will not be readable. Consider renting a bigger area.",
-      "processingNote": "The server makes the final picture (sharper scaling, retro effect) and removes all hidden data such as the GPS location.",
-      "use": "Use this picture"
+      "processingNote": "The server makes the final picture with the same filter (with sharper scaling) and removes all hidden data such as the GPS location.",
+      "use": "Use this picture",
+      "filterTitle": "Pixel filter",
+      "filterIntro": "Your area has {w} × {h} = {pixels, number} pixels. The filter turns your photo into exactly that many pixels: the bigger the area, the more detail.",
+      "pixelSize": "Pixel size",
+      "result": "Result: {count, plural, one {# dot} other {# dots}} of {size} × {size} px.",
+      "pixelSizeHelp": "1 px keeps the most detail; bigger pixels look more like retro pixel art.",
+      "style": "Style",
+      "styles": {
+        "photo": "Photo (all colours)",
+        "retro32": "Retro, 32 colours",
+        "retro16": "Retro, 16 colours",
+        "retro8": "Retro, 8 colours",
+        "gameboy": "Game Boy (4 greens)",
+        "bw": "Black and white",
+        "gray": "Shades of grey"
+      },
+      "dither": "Dithering: mixes dots of the palette colours for smoother shades",
+      "brightness": "Brightness",
+      "contrast": "Contrast",
+      "saturation": "Saturation",
+      "resetAdjust": "Reset"
     },
     "draw": {
       "tools": "Drawing tools",

@@ -1125,6 +1125,29 @@ input[type="color"] {
   cursor: grab;
 }
 
+.pixel-filter {
+  margin: 8px 0 12px;
+  padding: 8px 10px 4px;
+  border: 1px solid var(--border);
+  background: #fafafa;
+}
+
+.pixel-filter h3 {
+  margin: 0 0 4px;
+}
+
+.pixel-filter > p {
+  margin: 0 0 8px;
+}
+
+.filter-sliders {
+  align-items: center;
+}
+
+.filter-sliders input[type="range"] {
+  width: 120px;
+}
+
 .preview {
   display: flex;
   flex-wrap: wrap;

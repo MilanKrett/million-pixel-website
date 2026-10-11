@@ -103,11 +103,11 @@ export function TextEditor({ order, width, height, onSaved }: { order: OrderResp
       {!layout.fits && <p className="warning">{t("text.tooLong")}</p>}
       <div className="preview">
         <figure>
-          <canvas ref={actualRef} className="preview-actual" style={{ width, height }} />
+          <canvas ref={actualRef} className="preview-actual" width={width} height={height} style={{ width }} />
           <figcaption>{t("previewActual")}</figcaption>
         </figure>
         <figure>
-          <canvas ref={zoomedRef} className="preview-zoom" style={{ width: width * zoom, height: height * zoom }} />
+          <canvas ref={zoomedRef} className="preview-zoom" width={width} height={height} style={{ width: width * zoom }} />
           <figcaption>{t("previewZoom", { scale: zoom })}</figcaption>
         </figure>
       </div>

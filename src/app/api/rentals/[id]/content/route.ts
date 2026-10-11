@@ -1,5 +1,6 @@
 import type { NextRequest } from "next/server";
-import { ContentError, PALETTES, processDrawing, processText, processUpload, validateTextParams, type PaletteSize } from "@/lib/content/process";
+import { validateFilter } from "@/lib/content/pixel-filter";
+import { ContentError, processDrawing, processText, processUpload, validateTextParams } from "@/lib/content/process";
 import { db } from "@/lib/db";
 import { jsonError, noStoreJson } from "@/lib/http";
 import { saveDraftContent } from "@/lib/orders/order";
@@ -13,7 +14,7 @@ const SOURCE_TYPES = { png: "image/png", jpg: "image/jpeg", webp: "image/webp" }
 /**
  * Step 3: the rental's content. Every kind ends as a PNG of exactly the rented
  * size, made here on the server:
- *  - upload: JSON { kind, path, crop, palette } after a direct upload to storage
+ *  - upload: JSON { kind, path, crop, filter } after a direct upload to storage
  *  - text:   JSON { kind, params }
  *  - draw:   multipart { kind, file } with the pixel editor's PNG
  */
@@ -51,8 +52,10 @@ export async function POST(request: NextRequest, ctx: RouteContext<"/api/rentals
         const raw = await storage().get("content", path);
         if (!raw) return jsonError(400, "upload_missing");
         const crop = body.crop as { x: number; y: number; w: number; h: number };
-        const palette = (PALETTES as readonly number[]).includes(Number(body.palette)) ? (Number(body.palette) as PaletteSize) : 0;
-        const result = await processUpload(raw, crop ?? { x: 0, y: 0, w: 0, h: 0 }, target, palette, {
+        // Older pages sent only a palette size ("retro effect"): same as the retro styles.
+        const legacy = [8, 16, 32].includes(Number(body.palette)) ? { style: `retro${Number(body.palette)}` } : undefined;
+        const filter = validateFilter(body.filter ?? legacy, target);
+        const result = await processUpload(raw, crop ?? { x: 0, y: 0, w: 0, h: 0 }, target, filter, {
           maxBytes: Math.round(settings.upload_max_mb * 1024 * 1024),
           maxPx: settings.upload_max_px,
           formats: settings.upload_formats,
@@ -61,7 +64,7 @@ export async function POST(request: NextRequest, ctx: RouteContext<"/api/rentals
           kind: "upload",
           png: result.png,
           source: { data: result.source, ext: result.sourceExt, contentType: SOURCE_TYPES[result.sourceExt] },
-          params: { crop, palette, format: result.format },
+          params: { crop, filter: { ...filter }, format: result.format },
         });
         await storage().remove("content", [path]).catch(() => {});
       } else {

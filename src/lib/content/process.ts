@@ -1,6 +1,6 @@
 import sharp, { type Metadata, type Sharp } from "sharp";
 import { Raster } from "@/lib/wall/raster";
-import { quantize } from "./quantize";
+import { applyFilter, enlarge, filterGrid, type PixelFilter } from "./pixel-filter";
 import { isHexColor, MAX_TEXT_LENGTH, MAX_TEXT_SCALE, renderTextTile, type TextTileParams } from "./text-tile";
 
 /**
@@ -26,8 +26,6 @@ export class ContentError extends Error {
 }
 
 export type UploadFormat = "png" | "jpeg" | "webp" | "gif";
-export const PALETTES = [0, 8, 16, 32] as const;
-export type PaletteSize = (typeof PALETTES)[number];
 
 export interface UploadLimits {
   maxBytes: number;
@@ -70,32 +68,41 @@ export async function inspectImage(input: Buffer, limits: UploadLimits) {
   };
 }
 
-async function finalPng(image: Sharp, width: number, height: number, palette: PaletteSize): Promise<Buffer> {
+/** Flatten on white and read plain RGB, checking the size. */
+async function rawRgb(image: Sharp, width: number, height: number): Promise<Uint8Array> {
   const { data, info } = await image
     .flatten({ background: WHITE })
     .removeAlpha()
     .toColourspace("srgb")
     .raw()
     .toBuffer({ resolveWithObject: true });
-  // Never trust the pipeline blindly: the result must be exactly the rented size.
+  // Never trust the pipeline blindly: the result must be exactly the expected size.
   if (info.width !== width || info.height !== height || info.channels !== 3) throw new ContentError("wrong_size");
-  const pixels = palette ? quantize(data, palette) : data;
-  return sharp(pixels, { raw: { width, height, channels: 3 } })
+  return new Uint8Array(data.buffer, data.byteOffset, data.length);
+}
+
+function encodePng(rgb: Uint8Array, width: number, height: number): Promise<Buffer> {
+  return sharp(rgb, { raw: { width, height, channels: 3 } })
     .png({ compressionLevel: 9, adaptiveFiltering: true })
     .toBuffer();
 }
 
+async function finalPng(image: Sharp, width: number, height: number): Promise<Buffer> {
+  return encodePng(await rawRgb(image, width, height), width, height);
+}
+
 /**
- * An uploaded photo or picture: orient by EXIF, cut out the chosen area,
- * scale it to the rented size with Lanczos and optionally reduce the palette.
- * Animated GIFs use their first frame. Also returns the original as a clean
- * re-encoded copy (no metadata) for moderation.
+ * An uploaded photo through the pixel filter: orient by EXIF, cut out the
+ * chosen area, scale it with Lanczos to exactly as many dots as the filter
+ * asks for (the rented size ÷ pixel size), apply the filter and enlarge the
+ * dots back to the rented size. Animated GIFs use their first frame. Also
+ * returns the original as a clean re-encoded copy (no metadata) for moderation.
  */
 export async function processUpload(
   input: Buffer,
   crop: Crop,
   target: { width: number; height: number },
-  palette: PaletteSize,
+  filter: PixelFilter,
   limits: UploadLimits,
 ): Promise<{ png: Buffer; source: Buffer; sourceExt: "png" | "jpg" | "webp"; format: UploadFormat }> {
   const info = await inspectImage(input, limits);
@@ -113,10 +120,12 @@ export async function processUpload(
   c.h = Math.min(c.h, info.height - c.y);
 
   const base = () => sharp(input, { limitInputPixels: HARD_PIXEL_LIMIT, animated: false }).rotate();
-  const tile = base()
+  const grid = filterGrid(target, filter);
+  const small = base()
     .extract({ left: c.x, top: c.y, width: c.w, height: c.h })
-    .resize(target.width, target.height, { fit: "fill", kernel: "lanczos3" });
-  const png = await finalPng(tile, target.width, target.height, palette);
+    .resize(grid.width, grid.height, { fit: "fill", kernel: "lanczos3" });
+  const dots = applyFilter(await rawRgb(small, grid.width, grid.height), grid.width, grid.height, filter);
+  const png = await encodePng(enlarge(dots, grid.width, grid.height, filter.pixelSize), target.width, target.height);
 
   let source: Buffer;
   let sourceExt: "png" | "jpg" | "webp";
@@ -137,7 +146,7 @@ export async function processUpload(
 export async function processDrawing(input: Buffer, target: { width: number; height: number }): Promise<Buffer> {
   const info = await inspectImage(input, { maxBytes: 10 * 1024 * 1024, maxPx: 4000, formats: ["png"] });
   if (info.width !== target.width || info.height !== target.height) throw new ContentError("wrong_size");
-  return finalPng(sharp(input, { animated: false }), target.width, target.height, 0);
+  return finalPng(sharp(input, { animated: false }), target.width, target.height);
 }
 
 /** Check and normalise "Colour + text" parameters from the browser. */
@@ -170,7 +179,6 @@ export async function processText(params: TextTileParams, target: { width: numbe
     sharp(raster.data, { raw: { width: target.width, height: target.height, channels: 3 } }),
     target.width,
     target.height,
-    0,
   );
   return { png, fits: layout.fits };
 }

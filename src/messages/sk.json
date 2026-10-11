@@ -229,7 +229,7 @@
     "orReplace": "alebo ho nižšie nahraď.",
     "contentKinds": "Druh obsahu",
     "tabs": {
-      "upload": "Nahrať obrázok",
+      "upload": "Fotka + pixelový filter",
       "draw": "Nakresliť",
       "text": "Farba + text"
     },
@@ -254,17 +254,34 @@
       "error": "Niečo sa pokazilo. Skús to prosím znova."
     },
     "upload": {
-      "choose": "Vybrať obrázok…",
+      "choose": "Vybrať fotku…",
       "limits": "PNG, JPG, WebP alebo GIF (prvý snímok), najviac {mb} MB a {px} × {px} px.",
       "frameHelp": "Ťahaním obrázka vyber časť, ktorú chceš; zväčšuj posuvníkom alebo kolieskom myši. Rámik má presne pomer strán tvojej plochy.",
       "frameLabel": "Orezanie obrázka",
       "zoom": "Zväčšenie",
-      "retro": "Retro efekt",
-      "retroOff": "Vypnutý",
-      "retroColours": "{n} farieb",
       "smallWarning": "Tvoja plocha je malá: jemné detaily a drobný text nebudú čitateľné. Zváž prenájom väčšej plochy.",
-      "processingNote": "Konečný obrázok spraví server (ostrejšie zmenšenie, retro efekt) a odstráni všetky skryté údaje, napríklad polohu GPS.",
-      "use": "Použiť tento obrázok"
+      "processingNote": "Konečný obrázok spraví server tým istým filtrom (s ostrejším zmenšením) a odstráni všetky skryté údaje, napríklad polohu GPS.",
+      "use": "Použiť tento obrázok",
+      "filterTitle": "Pixelový filter",
+      "filterIntro": "Tvoja plocha má {w} × {h} = {pixels, number} pixelov. Filter premení tvoju fotku presne na toľko pixelov: čím väčšia plocha, tým viac detailov.",
+      "pixelSize": "Veľkosť pixelu",
+      "result": "Výsledok: {count, plural, one {# bod} few {# body} other {# bodov}} veľkosti {size} × {size} px.",
+      "pixelSizeHelp": "1 px zachová najviac detailov, väčšie pixely vyzerajú viac ako retro pixel art.",
+      "style": "Štýl",
+      "styles": {
+        "photo": "Fotka (všetky farby)",
+        "retro32": "Retro, 32 farieb",
+        "retro16": "Retro, 16 farieb",
+        "retro8": "Retro, 8 farieb",
+        "gameboy": "Game Boy (4 zelené)",
+        "bw": "Čiernobiela",
+        "gray": "Odtiene sivej"
+      },
+      "dither": "Rozptyl (dithering): miešanie bodov z farieb palety pre plynulejšie prechody",
+      "brightness": "Jas",
+      "contrast": "Kontrast",
+      "saturation": "Sýtosť",
+      "resetAdjust": "Obnoviť"
     },
     "draw": {
       "tools": "Nástroje kreslenia",

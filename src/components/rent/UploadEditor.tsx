@@ -1,7 +1,21 @@
 "use client";
 
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
-import { useTranslations } from "use-intl/react";
+import { useFormatter, useTranslations } from "use-intl/react";
+import {
+  applyFilter,
+  DEFAULT_FILTER,
+  dotCount,
+  enlarge,
+  FILTER_STYLES,
+  filterGrid,
+  pixelSizesFor,
+  rgbaToRgb,
+  rgbToRgba,
+  styleHasPalette,
+  validateFilter,
+  type PixelFilter,
+} from "@/lib/content/pixel-filter";
 import { api, ApiError, type OrderResponse, type RentConfig } from "./shared";
 
 const MIME: Record<string, string> = { png: "image/png", jpeg: "image/jpeg", webp: "image/webp", gif: "image/gif" };
@@ -14,10 +28,15 @@ interface View {
   oy: number;
 }
 
+/** Pictures with more dots than this get their preview a moment after the last change. */
+const INSTANT_PREVIEW_DOTS = 40_000;
+
 /**
- * "Upload a picture": choose a file, frame it in the exact proportions of the
- * rented area (drag to move, slider or wheel to zoom), then the server crops,
- * scales (Lanczos) and cleans it.
+ * "Photo + pixel filter": choose a photo, frame it in the exact proportions
+ * of the rented area (drag to move, slider or wheel to zoom) and set the
+ * pixel filter, which turns it into exactly as many pixels as were bought.
+ * The preview runs the same filter code as the server, which makes the final
+ * picture (cropping, Lanczos scaling, filter, removing metadata).
  */
 export function UploadEditor({
   order,
@@ -42,7 +61,16 @@ export function UploadEditor({
   const [stage, setStage] = useState({ w: MAX_STAGE_W, h: Math.round(MAX_STAGE_W / (width / height)) });
   const [zoom, setZoom] = useState(1);
   const viewRef = useRef<View>({ scale: 1, ox: 0, oy: 0 });
-  const [palette, setPalette] = useState(0);
+  const area = { width, height };
+  const [filter, setFilter] = useState<PixelFilter>(() =>
+    order.content?.kind === "upload" ? validateFilter(order.content.params.filter, { width, height }) : DEFAULT_FILTER,
+  );
+  const filterRef = useRef(filter);
+  const previewTimer = useRef(0);
+  const smallRef = useRef<HTMLCanvasElement | null>(null);
+  const schedulePreviewRef = useRef<() => void>(() => {});
+  const format = useFormatter();
+  const sizes = pixelSizesFor(config.block_size_px).filter((s) => width % s === 0 && height % s === 0);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [warnSmall, setWarnSmall] = useState(false);
@@ -124,24 +152,54 @@ export function UploadEditor({
       ctx.stroke();
     }
 
-    // Live preview at the real size (the server's Lanczos result is a little sharper).
     const c = crop();
+    setWarnSmall(Math.min(width, height) <= 40 && c.w / width > 4);
+    schedulePreviewRef.current();
+  }, [image, stage, width, height, config.block_size_px, crop]);
+
+  /** The filtered result at the real size: the photo scaled to the dots, filtered, dots enlarged. */
+  const renderPreview = useCallback(() => {
     const actual = actualRef.current;
     const zoomed = zoomedRef.current;
-    if (actual && zoomed) {
-      actual.width = width;
-      actual.height = height;
-      const a = actual.getContext("2d")!;
-      a.fillStyle = "#ffffff";
-      a.fillRect(0, 0, width, height);
-      a.imageSmoothingQuality = "high";
-      a.drawImage(image, c.x, c.y, c.w, c.h, 0, 0, width, height);
-      zoomed.width = width;
-      zoomed.height = height;
-      zoomed.getContext("2d")!.drawImage(actual, 0, 0);
-    }
-    setWarnSmall(Math.min(width, height) <= 40 && c.w / width > 4);
-  }, [image, stage, width, height, config.block_size_px, crop]);
+    if (!image || !actual || !zoomed) return;
+    const f = filterRef.current;
+    const grid = filterGrid({ width, height }, f);
+    const small = (smallRef.current ??= document.createElement("canvas"));
+    small.width = grid.width;
+    small.height = grid.height;
+    const s = small.getContext("2d", { willReadFrequently: true })!;
+    s.fillStyle = "#ffffff";
+    s.fillRect(0, 0, grid.width, grid.height);
+    s.imageSmoothingEnabled = true;
+    s.imageSmoothingQuality = "high";
+    const c = crop();
+    s.drawImage(image, c.x, c.y, c.w, c.h, 0, 0, grid.width, grid.height);
+    const dots = applyFilter(rgbaToRgb(s.getImageData(0, 0, grid.width, grid.height).data), grid.width, grid.height, f);
+    const full = enlarge(dots, grid.width, grid.height, f.pixelSize);
+    actual.width = width;
+    actual.height = height;
+    actual.getContext("2d")!.putImageData(new ImageData(rgbToRgba(full), width, height), 0, 0);
+    zoomed.width = width;
+    zoomed.height = height;
+    zoomed.getContext("2d")!.drawImage(actual, 0, 0);
+  }, [image, width, height, crop]);
+
+  const schedulePreview = useCallback(() => {
+    window.clearTimeout(previewTimer.current);
+    window.cancelAnimationFrame(previewTimer.current);
+    const heavy = dotCount({ width, height }, filterRef.current.pixelSize) > INSTANT_PREVIEW_DOTS;
+    previewTimer.current = heavy ? window.setTimeout(renderPreview, 150) : window.requestAnimationFrame(renderPreview);
+  }, [renderPreview, width, height]);
+  useLayoutEffect(() => {
+    schedulePreviewRef.current = schedulePreview;
+  });
+
+  const changeFilter = (patch: Partial<PixelFilter>) => {
+    const next = validateFilter({ ...filterRef.current, ...patch }, { width, height });
+    filterRef.current = next;
+    setFilter(next);
+    schedulePreview();
+  };
 
   const zoomRef = useRef(zoom);
 
@@ -251,7 +309,7 @@ export function UploadEditor({
       if (!put.ok) throw new ApiError(put.status, put.status === 413 ? "too_large" : "upload_failed", {});
       const { order: fresh } = await api<{ order: OrderResponse }>(`/api/rentals/${order.id}/content`, {
         method: "POST",
-        body: JSON.stringify({ kind: "upload", path, crop: crop(), palette }),
+        body: JSON.stringify({ kind: "upload", path, crop: crop(), filter }),
       });
       onSaved(fresh);
       window.scrollTo({ top: 0, behavior: "smooth" });
@@ -288,28 +346,73 @@ export function UploadEditor({
               <input type="range" min={1} max={8} step={0.05} value={zoom} onChange={(e) => setZoomKeepingCentre(Number(e.target.value))} />
             </label>
           </div>
-          <fieldset className="field-row">
-            <legend>{t("upload.retro")}</legend>
-            {[0, 8, 16, 32].map((n) => (
-              <label key={n}>
-                <input type="radio" name="palette" checked={palette === n} onChange={() => setPalette(n)} />{" "}
-                {n === 0 ? t("upload.retroOff") : t("upload.retroColours", { n })}
+          <div className="pixel-filter">
+            <h3>{t("upload.filterTitle")}</h3>
+            <p>{t("upload.filterIntro", { w: width, h: height, pixels: width * height })}</p>
+            <fieldset className="field-row">
+              <legend>{t("upload.pixelSize")}</legend>
+              {sizes.map((size) => (
+                <label key={size}>
+                  <input type="radio" name="pixelSize" checked={filter.pixelSize === size} onChange={() => changeFilter({ pixelSize: size })} /> {size} px
+                </label>
+              ))}
+            </fieldset>
+            <p className="muted small">
+              {t("upload.result", { count: dotCount(area, filter.pixelSize), size: filter.pixelSize })} {t("upload.pixelSizeHelp")}
+            </p>
+            <fieldset className="field-row">
+              <legend>{t("upload.style")}</legend>
+              {FILTER_STYLES.map((style) => (
+                <label key={style}>
+                  <input type="radio" name="style" checked={filter.style === style} onChange={() => changeFilter({ style })} />{" "}
+                  {t(`upload.styles.${style}`)}
+                </label>
+              ))}
+            </fieldset>
+            <p>
+              <label className="check-line">
+                <input
+                  type="checkbox"
+                  checked={filter.dither}
+                  disabled={!styleHasPalette(filter.style)}
+                  onChange={(e) => changeFilter({ dither: e.target.checked })}
+                />{" "}
+                {t("upload.dither")}
               </label>
-            ))}
-          </fieldset>
+            </p>
+            <div className="field-row filter-sliders">
+              {(["brightness", "contrast", "saturation"] as const).map((key) => (
+                <label key={key}>
+                  {t(`upload.${key}`)}{" "}
+                  <input
+                    type="range"
+                    min={-50}
+                    max={50}
+                    step={1}
+                    value={filter[key]}
+                    onChange={(e) => changeFilter({ [key]: Number(e.target.value) })}
+                  />{" "}
+                  <span className="muted small">{format.number(filter[key], { signDisplay: "exceptZero" })}</span>
+                </label>
+              ))}
+              <button type="button" className="btn" onClick={() => changeFilter({ brightness: 0, contrast: 0, saturation: 0 })}>
+                {t("upload.resetAdjust")}
+              </button>
+            </div>
+          </div>
           <div className="preview">
             <figure>
-              <canvas ref={actualRef} className="preview-actual" style={{ width, height }} />
+              {/* Only the width: CSS height:auto keeps the proportions when a narrow screen shrinks it. */}
+              <canvas ref={actualRef} className="preview-actual" width={width} height={height} style={{ width }} />
               <figcaption>{t("previewActual")}</figcaption>
             </figure>
             <figure>
               <canvas
                 ref={zoomedRef}
                 className="preview-zoom"
-                style={{
-                  width: width * Math.max(1, Math.min(8, Math.floor(480 / width))),
-                  height: height * Math.max(1, Math.min(8, Math.floor(480 / width))),
-                }}
+                width={width}
+                height={height}
+                style={{ width: width * Math.max(1, Math.min(8, Math.floor(480 / width))) }}
               />
               <figcaption>{t("previewZoom", { scale: Math.max(1, Math.min(8, Math.floor(480 / width))) })}</figcaption>
             </figure>
