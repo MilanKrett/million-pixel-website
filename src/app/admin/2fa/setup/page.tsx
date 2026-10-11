@@ -1,8 +1,8 @@
 import { redirect } from "next/navigation";
 import QRCode from "qrcode";
 import { Suspense } from "react";
+import { AdminI18n } from "@/components/admin/AdminI18n";
 import { MfaSetup } from "@/components/admin/MfaForms";
-import { I18nProvider } from "@/i18n/provider";
 import { adminT } from "@/lib/admin/t";
 import { requireStaffLogin } from "@/lib/auth/current";
 import { ensurePendingTotp } from "@/lib/auth/mfa";
@@ -28,7 +28,7 @@ async function Setup() {
   const qr = await QRCode.toString(uri, { type: "svg", margin: 1, width: 200, errorCorrectionLevel: "M" });
   const t = adminT(session.user.locale);
   return (
-    <I18nProvider locale={session.user.locale}>
+    <AdminI18n locale={session.user.locale}>
       <div className="content">
         <h1>{t("mfa.setupTitle")}</h1>
         <p>{t("mfa.setupIntro")}</p>
@@ -44,6 +44,6 @@ async function Setup() {
         </p>
         <MfaSetup />
       </div>
-    </I18nProvider>
+    </AdminI18n>
   );
 }

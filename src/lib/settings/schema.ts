@@ -1,10 +1,15 @@
 import { z } from "zod";
+import { LOCALES } from "@/i18n/config";
 
 /**
  * Every tunable value of the business lives here: prices, sizes, deadlines,
  * texts in the header. The defaults below are copied to the `settings` table by
  * `npm run db:migrate` and can then be changed in the admin without a deploy.
  */
+
+/** A text per site language; a language left empty uses the built-in translation (or English). */
+const localizedText = (max: number) => z.partialRecord(z.enum(LOCALES), z.string().trim().max(max));
+export type LocalizedText = z.infer<ReturnType<typeof localizedText>>;
 
 const period = z.object({
   years: z.number().int().min(1).max(10),
@@ -14,8 +19,8 @@ const period = z.object({
 export const settingsSchema = z.object({
   // Branding and operator
   site_name: z.string().trim().min(1).max(60),
-  tagline_en: z.string().trim().max(120),
-  tagline_sk: z.string().trim().max(120),
+  // Slogan after "1,000,000 pixels • 10 cents per pixel" in the header.
+  tagline: localizedText(120),
   operator_name: z.string().trim().max(200),
   operator_id: z.string().trim().max(60),
   operator_address: z.string().trim().max(300),
@@ -53,8 +58,8 @@ export const settingsSchema = z.object({
   upload_formats: z.array(z.enum(["png", "jpeg", "webp", "gif"])).min(1),
 
   // Site switches
-  announcement_en: z.string().trim().max(300),
-  announcement_sk: z.string().trim().max(300),
+  // Notice above the header (maintenance, news). Empty = none.
+  announcement: localizedText(300),
   sales_paused: z.boolean(),
   direct_link_open: z.boolean(),
 }).refine(
@@ -67,8 +72,7 @@ export type SettingKey = keyof Settings;
 
 export const DEFAULT_SETTINGS: Settings = {
   site_name: "Million Pixel Wall",
-  tagline_en: "Leave your mark on the internet",
-  tagline_sk: "Nechaj na internete svoju stopu",
+  tagline: {},
   operator_name: "[operator name or company]",
   operator_id: "[company ID]",
   operator_address: "[registered address]",
@@ -104,8 +108,7 @@ export const DEFAULT_SETTINGS: Settings = {
   upload_max_px: 6000,
   upload_formats: ["png", "jpeg", "webp", "gif"],
 
-  announcement_en: "",
-  announcement_sk: "",
+  announcement: {},
   sales_paused: false,
   direct_link_open: false,
 };

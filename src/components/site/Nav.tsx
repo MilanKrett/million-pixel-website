@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useTranslations } from "use-intl/react";
-import { localePath, stripLocale, type Locale } from "@/i18n/config";
+import { LANGUAGE_COOKIE, LOCALE_NAMES, LOCALES, localePath, stripLocale, type Locale } from "@/i18n/config";
 
 const ITEMS = [
   { key: "home", path: "/" },
@@ -14,6 +14,15 @@ const ITEMS = [
   { key: "mine", path: "/my-pixels" },
   { key: "contact", path: "/contact" },
 ] as const;
+
+/** Remember an explicit choice, so the home page no longer follows the browser's language. */
+function rememberLanguage(locale: Locale) {
+  try {
+    document.cookie = `${LANGUAGE_COOKIE}=${locale}; path=/; max-age=${365 * 86400}; samesite=lax`;
+  } catch {
+    // Cookies blocked: the switch still works, the choice is just not remembered.
+  }
+}
 
 /** Text links separated by "|", language switch on the right. No hamburger menu. */
 export function Nav({ locale }: { locale: Locale }) {
@@ -36,14 +45,14 @@ export function Nav({ locale }: { locale: Locale }) {
         })}
       </ul>
       <ul className="nav-lang" aria-label={tc("language")}>
-        {(["en", "sk"] as const).map((l) => (
+        {LOCALES.map((l) => (
           <li key={l}>
             {l === locale ? (
-              <strong aria-current="true" lang={l}>
+              <strong aria-current="true" lang={l} title={LOCALE_NAMES[l]}>
                 {l.toUpperCase()}
               </strong>
             ) : (
-              <a href={localePath(l, current)} hrefLang={l} lang={l}>
+              <a href={localePath(l, current)} hrefLang={l} lang={l} title={LOCALE_NAMES[l]} onClick={() => rememberLanguage(l)}>
                 {l.toUpperCase()}
               </a>
             )}

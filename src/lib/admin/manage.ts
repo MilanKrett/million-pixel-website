@@ -1,5 +1,6 @@
 import { createTranslator } from "use-intl/core";
-import { getMessages, intlLocale, LOCALES, TIME_ZONE, type Locale } from "@/i18n/config";
+import { intlLocale, LOCALES, TIME_ZONE, type Locale } from "@/i18n/config";
+import { getMessages } from "@/i18n/messages";
 import { findOrCreateUser, normalizeEmail, type Role } from "@/lib/auth/accounts";
 import { deleteUserSessions } from "@/lib/auth/session";
 import type { Sql } from "@/lib/db";
@@ -102,7 +103,9 @@ export async function saveSettings(sql: Sql, input: Record<string, unknown>, act
       const detail = issue as { code: string; minimum?: unknown; maximum?: unknown };
       const code =
         detail.code === "too_small" ? `too_small:${String(detail.minimum)}` : detail.code === "too_big" ? `too_big:${String(detail.maximum)}` : detail.code === "custom" ? "custom" : "invalid";
-      errors[String(issue.path[0] ?? "form")] ??= code;
+      // Texts per language report "tagline.de"; list items report the setting itself.
+      const sub = issue.path[1];
+      errors[typeof sub === "string" ? `${String(issue.path[0])}.${sub}` : String(issue.path[0] ?? "form")] ??= code;
     }
     return { ok: false, errors };
   }

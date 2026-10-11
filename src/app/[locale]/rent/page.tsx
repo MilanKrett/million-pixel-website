@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Suspense } from "react";
 import { RentWizard } from "@/components/rent/RentWizard";
 import { WallPlaceholder } from "@/components/wall/WallPlaceholder";
+import { ClientMessages } from "@/i18n/client-messages";
 import { getTranslator } from "@/i18n/server";
 import { getSiteSettings, getWallSnapshot } from "@/lib/data";
 import { rentConfig } from "@/lib/rent-config";
@@ -21,5 +22,9 @@ export default function RentPage() {
 
 async function RentSection() {
   const [settings, snapshot] = await Promise.all([getSiteSettings(), getWallSnapshot()]);
-  return <RentWizard initial={snapshot} config={rentConfig(settings)} />;
+  return (
+    <ClientMessages namespaces={["rent"]}>
+      <RentWizard initial={snapshot} config={rentConfig(settings)} />
+    </ClientMessages>
+  );
 }

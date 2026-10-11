@@ -1,5 +1,6 @@
 import { createTranslator } from "use-intl/core";
-import { getMessages, intlLocale, localePath, TIME_ZONE, type Locale, type Messages } from "@/i18n/config";
+import { intlLocale, localePath, TIME_ZONE, type Locale, type Messages } from "@/i18n/config";
+import { getMessages } from "@/i18n/messages";
 import { pixelRange, type Rect } from "@/lib/geometry";
 import { formatMoney } from "@/lib/money";
 import type { Settings } from "@/lib/settings/schema";

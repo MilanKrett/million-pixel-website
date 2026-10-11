@@ -1,6 +1,6 @@
 import { randomBytes } from "node:crypto";
 import { after, type NextRequest } from "next/server";
-import { localePath } from "@/i18n/config";
+import { localePath, type Locale } from "@/i18n/config";
 import { db } from "@/lib/db";
 import { isSameOrigin } from "@/lib/http";
 import { runChecksForRental } from "@/lib/moderation/checks";
@@ -22,7 +22,7 @@ export async function POST(request: NextRequest, ctx: RouteContext<"/api/payment
   const form = await request.formData();
   const action = form.get("action");
 
-  const [payment] = await db()<{ amount_cents: number; rental_id: string; locale: "en" | "sk" }[]>`
+  const [payment] = await db()<{ amount_cents: number; rental_id: string; locale: Locale }[]>`
     select p.amount_cents, p.rental_id, r.locale
     from payments p join rentals r on r.id = p.rental_id
     where p.stripe_session_id = ${session} and p.provider = 'dev'

@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import { EditRental } from "@/components/account/EditRental";
 import { LoginForm } from "@/components/account/LoginForm";
+import { ClientMessages } from "@/i18n/client-messages";
 import { localePath } from "@/i18n/config";
 import { getLocale, getTranslator } from "@/i18n/server";
 import { getSession } from "@/lib/auth/current";
@@ -41,7 +42,9 @@ async function EditSection({ params }: { params: PageProps<"/[locale]/my-pixels/
       <>
         <h1>{t("mine.editTitle")}</h1>
         <p>{t("mine.signInIntro")}</p>
-        <LoginForm next={localePath(locale, `/my-pixels/${number}`)} minutes={settings.magic_link_minutes} siteKey={turnstileSiteKey()} devEmails={devEmails} />
+        <ClientMessages namespaces={["login"]}>
+          <LoginForm next={localePath(locale, `/my-pixels/${number}`)} minutes={settings.magic_link_minutes} siteKey={turnstileSiteKey()} devEmails={devEmails} />
+        </ClientMessages>
       </>
     );
   }
@@ -61,12 +64,14 @@ async function EditSection({ params }: { params: PageProps<"/[locale]/my-pixels/
   `;
   const order = await orderResponse(sql, settings, rental);
   return (
-    <EditRental
-      initialOrder={order}
-      current={current ? { id: current.id, kind: current.kind, title: current.title, url: current.url, displayName: current.display_name, params: current.params } : null}
-      config={rentConfig(settings)}
-      editable={isOwnerEditable(rental)}
-      rejected={rental.status === "rejected"}
-    />
+    <ClientMessages namespaces={["mine", "rent"]}>
+      <EditRental
+        initialOrder={order}
+        current={current ? { id: current.id, kind: current.kind, title: current.title, url: current.url, displayName: current.display_name, params: current.params } : null}
+        config={rentConfig(settings)}
+        editable={isOwnerEditable(rental)}
+        rejected={rental.status === "rejected"}
+      />
+    </ClientMessages>
   );
 }

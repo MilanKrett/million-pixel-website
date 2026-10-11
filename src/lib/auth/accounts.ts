@@ -1,3 +1,4 @@
+import type { Locale } from "@/i18n/config";
 import type { Queryable, Sql } from "@/lib/db";
 
 /**
@@ -12,7 +13,7 @@ export interface UserRow {
   id: string;
   email: string;
   role: Role;
-  locale: "en" | "sk";
+  locale: Locale;
   created_at: Date;
   last_login_at: Date | null;
   totp_secret: string | null;
@@ -40,7 +41,7 @@ export function bootstrapAdminEmails(): string[] {
 
 export const isStaff = (role: Role) => role === "admin" || role === "moderator";
 
-export async function findOrCreateUser(sql: Queryable, email: string, locale: "en" | "sk"): Promise<UserRow> {
+export async function findOrCreateUser(sql: Queryable, email: string, locale: Locale): Promise<UserRow> {
   const role: Role | null = bootstrapAdminEmails().includes(email) ? "admin" : null;
   const [user] = await sql<UserRow[]>`
     insert into users (email, locale, role)

@@ -1,3 +1,4 @@
+import type { Locale } from "@/i18n/config";
 import type { Sql } from "@/lib/db";
 import { loadEmailEnv } from "@/lib/email/env";
 import { sendEmail } from "@/lib/email/send";
@@ -22,7 +23,7 @@ import {
 
 async function rentalEmailData(sql: Sql, rentalId: string, contentId?: string | null): Promise<RentalEmailData | null> {
   const [row] = await sql<
-    { no: number; email: string | null; locale: "en" | "sk"; x: number; y: number; w: number; h: number; period_years: number | null; title: string | null; ends_at: Date | null; amount: number | null; invoice: string | null; paid_at: Date | null }[]
+    { no: number; email: string | null; locale: Locale; x: number; y: number; w: number; h: number; period_years: number | null; title: string | null; ends_at: Date | null; amount: number | null; invoice: string | null; paid_at: Date | null }[]
   >`
     select r.no, r.email, r.locale, r.x, r.y, r.w, r.h, r.period_years, r.ends_at,
            coalesce(

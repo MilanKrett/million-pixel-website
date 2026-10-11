@@ -1,3 +1,4 @@
+import type { Locale } from "@/i18n/config";
 import type { Sql } from "@/lib/db";
 import { pixelRange } from "@/lib/geometry";
 import { paymentProvider } from "@/lib/payments/provider";
@@ -25,7 +26,7 @@ export async function startCheckout(
 
   return sql.begin(async (tx) => {
     const [rental] = await tx<
-      { id: string; x: number; y: number; w: number; h: number; status: string; stale: boolean; email: string | null; period_years: number | null; terms_accepted_at: Date | null; withdrawal_waiver_at: Date | null; locale: "en" | "sk" }[]
+      { id: string; x: number; y: number; w: number; h: number; status: string; stale: boolean; email: string | null; period_years: number | null; terms_accepted_at: Date | null; withdrawal_waiver_at: Date | null; locale: Locale }[]
     >`
       select id, x, y, w, h, status, rental_hold_is_stale(status, hold_expires_at) as stale, email, period_years,
              terms_accepted_at, withdrawal_waiver_at, locale

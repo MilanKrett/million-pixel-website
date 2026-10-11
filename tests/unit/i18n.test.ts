@@ -1,9 +1,10 @@
 import { describe, expect, it } from "vitest";
 import { createTranslator } from "use-intl/core";
-import { getMessages, intlLocale, localePath, stripLocale } from "@/i18n/config";
+import { adminLocale, intlLocale, localeOfPath, localePath, LOCALES, matchLocale, stripLocale, type Locale } from "@/i18n/config";
+import { getMessages } from "@/i18n/messages";
 import { formatMoney } from "@/lib/money";
-import en from "@/messages/en.json";
-import sk from "@/messages/sk.json";
+import adminEn from "@/messages/admin/en.json";
+import adminSk from "@/messages/admin/sk.json";
 
 type Tree = { [key: string]: string | Tree };
 
@@ -36,28 +37,77 @@ function argumentsOf(message: string): string[] {
   return [...names].sort();
 }
 
+/** Rich-text tags such as <link>…</link>. */
+function tagsOf(message: string): string[] {
+  return [...new Set([...message.matchAll(/<([a-zA-Z][a-zA-Z0-9]*)>/g)].map((m) => m[1]))].sort();
+}
+
+const translator = (locale: Locale) => createTranslator({ locale: intlLocale(locale), messages: getMessages(locale), timeZone: "Europe/Bratislava" });
+
 describe("translations", () => {
-  const flatEn = flatten(en as Tree);
-  const flatSk = flatten(sk as Tree);
+  const flatEn = flatten(getMessages("en") as unknown as Tree);
 
-  it("Slovak and English have exactly the same keys", () => {
-    expect(Object.keys(flatSk).sort()).toEqual(Object.keys(flatEn).sort());
-  });
+  for (const locale of LOCALES.filter((l) => l !== "en")) {
+    describe(locale, () => {
+      const flat = flatten(getMessages(locale) as unknown as Tree);
 
-  it("every message uses the same placeholders in both languages", () => {
-    for (const key of Object.keys(flatEn)) {
-      expect(argumentsOf(flatSk[key]), key).toEqual(argumentsOf(flatEn[key]));
-    }
-  });
+      it("has exactly the same keys as English", () => {
+        expect(Object.keys(flat).sort()).toEqual(Object.keys(flatEn).sort());
+      });
+
+      it("uses the same placeholders and tags as English", () => {
+        for (const key of Object.keys(flatEn)) {
+          expect(argumentsOf(flat[key] ?? ""), `${locale}: ${key}`).toEqual(argumentsOf(flatEn[key]));
+          expect(tagsOf(flat[key] ?? ""), `${locale}: ${key}`).toEqual(tagsOf(flatEn[key]));
+        }
+      });
+
+      it("formats every message without errors", () => {
+        const t = createTranslator({
+          locale: intlLocale(locale),
+          messages: getMessages(locale),
+          timeZone: "Europe/Bratislava",
+          onError: (error) => {
+            throw new Error(`${locale}: ${error.message}`);
+          },
+        });
+        for (const key of Object.keys(flat)) {
+          const values: Record<string, unknown> = {};
+          for (const name of argumentsOf(flat[key])) values[name] = 2;
+          for (const tag of tagsOf(flat[key])) values[tag] = (chunks: string) => chunks;
+          expect(() => t.markup(key as never, values as never), `${locale}: ${key}`).not.toThrow();
+        }
+      });
+    });
+  }
 
   it("no message is empty", () => {
-    for (const [key, value] of [...Object.entries(flatEn), ...Object.entries(flatSk)]) {
-      expect(value.trim(), key).not.toBe("");
+    for (const locale of LOCALES) {
+      for (const [key, value] of Object.entries(flatten(getMessages(locale) as unknown as Tree))) {
+        expect(value.trim(), `${locale}: ${key}`).not.toBe("");
+      }
     }
+  });
+
+  it("has no ASCII apostrophe that ICU would read as a quote", () => {
+    // In ICU messages '{ or '# starts a quoted literal ("l'{site}" would print "l{site}").
+    // Texts use the typographic apostrophe ’ instead.
+    for (const locale of LOCALES) {
+      for (const [key, value] of Object.entries(flatten(getMessages(locale) as unknown as Tree))) {
+        expect(value, `${locale}: ${key}`).not.toMatch(/'[{}#|]/);
+      }
+    }
+  });
+
+  it("the admin is complete in English and Slovak", () => {
+    const en = flatten(adminEn as unknown as Tree);
+    const sk = flatten(adminSk as unknown as Tree);
+    expect(Object.keys(sk).sort()).toEqual(Object.keys(en).sort());
+    for (const key of Object.keys(en)) expect(argumentsOf(sk[key]), key).toEqual(argumentsOf(en[key]));
   });
 
   it("uses correct Slovak plural forms", () => {
-    const t = createTranslator({ locale: intlLocale("sk"), messages: getMessages("sk"), timeZone: "Europe/Bratislava" });
+    const t = translator("sk");
     expect(t("common.pixels", { count: 1 })).toBe("1 pixel");
     expect(t("common.pixels", { count: 3 })).toBe("3 pixely");
     expect(t("common.pixels", { count: 100 })).toBe("100 pixelov");
@@ -67,7 +117,7 @@ describe("translations", () => {
   });
 
   it("formats English the same way", () => {
-    const t = createTranslator({ locale: intlLocale("en"), messages: getMessages("en"), timeZone: "Europe/Bratislava" });
+    const t = translator("en");
     expect(t("common.pixels", { count: 1_000_000 })).toBe("1,000,000 pixels");
     expect(t("common.pricePerPixel", { cents: 10 })).toBe("10 cents per pixel");
     expect(t("common.pricePerPixel", { cents: 1 })).toBe("1 cent per pixel");
@@ -78,18 +128,42 @@ describe("translations", () => {
     expect(formatMoney(1000, "EUR", "en-GB")).toBe("€10");
     expect(plain(formatMoney(10, "EUR", "sk-SK"))).toBe("0,10 €");
     expect(formatMoney(100_000_00, "EUR", "en-GB")).toBe("€100,000");
+    expect(plain(formatMoney(1050, "EUR", intlLocale("de")))).toBe("10,50 €");
+    expect(plain(formatMoney(1050, "EUR", intlLocale("fr")))).toBe("10,50 €");
   });
 
   it("builds and strips language prefixes", () => {
     expect(localePath("en", "/")).toBe("/");
     expect(localePath("sk", "/")).toBe("/sk");
     expect(localePath("sk", "/faq")).toBe("/sk/faq");
-    expect(localePath("sk", "/?x=1")).toBe("/sk?x=1");
+    expect(localePath("de", "/?x=1")).toBe("/de?x=1");
     expect(localePath("en", "/rent?x=1")).toBe("/rent?x=1");
     expect(stripLocale("/sk/faq")).toBe("/faq");
     expect(stripLocale("/sk")).toBe("/");
     expect(stripLocale("/en/faq")).toBe("/faq");
+    expect(stripLocale("/pl/my-pixels/3")).toBe("/my-pixels/3");
     expect(stripLocale("/skate")).toBe("/skate");
+    expect(stripLocale("/italy")).toBe("/italy");
     expect(stripLocale("/faq")).toBe("/faq");
+    expect(localeOfPath("/hu/faq")).toBe("hu");
+    expect(localeOfPath("/faq")).toBe("en");
+  });
+
+  it("picks the visitor's language from Accept-Language", () => {
+    expect(matchLocale("de-AT,de;q=0.9,en;q=0.8")).toBe("de");
+    expect(matchLocale("en-US,en;q=0.9,sk;q=0.8")).toBe("en");
+    expect(matchLocale("ru-RU,ru;q=0.9,pl;q=0.5")).toBe("pl");
+    expect(matchLocale("ja,zh;q=0.5")).toBeNull();
+    expect(matchLocale("pt-BR")).toBe("pt");
+    expect(matchLocale("fr;q=0.2,cs;q=0.7")).toBe("cs");
+    expect(matchLocale("*")).toBeNull();
+    expect(matchLocale("")).toBeNull();
+    expect(matchLocale(null)).toBeNull();
+  });
+
+  it("uses English or Slovak for the admin", () => {
+    expect(adminLocale("sk")).toBe("sk");
+    expect(adminLocale("de")).toBe("en");
+    expect(adminLocale(null)).toBe("en");
   });
 });

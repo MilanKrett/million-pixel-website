@@ -1,17 +1,18 @@
 import Link from "next/link";
-import { I18nProvider } from "@/i18n/provider";
+import { adminLocale } from "@/i18n/config";
 import { menuCounts } from "@/lib/admin/stats";
 import { adminT } from "@/lib/admin/t";
 import type { SessionInfo } from "@/lib/auth/session";
 import { getSiteSettings } from "@/lib/data";
 import { db } from "@/lib/db";
+import { AdminI18n } from "./AdminI18n";
 import { LocaleSwitch } from "./LocaleSwitch";
 
 export type AdminSection = "overview" | "moderation" | "reports" | "rentals" | "reserve" | "settings" | "emails" | "tools";
 
 /** Header, menu (with waiting counts) and language switch around every admin page. */
 export async function AdminShell({ session, active, children }: { session: SessionInfo; active: AdminSection; children: React.ReactNode }) {
-  const locale = session.user.locale;
+  const locale = adminLocale(session.user.locale);
   const t = adminT(locale);
   const [counts, settings] = await Promise.all([menuCounts(db()), getSiteSettings()]);
   const isAdmin = session.user.role === "admin";
@@ -31,7 +32,7 @@ export async function AdminShell({ session, active, children }: { session: Sessi
   ];
 
   return (
-    <I18nProvider locale={locale}>
+    <AdminI18n locale={locale}>
       <header className="admin-header">
         <Link href="/admin" className="admin-logo">
           {settings.site_name} · {t("title")}
@@ -56,6 +57,6 @@ export async function AdminShell({ session, active, children }: { session: Sessi
         ))}
       </nav>
       <div className="admin-main">{children}</div>
-    </I18nProvider>
+    </AdminI18n>
   );
 }

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { redirect } from "next/navigation";
 import { Suspense } from "react";
 import { LoginForm } from "@/components/account/LoginForm";
+import { ClientMessages } from "@/i18n/client-messages";
 import { localePath } from "@/i18n/config";
 import { getLocale, getTranslator } from "@/i18n/server";
 import { getSession } from "@/lib/auth/current";
@@ -36,5 +37,9 @@ async function LoginSection({ searchParams }: { searchParams: PageProps<"/[local
   // Already signed in: go on.
   if (session) redirect(next ?? localePath(locale, "/my-pixels"));
   const devEmails = isDevPaymentsAllowed() && (process.env.EMAIL_DRIVER ?? "log") === "log";
-  return <LoginForm next={next} minutes={settings.magic_link_minutes} siteKey={turnstileSiteKey()} devEmails={devEmails} />;
+  return (
+    <ClientMessages namespaces={["login"]}>
+      <LoginForm next={next} minutes={settings.magic_link_minutes} siteKey={turnstileSiteKey()} devEmails={devEmails} />
+    </ClientMessages>
+  );
 }

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { LoginConfirm } from "@/components/account/LoginConfirm";
+import { ClientMessages } from "@/i18n/client-messages";
 import { getTranslator } from "@/i18n/server";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -12,7 +13,9 @@ export default async function LoginConfirmPage() {
   return (
     <div className="content">
       <h1>{t("login.title")}</h1>
-      <LoginConfirm />
+      <ClientMessages namespaces={["login"]}>
+        <LoginConfirm />
+      </ClientMessages>
     </div>
   );
 }

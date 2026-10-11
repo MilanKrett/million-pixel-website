@@ -290,6 +290,7 @@ a.btn-rent:visited {
 
 .site-nav {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: baseline;
   gap: 4px 16px;
@@ -312,6 +313,15 @@ a.btn-rent:visited {
   content: "|";
   padding: 0 7px;
   color: var(--border-strong);
+}
+
+/* Ten languages: a tighter list that moves to its own line when the links need the room. */
+.site-nav .nav-lang li:not(:last-child)::after {
+  padding: 0 4px;
+}
+
+.site-nav .nav-lang strong {
+  font-weight: bold;
 }
 
 .site-nav a[aria-current="page"] {

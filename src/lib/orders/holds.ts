@@ -1,4 +1,5 @@
 import { randomUUID } from "node:crypto";
+import type { Locale } from "@/i18n/config";
 import type { Sql } from "@/lib/db";
 import { rectInsideGrid, type Rect } from "@/lib/geometry";
 import { paymentProvider } from "@/lib/payments/provider";
@@ -59,7 +60,7 @@ export async function suggestSpots(sql: Sql, settings: Settings, w: number, h: n
 export async function createHold(
   sql: Sql,
   settings: Settings,
-  input: { rect: Rect; clientHash: string; locale: "en" | "sk"; replaceId?: string | null; replaceTokenHash?: string | null },
+  input: { rect: Rect; clientHash: string; locale: Locale; replaceId?: string | null; replaceTokenHash?: string | null },
 ): Promise<HoldResult> {
   if (settings.sales_paused) return { ok: false, reason: "sales_paused" };
   const invalid = validateRect(settings, input.rect);

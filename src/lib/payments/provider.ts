@@ -1,4 +1,5 @@
 import { randomBytes } from "node:crypto";
+import { localePath, type Locale } from "@/i18n/config";
 
 /**
  * Payment providers. "dev" is a stand-in for Stripe Checkout used until the
@@ -13,7 +14,7 @@ export interface CheckoutRequest {
   currency: string;
   description: string;
   customerEmail: string;
-  locale: "en" | "sk";
+  locale: Locale;
   expiresAt: Date;
   successUrl: string;
   cancelUrl: string;
@@ -36,8 +37,7 @@ const devProvider: PaymentProvider = {
   name: "dev",
   async createCheckout(request) {
     const sessionId = `dev_${randomBytes(18).toString("base64url")}`;
-    const prefix = request.locale === "sk" ? "/sk" : "";
-    return { sessionId, url: `${prefix}/dev/checkout/${sessionId}` };
+    return { sessionId, url: localePath(request.locale, `/dev/checkout/${sessionId}`) };
   },
   async expireCheckout() {
     // Nothing to tell anyone: the test session lives only in our database.

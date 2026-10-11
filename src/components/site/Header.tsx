@@ -9,8 +9,8 @@ import { StatsBox } from "./StatsBox";
 export async function Header({ locale }: { locale: Locale }) {
   const [settings, t] = await Promise.all([getSiteSettings(), getTranslator(locale)]);
   const totalPixels = settings.wall_width_px * settings.wall_height_px;
-  const slogan = locale === "sk" ? settings.tagline_sk : settings.tagline_en;
-  const announcement = locale === "sk" ? settings.announcement_sk : settings.announcement_en;
+  const slogan = settings.tagline[locale] || t("header.slogan");
+  const announcement = settings.announcement[locale] || settings.announcement.en || "";
   const price =
     settings.price_cents_per_pixel_year < 100
       ? t("common.pricePerPixel", { cents: settings.price_cents_per_pixel_year })

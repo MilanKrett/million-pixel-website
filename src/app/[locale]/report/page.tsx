@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
 import { ReportForm } from "@/components/site/ReportForm";
+import { ClientMessages } from "@/i18n/client-messages";
 import { localePath } from "@/i18n/config";
 import { getLocale, getTranslator } from "@/i18n/server";
 import { getSiteSettings } from "@/lib/data";
@@ -34,7 +35,9 @@ async function ReportSection() {
   const [settings, t] = await Promise.all([getSiteSettings(), getTranslator()]);
   return (
     <>
-      <ReportForm siteKey={turnstileSiteKey()} />
+      <ClientMessages namespaces={["report", "reasons"]}>
+        <ReportForm siteKey={turnstileSiteKey()} />
+      </ClientMessages>
       <h2>{t("report.authoritiesTitle")}</h2>
       <p>{t("report.authorities", { email: settings.contact_email })}</p>
     </>

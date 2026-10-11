@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { TransferAccept } from "@/components/account/TransferAccept";
+import { ClientMessages } from "@/i18n/client-messages";
 import { getTranslator } from "@/i18n/server";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -12,7 +13,9 @@ export default async function TransferPage() {
   return (
     <div className="content">
       <h1>{t("transfer.title")}</h1>
-      <TransferAccept />
+      <ClientMessages namespaces={["transfer"]}>
+        <TransferAccept />
+      </ClientMessages>
     </div>
   );
 }

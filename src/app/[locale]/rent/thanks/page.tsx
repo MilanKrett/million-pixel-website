@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { ThanksView } from "@/components/rent/ThanksView";
+import { ClientMessages } from "@/i18n/client-messages";
 import { getTranslator } from "@/i18n/server";
 import { isDevPaymentsAllowed } from "@/lib/payments/provider";
 
@@ -10,5 +11,9 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default function ThanksPage() {
   const devEmails = isDevPaymentsAllowed() && (process.env.EMAIL_DRIVER ?? "log") === "log";
-  return <ThanksView devEmails={devEmails} />;
+  return (
+    <ClientMessages namespaces={["thanks"]}>
+      <ThanksView devEmails={devEmails} />
+    </ClientMessages>
+  );
 }

@@ -1,4 +1,5 @@
 import { randomUUID } from "node:crypto";
+import type { Locale } from "@/i18n/config";
 import type { Sql } from "@/lib/db";
 import type { Rect } from "@/lib/geometry";
 import type { Settings } from "@/lib/settings/schema";
@@ -13,7 +14,7 @@ export interface OrderState {
   rect: Rect;
   status: string;
   holdExpiresAt: string | null;
-  locale: "en" | "sk";
+  locale: Locale;
   email: string | null;
   periodYears: number | null;
   termsAccepted: boolean;
@@ -41,7 +42,7 @@ export interface RentalRow {
   status: string;
   hold_expires_at: Date | null;
   order_token_hash: string | null;
-  locale: "en" | "sk";
+  locale: Locale;
   email: string | null;
   user_id: string | null;
   period_years: number | null;
@@ -246,7 +247,7 @@ export function validateDetails(input: DetailsInput, settings: Settings): { ok: 
   return { ok: true, details: { title, url, displayName, email, years, marketing: input.marketing === true } };
 }
 
-export async function saveDetails(sql: Sql, rentalId: string, contentId: string, details: Details, locale: "en" | "sk"): Promise<void> {
+export async function saveDetails(sql: Sql, rentalId: string, contentId: string, details: Details, locale: Locale): Promise<void> {
   await sql.begin(async (tx) => {
     await tx`
       update content_versions

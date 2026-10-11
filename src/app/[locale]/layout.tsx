@@ -4,6 +4,7 @@ import { Header } from "@/components/site/Header";
 import { MobileRentButton } from "@/components/site/MobileRentButton";
 import { Nav } from "@/components/site/Nav";
 import { intlLocale, LOCALES } from "@/i18n/config";
+import { BASE_NAMESPACES, pickMessages } from "@/i18n/messages";
 import { I18nProvider } from "@/i18n/provider";
 import { getLocale, getTranslator } from "@/i18n/server";
 import { getSiteSettings } from "@/lib/data";
@@ -48,7 +49,7 @@ export default async function LocaleLayout({ children }: LayoutProps<"/[locale]"
         <a className="skip-link" href="#main">
           {t("common.skipToContent")}
         </a>
-        <I18nProvider locale={locale}>
+        <I18nProvider locale={locale} messages={pickMessages(locale, BASE_NAMESPACES)}>
           <div className="page">
             <Header locale={locale} />
             <Nav locale={locale} />

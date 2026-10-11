@@ -45,14 +45,14 @@ describe("pixel font", () => {
     }
   });
 
-  it("has Slovak letters and falls back to the base letter for other diacritics", () => {
+  it("has Slovak letters and falls back to the base letter for unknown diacritics", () => {
     for (const ch of "áäčďéíĺľňóôŕšťúýžÁÄČĎÉÍĹĽŇÓÔŔŠŤÚÝŽ") {
       expect(hasGlyph(ch), ch).toBe(true);
       expect(glyph(ch), ch).not.toEqual(glyph(ch.normalize("NFD")[0]));
       expect(glyph(ch), ch).toHaveLength(GLYPH_HEIGHT);
       for (const row of glyph(ch)) expect(row, ch).toHaveLength(GLYPH_WIDTH);
     }
-    expect(glyph("ö")).toEqual(glyph("o"));
+    expect(glyph("ā")).toEqual(glyph("a"));
     // Lowercase and uppercase with the same accent stay distinguishable.
     expect(glyph("ó")).not.toEqual(glyph("Ó"));
   });

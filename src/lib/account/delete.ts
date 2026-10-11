@@ -1,4 +1,5 @@
 import { createHash } from "node:crypto";
+import type { Locale } from "@/i18n/config";
 import type { Sql } from "@/lib/db";
 import { loadEmailEnv } from "@/lib/email/env";
 import { sendEmail } from "@/lib/email/send";
@@ -11,7 +12,7 @@ import { accountDeletedEmail } from "@/lib/email/templates";
  */
 export async function deleteAccount(sql: Sql, userId: string): Promise<{ ok: true } | { ok: false; reason: "not_found" | "last_admin" }> {
   const outcome = await sql.begin(async (tx) => {
-    const [user] = await tx<{ id: string; email: string; role: string; locale: "en" | "sk" }[]>`
+    const [user] = await tx<{ id: string; email: string; role: string; locale: Locale }[]>`
       select id, email, role, locale from users where id = ${userId} for update
     `;
     if (!user) return "not_found" as const;

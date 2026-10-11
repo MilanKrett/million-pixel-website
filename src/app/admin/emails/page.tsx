@@ -1,7 +1,7 @@
 import { Suspense } from "react";
 import { AdminShell } from "@/components/admin/AdminShell";
 import { EmailTextEditor } from "@/components/admin/EmailTextEditor";
-import { isLocale, type Locale } from "@/i18n/config";
+import { adminLocale, isLocale, LOCALE_NAMES, LOCALES, type Locale } from "@/i18n/config";
 import { emailTextDefaults } from "@/lib/admin/manage";
 import { adminT } from "@/lib/admin/t";
 import { requireStaffPage } from "@/lib/auth/current";
@@ -30,7 +30,7 @@ async function Emails({ searchParams }: { searchParams: PageProps<"/admin/emails
   const session = await requireStaffPage("admin", "/admin/emails");
   const params = await searchParams;
   const template = (EMAIL_TEMPLATES as readonly string[]).includes(String(params.t)) ? (params.t as EmailTemplate) : params.t === "common" ? "common" : "paid";
-  const locale: Locale = isLocale(params.l) ? params.l : session.user.locale;
+  const locale: Locale = isLocale(params.l) ? params.l : adminLocale(session.user.locale);
   const t = adminT(session.user.locale);
   const env = await loadEmailEnv(db());
   const defaults = emailTextDefaults(locale);
@@ -52,10 +52,10 @@ async function Emails({ searchParams }: { searchParams: PageProps<"/admin/emails
       </p>
       <p>
         {t("emails.language")}{" "}
-        {(["sk", "en"] as const).map((l, i) => (
+        {LOCALES.map((l, i) => (
           <span key={l}>
             {i > 0 && " | "}
-            {l === locale ? <b>{l.toUpperCase()}</b> : <a href={link(template, l)}>{l.toUpperCase()}</a>}
+            {l === locale ? <b title={LOCALE_NAMES[l]}>{l.toUpperCase()}</b> : <a href={link(template, l)} title={LOCALE_NAMES[l]}>{l.toUpperCase()}</a>}
           </span>
         ))}
       </p>

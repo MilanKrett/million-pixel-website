@@ -1,7 +1,7 @@
 import { redirect } from "next/navigation";
 import { Suspense } from "react";
+import { AdminI18n } from "@/components/admin/AdminI18n";
 import { MfaVerify } from "@/components/admin/MfaForms";
-import { I18nProvider } from "@/i18n/provider";
 import { adminT } from "@/lib/admin/t";
 import { requireStaffLogin } from "@/lib/auth/current";
 import { safeNextPath } from "@/lib/auth/login";
@@ -22,12 +22,12 @@ async function Verify({ searchParams }: { searchParams: PageProps<"/admin/2fa">[
   const next = safeNextPath(typeof params.next === "string" ? params.next : null);
   const t = adminT(session.user.locale);
   return (
-    <I18nProvider locale={session.user.locale}>
+    <AdminI18n locale={session.user.locale}>
       <div className="content">
         <h1>{t("mfa.verifyTitle")}</h1>
         <p>{t("mfa.verifyIntro", { email: session.user.email })}</p>
         <MfaVerify next={next?.startsWith("/admin") ? next : "/admin"} />
       </div>
-    </I18nProvider>
+    </AdminI18n>
   );
 }

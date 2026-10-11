@@ -1,6 +1,8 @@
 import { Suspense } from "react";
 import { AdminShell } from "@/components/admin/AdminShell";
 import { SettingsForm } from "@/components/admin/SettingsForm";
+import { LOCALES } from "@/i18n/config";
+import { getMessages } from "@/i18n/messages";
 import { adminT } from "@/lib/admin/t";
 import { requireStaffPage } from "@/lib/auth/current";
 import { db } from "@/lib/db";
@@ -28,7 +30,11 @@ async function Settings() {
     <AdminShell session={session} active="settings">
       <h1>{t("settings.title")}</h1>
       <p>{t("settings.intro")}</p>
-      <SettingsForm initial={settings} geometryLocked={count > 0} />
+      <SettingsForm
+        initial={settings}
+        geometryLocked={count > 0}
+        sloganDefaults={Object.fromEntries(LOCALES.map((l) => [l, getMessages(l).header.slogan])) as Record<(typeof LOCALES)[number], string>}
+      />
     </AdminShell>
   );
 }
