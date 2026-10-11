@@ -18,6 +18,8 @@ export interface RentConfig extends PricingSettings {
   reviewHours: number;
   devPayments: boolean;
   devEmails: boolean;
+  /** Cloudflare Turnstile site key, or null when bot protection is off (local development). */
+  turnstileSiteKey: string | null;
 }
 
 export type Step = "select" | "content" | "details" | "summary";

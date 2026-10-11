@@ -12,7 +12,7 @@ const { loadSettings } = await import("@/lib/settings/load");
 const { createHold, expireStaleOrders, loadOccupancy, releaseHold } = await import("@/lib/orders/holds");
 const { saveDraftContent, saveDetails, latestDraft, findOrder } = await import("@/lib/orders/order");
 const { startCheckout, completeCheckout, expireCheckout } = await import("@/lib/orders/checkout");
-const { approveRental } = await import("@/lib/orders/approve");
+const { approveRental } = await import("@/lib/moderation/decide");
 const { hashToken } = await import("@/lib/orders/tokens");
 const { notifyApproved, notifyLateRefund, notifyPaid } = await import("@/lib/orders/notify");
 const { renderWall } = await import("@/lib/wall/render");
@@ -78,6 +78,8 @@ async function status(id: string) {
 
 beforeEach(async () => {
   await db()`truncate rentals, wall_versions, wall_dirty, click_stats, email_log, audit_log restart identity cascade`;
+  // Receipt numbers are a sequence of their own (not reset by truncate).
+  await db()`select setval('invoice_seq', 1, false)`;
 });
 
 afterAll(async () => {

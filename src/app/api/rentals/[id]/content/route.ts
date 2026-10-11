@@ -5,7 +5,7 @@ import { db } from "@/lib/db";
 import { jsonError, noStoreJson } from "@/lib/http";
 import { saveDraftContent } from "@/lib/orders/order";
 import { orderResponse } from "@/lib/orders/order-response";
-import { authorizeOrder } from "@/lib/orders/request";
+import { authorizeRental } from "@/lib/orders/request";
 import { loadSettings } from "@/lib/settings/load";
 import { storage } from "@/lib/storage";
 
@@ -20,7 +20,7 @@ const SOURCE_TYPES = { png: "image/png", jpg: "image/jpeg", webp: "image/webp" }
  */
 export async function POST(request: NextRequest, ctx: RouteContext<"/api/rentals/[id]/content">) {
   const { id } = await ctx.params;
-  const auth = await authorizeOrder(request, id, { mutate: true, editable: true });
+  const auth = await authorizeRental(request, id, { mutate: true, editable: true, staff: true });
   if ("error" in auth) return auth.error;
   const { rental } = auth;
   const settings = await loadSettings(db());

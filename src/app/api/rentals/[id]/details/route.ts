@@ -5,6 +5,7 @@ import { jsonError, noStoreJson } from "@/lib/http";
 import { latestDraft, saveDetails, validateDetails, type DetailsInput } from "@/lib/orders/order";
 import { orderResponse } from "@/lib/orders/order-response";
 import { authorizeOrder } from "@/lib/orders/request";
+import { isLinkUnsafe } from "@/lib/moderation/checks";
 import { loadSettings } from "@/lib/settings/load";
 
 /** Step 4: title, link, public name, e-mail, period and consents. */
@@ -18,6 +19,8 @@ export async function PUT(request: NextRequest, ctx: RouteContext<"/api/rentals/
   const settings = await loadSettings(db());
   const result = validateDetails(body, settings);
   if (!result.ok) return jsonError(422, "invalid_details", { errors: result.errors });
+  // A page listed as dangerous cannot be saved (spec section 15).
+  if (await isLinkUnsafe(result.details.url)) return jsonError(422, "invalid_details", { errors: { url: "urlUnsafe" } });
 
   const draft = await latestDraft(db(), id);
   if (!draft) return jsonError(409, "no_content");

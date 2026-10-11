@@ -3,6 +3,7 @@ import { after, type NextRequest } from "next/server";
 import { localePath } from "@/i18n/config";
 import { db } from "@/lib/db";
 import { isSameOrigin } from "@/lib/http";
+import { runChecksForRental } from "@/lib/moderation/checks";
 import { completeCheckout, expireCheckout } from "@/lib/orders/checkout";
 import { notifyLateRefund, notifyPaid } from "@/lib/orders/notify";
 import { isDevPaymentsAllowed } from "@/lib/payments/provider";
@@ -36,7 +37,10 @@ export async function POST(request: NextRequest, ctx: RouteContext<"/api/payment
     });
     revalidateWall();
     if (result.outcome === "paid") {
-      after(() => notifyPaid(db(), payment.rental_id));
+      after(async () => {
+        await notifyPaid(db(), payment.rental_id);
+        await runChecksForRental(db(), payment.rental_id);
+      });
       return go("/rent/thanks");
     }
     if (result.outcome === "refunded") {

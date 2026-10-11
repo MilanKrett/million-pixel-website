@@ -1,6 +1,8 @@
 import postgres from "postgres";
 
 export type Sql = postgres.Sql;
+/** The client or an open transaction: anything that runs queries. */
+export type Queryable = postgres.Sql | postgres.TransactionSql;
 
 declare global {
   var __pixelwallSql: Sql | undefined;

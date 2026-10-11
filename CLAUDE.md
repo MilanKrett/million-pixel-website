@@ -31,7 +31,14 @@
   stay idempotent and takes amount and period from the payment row, never from the editable order.
 - E-mails: `src/lib/email` (`log` driver → `/dev/emails`, or `resend`); `notify*` functions never throw.
 - Uploads go straight to storage (`createUploadUrl`), then the server processes them (`src/lib/content`).
-- `/admin` is a temporary Basic-auth page (proxy) until phase 3 replaces it with real accounts.
+- Accounts (`src/lib/auth`): sign-in links by e-mail (token in the URL #fragment, consumed by a POST),
+  session cookie `pw_session` (hash stored), staff need TOTP 2FA (`hasFreshMfa`, 12 h). Pages read the
+  session only inside `<Suspense>` with `export const instant = false`; admin pages call
+  `requireStaffPage`, admin APIs `requireStaffApi`, owner APIs `authorizeRental` (owner first, then order
+  cookie, then staff). `ADMIN_EMAILS` bootstraps the first admin. No Supabase Auth, no RLS policies.
+- Moderation (`src/lib/moderation`): every decision is one transaction + `audit_log`; e-mails and
+  `refreshWall()` after commit. Reason "child" blocks content and never notifies the uploader.
+- Admin UI language comes from `users.locale` (`adminT`); all admin texts are in the `admin` namespace.
 - Retro UI rules (spec section 4): white background, Verdana/Tahoma 11–13 px, 1 px #ccc borders, blue
   underlined links, accent colour only in the logo and the "Rent pixels" button, no gradients, shadows,
   big radii or animated sections.

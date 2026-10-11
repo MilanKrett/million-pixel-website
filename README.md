@@ -11,7 +11,7 @@ Zadanie projektu: [docs/SPEC.md](docs/SPEC.md) (kópia dokumentu „Prompt – M
 | --- | --- | --- |
 | 1 | Základ, retro dizajn, stena z databázy, zväčšovanie, lupa, mobil, testovacie dáta | hotová |
 | 2 | Výber miesta, rezervácie, editor obsahu, platba (zatiaľ testovacia, bez Stripe), e-maily o platbe | hotová |
-| 3 | Prihlásenie odkazom, Moje pixely, administrácia, moderácia, nahlasovanie | čaká |
+| 3 | Prihlásenie odkazom, Moje pixely, administrácia s 2FA, moderácia, automatické kontroly, nahlasovanie | hotová |
 | 4 | Koniec prenájmu, podstránky, právne šablóny, SEO, ostrá prevádzka | čaká |
 
 ## Spustenie na počítači
@@ -61,12 +61,28 @@ ich skript odmietne vytvoriť a `seed:clear` ich vie odstrániť aj tam.
 2. Nahraj obrázok, nakresli ho alebo zvoľ farbu s textom, potom vyplň údaje.
 3. V súhrne klikni **Zaplatiť**. Otvorí sa testovacia platobná stránka (žiadne skutočné peniaze);
    vyber „Zaplatiť (test)“, „Zrušiť a vrátiť sa“ alebo „Nechať platbu vypršať“.
-4. Odoslané e-maily (doklad o platbe, schválenie) sú na <http://localhost:3000/dev/emails>.
-5. Schválenie: <http://localhost:3000/admin> – meno a heslo sú v `.env.local` (`ADMIN_USER`,
-   `ADMIN_PASSWORD`). Po schválení sa obsah objaví na stene.
+4. Odoslané e-maily (doklad o platbe, schválenie, odkazy na prihlásenie) sú na
+   <http://localhost:3000/dev/emails>.
+5. Schválenie v administrácii (nižšie). Po schválení sa obsah do pár sekúnd objaví na stene.
 
 Testovacia platba a schránka `/dev/emails` v ostrej prevádzke (`APP_ENV=production`) nefungujú.
-Dočasná administrácia s heslom sa vo fáze 3 nahradí prihlásením.
+
+### Administrácia
+
+1. V `.env.local` je v `ADMIN_EMAILS` tvoja e-mailová adresa; kto sa ňou prihlási, je administrátor.
+2. Otvor <http://localhost:3000/admin>, zadaj tú adresu a odkaz na prihlásenie si otvor
+   v <http://localhost:3000/dev/emails> (v ostrej prevádzke príde e-mailom).
+3. Pri prvom prihlásení si nastav dvojfaktorové prihlásenie: naskenuj QR kód aplikáciou na
+   overovanie (Google Authenticator, Microsoft Authenticator, 1Password…) a ulož si záložné kódy.
+4. Moderácia: klávesy **A** schváliť, **E** vyžiadať úpravu, **R** zamietnuť, **J/K** ďalší/predošlý.
+5. Moderátorov a ďalších administrátorov pridáš v **Nástroje**.
+
+### Moje pixely a nahlasovanie
+
+- <http://localhost:3000/my-pixels>: prihlásenie e-mailom z objednávky, zoznam prenájmov, zmena
+  obsahu (ide na schválenie, starý obsah ostáva), doklady, štatistiky, prevod na iný e-mail,
+  pripomienky, zrušenie účtu.
+- Na stene v okne prenájmu je **Nahlásiť**; formulár je aj na <http://localhost:3000/report>.
 
 ### Vyskúšanie na mobile
 
@@ -113,6 +129,16 @@ firewall pre Node.js prístup v súkromnej sieti.
   živý náhľad v prehliadači aj konečný obrázok na serveri.
 - **Obrázky** idú z prehliadača priamo do úložiska (obchádza limit 4,5 MB na Verceli), server ich
   potom oreže, zmenší (lanczos3), prežene pixelovým filtrom a uloží bez metadát (GPS, EXIF).
+- **Účty** nemajú heslo: prihlasuje sa odkazom z e-mailu (platí raz, 15 minút). Účet automaticky
+  vlastní všetky prenájmy objednané s tou adresou. Administrátori a moderátori musia mať
+  dvojfaktorové prihlásenie (kód z aplikácie, po 12 hodinách znova).
+- **Moderácia**: nič nejde na stenu bez schválenia. Zamietnutý nový prenájom má 7 dní na nový
+  obsah, inak sa peniaze vrátia automaticky. Zmena bežiaceho prenájmu ide na schválenie a dovtedy
+  ostáva starý obsah. Každé rozhodnutie je v auditnom zázname.
+- **Automatické kontroly** pomáhajú moderátorovi: filter vulgarizmov (SK/CZ/EN), sledovanie
+  presmerovaní odkazu a voliteľne Google Web Risk / Safe Browsing a rozpoznávanie obrázkov
+  (Sightengine alebo Google Vision). Bez kľúčov sa preskočia. Odkazy na stene sa kontrolujú znova
+  každý deň (`/api/cron/daily`); nebezpečný odkaz prestane fungovať a vznikne nahlásenie.
 - **Všetky čísla** (ceny, rozmery, lehoty) sú v tabuľke `settings`. Predvolené hodnoty sú
   v [src/lib/settings/schema.ts](src/lib/settings/schema.ts); chýbajúce kľúče doplní `db:migrate`.
 - **Jazyky**: angličtina na `/…`, slovenčina na `/sk/…`, texty v [src/messages](src/messages).
@@ -122,10 +148,16 @@ firewall pre Node.js prístup v súkromnej sieti.
 ```
 supabase/migrations/   SQL schéma (rovnaká pre lokálnu databázu aj Supabase)
 scripts/               dev server, databáza, testovacie dáta, prekreslenie steny
-src/app/               stránky ([locale]), dočasná administrácia (admin) a API
+src/app/               stránky ([locale]), administrácia (admin) a API
 src/components/wall/   interaktívna stena (canvas, zväčšovanie, lupa, okná, vyhľadávanie, výber)
 src/components/rent/   objednávka: výber miesta, nahrávanie, kreslenie, text, údaje, súhrn
-src/components/site/   hlavička, menu, pätička, počítadlá
+src/components/site/   hlavička, menu, pätička, počítadlá, nahlásenie, Turnstile
+src/components/account/ prihlásenie, Moje pixely, zmena obsahu, prevod
+src/components/admin/  obrazovky administrácie
+src/lib/auth/          účty, prihlásenie odkazom, relácie, dvojfaktorové prihlásenie
+src/lib/account/       Moje pixely: zmeny obsahu, prevod, zrušenie účtu
+src/lib/moderation/    rozhodnutia, nahlásenia, automatické kontroly
+src/lib/admin/         dáta a akcie administrácie
 src/lib/orders/        rezervácie, objednávka, platba, schválenie, e-maily k objednávke
 src/lib/content/       spracovanie obrázkov, redukcia farieb, text v pixelovom písme
 src/lib/payments/      platobná brána (testovacia, neskôr Stripe)

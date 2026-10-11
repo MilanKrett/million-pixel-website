@@ -1,0 +1,10 @@
+"use client";
+
+/** "Print / save as PDF" (the browser's print dialog can save a PDF). */
+export function PrintButton({ label }: { label: string }) {
+  return (
+    <button type="button" className="btn" onClick={() => window.print()}>
+      {label}
+    </button>
+  );
+}

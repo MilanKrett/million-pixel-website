@@ -45,6 +45,7 @@ export const settingsSchema = z.object({
   reminder_days: z.array(z.number().int().min(1).max(365)).max(6),
   max_active_holds: z.number().int().min(1).max(50),
   magic_link_minutes: z.number().int().min(5).max(60),
+  transfer_days: z.number().int().min(1).max(60),
 
   // Uploads
   upload_max_mb: z.number().min(1).max(50),
@@ -97,6 +98,7 @@ export const DEFAULT_SETTINGS: Settings = {
   reminder_days: [30, 7, 1],
   max_active_holds: 3,
   magic_link_minutes: 15,
+  transfer_days: 7,
 
   upload_max_mb: 10,
   upload_max_px: 6000,

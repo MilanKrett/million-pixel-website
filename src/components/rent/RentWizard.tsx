@@ -76,12 +76,12 @@ export function RentWizard({ initial, config }: { initial: WallSnapshot; config:
   // A new reservation replaces the current order on the server, which carries
   // over the picture (same size only), e-mail and period.
   const reserve = useCallback(
-    async (rect: Rect): Promise<ReserveResult> => {
+    async (rect: Rect, turnstile?: string | null): Promise<ReserveResult> => {
       const texts = order?.content
         ? { title: order.content.title, url: order.content.url, displayName: order.content.displayName }
         : null;
       try {
-        await api("/api/holds", { method: "POST", body: JSON.stringify({ ...rect, locale }) });
+        await api("/api/holds", { method: "POST", body: JSON.stringify({ ...rect, locale, turnstile }) });
         const fresh = await loadOrder();
         if (!fresh) return { ok: false, error: "error" };
         setCarried((c) => (fresh.content ? null : (texts ?? c)));

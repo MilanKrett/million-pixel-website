@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { useFormatter, useLocale, useTranslations } from "use-intl/react";
+import { Turnstile } from "@/components/site/Turnstile";
 import { Wall, type SelectOptions } from "@/components/wall/Wall";
 import { pixelRange, type Rect } from "@/lib/geometry";
 import { formatMoney } from "@/lib/money";
@@ -16,7 +17,7 @@ interface Props {
   config: RentConfig;
   selection: Rect | null;
   onSelection: (rect: Rect | null) => void;
-  onReserve: (rect: Rect) => Promise<ReserveResult>;
+  onReserve: (rect: Rect, turnstile?: string | null) => Promise<ReserveResult>;
   /** The current reservation while choosing a new place ("Change place"). */
   own?: Rect | null;
   /** Go back to the order keeping the current place. */
@@ -37,6 +38,10 @@ export function SelectStep({ snapshot, config, selection, onSelection, onReserve
   const [spotsBusy, setSpotsBusy] = useState(false);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  // Bot check only when a new order starts (not when moving one's own reservation).
+  const captchaKey = own ? null : config.turnstileSiteKey;
+  const [captcha, setCaptcha] = useState<string | null>(null);
+  const [captchaReset, setCaptchaReset] = useState(0);
   const [findSize, setFindSize] = useState({ w: selection ? selection.w * block : 50, h: selection ? selection.h * block : 50 });
 
   const suggestions = useMemo(() => (spots ? [...spots.nearest, ...spots.random] : []), [spots]);
@@ -60,7 +65,8 @@ export function SelectStep({ snapshot, config, selection, onSelection, onReserve
   const blocks = selection ? selection.w * selection.h : 0;
   const tooSmall = selection !== null && blocks < config.minBlocks;
   const tooLarge = selection !== null && config.maxBlocks !== null && blocks > config.maxBlocks;
-  const canContinue = selection !== null && conflicts === 0 && !tooSmall && !tooLarge && !busy && !config.salesPaused;
+  const canContinue =
+    selection !== null && conflicts === 0 && !tooSmall && !tooLarge && !busy && !config.salesPaused && (captchaKey === null || captcha !== null);
 
   const choose = (r: Rect) => {
     onSelection(r);
@@ -94,8 +100,9 @@ export function SelectStep({ snapshot, config, selection, onSelection, onReserve
     if (!selection || !canContinue) return;
     setBusy(true);
     setError(null);
-    const result = await onReserve(selection);
+    const result = await onReserve(selection, captcha);
     setBusy(false);
+    setCaptchaReset((k) => k + 1);
     if (!result.ok) {
       setError(result.error);
       if (result.suggestions) setSpots({ nearest: result.suggestions, random: [] });
@@ -177,6 +184,7 @@ export function SelectStep({ snapshot, config, selection, onSelection, onReserve
             </p>
           )}
 
+          {!keeping && <Turnstile siteKey={captchaKey} onToken={setCaptcha} resetKey={captchaReset} />}
           <p>
             {keeping ? (
               <button type="button" className="btn btn-rent" onClick={onKeep}>

@@ -2,7 +2,7 @@ import { randomUUID } from "node:crypto";
 import type { NextRequest } from "next/server";
 import { db } from "@/lib/db";
 import { jsonError, noStoreJson } from "@/lib/http";
-import { authorizeOrder } from "@/lib/orders/request";
+import { authorizeRental } from "@/lib/orders/request";
 import { loadSettings } from "@/lib/settings/load";
 import { storage } from "@/lib/storage";
 
@@ -16,7 +16,7 @@ const TYPES: Record<string, "png" | "jpeg" | "webp" | "gif"> = {
 /** Permission to upload one original picture straight to storage (step 3, "Upload"). */
 export async function POST(request: NextRequest, ctx: RouteContext<"/api/rentals/[id]/upload-url">) {
   const { id } = await ctx.params;
-  const auth = await authorizeOrder(request, id, { mutate: true, editable: true });
+  const auth = await authorizeRental(request, id, { mutate: true, editable: true, staff: true });
   if ("error" in auth) return auth.error;
 
   const body = (await request.json().catch(() => ({}))) as { contentType?: string; size?: number };

@@ -1242,3 +1242,289 @@ input[type="color"] {
   flex: none;
   align-self: flex-start;
 }
+
+/* ------------------------------------------------------------ accounts */
+
+.inline-form {
+  display: inline;
+}
+
+.turnstile {
+  margin: 6px 0 10px;
+}
+
+.quote {
+  margin: 4px 0;
+  padding: 4px 8px;
+  border-left: 3px solid var(--border-strong);
+  background: #f6f6f6;
+  white-space: pre-wrap;
+}
+
+.pre-wrap {
+  white-space: pre-wrap;
+}
+
+.break {
+  word-break: break-all;
+}
+
+.mine-account-bar {
+  margin: 0 0 12px;
+}
+
+.mine-card {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 0 0 14px;
+  padding: 10px;
+  border: 1px solid var(--border);
+}
+
+.mine-preview {
+  flex: none;
+}
+
+.mine-body {
+  flex: 1 1 300px;
+  min-width: 0;
+}
+
+.mine-body h2 {
+  margin-top: 0;
+}
+
+.mine-actions .btn {
+  margin: 0 4px 4px 0;
+}
+
+.mine-transfer {
+  max-width: 420px;
+}
+
+.mine-delete {
+  margin: 20px 0 0;
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+}
+
+.report-form textarea,
+.report-form select {
+  max-width: 100%;
+}
+
+.receipt-table th {
+  width: 30%;
+}
+
+@media print {
+  .site-header,
+  .site-nav,
+  .site-footer,
+  .mobile-rent,
+  .skip-link,
+  .no-print {
+    display: none !important;
+  }
+}
+
+/* ------------------------------------------------------------ admin */
+
+.admin-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 4px 12px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.admin-logo {
+  color: var(--text);
+  font-size: 17px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.admin-nav {
+  padding: 6px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.admin-main {
+  padding: 10px 0 30px;
+}
+
+.admin-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.admin-grid caption {
+  text-align: left;
+  font-weight: bold;
+  padding: 0 0 4px;
+}
+
+.admin-table {
+  width: 100%;
+}
+
+.admin-item {
+  margin: 0 0 12px;
+}
+
+.admin-item.is-focused {
+  border-color: #1971c2;
+  border-left: 4px solid #1971c2;
+}
+
+.admin-item.is-urgent {
+  border-color: #e03131;
+}
+
+.admin-previews {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.admin-previews figure {
+  margin: 0;
+}
+
+.admin-info {
+  flex: 1 1 360px;
+  min-width: 0;
+}
+
+.admin-actions .btn {
+  margin: 0 6px 6px 0;
+}
+
+kbd {
+  display: inline-block;
+  padding: 0 3px;
+  border: 1px solid var(--border-strong);
+  font: 10px Verdana, Tahoma, Arial, sans-serif;
+  background: #ffffff;
+  color: #333333;
+}
+
+.decision-form {
+  margin: 8px 0;
+  padding: 8px 10px;
+  border: 1px solid var(--border-strong);
+  background: #fafafa;
+  max-width: 520px;
+}
+
+.decision-form textarea,
+.decision-form select {
+  width: 100%;
+}
+
+.checks {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.in-wall-preview {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border: 1px solid var(--border);
+  image-rendering: pixelated;
+}
+
+.admin-actions-box {
+  margin: 10px 0;
+}
+
+.admin-editor {
+  margin: 10px 0;
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+}
+
+.admin-tabs {
+  line-height: 1.8;
+}
+
+.admin-email {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 16px;
+}
+
+.email-texts textarea {
+  width: 100%;
+  font: 12px Verdana, Tahoma, Arial, sans-serif;
+}
+
+.email-text-field {
+  margin: 0 0 10px;
+}
+
+.email-preview {
+  width: 100%;
+  height: 560px;
+  border: 1px solid var(--border-strong);
+  background: #ffffff;
+}
+
+.settings-group {
+  margin: 0 0 12px;
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+}
+
+.settings-group legend {
+  font-weight: bold;
+}
+
+.settings-form .field input[type="text"],
+.settings-form .field textarea {
+  max-width: 520px;
+}
+
+.inline-check {
+  margin-right: 10px;
+}
+
+.mfa-qr svg {
+  display: block;
+  width: 200px;
+  height: 200px;
+  border: 1px solid var(--border);
+}
+
+.mfa-secret {
+  font: 13px "Courier New", monospace;
+  word-break: break-all;
+}
+
+.mfa-code {
+  font: 18px "Courier New", monospace;
+  letter-spacing: 3px;
+  max-width: 220px;
+}
+
+.mfa-recovery {
+  padding: 8px;
+  border: 1px solid var(--border-strong);
+  background: #ffffff;
+  font: 14px "Courier New", monospace;
+}
+
+@media (max-width: 760px) {
+  .admin-email {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

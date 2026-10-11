@@ -144,7 +144,8 @@ export async function completeCheckout(
     `;
     await tx`
       update payments
-      set status = 'paid', paid_at = now(), invoice_number = ${invoice}, stripe_payment_intent_id = ${paid.paymentRef}
+      set status = 'paid', paid_at = now(), invoice_number = ${invoice}, stripe_payment_intent_id = ${paid.paymentRef},
+          buyer_email = (select email from rentals where id = ${rental.id})
       where id = ${payment.id}
     `;
     // The period is the one this payment was for: the order could have been
@@ -156,8 +157,14 @@ export async function completeCheckout(
       where id = ${rental.id}
     `;
     await tx`
-      update content_versions set status = 'pending'
+      update content_versions set status = 'pending', submitted_at = now()
       where id = (select id from content_versions where rental_id = ${rental.id} and status = 'draft' order by created_at desc limit 1)
+    `;
+    // A buyer who already has an account sees the rental in My pixels right away.
+    await tx`
+      update rentals r set user_id = u.id
+      from users u
+      where r.id = ${rental.id} and r.user_id is null and u.email = lower(r.email)
     `;
     await tx`
       insert into audit_log (action, target, details)
