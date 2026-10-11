@@ -261,7 +261,14 @@
         "nothing_to_refund": "Už nie je čo vrátiť.",
         "invalid_amount": "Suma nie je platná.",
         "error": "Niečo sa pokazilo. Obnov, prosím, stránku."
-      }
+      },
+      "kindNew": "nový prenájom",
+      "kindExtension": "predĺženie",
+      "notifyRenter": "Poslať nájomcovi e-mail",
+      "testTitle": "Testovanie (len na lokálnom počítači)",
+      "testHelp": "Posuň dátum konca a vyskúšaj pripomienky, ochrannú lehotu a uvoľnenie miesta. Potom v Nástrojoch stlač „Spustiť úlohy konca prenájmov“ (alebo počkaj najviac 15 minút).",
+      "endsAt": "Dátum a čas konca",
+      "setEnd": "Nastaviť koniec"
     },
     "reserve": {
       "title": "Rezervované miesta",
@@ -370,7 +377,13 @@
         "transferDone": "Prevod dokončený",
         "accountDeleted": "Účet zrušený",
         "staffInvite": "Prístup do administrácie",
-        "common": "Spoločné texty"
+        "common": "Spoločné texty",
+        "reminder": "Pripomienka konca",
+        "graceStarted": "Začiatok ochrannej lehoty",
+        "ended": "Koniec prenájmu",
+        "extended": "Platené predĺženie",
+        "extendedFree": "Predĺženie zadarmo",
+        "extensionRefunded": "Vrátené neskoré predĺženie"
       },
       "language": "Jazyk:",
       "preview": "Náhľad (vzorové údaje)",
@@ -420,7 +433,11 @@
         "last_admin": "Aspoň jeden administrátor musí ostať.",
         "self": "Svoj vlastný prístup si odobrať nemôžeš.",
         "error": "Niečo sa pokazilo."
-      }
+      },
+      "jobsTitle": "Koniec prenájmov",
+      "jobsHelp": "Každých 15 minút stránka posiela pripomienky (30, 7 a 1 deň pred koncom), presúva skončené prenájmy do ochrannej lehoty a po nej uvoľňuje miesto. Spustiť to môžeš aj hneď:",
+      "jobsButton": "Spustiť úlohy konca prenájmov",
+      "jobsDone": "Hotovo: {reminded} pripomienok, {graced} prenájmov v ochrannej lehote, {ended} ukončených prenájmov."
     },
     "paymentStatus": {
       "pending": "platba začatá",

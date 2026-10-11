@@ -166,3 +166,30 @@ async function loadTile(path: string): Promise<Raster | null> {
     return null;
   }
 }
+
+/**
+ * Old wall images are deleted, except the 20 newest, everything from the
+ * last two hours (pages cached for up to an hour may still show them) and
+ * the last image of every day (daily snapshots, e.g. for a time-lapse later).
+ */
+export async function pruneWallVersions(sql: Sql): Promise<number> {
+  const old = await sql<{ id: number }[]>`
+    select v.id from wall_versions v
+    where v.image_path <> ''
+      and v.created_at < now() - interval '2 hours'
+      and v.id < (select max(id) from wall_versions) - 20
+      and v.id not in (
+        select max(id) from wall_versions where image_path <> ''
+        group by (created_at at time zone 'Europe/Bratislava')::date
+      )
+    order by v.id
+    limit 500
+  `;
+  if (!old.length) return 0;
+  await storage().remove(
+    "wall",
+    old.flatMap((v) => [wallImagePath(v.id, "png"), wallImagePath(v.id, "webp")]),
+  );
+  await sql`delete from wall_versions where id in ${sql(old.map((v) => v.id))}`;
+  return old.length;
+}

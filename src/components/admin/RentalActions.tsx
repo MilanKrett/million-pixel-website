@@ -16,6 +16,8 @@ export function RentalActions({
   isReserved,
   refundableCents,
   currency,
+  endsAt,
+  testTools,
 }: {
   rentalId: string;
   status: string;
@@ -23,6 +25,10 @@ export function RentalActions({
   isReserved: boolean;
   refundableCents: number;
   currency: string;
+  /** Current end (ISO), for the testing tool. */
+  endsAt: string | null;
+  /** Local computer only: move the end date to try reminders and the grace period. */
+  testTools: boolean;
 }) {
   const t = useTranslations("admin.rental");
   const [open, setOpen] = useState<Open>(null);
@@ -31,6 +37,8 @@ export function RentalActions({
   const [days, setDays] = useState("30");
   const [amount, setAmount] = useState("");
   const [endRental, setEndRental] = useState(false);
+  const [notifyRenter, setNotifyRenter] = useState(true);
+  const [testEnd, setTestEnd] = useState(() => (endsAt ? toLocalInput(new Date(endsAt)) : ""));
   const running = status === "active" || status === "grace";
 
   const run = async (body: Record<string, unknown>, confirmText?: string) => {
@@ -69,7 +77,7 @@ export function RentalActions({
           className="decision-form"
           onSubmit={(e) => {
             e.preventDefault();
-            run({ action: "extend", days: Number(days) });
+            run({ action: "extend", days: Number(days), notify: notifyRenter });
           }}
         >
           <b>{t("extendTitle")}</b>
@@ -77,6 +85,11 @@ export function RentalActions({
             {t("days")}
             <input type="number" min={1} max={3650} value={days} onChange={(e) => setDays(e.target.value)} />
           </label>
+          {!isReserved && (
+            <label className="check-line">
+              <input type="checkbox" checked={notifyRenter} onChange={(e) => setNotifyRenter(e.target.checked)} /> {t("notifyRenter")}
+            </label>
+          )}
           <p>
             <button type="submit" className="btn btn-rent" disabled={busy}>
               {t("extend")}
@@ -147,6 +160,33 @@ export function RentalActions({
           )}
         </p>
       )}
+      {testTools && running && (
+        <form
+          className="decision-form test-tools"
+          onSubmit={(e) => {
+            e.preventDefault();
+            if (testEnd) run({ action: "testEndsAt", endsAt: new Date(testEnd).toISOString() });
+          }}
+        >
+          <b>{t("testTitle")}</b>
+          <p className="small muted">{t("testHelp")}</p>
+          <label className="field">
+            {t("endsAt")}
+            <input type="datetime-local" value={testEnd} onChange={(e) => setTestEnd(e.target.value)} />
+          </label>
+          <p>
+            <button type="submit" className="btn" disabled={busy || !testEnd}>
+              {t("setEnd")}
+            </button>
+          </p>
+        </form>
+      )}
     </div>
   );
+}
+
+/** "2026-10-11T14:05" in the browser's time zone, for <input type="datetime-local">. */
+function toLocalInput(d: Date): string {
+  const pad = (n: number) => String(n).padStart(2, "0");
+  return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}T${pad(d.getHours())}:${pad(d.getMinutes())}`;
 }

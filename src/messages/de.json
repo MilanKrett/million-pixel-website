@@ -234,6 +234,39 @@
       "subject": "You can now use the administration of {site}",
       "intro": "You were given the role of {role, select, admin {administrator} other {moderator}}. Sign in with this e-mail address and set up two-factor login with an authenticator app.",
       "button": "Open the administration"
+    },
+    "extensionItem": "Extension of rental no. {no} ({w} × {h} px, {position}) by {years, plural, one {# year} other {# years}}",
+    "reminder": {
+      "subject": "Your pixels on {site} end in {days, plural, one {# day} other {# days}}",
+      "intro": "Your rental “{title}” at {position} ends on {date}.",
+      "extend": "You can extend it with one click. The new period continues from the current end date, so you do not lose a single day:",
+      "button": "Extend my rental",
+      "grace": "If you do not extend it, your content stays on the wall for {grace, plural, one {# more day} other {# more days}} after the end, and only you can still extend it. Then the space is released for others.",
+      "off": "You can turn these reminders off in My pixels:"
+    },
+    "graceStarted": {
+      "subject": "Your rental has ended — extend it by {until}",
+      "intro": "Your rental “{title}” at {position} ended on {date}.",
+      "keep": "Your content stays on the wall until {until}, and until then the space is reserved for you only. Extend now and the new period will continue from {date}:",
+      "after": "After {until} your content will be removed and the space will be free for others."
+    },
+    "ended": {
+      "subject": "Your pixels have left the wall",
+      "intro": "The grace period of your rental “{title}” at {position} is over. We removed your content from the wall and the space is free again.",
+      "thanks": "Thank you for being part of {site}! If the space is still free, you can rent it again — or choose a new one:",
+      "button": "Rent pixels"
+    },
+    "extended": {
+      "subject": "Thank you — your rental now runs until {until}",
+      "intro": "We received your payment of {amount}. Your rental “{title}” at {position} is extended by {years, plural, one {# year} other {# years}} and now runs until {until}."
+    },
+    "extendedFree": {
+      "subject": "We extended your rental for free",
+      "intro": "We extended your rental “{title}” at {position} free of charge by {days, plural, one {# day} other {# days}}. It now runs until {until}."
+    },
+    "extensionRefunded": {
+      "subject": "We are sorry — your extension payment was refunded",
+      "intro": "Your payment of {amount} for extending “{title}” at {position} arrived after the rental had already ended, so we could not extend it. We have refunded the whole amount."
     }
   },
   "rent": {
@@ -482,7 +515,8 @@
     "pay": "Pay {amount} (test)",
     "cancel": "Cancel and go back",
     "expire": "Let the payment session expire",
-    "back": "Back to renting"
+    "back": "Back to renting",
+    "extension": "Extension of rental no. {no}"
   },
   "devEmails": {
     "title": "E-mails (development)",
@@ -618,7 +652,9 @@
       "error": "Something went wrong. Please try again."
     },
     "lastVersion": "Your last version (not approved)",
-    "pictureHelpRejected": "Make a new picture, or keep the last one and change only what the moderator asked for in the texts below."
+    "pictureHelpRejected": "Make a new picture, or keep the last one and change only what the moderator asked for in the texts below.",
+    "extend": "Extend",
+    "graceUntil": "in the grace period until {date}"
   },
   "receipt": {
     "title": "Receipt",
@@ -634,7 +670,8 @@
     "vatIncluded": "The price includes VAT {rate} %: {vat}",
     "notVatPayer": "The seller is not a VAT payer.",
     "refunded": "Refunded",
-    "print": "Print or save as PDF"
+    "print": "Print or save as PDF",
+    "itemExtension": "Extension of the rental of a {w} × {h} px area on the wall (x {x0}–{x1}, y {y0}–{y1}, rental no. {no}) by {years, plural, one {# year} other {# years}}"
   },
   "transfer": {
     "title": "Accept a spot on the wall",
@@ -670,6 +707,47 @@
       "email_invalid": "Please enter a valid e-mail address or leave it empty.",
       "rate_limited": "Too many reports from your connection. Please try again later.",
       "captcha": "Please confirm that you are not a robot and try again.",
+      "error": "Something went wrong. Please try again."
+    }
+  },
+  "emailSample": {
+    "title": "Jane’s Bakery",
+    "note": "The logo belongs to another company."
+  },
+  "extend": {
+    "title": "Extend a rental",
+    "intro": "The new period continues from the current end date, so you do not lose a single day.",
+    "rental": "Rental no. {no}",
+    "validUntil": "Valid until {date}.",
+    "inGrace": "The rental ended on {date}. Your content stays on the wall until {until}, and until then only you can extend it.",
+    "choose": "Extend by",
+    "option": "{years, plural, one {# year} other {# years}}",
+    "discount": "{discount} % discount",
+    "newEnd": "new end: {date}",
+    "terms": "I agree to the <terms>terms of service</terms> and the <rules>content rules</rules>.",
+    "waiver": "I want the extension to take effect right after the payment and I understand that I then lose the right to withdraw from this purchase.",
+    "pay": "Pay {amount} and extend",
+    "redirecting": "Opening the payment…",
+    "paidTitle": "Thank you!",
+    "paid": "Your rental now runs until {date}. We sent the receipt to your e-mail.",
+    "processing": "We are waiting for the confirmation of your payment. It usually takes a few seconds — reload this page in a moment. You will also get an e-mail.",
+    "invalidLink": "This link is not valid. Sign in to My pixels to extend your rental.",
+    "signIn": "Sign in to My pixels",
+    "blocked": {
+      "hidden": "This rental is hidden while we look into a report, so it cannot be extended right now. Please contact us.",
+      "reserved": "This place is reserved by the site operator and cannot be extended here.",
+      "not_extendable": "This rental can no longer be extended.",
+      "sales_paused": "Extensions are paused for a short maintenance. Please try again later."
+    },
+    "rentAgain": "Rent this place again",
+    "errors": {
+      "consent_required": "Please confirm both consents.",
+      "invalid_period": "Choose how long to extend.",
+      "not_found": "This rental no longer exists.",
+      "hidden": "This rental is hidden while we look into a report, so it cannot be extended right now.",
+      "reserved": "This place cannot be extended here.",
+      "not_extendable": "This rental can no longer be extended.",
+      "sales_paused": "Extensions are paused for a short maintenance. Please try again later.",
       "error": "Something went wrong. Please try again."
     }
   }

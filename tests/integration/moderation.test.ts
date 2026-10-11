@@ -123,12 +123,12 @@ describe("rejecting new rentals", () => {
     const rental = await paidRental({ x: 25, y: 20, w: 1, h: 1 });
     await db()`update rentals set user_id = ${jana.id} where id = ${rental.id}`;
     await rejectContent(db(), await settings(), (await pending(rental.id))!, actor, { ...decision, mode: "changes" });
-    expect((await listMyRentals(db(), jana.id))[0]!.decision?.status).toBe("changes_requested");
+    expect((await listMyRentals(db(), jana.id, 14))[0]!.decision?.status).toBe("changes_requested");
     const resent = await submitContentChange(db(), rental.id, { contentId: null, title: "Opravený názov", url: "", displayName: "" }, actor);
     if (!resent.ok) throw new Error(resent.reason);
-    expect((await listMyRentals(db(), jana.id))[0]!.decision).toBeNull();
+    expect((await listMyRentals(db(), jana.id, 14))[0]!.decision).toBeNull();
     await approveContent(db(), resent.contentId, actor);
-    const [mine] = await listMyRentals(db(), jana.id);
+    const [mine] = await listMyRentals(db(), jana.id, 14);
     expect(mine).toMatchObject({ status: "active", decision: null, declined: null });
     expect(mine!.current?.title).toBe("Opravený názov");
   });

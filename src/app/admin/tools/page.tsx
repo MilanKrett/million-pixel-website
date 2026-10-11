@@ -1,6 +1,6 @@
 import { Suspense } from "react";
 import { AdminShell } from "@/components/admin/AdminShell";
-import { RolesForm, StaffRow, WallRebuild } from "@/components/admin/ToolsActions";
+import { RolesForm, RunLifecycle, StaffRow, WallRebuild } from "@/components/admin/ToolsActions";
 import { listAudit, listStaff } from "@/lib/admin/manage";
 import { adminFormat, adminT } from "@/lib/admin/t";
 import { requireStaffPage } from "@/lib/auth/current";
@@ -29,6 +29,9 @@ async function Tools() {
       <h2>{t("tools.wallTitle")}</h2>
       <p>{t("tools.wallHelp")}</p>
       <WallRebuild />
+      <h2>{t("tools.jobsTitle")}</h2>
+      <p>{t("tools.jobsHelp")}</p>
+      <RunLifecycle />
 
       <h2>{t("tools.exportTitle")}</h2>
       <p>

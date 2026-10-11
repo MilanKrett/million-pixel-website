@@ -234,6 +234,39 @@
       "subject": "Máš prístup do administrácie {site}",
       "intro": "Bola ti pridelená rola {role, select, admin {administrátor} other {moderátor}}. Prihlás sa touto e-mailovou adresou a nastav si dvojfaktorové prihlásenie aplikáciou na overovanie.",
       "button": "Otvoriť administráciu"
+    },
+    "extensionItem": "Predĺženie prenájmu č. {no} ({w} × {h} px, {position}) o {years, plural, one {# rok} few {# roky} other {# rokov}}",
+    "reminder": {
+      "subject": "Tvoje pixely na {site} končia o {days, plural, one {# deň} few {# dni} other {# dní}}",
+      "intro": "Tvoj prenájom „{title}“ na mieste {position} končí {date}.",
+      "extend": "Predĺžiť ho môžeš jedným klikom. Nová doba nadviaže na terajší koniec, takže neprídeš ani o jeden deň:",
+      "button": "Predĺžiť prenájom",
+      "grace": "Ak ho nepredĺžiš, tvoj obsah ostane na stene ešte {grace, plural, one {# deň} few {# dni} other {# dní}} po skončení a predĺžiť ho budeš môcť len ty. Potom sa miesto uvoľní pre ostatných.",
+      "off": "Tieto pripomienky si môžeš vypnúť v sekcii Moje pixely:"
+    },
+    "graceStarted": {
+      "subject": "Tvoj prenájom skončil — predĺž ho do {until}",
+      "intro": "Tvoj prenájom „{title}“ na mieste {position} skončil {date}.",
+      "keep": "Obsah ostáva na stene do {until} a dovtedy je miesto rezervované len pre teba. Predĺž ho teraz a nová doba nadviaže na {date}:",
+      "after": "Po {until} tvoj obsah zo steny zmizne a miesto sa uvoľní pre ostatných."
+    },
+    "ended": {
+      "subject": "Tvoje pixely zmizli zo steny",
+      "intro": "Ochranná lehota tvojho prenájmu „{title}“ na mieste {position} uplynula. Obsah sme zo steny odstránili a miesto je opäť voľné.",
+      "thanks": "Ďakujeme, že tvoje pixely boli súčasťou {site}! Ak je miesto ešte voľné, môžeš si ho prenajať znova — alebo si vyber nové:",
+      "button": "Prenajať pixely"
+    },
+    "extended": {
+      "subject": "Ďakujeme — prenájom teraz platí do {until}",
+      "intro": "Prijali sme tvoju platbu {amount}. Prenájom „{title}“ na mieste {position} sme predĺžili o {years, plural, one {# rok} few {# roky} other {# rokov}} a teraz platí do {until}."
+    },
+    "extendedFree": {
+      "subject": "Tvoj prenájom sme zadarmo predĺžili",
+      "intro": "Tvoj prenájom „{title}“ na mieste {position} sme bezplatne predĺžili o {days, plural, one {# deň} few {# dni} other {# dní}}. Teraz platí do {until}."
+    },
+    "extensionRefunded": {
+      "subject": "Prepáč — platbu za predĺženie sme vrátili",
+      "intro": "Tvoja platba {amount} za predĺženie „{title}“ na mieste {position} prišla až po skončení prenájmu, preto sme ho nemohli predĺžiť. Celú sumu sme ti vrátili."
     }
   },
   "rent": {
@@ -482,7 +515,8 @@
     "pay": "Zaplatiť {amount} (test)",
     "cancel": "Zrušiť a vrátiť sa",
     "expire": "Nechať platbu vypršať",
-    "back": "Späť na prenájom"
+    "back": "Späť na prenájom",
+    "extension": "Predĺženie prenájmu č. {no}"
   },
   "devEmails": {
     "title": "E-maily (vývoj)",
@@ -618,7 +652,9 @@
       "error": "Niečo sa pokazilo. Skús to, prosím, znova."
     },
     "lastVersion": "Tvoja posledná verzia (neschválená)",
-    "pictureHelpRejected": "Vytvor nový obrázok, alebo ponechaj posledný a uprav len to, o čo moderátor požiadal v textoch nižšie."
+    "pictureHelpRejected": "Vytvor nový obrázok, alebo ponechaj posledný a uprav len to, o čo moderátor požiadal v textoch nižšie.",
+    "extend": "Predĺžiť",
+    "graceUntil": "v ochrannej lehote do {date}"
   },
   "receipt": {
     "title": "Doklad",
@@ -634,7 +670,8 @@
     "vatIncluded": "Cena obsahuje DPH {rate} %: {vat}",
     "notVatPayer": "Predávajúci nie je platiteľ DPH.",
     "refunded": "Vrátené",
-    "print": "Vytlačiť alebo uložiť ako PDF"
+    "print": "Vytlačiť alebo uložiť ako PDF",
+    "itemExtension": "Predĺženie prenájmu plochy {w} × {h} px na stene (x {x0}–{x1}, y {y0}–{y1}, prenájom č. {no}) o {years, plural, one {# rok} few {# roky} other {# rokov}}"
   },
   "transfer": {
     "title": "Prijatie miesta na stene",
@@ -670,6 +707,47 @@
       "email_invalid": "Zadaj platnú e-mailovú adresu alebo nechaj pole prázdne.",
       "rate_limited": "Z tvojho pripojenia prišlo priveľa nahlásení. Skús to, prosím, neskôr.",
       "captcha": "Potvrď, prosím, že nie si robot, a skús to znova.",
+      "error": "Niečo sa pokazilo. Skús to, prosím, znova."
+    }
+  },
+  "emailSample": {
+    "title": "Pekáreň u Jany",
+    "note": "Logo patrí inej firme."
+  },
+  "extend": {
+    "title": "Predĺženie prenájmu",
+    "intro": "Nová doba nadviaže na terajší koniec prenájmu, takže neprídeš ani o jeden deň.",
+    "rental": "Prenájom č. {no}",
+    "validUntil": "Platí do {date}.",
+    "inGrace": "Prenájom skončil {date}. Obsah ostáva na stene do {until} a dovtedy ho môžeš predĺžiť len ty.",
+    "choose": "Predĺžiť o",
+    "option": "{years, plural, one {# rok} few {# roky} other {# rokov}}",
+    "discount": "zľava {discount} %",
+    "newEnd": "nový koniec: {date}",
+    "terms": "Súhlasím s <terms>obchodnými podmienkami</terms> a <rules>pravidlami obsahu</rules>.",
+    "waiver": "Chcem, aby predĺženie platilo hneď po zaplatení, a beriem na vedomie, že tým strácam právo od tohto nákupu odstúpiť.",
+    "pay": "Zaplatiť {amount} a predĺžiť",
+    "redirecting": "Otváram platbu…",
+    "paidTitle": "Ďakujeme!",
+    "paid": "Prenájom teraz platí do {date}. Doklad sme ti poslali e-mailom.",
+    "processing": "Čakáme na potvrdenie platby. Zvyčajne to trvá pár sekúnd — o chvíľu stránku obnov. Príde ti aj e-mail.",
+    "invalidLink": "Tento odkaz nie je platný. Prenájom predĺžiš po prihlásení v sekcii Moje pixely.",
+    "signIn": "Prihlásiť sa do Mojich pixelov",
+    "blocked": {
+      "hidden": "Tento prenájom je skrytý, kým preverujeme nahlásenie, preto ho teraz nejde predĺžiť. Napíš nám, prosím.",
+      "reserved": "Toto miesto vyhradil prevádzkovateľ stránky a tu sa nepredlžuje.",
+      "not_extendable": "Tento prenájom už nejde predĺžiť.",
+      "sales_paused": "Predlžovanie je počas krátkej údržby pozastavené. Skús to, prosím, neskôr."
+    },
+    "rentAgain": "Prenajať si toto miesto znova",
+    "errors": {
+      "consent_required": "Potvrď, prosím, oba súhlasy.",
+      "invalid_period": "Vyber, o koľko predĺžiť.",
+      "not_found": "Tento prenájom už neexistuje.",
+      "hidden": "Tento prenájom je skrytý, kým preverujeme nahlásenie, preto ho teraz nejde predĺžiť.",
+      "reserved": "Toto miesto sa tu nepredlžuje.",
+      "not_extendable": "Tento prenájom už nejde predĺžiť.",
+      "sales_paused": "Predlžovanie je počas krátkej údržby pozastavené. Skús to, prosím, neskôr.",
       "error": "Niečo sa pokazilo. Skús to, prosím, znova."
     }
   }

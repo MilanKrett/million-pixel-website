@@ -145,6 +145,7 @@ function RentalCard({
               <th scope="row">{t("validity")}</th>
               <td>
                 {r.endsAt ? t("validUntil", { date: date(r.endsAt) }) : r.status === "in_review" || r.status === "rejected" ? t("startsAfterApproval") : "—"}
+                {r.status === "grace" && r.graceEndsAt && <b> · {t("graceUntil", { date: date(r.graceEndsAt) })}</b>}
               </td>
             </tr>
             {content?.url && (
@@ -176,6 +177,11 @@ function RentalCard({
           {EDITABLE.includes(r.status) && (
             <a className="btn" href={localePath(locale, `/my-pixels/${r.no}`)}>
               {r.status === "rejected" ? t("sendNew") : t("change")}
+            </a>
+          )}{" "}
+          {(r.status === "active" || r.status === "grace") && !r.hidden && (
+            <a className={r.status === "grace" ? "btn btn-rent" : "btn"} href={localePath(locale, `/extend/${r.no}`)}>
+              {t("extend")}
             </a>
           )}{" "}
           {r.status === "active" || r.status === "grace" ? (

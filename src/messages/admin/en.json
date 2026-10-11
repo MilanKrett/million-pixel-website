@@ -261,7 +261,14 @@
         "nothing_to_refund": "There is nothing left to refund.",
         "invalid_amount": "The amount is not valid.",
         "error": "Something went wrong. Please reload the page."
-      }
+      },
+      "kindNew": "new rental",
+      "kindExtension": "extension",
+      "notifyRenter": "Send the renter an e-mail",
+      "testTitle": "Testing (local computer only)",
+      "testHelp": "Move the end date to try the reminders, the grace period and the release, then press “Run the end-of-rental jobs now” in Tools (or wait up to 15 minutes).",
+      "endsAt": "End date and time",
+      "setEnd": "Set the end date"
     },
     "reserve": {
       "title": "Reserved places",
@@ -370,7 +377,13 @@
         "transferDone": "Transfer done",
         "accountDeleted": "Account deleted",
         "staffInvite": "Admin access",
-        "common": "Common texts"
+        "common": "Common texts",
+        "reminder": "End reminder",
+        "graceStarted": "Grace period started",
+        "ended": "Rental ended",
+        "extended": "Paid extension",
+        "extendedFree": "Free extension",
+        "extensionRefunded": "Late extension refunded"
       },
       "language": "Language:",
       "preview": "Preview (sample data)",
@@ -420,7 +433,11 @@
         "last_admin": "At least one administrator must remain.",
         "self": "You cannot take your own access away.",
         "error": "Something went wrong."
-      }
+      },
+      "jobsTitle": "End of rentals",
+      "jobsHelp": "Every 15 minutes the site sends the reminders (30, 7 and 1 day before the end), moves ended rentals into the grace period and releases the place after it. You can run it right now:",
+      "jobsButton": "Run the end-of-rental jobs now",
+      "jobsDone": "Done: {reminded} reminders sent, {graced} rentals moved to the grace period, {ended} rentals ended."
     },
     "paymentStatus": {
       "pending": "payment started",

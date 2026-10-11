@@ -6,18 +6,26 @@ import {
   approvedEmail,
   changeApprovedEmail,
   changeRejectedEmail,
+  endedEmail,
+  extendedEmail,
+  extendedFreeEmail,
+  extensionRefundedEmail,
+  graceStartedEmail,
   hiddenEmail,
   lateRefundEmail,
   orderPaidEmail,
   refundedEmail,
   rejectedEmail,
+  reminderEmail,
   removedEmail,
+  siteUrl,
   type BuiltEmail,
   type EmailEnv,
   type ReasonCode,
   type RefundCause,
   type RentalEmailData,
 } from "@/lib/email/templates";
+import { extensionPath } from "./extension";
 
 /** E-mails about a rental. Failures are logged, never thrown at the caller. */
 
@@ -97,3 +105,44 @@ export const notifyHidden = (sql: Sql, rentalId: string, d: Decision) =>
 
 export const notifyRemoved = (sql: Sql, rentalId: string, d: Decision) =>
   notify(sql, rentalId, "removed", (env, data) => removedEmail(env, { ...data, ...d }));
+
+// ---------------------------------------------------------------------------
+// End of a rental and extensions
+// ---------------------------------------------------------------------------
+
+function extendUrl(data: RentalEmailData, rentalId: string): string {
+  return `${siteUrl()}${extensionPath(data.locale, data.no ?? 0, rentalId)}`;
+}
+
+export const notifyReminder = (sql: Sql, rentalId: string, days: number) =>
+  notify(sql, rentalId, "reminder", (env, data) => reminderEmail(env, { ...data, days, extendUrl: extendUrl(data, rentalId) }));
+
+export const notifyGraceStarted = (sql: Sql, rentalId: string, graceUntil: Date) =>
+  notify(sql, rentalId, "grace_started", (env, data) => graceStartedEmail(env, { ...data, graceUntil, extendUrl: extendUrl(data, rentalId) }));
+
+export const notifyEnded = (sql: Sql, rentalId: string) => notify(sql, rentalId, "ended", endedEmail);
+
+export const notifyExtendedFree = (sql: Sql, rentalId: string, days: number) =>
+  notify(sql, rentalId, "extended_free", (env, data) => extendedFreeEmail(env, { ...data, days }));
+
+/** The amounts of one extension payment instead of the original order's. */
+async function extensionPayment(sql: Sql, sessionId: string) {
+  const [p] = await sql<{ amount_cents: number; invoice_number: string | null; paid_at: Date | null; period_years: number }[]>`
+    select amount_cents, invoice_number, paid_at, period_years from payments where stripe_session_id = ${sessionId}
+  `;
+  return p ?? null;
+}
+
+export async function notifyExtended(sql: Sql, rentalId: string, sessionId: string): Promise<void> {
+  const p = await extensionPayment(sql, sessionId).catch(() => null);
+  if (!p) return;
+  await notify(sql, rentalId, "extended", (env, data) =>
+    extendedEmail(env, { ...data, amountCents: p.amount_cents, invoiceNumber: p.invoice_number, paidAt: p.paid_at, years: p.period_years }),
+  );
+}
+
+export async function notifyExtensionRefunded(sql: Sql, rentalId: string, sessionId: string): Promise<void> {
+  const p = await extensionPayment(sql, sessionId).catch(() => null);
+  if (!p) return;
+  await notify(sql, rentalId, "extension_refunded", (env, data) => extensionRefundedEmail(env, { ...data, amountCents: p.amount_cents }));
+}

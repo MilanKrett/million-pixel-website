@@ -40,11 +40,16 @@ async function Checkout({ params }: { params: PageProps<"/[locale]/dev/checkout/
       w: number;
       h: number;
       period_years: number | null;
+      kind: "new" | "extension";
+      no: number;
       title: string | null;
     }[]
   >`
-    select p.amount_cents, p.currency, p.status, r.email, r.x, r.y, r.w, r.h, p.period_years,
-           (select title from content_versions c where c.rental_id = r.id order by created_at desc limit 1) as title
+    select p.amount_cents, p.currency, p.status, r.email, r.x, r.y, r.w, r.h, p.period_years, p.kind, r.no,
+           coalesce(
+             (select title from content_versions c where c.id = r.active_content_id),
+             (select title from content_versions c where c.rental_id = r.id order by created_at desc limit 1)
+           ) as title
     from payments p join rentals r on r.id = p.rental_id
     where p.stripe_session_id = ${session} and p.provider = 'dev'
   `;
@@ -68,6 +73,11 @@ async function Checkout({ params }: { params: PageProps<"/[locale]/dev/checkout/
           <tr>
             <th scope="row">{t("devCheckout.item")}</th>
             <td>
+              {payment.kind === "extension" && (
+                <>
+                  <b>{t("devCheckout.extension", { no: payment.no })}</b>:{" "}
+                </>
+              )}
               {payment.title} — {payment.w * settings.block_size_px} × {payment.h * settings.block_size_px} px (x {range.x0}–{range.x1}, y{" "}
               {range.y0}–{range.y1})
             </td>
@@ -96,18 +106,21 @@ async function Checkout({ params }: { params: PageProps<"/[locale]/dev/checkout/
         <div className="dev-actions">
           <form method="post" action={action}>
             <input type="hidden" name="action" value="pay" />
+            <input type="hidden" name="locale" value={locale} />
             <button type="submit" className="btn btn-rent btn-big">
               {t("devCheckout.pay", { amount })}
             </button>
           </form>
           <form method="post" action={action}>
             <input type="hidden" name="action" value="cancel" />
+            <input type="hidden" name="locale" value={locale} />
             <button type="submit" className="btn">
               {t("devCheckout.cancel")}
             </button>
           </form>
           <form method="post" action={action}>
             <input type="hidden" name="action" value="expire" />
+            <input type="hidden" name="locale" value={locale} />
             <button type="submit" className="btn">
               {t("devCheckout.expire")}
             </button>

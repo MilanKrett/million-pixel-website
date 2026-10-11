@@ -7,15 +7,17 @@ import { db } from "@/lib/db";
 import { isReasonCode } from "@/lib/email/reasons";
 import { jsonError, noStoreJson } from "@/lib/http";
 import { approveContent, extendRental, hideRental, removeRental, unhideRental } from "@/lib/moderation/decide";
-import { notifyHidden, notifyRefunded, notifyRemoved } from "@/lib/orders/notify";
+import { notifyExtendedFree, notifyHidden, notifyRefunded, notifyRemoved } from "@/lib/orders/notify";
 import { loadRental } from "@/lib/orders/order";
+import { isDevPaymentsAllowed } from "@/lib/payments/provider";
 import { refundRental } from "@/lib/payments/refund";
 
 /**
  * Admin actions on a rental (admins only):
- *   hide / unhide / remove {reasonCode, note}, extend {days}, refund {amount?, endRental},
+ *   hide / unhide / remove {reasonCode, note}, extend {days, notify}, refund {amount?, endRental},
  *   publish {contentId?, title, url, displayName} (change the content on the renter's behalf, approved at once),
- *   endReserved (free a reserved place).
+ *   endReserved (free a reserved place),
+ *   testEndsAt {endsAt} (local computer only: move the end date to try the end of a rental).
  */
 export async function POST(request: NextRequest, ctx: RouteContext<"/api/admin/rentals/[id]">) {
   const auth = await requireStaffApi(request, "admin");
@@ -56,10 +58,32 @@ export async function POST(request: NextRequest, ctx: RouteContext<"/api/admin/r
       return noStoreJson({ ok: true });
     }
     case "extend": {
-      const endsAt = await extendRental(sql, id, actor, Number(body.days));
+      const days = Number(body.days);
+      const endsAt = await extendRental(sql, id, actor, days);
       if (!endsAt) return jsonError(409, "rental_state");
       await refreshWall();
+      if (body.notify !== false) after(() => notifyExtendedFree(db(), id, days));
       return noStoreJson({ ok: true, endsAt });
+    }
+    case "testEndsAt": {
+      // Never on the live site: this changes what renters paid for.
+      if (!isDevPaymentsAllowed()) return jsonError(404, "not_found");
+      const endsAt = typeof body.endsAt === "string" ? new Date(body.endsAt) : null;
+      if (!endsAt || Number.isNaN(endsAt.getTime())) return jsonError(400, "invalid");
+      const rows = await sql`
+        update rentals set ends_at = greatest(${endsAt}, starts_at + interval '1 minute'),
+                           status = case when status = 'grace' and ${endsAt} > now() then 'active' else status end
+        where id = ${id} and status in ('active', 'grace') returning id
+      `;
+      if (!rows.length) return jsonError(409, "rental_state");
+      // Forget earlier reminders, so they can be tried again right away.
+      await sql`delete from rental_reminders where rental_id = ${id}`;
+      await sql`
+        insert into audit_log (actor_id, action, target, details)
+        values (${actor.id}, 'rental.test_end_date', ${`rental:${id}`}, ${sql.json({ endsAt: endsAt.toISOString(), by: actor.label })})
+      `;
+      await refreshWall();
+      return noStoreJson({ ok: true });
     }
     case "refund": {
       const amountCents = body.amount === null || body.amount === undefined || body.amount === "" ? null : Math.round(Number(body.amount) * 100);

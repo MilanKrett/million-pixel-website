@@ -137,7 +137,7 @@ describe("giving a rental away", () => {
     const [done] = await mails("transfer_done");
     expect(done).toMatchObject({ to_email: "jana@example.com" });
     // The receipt stays with the person who paid.
-    expect(await listMyRentals(db(), jana.user.id)).toEqual([]);
+    expect(await listMyRentals(db(), jana.user.id, 14)).toEqual([]);
   });
 
   it("can be cancelled before it is accepted", async () => {
@@ -156,7 +156,7 @@ describe("My pixels and account deletion", () => {
     const rental = await activeRental({ x: 30, y: 30, w: 2, h: 2 });
     await db()`insert into click_stats (rental_id, day, clicks, opens) values (${rental.id}, current_date, 3, 7)`;
     const jana = await signIn("jana@example.com");
-    const [mine] = await listMyRentals(db(), jana.user.id);
+    const [mine] = await listMyRentals(db(), jana.user.id, 14);
     expect(mine).toMatchObject({ no: rental.no, status: "active", stats: { clicks: 3, opens: 7 } });
     expect(mine!.current?.title).toBe("Pekáreň u Jany");
     expect(mine!.payments).toHaveLength(1);

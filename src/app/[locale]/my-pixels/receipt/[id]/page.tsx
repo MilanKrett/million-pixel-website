@@ -57,7 +57,7 @@ async function Receipt({ params }: { params: PageProps<"/[locale]/my-pixels/rece
     [t("receipt.buyer"), p.buyer_email ?? session.user.email],
     [
       t("receipt.item"),
-      t("receipt.itemValue", {
+      t(p.kind === "extension" ? "receipt.itemExtension" : "receipt.itemValue", {
         w: p.w * block,
         h: p.h * block,
         x0: range.x0,

@@ -79,15 +79,20 @@ export async function startCheckout(
   });
 }
 
+/** Why a payment was sent back automatically ("too_late": an extension paid after the rental ended). */
+export type RefundReason = "space_taken" | "amount_mismatch" | "duplicate" | "too_late";
+
 export type CompleteResult =
   | { outcome: "paid"; rentalId: string; invoiceNumber: string }
-  | { outcome: "refunded"; rentalId: string; reason: "space_taken" | "amount_mismatch" | "duplicate" }
+  | { outcome: "extended"; rentalId: string; invoiceNumber: string; endsAt: Date }
+  | { outcome: "refunded"; rentalId: string; reason: RefundReason }
   | { outcome: "already_processed" | "unknown_session" };
 
 /**
- * The provider confirmed a payment. Normally the order moves to review. If the
- * reservation had already ended, the space is taken again when still free;
- * when someone else got it meanwhile, the whole amount is refunded.
+ * The provider confirmed a payment. Normally a new order moves to review and
+ * an extension moves the end date. If the reservation had already ended, the
+ * space is taken again when still free; when someone else got it meanwhile
+ * (or an extended rental had ended), the whole amount is refunded.
  */
 export async function completeCheckout(
   sql: Sql,
@@ -95,8 +100,8 @@ export async function completeCheckout(
   paid: { amountCents: number; paymentRef: string },
 ): Promise<CompleteResult> {
   const result = await sql.begin(async (tx): Promise<CompleteResult> => {
-    const [payment] = await tx<{ id: string; rental_id: string; status: string; amount_cents: number; period_years: number }[]>`
-      select id, rental_id, status, amount_cents, period_years from payments where stripe_session_id = ${sessionId} for update
+    const [payment] = await tx<{ id: string; rental_id: string; kind: "new" | "extension"; status: string; amount_cents: number; period_years: number }[]>`
+      select id, rental_id, kind, status, amount_cents, period_years from payments where stripe_session_id = ${sessionId} for update
     `;
     if (!payment) return { outcome: "unknown_session" };
     if (payment.status !== "pending" && payment.status !== "expired") return { outcome: "already_processed" };
@@ -105,7 +110,7 @@ export async function completeCheckout(
       select id, x, y, w, h, status from rentals where id = ${payment.rental_id} for update
     `;
 
-    const refund = async (reason: "space_taken" | "amount_mismatch" | "duplicate"): Promise<CompleteResult> => {
+    const refund = async (reason: RefundReason): Promise<CompleteResult> => {
       await tx`
         update payments
         set status = 'refunded', refunded_cents = ${paid.amountCents}, paid_at = now(), stripe_payment_intent_id = ${paid.paymentRef}
@@ -122,6 +127,39 @@ export async function completeCheckout(
     };
 
     if (paid.amountCents !== payment.amount_cents) return refund("amount_mismatch");
+
+    const nextInvoice = async () => {
+      const [{ invoice }] = await tx<{ invoice: string }[]>`
+        select to_char(now() at time zone 'Europe/Bratislava', 'YYYY') || '-' || lpad(nextval('invoice_seq')::text, 6, '0') as invoice
+      `;
+      return invoice;
+    };
+
+    if (payment.kind === "extension") {
+      // The new period continues from the current end, also during the grace
+      // period. A rental that ended meanwhile cannot be extended any more.
+      if (!["active", "grace"].includes(rental.status)) return refund("too_late");
+      const invoice = await nextInvoice();
+      await tx`
+        update payments
+        set status = 'paid', paid_at = now(), invoice_number = ${invoice}, stripe_payment_intent_id = ${paid.paymentRef},
+            buyer_email = (select email from rentals where id = ${rental.id})
+        where id = ${payment.id}
+      `;
+      const [{ ends_at }] = await tx<{ ends_at: Date }[]>`
+        update rentals
+        set ends_at = ends_at + make_interval(years => ${payment.period_years}), status = 'active'
+        where id = ${rental.id}
+        returning ends_at
+      `;
+      await tx`
+        insert into audit_log (action, target, details)
+        values ('rental.extended', ${`rental:${rental.id}`},
+                ${tx.json({ sessionId, amount: paid.amountCents, invoice, years: payment.period_years, endsAt: ends_at.toISOString() })})
+      `;
+      return { outcome: "extended", rentalId: rental.id, invoiceNumber: invoice, endsAt: ends_at };
+    }
+
     if (!["hold", "awaiting_payment", "expired"].includes(rental.status)) return refund("duplicate");
 
     if (rental.status === "expired") {
@@ -140,9 +178,7 @@ export async function completeCheckout(
       }
     }
 
-    const [{ invoice }] = await tx<{ invoice: string }[]>`
-      select to_char(now() at time zone 'Europe/Bratislava', 'YYYY') || '-' || lpad(nextval('invoice_seq')::text, 6, '0') as invoice
-    `;
+    const invoice = await nextInvoice();
     await tx`
       update payments
       set status = 'paid', paid_at = now(), invoice_number = ${invoice}, stripe_payment_intent_id = ${paid.paymentRef},
