@@ -137,7 +137,7 @@ describe("translations", () => {
     expect(localePath("sk", "/")).toBe("/sk");
     expect(localePath("sk", "/faq")).toBe("/sk/faq");
     expect(localePath("de", "/?x=1")).toBe("/de?x=1");
-    expect(localePath("en", "/rent?x=1")).toBe("/rent?x=1");
+    expect(localePath("en", "/buy?x=1")).toBe("/buy?x=1");
     expect(stripLocale("/sk/faq")).toBe("/faq");
     expect(stripLocale("/sk")).toBe("/");
     expect(stripLocale("/en/faq")).toBe("/faq");

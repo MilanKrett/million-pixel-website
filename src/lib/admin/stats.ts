@@ -10,7 +10,6 @@ export interface DashboardStats {
   pendingReview: number;
   overdueReview: number;
   openReports: number;
-  endingSoon: number;
   /** Orders started (places reserved) and paid in the last 30 days. */
   conversion: { started: number; paid: number };
 }
@@ -27,11 +26,10 @@ export async function dashboardStats(sql: Sql, settings: Settings): Promise<Dash
         coalesce(sum(amount_cents - refunded_cents), 0)::int as total
       from payments where status in ('paid', 'partially_refunded', 'refunded')
     `,
-    sql<{ blocks: number; active: number; ending: number }[]>`
+    sql<{ blocks: number; active: number }[]>`
       select
         coalesce(sum(w * h) filter (where status in ('in_review', 'rejected', 'active', 'grace')), 0)::int as blocks,
-        count(*) filter (where status in ('active', 'grace'))::int as active,
-        count(*) filter (where status = 'active' and ends_at < now() + interval '30 days')::int as ending
+        count(*) filter (where status in ('active', 'grace'))::int as active
       from rentals
     `,
     sql<{ pending: number; overdue: number }[]>`
@@ -53,7 +51,6 @@ export async function dashboardStats(sql: Sql, settings: Settings): Promise<Dash
     pendingReview: queue.pending,
     overdueReview: queue.overdue,
     openReports: reports.open,
-    endingSoon: rentals.ending,
     conversion,
   };
 }

@@ -12,10 +12,10 @@ export async function Header({ locale }: { locale: Locale }) {
   const slogan = settings.tagline[locale] || t("header.slogan");
   const announcement = settings.announcement[locale] || settings.announcement.en || "";
   const price =
-    settings.price_cents_per_pixel_year < 100
-      ? t("common.pricePerPixel", { cents: settings.price_cents_per_pixel_year })
+    settings.price_cents_per_pixel < 100
+      ? t("common.pricePerPixel", { cents: settings.price_cents_per_pixel })
       : t("common.pricePerPixelMoney", {
-          price: formatMoney(settings.price_cents_per_pixel_year, settings.currency, intlLocale(locale)),
+          price: formatMoney(settings.price_cents_per_pixel, settings.currency, intlLocale(locale)),
         });
 
   return (

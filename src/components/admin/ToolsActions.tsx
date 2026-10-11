@@ -5,40 +5,7 @@ import { useTranslations } from "use-intl/react";
 import { api, ApiError } from "@/components/rent/shared";
 
 async function tool(body: Record<string, unknown>) {
-  return api<{ ok: true; version?: number | null; ms?: number | null; reminded?: number; graced?: number; ended?: number }>("/api/admin/tools", {
-    method: "POST",
-    body: JSON.stringify(body),
-  });
-}
-
-/** Run the end-of-rental jobs now instead of waiting for the next scheduled run. */
-export function RunLifecycle() {
-  const t = useTranslations("admin.tools");
-  const [busy, setBusy] = useState(false);
-  const [result, setResult] = useState<string | null>(null);
-  return (
-    <p>
-      <button
-        type="button"
-        className="btn"
-        disabled={busy}
-        onClick={async () => {
-          setBusy(true);
-          try {
-            const r = await tool({ action: "lifecycle" });
-            setResult(t("jobsDone", { reminded: r.reminded ?? 0, graced: r.graced ?? 0, ended: r.ended ?? 0 }));
-          } catch {
-            setResult(t("failed"));
-          } finally {
-            setBusy(false);
-          }
-        }}
-      >
-        {t("jobsButton")}
-      </button>{" "}
-      {result && <span className="muted">{result}</span>}
-    </p>
-  );
+  return api<{ ok: true; version?: number | null; ms?: number | null }>("/api/admin/tools", { method: "POST", body: JSON.stringify(body) });
 }
 
 /** Rebuild the whole wall image from the tiles (normally only changed areas are redrawn). */

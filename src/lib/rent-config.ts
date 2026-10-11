@@ -9,9 +9,8 @@ export function rentConfig(settings: Settings): RentConfig {
   const grid = wallGrid(settings);
   const devMode = isDevPaymentsAllowed();
   return {
-    price_cents_per_pixel_year: settings.price_cents_per_pixel_year,
+    price_cents_per_pixel: settings.price_cents_per_pixel,
     block_size_px: settings.block_size_px,
-    periods: settings.periods,
     vat_payer: settings.vat_payer,
     vat_rate_pct: settings.vat_rate_pct,
     currency: settings.currency,

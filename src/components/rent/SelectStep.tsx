@@ -123,7 +123,7 @@ export function SelectStep({ snapshot, config, selection, onSelection, onReserve
 
       <Wall
         initial={snapshot}
-        blockPriceCents={Math.round(block * block * config.price_cents_per_pixel_year)}
+        blockPriceCents={Math.round(block * block * config.price_cents_per_pixel)}
         currency={config.currency}
         directLinkOpen={false}
         select={select}
@@ -155,15 +155,7 @@ export function SelectStep({ snapshot, config, selection, onSelection, onReserve
                   <tr>
                     <th scope="row">{t("price")}</th>
                     <td>
-                      {config.periods.map((p) => {
-                        const q = quote(config, selection.w, selection.h, p.years)!;
-                        return (
-                          <div key={p.years}>
-                            {t("pricePeriod", { years: p.years, price: money(q.totalCents) })}
-                            {q.discountPct > 0 && <span className="muted"> {t("discount", { pct: q.discountPct })}</span>}
-                          </div>
-                        );
-                      })}
+                      <b>{money(quote(config, selection.w, selection.h)!.totalCents)}</b> <span className="muted small">{t("priceOnce")}</span>
                     </td>
                   </tr>
                 </tbody>

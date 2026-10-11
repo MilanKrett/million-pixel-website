@@ -7,13 +7,9 @@ export interface MyRental {
   rect: { x: number; y: number; w: number; h: number };
   status: string;
   hidden: boolean;
-  periodYears: number | null;
+  /** First day on the wall. */
   startsAt: string | null;
-  endsAt: string | null;
-  /** End of the grace period (content leaves the wall then). */
-  graceEndsAt: string | null;
   reuploadUntil: string | null;
-  remindersEnabled: boolean;
   /** On the wall (or approved). */
   current: ContentInfo | null;
   /** Waiting for review. */
@@ -40,16 +36,14 @@ export interface ContentInfo {
 const VISIBLE = ["in_review", "active", "grace", "ended", "rejected", "removed", "refunded"];
 const iso = (d: Date | null) => (d ? d.toISOString() : null);
 
-export async function listMyRentals(sql: Sql, userId: string, graceDays: number): Promise<MyRental[]> {
+export async function listMyRentals(sql: Sql, userId: string): Promise<MyRental[]> {
   const rentals = await sql<
-    { id: string; no: number; x: number; y: number; w: number; h: number; status: string; hidden_at: Date | null; period_years: number | null; starts_at: Date | null; ends_at: Date | null; grace_ends_at: Date | null; reupload_until: Date | null; reminders_enabled: boolean; active_content_id: string | null }[]
+    { id: string; no: number; x: number; y: number; w: number; h: number; status: string; hidden_at: Date | null; starts_at: Date | null; reupload_until: Date | null; active_content_id: string | null }[]
   >`
-    select id, no, x, y, w, h, status, hidden_at, period_years, starts_at, ends_at,
-           ends_at + make_interval(days => ${graceDays}) as grace_ends_at,
-           reupload_until, reminders_enabled, active_content_id
+    select id, no, x, y, w, h, status, hidden_at, starts_at, reupload_until, active_content_id
     from rentals
     where user_id = ${userId} and status in ${sql(VISIBLE)}
-    order by (status in ('in_review', 'active', 'grace', 'rejected')) desc, coalesce(ends_at, created_at) desc
+    order by (status in ('in_review', 'active', 'grace', 'rejected')) desc, created_at desc
   `;
   if (!rentals.length) return [];
   const ids = rentals.map((r) => r.id);
@@ -118,12 +112,8 @@ export async function listMyRentals(sql: Sql, userId: string, graceDays: number)
       rect: { x: r.x, y: r.y, w: r.w, h: r.h },
       status: r.status,
       hidden: r.hidden_at !== null,
-      periodYears: r.period_years,
       startsAt: iso(r.starts_at),
-      endsAt: iso(r.ends_at),
-      graceEndsAt: iso(r.grace_ends_at),
       reuploadUntil: iso(r.reupload_until),
-      remindersEnabled: r.reminders_enabled,
       current: current ? info(current) : null,
       pending: pending ? info(pending) : null,
       declined: lastDecided && (!current || current.created_at < lastDecided.created_at) ? info(lastDecided) : null,

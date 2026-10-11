@@ -18,8 +18,8 @@ export async function POST(request: NextRequest) {
   const locale = auth.rental.locale;
   const base = siteUrl();
   const result = await startCheckout(db(), settings, body.rentalId, {
-    success: `${base}${localePath(locale, "/rent/thanks")}`,
-    cancel: `${base}${localePath(locale, "/rent")}`,
+    success: `${base}${localePath(locale, "/buy/thanks")}`,
+    cancel: `${base}${localePath(locale, "/buy")}`,
   });
   if (!result.ok) {
     const status = result.reason === "not_found" ? 404 : result.reason === "sales_paused" ? 503 : 409;

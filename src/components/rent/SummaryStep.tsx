@@ -29,7 +29,7 @@ export function SummaryStep({
   const block = config.block_size_px;
   const r = order.rect;
   const range = pixelRange(r, block);
-  const q = order.quotes.find((x) => x.years === order.periodYears) ?? null;
+  const q = order.quote;
   const money = (cents: number) => formatMoney(cents, config.currency, intlLocale);
 
   // The neighbourhood of the spot, with the new content drawn in and outlined.
@@ -129,10 +129,6 @@ export function SummaryStep({
                 <td>{t("sizeValue", { w: r.w * block, h: r.h * block, bw: r.w, bh: r.h })}</td>
               </tr>
               <tr>
-                <th scope="row">{t("fields.period")}</th>
-                <td>{t("years", { years: order.periodYears ?? 1 })}</td>
-              </tr>
-              <tr>
                 <th scope="row">{t("fields.email")}</th>
                 <td>{order.email}</td>
               </tr>
@@ -152,19 +148,9 @@ export function SummaryStep({
             <table className="data price-table">
               <tbody>
                 <tr>
-                  <th scope="row">{t("pricePerYear")}</th>
-                  <td>{money(q.perYearCents)}</td>
+                  <th scope="row">{t("priceCalc", { pixels: q.pixels, price: money(q.pricePerPixelCents) })}</th>
+                  <td>{money(q.totalCents)}</td>
                 </tr>
-                <tr>
-                  <th scope="row">{t("priceYears", { years: q.years })}</th>
-                  <td>{money(q.subtotalCents)}</td>
-                </tr>
-                {q.discountCents > 0 && (
-                  <tr>
-                    <th scope="row">{t("priceDiscount", { pct: q.discountPct })}</th>
-                    <td>−{money(q.discountCents)}</td>
-                  </tr>
-                )}
                 <tr className="total">
                   <th scope="row">{t("priceTotal")}</th>
                   <td>{money(q.totalCents)}</td>
@@ -172,7 +158,9 @@ export function SummaryStep({
               </tbody>
             </table>
           )}
-          <p className="muted small">{config.vat_payer ? t("vatIncluded", { rate: config.vat_rate_pct }) : t("notVatPayer")}</p>
+          <p className="muted small">
+            {t("priceOnce")} {config.vat_payer ? t("vatIncluded", { rate: config.vat_rate_pct }) : t("notVatPayer")}
+          </p>
           {error && (
             <p className="error" role="alert">
               {t.has(`payErrors.${error}`) ? t(`payErrors.${error}` as "payErrors.error") : t("payErrors.error")}

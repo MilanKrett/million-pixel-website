@@ -124,7 +124,7 @@ export async function createHold(
         // Keep what the buyer already entered. Consents are asked for again.
         await tx`
           update rentals r
-          set email = p.email, period_years = p.period_years, marketing_consent = p.marketing_consent
+          set email = p.email, marketing_consent = p.marketing_consent
           from rentals p
           where r.id = ${rental.id} and p.id = ${previous.id}
         `;

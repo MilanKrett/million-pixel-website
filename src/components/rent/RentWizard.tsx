@@ -155,7 +155,7 @@ export function RentWizard({ initial, config }: { initial: WallSnapshot; config:
         <div className="notice">
           <p>{t("alreadyPaid")}</p>
           <p>
-            <a href={localePath(locale, "/rent/thanks")}>{t("seeStatus")}</a>
+            <a href={localePath(locale, "/buy/thanks")}>{t("seeStatus")}</a>
           </p>
         </div>
       )}
@@ -229,7 +229,6 @@ export function RentWizard({ initial, config }: { initial: WallSnapshot; config:
       {active && step === "details" && (
         <DetailsStep
           order={active}
-          config={config}
           carried={carried}
           onSaved={(o) => saved(o, "summary")}
           onBack={() => setStep("content")}

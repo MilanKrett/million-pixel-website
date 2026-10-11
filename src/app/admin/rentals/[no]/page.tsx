@@ -14,7 +14,6 @@ import { isReasonCode } from "@/lib/email/reasons";
 import { pixelRange } from "@/lib/geometry";
 import { formatMoney } from "@/lib/money";
 import { loadRental } from "@/lib/orders/order";
-import { isDevPaymentsAllowed } from "@/lib/payments/provider";
 import { orderResponse } from "@/lib/orders/order-response";
 import { rentConfig } from "@/lib/rent-config";
 
@@ -89,9 +88,10 @@ async function Detail({ params }: { params: PageProps<"/admin/rentals/[no]">["pa
               </td>
             </tr>
             <tr>
-              <th scope="row">{t("rental.period")}</th>
+              <th scope="row">{t("rental.since")}</th>
               <td>
-                {r.period_years ? t("moderation.years", { years: r.period_years }) : "—"} · {f.date(r.starts_at)} – {f.date(r.ends_at)}
+                {f.date(r.starts_at)}
+                {r.ends_at && ` – ${f.date(r.ends_at)}`}
               </td>
             </tr>
             <tr>
@@ -117,8 +117,7 @@ async function Detail({ params }: { params: PageProps<"/admin/rentals/[no]">["pa
         isReserved={r.is_reserved}
         refundableCents={paidLeft}
         currency={settings.currency}
-        endsAt={r.ends_at ? r.ends_at.toISOString() : null}
-        testTools={isDevPaymentsAllowed()}
+        hasEndDate={r.ends_at !== null}
       />
 
       <h2>{t("rental.contents")}</h2>
@@ -196,7 +195,6 @@ async function Detail({ params }: { params: PageProps<"/admin/rentals/[no]">["pa
             {detail.payments.map((p) => (
               <tr key={p.id}>
                 <td>{p.invoice_number ?? "—"}</td>
-                <td className="small">{p.kind === "extension" ? t("rental.kindExtension") : t("rental.kindNew")}</td>
                 <td>{money(p.amount_cents)}</td>
                 <td>{p.refunded_cents > 0 ? t("rental.refunded", { amount: money(p.refunded_cents) }) : ""}</td>
                 <td>{t(`paymentStatus.${p.status}` as "paymentStatus.paid")}</td>

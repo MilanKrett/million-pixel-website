@@ -11,7 +11,6 @@ import { authorizeRental } from "@/lib/orders/request";
 /**
  * My pixels: actions of the signed-in owner on one rental.
  *   {action: "submit", contentId?, title, url, displayName}  send a change for review
- *   {action: "reminders", enabled}                          reminder e-mails on/off
  *   {action: "transfer", email, locale}                     offer the rental to someone else
  *   {action: "cancelTransfer"}
  */
@@ -39,10 +38,6 @@ export async function POST(request: NextRequest, ctx: RouteContext<"/api/my/rent
       }
       after(() => runAutoChecks(db(), result.contentId));
       return noStoreJson({ ok: true, contentId: result.contentId });
-    }
-    case "reminders": {
-      await sql`update rentals set reminders_enabled = ${body.enabled === true} where id = ${id}`;
-      return noStoreJson({ ok: true, enabled: body.enabled === true });
     }
     case "transfer": {
       const result = await startTransfer(sql, {

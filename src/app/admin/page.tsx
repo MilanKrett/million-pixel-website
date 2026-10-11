@@ -75,10 +75,6 @@ async function Overview() {
               <td>{f.number(s.activeRentals)}</td>
             </tr>
             <tr>
-              <th scope="row">{t("overview.endingSoon")}</th>
-              <td>{f.number(s.endingSoon)}</td>
-            </tr>
-            <tr>
               <th scope="row">{t("overview.conversion")}</th>
               <td>{t("overview.conversionValue", { paid: s.conversion.paid, started: s.conversion.started, pct: conversion })}</td>
             </tr>

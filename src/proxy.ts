@@ -1,5 +1,5 @@
 import { NextResponse, type NextRequest } from "next/server";
-import { DEFAULT_LOCALE, isLocale, LANGUAGE_COOKIE, localePath, matchLocale } from "@/i18n/config";
+import { DEFAULT_LOCALE, isLocale, LANGUAGE_COOKIE, localeOfPath, localePath, matchLocale, stripLocale } from "@/i18n/config";
 
 /**
  * Language routing: English pages at "/…" (internally "/en/…"), the other
@@ -14,6 +14,14 @@ export function proxy(request: NextRequest) {
   const first = pathname.split("/")[1];
 
   if (first === "admin" || first === "api" || first === "go" || first === "storage" || first === "og") return NextResponse.next();
+
+  // Pixels used to be rented: old links to the order page still work.
+  const rest = stripLocale(pathname);
+  if (rest === "/rent" || rest.startsWith("/rent/")) {
+    const url = request.nextUrl.clone();
+    url.pathname = localePath(localeOfPath(pathname), `/buy${rest.slice("/rent".length)}`);
+    return NextResponse.redirect(url, 308);
+  }
   if (isLocale(first) && first !== DEFAULT_LOCALE) return NextResponse.next();
 
   if (first === DEFAULT_LOCALE) {

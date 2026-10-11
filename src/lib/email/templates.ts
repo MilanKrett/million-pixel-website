@@ -32,12 +32,10 @@ export interface RentalEmailData {
   to: string;
   no?: number;
   rect: Rect;
-  years: number;
   title: string;
   amountCents: number;
   invoiceNumber?: string | null;
   paidAt?: Date | null;
-  endsAt?: Date | null;
 }
 
 export { REASON_CODES, type ReasonCode } from "./reasons";
@@ -225,18 +223,17 @@ export function orderPaidEmail(env: EmailEnv, data: RentalEmailData): BuiltEmail
   const s = env.settings;
   return compose(env, data.locale, t("paid.subject"), [
     { p: t("paid.intro", { amount: money(data.amountCents), hours: s.review_hours }) },
-    { p: t("paid.start") },
+    { p: t("paid.forever") },
     { h: t("paid.rentalHeading") },
     {
       table: [
         [t("labels.title"), data.title],
         [t("labels.position"), position],
         [t("labels.size"), size],
-        [t("labels.period"), t("years", { years: data.years })],
       ],
     },
     { h: t("paid.receiptHeading") },
-    { table: receiptRows(env, data, t("item", { w: data.rect.w * s.block_size_px, h: data.rect.h * s.block_size_px, position, years: data.years })) },
+    { table: receiptRows(env, data, t("item", { w: data.rect.w * s.block_size_px, h: data.rect.h * s.block_size_px, position, no: data.no ?? 0 })) },
     { p: t("paid.mine"), url: page("/my-pixels") },
   ]);
 }
@@ -254,9 +251,9 @@ function shareLinks(env: EmailEnv, locale: Locale, spotUrl: string): [string, st
 
 /** Content of a new rental approved: the pixels are on the wall. */
 export function approvedEmail(env: EmailEnv, data: RentalEmailData): BuiltEmail {
-  const { t, position, date, spotUrl } = context(env, data.locale, data.rect);
+  const { t, position, spotUrl } = context(env, data.locale, data.rect);
   return compose(env, data.locale, t("approved.subject"), [
-    { p: t("approved.intro", { title: data.title, position, until: data.endsAt ? date(data.endsAt) : "" }) },
+    { p: t("approved.intro", { title: data.title, position }) },
     { button: t("approved.see"), href: spotUrl },
     { label: t("approved.share"), links: shareLinks(env, data.locale, spotUrl) },
   ]);
@@ -337,7 +334,7 @@ export function lateRefundEmail(env: EmailEnv, data: RentalEmailData): BuiltEmai
   return compose(env, data.locale, t("lateRefund.subject"), [
     { p: t("lateRefund.intro", { amount: money(data.amountCents) }) },
     { p: t("lateRefund.refund") },
-    { button: t("lateRefund.again"), href: page("/rent") },
+    { button: t("lateRefund.again"), href: page("/buy") },
   ]);
 }
 
@@ -363,17 +360,9 @@ export function reportDecidedEmail(
 
 /** To the new owner of a rental that is being given away. */
 export function transferOfferEmail(env: EmailEnv, data: RentalEmailData & { acceptUrl: string; days: number }): BuiltEmail {
-  const { t, position, size, date } = context(env, data.locale, data.rect);
+  const { t, position, size } = context(env, data.locale, data.rect);
   return compose(env, data.locale, t("transferOffer.subject", { site: env.settings.site_name }), [
-    {
-      p: t("transferOffer.intro", {
-        site: env.settings.site_name,
-        title: data.title,
-        size,
-        position,
-        until: data.endsAt ? date(data.endsAt) : "—",
-      }),
-    },
+    { p: t("transferOffer.intro", { site: env.settings.site_name, title: data.title, size, position }) },
     { button: t("transferOffer.accept"), href: data.acceptUrl },
     { p: t("transferOffer.valid", { days: data.days }) },
   ]);
@@ -400,80 +389,6 @@ export function staffInviteEmail(env: EmailEnv, d: { locale: Locale; role: "mode
 }
 
 // ---------------------------------------------------------------------------
-// End of a rental and extensions
-// ---------------------------------------------------------------------------
-
-/** "Your rental ends in 30 / 7 / 1 days" with the one-click extension link. */
-export function reminderEmail(env: EmailEnv, data: RentalEmailData & { days: number; extendUrl: string }): BuiltEmail {
-  const { t, position, date, page } = context(env, data.locale, data.rect);
-  const grace = env.settings.grace_days;
-  return compose(env, data.locale, t("reminder.subject", { site: env.settings.site_name, days: data.days }), [
-    { p: t("reminder.intro", { title: data.title, position, date: data.endsAt ? date(data.endsAt) : "—" }) },
-    { p: t("reminder.extend") },
-    { button: t("reminder.button"), href: data.extendUrl },
-    ...(grace > 0 ? [{ p: t("reminder.grace", { grace }) }] : []),
-    { p: t("reminder.off"), url: page("/my-pixels") },
-  ]);
-}
-
-/** The end date passed: the grace period runs and only the renter can extend. */
-export function graceStartedEmail(env: EmailEnv, data: RentalEmailData & { graceUntil: Date; extendUrl: string }): BuiltEmail {
-  const { t, position, date } = context(env, data.locale, data.rect);
-  const ended = data.endsAt ? date(data.endsAt) : "—";
-  const until = date(data.graceUntil);
-  return compose(env, data.locale, t("graceStarted.subject", { until }), [
-    { p: t("graceStarted.intro", { title: data.title, position, date: ended }) },
-    { p: t("graceStarted.keep", { until, date: ended }) },
-    { button: t("reminder.button"), href: data.extendUrl },
-    { p: t("graceStarted.after", { until }) },
-  ]);
-}
-
-/** The grace period is over: the content left the wall and the space is free. */
-export function endedEmail(env: EmailEnv, data: RentalEmailData): BuiltEmail {
-  const { t, position, page } = context(env, data.locale, data.rect);
-  const { x, y, w, h } = data.rect;
-  return compose(env, data.locale, t("ended.subject"), [
-    { p: t("ended.intro", { title: data.title, position }) },
-    { p: t("ended.thanks", { site: env.settings.site_name }) },
-    { button: t("ended.button"), href: `${page("/rent")}?x=${x}&y=${y}&w=${w}&h=${h}` },
-  ]);
-}
-
-/** A paid extension: confirmation with the receipt. */
-export function extendedEmail(env: EmailEnv, data: RentalEmailData): BuiltEmail {
-  const { t, position, money, date, page } = context(env, data.locale, data.rect);
-  const s = env.settings;
-  const until = data.endsAt ? date(data.endsAt) : "—";
-  const item = t("extensionItem", { no: data.no ?? 0, w: data.rect.w * s.block_size_px, h: data.rect.h * s.block_size_px, position, years: data.years });
-  return compose(env, data.locale, t("extended.subject", { until }), [
-    { p: t("extended.intro", { amount: money(data.amountCents), title: data.title, position, years: data.years, until }) },
-    { h: t("paid.receiptHeading") },
-    { table: receiptRows(env, data, item) },
-    { p: t("paid.mine"), url: page("/my-pixels") },
-  ]);
-}
-
-/** An admin extended the rental free of charge (for example as compensation). */
-export function extendedFreeEmail(env: EmailEnv, data: RentalEmailData & { days: number }): BuiltEmail {
-  const { t, position, date, spotUrl } = context(env, data.locale, data.rect);
-  return compose(env, data.locale, t("extendedFree.subject"), [
-    { p: t("extendedFree.intro", { title: data.title, position, days: data.days, until: data.endsAt ? date(data.endsAt) : "—" }) },
-    { button: t("approved.see"), href: spotUrl },
-  ]);
-}
-
-/** An extension payment arrived after the rental had ended: full refund. */
-export function extensionRefundedEmail(env: EmailEnv, data: RentalEmailData): BuiltEmail {
-  const { t, position, money, page } = context(env, data.locale, data.rect);
-  return compose(env, data.locale, t("extensionRefunded.subject"), [
-    { p: t("extensionRefunded.intro", { amount: money(data.amountCents), title: data.title, position }) },
-    { p: t("refunded.bank") },
-    { button: t("lateRefund.again"), href: page("/rent") },
-  ]);
-}
-
-// ---------------------------------------------------------------------------
 // Catalogue (admin preview and editing)
 // ---------------------------------------------------------------------------
 
@@ -495,12 +410,6 @@ export const EMAIL_TEMPLATES = [
   "transferDone",
   "accountDeleted",
   "staffInvite",
-  "reminder",
-  "graceStarted",
-  "ended",
-  "extended",
-  "extendedFree",
-  "extensionRefunded",
 ] as const;
 export type EmailTemplate = (typeof EMAIL_TEMPLATES)[number];
 
@@ -508,32 +417,24 @@ export type EmailTemplate = (typeof EMAIL_TEMPLATES)[number];
 export const SHARED_EMAIL_KEYS: Partial<Record<EmailTemplate, string[]>> = {
   changesRequested: ["rejected.upload", "rejected.refundNote", "rejected.button"],
   changeApproved: ["approved.see"],
-  graceStarted: ["reminder.button"],
-  extended: ["extensionItem", "paid.receiptHeading", "paid.mine"],
-  extendedFree: ["approved.see"],
-  extensionRefunded: ["refunded.bank", "lateRefund.again"],
 };
 
 /** Every template built with sample data, for the admin preview. */
 export function sampleEmail(env: EmailEnv, template: EmailTemplate, locale: Locale): BuiltEmail {
   const sample = getMessages(locale).emailSample;
   const now = new Date();
-  const later = new Date(now.getTime() + 365 * 86400_000);
   const rental: RentalEmailData = {
     locale,
     to: "jana@example.com",
     no: 1234,
     rect: { x: 34, y: 12, w: 5, h: 3 },
-    years: 1,
     title: sample.title,
     amountCents: 15_000,
     invoiceNumber: `${now.getFullYear()}-000123`,
     paidAt: now,
-    endsAt: later,
   };
   const decision: DecisionData = { ...rental, reasonCode: "rights", note: sample.note };
   const url = `${siteUrl()}${localePath(locale, "/login/confirm")}#sample`;
-  const extendUrl = `${siteUrl()}${localePath(locale, "/extend/1234")}?k=sample`;
   switch (template) {
     case "login":
       return loginEmail(env, { locale, url, minutes: env.settings.magic_link_minutes });
@@ -569,17 +470,5 @@ export function sampleEmail(env: EmailEnv, template: EmailTemplate, locale: Loca
       return accountDeletedEmail(env, { locale });
     case "staffInvite":
       return staffInviteEmail(env, { locale, role: "moderator" });
-    case "reminder":
-      return reminderEmail(env, { ...rental, endsAt: new Date(now.getTime() + 7 * 86400_000), days: 7, extendUrl });
-    case "graceStarted":
-      return graceStartedEmail(env, { ...rental, endsAt: now, graceUntil: new Date(now.getTime() + env.settings.grace_days * 86400_000), extendUrl });
-    case "ended":
-      return endedEmail(env, rental);
-    case "extended":
-      return extendedEmail(env, { ...rental, years: 3, endsAt: new Date(later.getTime() + 3 * 365 * 86400_000) });
-    case "extendedFree":
-      return extendedFreeEmail(env, { ...rental, days: 30 });
-    case "extensionRefunded":
-      return extensionRefundedEmail(env, rental);
   }
 }

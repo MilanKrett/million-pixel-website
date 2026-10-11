@@ -39,13 +39,10 @@ async function Checkout({ params }: { params: PageProps<"/[locale]/dev/checkout/
       y: number;
       w: number;
       h: number;
-      period_years: number | null;
-      kind: "new" | "extension";
-      no: number;
       title: string | null;
     }[]
   >`
-    select p.amount_cents, p.currency, p.status, r.email, r.x, r.y, r.w, r.h, p.period_years, p.kind, r.no,
+    select p.amount_cents, p.currency, p.status, r.email, r.x, r.y, r.w, r.h,
            coalesce(
              (select title from content_versions c where c.id = r.active_content_id),
              (select title from content_versions c where c.rental_id = r.id order by created_at desc limit 1)
@@ -73,18 +70,9 @@ async function Checkout({ params }: { params: PageProps<"/[locale]/dev/checkout/
           <tr>
             <th scope="row">{t("devCheckout.item")}</th>
             <td>
-              {payment.kind === "extension" && (
-                <>
-                  <b>{t("devCheckout.extension", { no: payment.no })}</b>:{" "}
-                </>
-              )}
               {payment.title} — {payment.w * settings.block_size_px} × {payment.h * settings.block_size_px} px (x {range.x0}–{range.x1}, y{" "}
               {range.y0}–{range.y1})
             </td>
-          </tr>
-          <tr>
-            <th scope="row">{t("devCheckout.period")}</th>
-            <td>{t("rent.years", { years: payment.period_years ?? 1 })}</td>
           </tr>
           <tr>
             <th scope="row">{t("devCheckout.email")}</th>
@@ -128,7 +116,7 @@ async function Checkout({ params }: { params: PageProps<"/[locale]/dev/checkout/
         </div>
       ) : (
         <p>
-          <a href={localePath(locale, "/rent")}>{t("devCheckout.back")}</a>
+          <a href={localePath(locale, "/buy")}>{t("devCheckout.back")}</a>
         </p>
       )}
     </div>

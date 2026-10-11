@@ -30,7 +30,7 @@ async function Reserve() {
     <AdminShell session={session} active="reserve">
       <h1>{t("reserve.title")}</h1>
       <p>{t("reserve.intro")}</p>
-      <ReservePlace snapshot={snapshot} blockSize={settings.block_size_px} currency={settings.currency} pricePerPixel={settings.price_cents_per_pixel_year} />
+      <ReservePlace snapshot={snapshot} blockSize={settings.block_size_px} currency={settings.currency} pricePerPixel={settings.price_cents_per_pixel} />
       <h2>{t("reserve.existing", { count: reserved.length })}</h2>
       <ul>
         {reserved.map((r) => (

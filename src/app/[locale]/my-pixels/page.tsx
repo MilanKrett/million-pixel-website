@@ -44,7 +44,7 @@ async function MySection() {
       </>
     );
   }
-  const rentals = await listMyRentals(db(), session.user.id, settings.grace_days);
+  const rentals = await listMyRentals(db(), session.user.id);
   return (
     <ClientMessages namespaces={["mine", "reasons"]}>
       <MyPixels

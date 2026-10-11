@@ -7,7 +7,7 @@ import { LANGUAGE_COOKIE, LOCALE_NAMES, LOCALES, localePath, stripLocale, type L
 
 const ITEMS = [
   { key: "home", path: "/" },
-  { key: "rent", path: "/rent" },
+  { key: "rent", path: "/buy" },
   { key: "how", path: "/how-it-works" },
   { key: "faq", path: "/faq" },
   { key: "latest", path: "/latest" },

@@ -284,26 +284,26 @@ export function toCsv(rows: (string | number | boolean | Date | null | undefined
 
 export async function exportCsv(sql: Sql, kind: "rentals" | "payments"): Promise<string> {
   if (kind === "payments") {
-    const rows = await sql<{ invoice_number: string | null; paid_at: Date | null; amount_cents: number; refunded_cents: number; currency: string; status: string; kind: string; period_years: number | null; buyer_email: string | null; no: number; provider: string }[]>`
-      select p.invoice_number, p.paid_at, p.amount_cents, p.refunded_cents, p.currency, p.status, p.kind, p.period_years, p.buyer_email, r.no, p.provider
+    const rows = await sql<{ invoice_number: string | null; paid_at: Date | null; amount_cents: number; refunded_cents: number; currency: string; status: string; buyer_email: string | null; no: number; provider: string }[]>`
+      select p.invoice_number, p.paid_at, p.amount_cents, p.refunded_cents, p.currency, p.status, p.buyer_email, r.no, p.provider
       from payments p join rentals r on r.id = p.rental_id
       where p.status in ('paid', 'refunded', 'partially_refunded')
       order by p.paid_at
     `;
     return toCsv([
-      ["invoice", "paid_at", "amount", "refunded", "currency", "status", "kind", "years", "buyer_email", "rental_no", "provider"],
-      ...rows.map((r) => [r.invoice_number, r.paid_at, (r.amount_cents / 100).toFixed(2), (r.refunded_cents / 100).toFixed(2), r.currency, r.status, r.kind, r.period_years, r.buyer_email, r.no, r.provider]),
+      ["invoice", "paid_at", "amount", "refunded", "currency", "status", "buyer_email", "spot_no", "provider"],
+      ...rows.map((r) => [r.invoice_number, r.paid_at, (r.amount_cents / 100).toFixed(2), (r.refunded_cents / 100).toFixed(2), r.currency, r.status, r.buyer_email, r.no, r.provider]),
     ]);
   }
-  const rows = await sql<{ no: number; x: number; y: number; w: number; h: number; status: string; email: string | null; title: string | null; url: string | null; period_years: number | null; starts_at: Date | null; ends_at: Date | null; paid_at: Date | null; price_cents: number | null; is_reserved: boolean; hidden: boolean }[]>`
-    select r.no, r.x, r.y, r.w, r.h, r.status, r.email, c.title, c.url, r.period_years, r.starts_at, r.ends_at, r.paid_at, r.price_cents,
+  const rows = await sql<{ no: number; x: number; y: number; w: number; h: number; status: string; email: string | null; title: string | null; url: string | null; starts_at: Date | null; ends_at: Date | null; paid_at: Date | null; price_cents: number | null; is_reserved: boolean; hidden: boolean }[]>`
+    select r.no, r.x, r.y, r.w, r.h, r.status, r.email, c.title, c.url, r.starts_at, r.ends_at, r.paid_at, r.price_cents,
            r.is_reserved, r.hidden_at is not null as hidden
     from rentals r left join content_versions c on c.id = r.active_content_id
     where r.status not in ('hold', 'awaiting_payment', 'expired') and not r.is_test
     order by r.no
   `;
   return toCsv([
-    ["no", "x_blocks", "y_blocks", "w_blocks", "h_blocks", "status", "email", "title", "url", "years", "starts_at", "ends_at", "paid_at", "price", "reserved", "hidden"],
-    ...rows.map((r) => [r.no, r.x, r.y, r.w, r.h, r.status, r.email, r.title, r.url, r.period_years, r.starts_at, r.ends_at, r.paid_at, r.price_cents === null ? null : (r.price_cents / 100).toFixed(2), r.is_reserved, r.hidden]),
+    ["no", "x_blocks", "y_blocks", "w_blocks", "h_blocks", "status", "email", "title", "url", "on_wall_since", "reserved_until", "paid_at", "price", "reserved", "hidden"],
+    ...rows.map((r) => [r.no, r.x, r.y, r.w, r.h, r.status, r.email, r.title, r.url, r.starts_at, r.ends_at, r.paid_at, r.price_cents === null ? null : (r.price_cents / 100).toFixed(2), r.is_reserved, r.hidden]),
   ]);
 }

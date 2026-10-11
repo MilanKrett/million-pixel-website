@@ -20,14 +20,14 @@ const TRANSFERABLE = ["in_review", "active", "grace"];
 export type StartTransferResult = { ok: true } | { ok: false; reason: "email_invalid" | "same_owner" | "not_found" | "not_transferable" | "rate_limited" };
 
 async function emailData(sql: Sql, rentalId: string, locale: Locale, to: string): Promise<RentalEmailData | null> {
-  const [r] = await sql<{ no: number; x: number; y: number; w: number; h: number; period_years: number | null; ends_at: Date | null; title: string | null }[]>`
-    select r.no, r.x, r.y, r.w, r.h, r.period_years, r.ends_at,
+  const [r] = await sql<{ no: number; x: number; y: number; w: number; h: number; title: string | null }[]>`
+    select r.no, r.x, r.y, r.w, r.h,
            coalesce((select title from content_versions where id = r.active_content_id),
                     (select title from content_versions where rental_id = r.id and title is not null order by created_at desc limit 1)) as title
     from rentals r where r.id = ${rentalId}
   `;
   if (!r) return null;
-  return { locale, to, no: r.no, rect: { x: r.x, y: r.y, w: r.w, h: r.h }, years: r.period_years ?? 1, title: r.title ?? "", amountCents: 0, endsAt: r.ends_at };
+  return { locale, to, no: r.no, rect: { x: r.x, y: r.y, w: r.w, h: r.h }, title: r.title ?? "", amountCents: 0 };
 }
 
 export async function startTransfer(

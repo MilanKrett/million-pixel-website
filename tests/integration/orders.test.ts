@@ -20,7 +20,7 @@ const { Raster } = await import("@/lib/wall/raster");
 const { loadWallSnapshot } = await import("@/lib/wall/snapshot");
 
 type Rect = { x: number; y: number; w: number; h: number };
-const urls = { success: "http://localhost/rent/thanks", cancel: "http://localhost/rent" };
+const urls = { success: "http://localhost/buy/thanks", cancel: "http://localhost/buy" };
 
 async function settings() {
   return loadSettings(db());
@@ -42,7 +42,7 @@ async function readyOrder(rect: Rect, client = "client-a") {
     db(),
     h.id,
     saved.id,
-    { title: "Pekáreň u Jany", url: "https://example.com/", displayName: "Jana", email: "jana@example.com", years: 3, marketing: false },
+    { title: "Pekáreň u Jany", url: "https://example.com/", displayName: "Jana", email: "jana@example.com", marketing: false },
     "sk",
   );
   return h;
@@ -189,7 +189,7 @@ describe("reserving space", () => {
     expect(await storage().get("content", firstDraft!.png_path!)).not.toBeNull();
 
     const order = await findOrder(db(), second.id, second.token);
-    expect(order).toMatchObject({ email: "jana@example.com", period_years: 3, terms_accepted_at: null, withdrawal_waiver_at: null });
+    expect(order).toMatchObject({ email: "jana@example.com", terms_accepted_at: null, withdrawal_waiver_at: null });
     expect(await startCheckout(db(), await settings(), second.id, urls)).toEqual({ ok: false, reason: "incomplete" });
   });
 
@@ -199,7 +199,7 @@ describe("reserving space", () => {
     expect(second).toMatchObject({ ok: true, carriedContent: false });
     if (!second.ok) throw new Error();
     expect(await latestDraft(db(), second.id)).toBeNull();
-    expect(await findOrder(db(), second.id, second.token)).toMatchObject({ email: "jana@example.com", period_years: 3 });
+    expect(await findOrder(db(), second.id, second.token)).toMatchObject({ email: "jana@example.com" });
   });
 
   it("carries the picture over when an expired reservation is made again", async () => {
@@ -262,8 +262,8 @@ describe("payment", () => {
   it("charges the server's price, extends the reservation and moves a paid order to review", async () => {
     const h = await readyOrder({ x: 20, y: 20, w: 5, h: 5 });
     const { started, payment } = await pay(h.id);
-    // 50 × 50 px for 3 years: 250 € × 3 − 10 % = 675 €.
-    expect(started).toMatchObject({ ok: true, amountCents: 67_500 });
+    // 50 × 50 px = 2 500 pixels × 0,10 € = 250 €, once.
+    expect(started).toMatchObject({ ok: true, amountCents: 25_000 });
     expect(started.ok && started.url).toMatch(/^\/sk\/dev\/checkout\/dev_/);
     const [r] = await db()<{ status: string; minutes: number }[]>`
       select status, (extract(epoch from hold_expires_at - now()) / 60)::float8 as minutes from rentals where id = ${h.id}
@@ -271,7 +271,7 @@ describe("payment", () => {
     expect(r.status).toBe("awaiting_payment");
     expect(r.minutes).toBeGreaterThan(29);
 
-    const result = await completeCheckout(db(), payment.stripe_session_id, { amountCents: 67_500, paymentRef: "pi_1" });
+    const result = await completeCheckout(db(), payment.stripe_session_id, { amountCents: 25_000, paymentRef: "pi_1" });
     expect(result.outcome).toBe("paid");
     if (result.outcome === "paid") expect(result.invoiceNumber).toMatch(/^\d{4}-000001$/);
     expect(await status(h.id)).toEqual({ status: "in_review", cells: 25 });
@@ -279,7 +279,7 @@ describe("payment", () => {
     expect(content.status).toBe("pending");
 
     // The provider may send the same confirmation twice.
-    expect((await completeCheckout(db(), payment.stripe_session_id, { amountCents: 67_500, paymentRef: "pi_1" })).outcome).toBe("already_processed");
+    expect((await completeCheckout(db(), payment.stripe_session_id, { amountCents: 25_000, paymentRef: "pi_1" })).outcome).toBe("already_processed");
     expect((await completeCheckout(db(), "dev_unknown", { amountCents: 1, paymentRef: "x" })).outcome).toBe("unknown_session");
   });
 
@@ -328,23 +328,6 @@ describe("payment", () => {
     expect(await expireCheckout(db(), payment.stripe_session_id)).toBe(false);
   });
 
-  it("gives the period that was paid for, even if the order changed after the payment page opened", async () => {
-    const h = await readyOrder({ x: 64, y: 64, w: 1, h: 1 });
-    const { payment } = await pay(h.id);
-    // In another tab: switch from 3 to 5 years without paying again.
-    const draft = await latestDraft(db(), h.id);
-    await saveDetails(
-      db(),
-      h.id,
-      draft!.id,
-      { title: "Pekáreň u Jany", url: null, displayName: null, email: "jana@example.com", years: 5, marketing: false },
-      "sk",
-    );
-    expect((await completeCheckout(db(), payment.stripe_session_id, { amountCents: payment.amount_cents, paymentRef: "pi_p" })).outcome).toBe("paid");
-    const [r] = await db()<{ period_years: number }[]>`select period_years from rentals where id = ${h.id}`;
-    expect(r.period_years).toBe(3);
-  });
-
   it("replaces an unfinished payment with a new one", async () => {
     const h = await readyOrder({ x: 70, y: 70, w: 1, h: 1 });
     const first = await pay(h.id);
@@ -356,7 +339,7 @@ describe("payment", () => {
 });
 
 describe("approval and e-mails", () => {
-  it("starts the rental on approval, shows it on the wall and sends the e-mails", async () => {
+  it("puts the place on the wall for good on approval and sends the e-mails", async () => {
     const h = await readyOrder({ x: 80, y: 80, w: 2, h: 1 });
     const { payment } = await pay(h.id);
     await completeCheckout(db(), payment.stripe_session_id, { amountCents: payment.amount_cents, paymentRef: "pi_ok" });
@@ -365,10 +348,11 @@ describe("approval and e-mails", () => {
     expect(await approveRental(db(), "00000000-0000-0000-0000-000000000000", { id: null, label: "test" })).toEqual({ ok: false, reason: "not_found" });
     const approved = await approveRental(db(), h.id, { id: null, label: "test" });
     expect(approved.ok).toBe(true);
-    const [r] = await db()<{ status: string; years: number }[]>`
-      select status, extract(year from age(ends_at, starts_at))::int as years from rentals where id = ${h.id}
+    const [r] = await db()<{ status: string; started: boolean; ends_at: Date | null }[]>`
+      select status, starts_at > now() - interval '1 minute' as started, ends_at from rentals where id = ${h.id}
     `;
-    expect(r).toEqual({ status: "active", years: 3 });
+    // Bought pixels have no end date.
+    expect(r).toEqual({ status: "active", started: true, ends_at: null });
     expect((await approveRental(db(), h.id, { id: null, label: "test" })).ok).toBe(false);
 
     const rendered = await renderWall(db());
@@ -383,7 +367,8 @@ describe("approval and e-mails", () => {
     expect(mails.map((m) => m.template)).toEqual(["paid", "approved"]);
     expect(mails[0].locale).toBe("sk");
     expect(mails[0].text_body).toContain("Doklad");
-    expect(mails[0].text_body).toContain("54 €".replace(" ", " "));
+    // 20 × 10 px = 200 pixels × 0,10 € = 20 €.
+    expect(mails[0].text_body).toContain("20 €".replace(" ", " "));
     expect(mails[0].html).toContain("Pekáreň u Jany");
     expect(mails[1].text_body).toContain("?x=80&y=80&zoom=4");
   });
@@ -393,7 +378,7 @@ describe("approval and e-mails", () => {
     const png = await Raster.filled(10, 10, [0, 0, 0]).encodePng();
     const saved = await saveDraftContent(db(), h.id, { kind: "draw", png, params: {} });
     if ("error" in saved) throw new Error();
-    await saveDetails(db(), h.id, saved.id, { title: "<script>alert(1)</script>", url: null, displayName: null, email: "x@example.com", years: 1, marketing: false }, "en");
+    await saveDetails(db(), h.id, saved.id, { title: "<script>alert(1)</script>", url: null, displayName: null, email: "x@example.com", marketing: false }, "en");
     const { payment } = await pay(h.id);
     await completeCheckout(db(), payment.stripe_session_id, { amountCents: payment.amount_cents, paymentRef: "pi" });
     await notifyPaid(db(), h.id);

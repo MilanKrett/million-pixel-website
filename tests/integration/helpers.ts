@@ -37,7 +37,7 @@ export async function readyOrder(rect: Rect, email = "jana@example.com", client 
   const h = await hold(rect, client);
   const saved = await saveDraftContent(db(), h.id, { kind: "draw", png: await png(rect), params: {} });
   if ("error" in saved) throw new Error("save failed");
-  await saveDetails(db(), h.id, saved.id, { title: "Pekáreň u Jany", url: "https://example.com/", displayName: "Jana", email, years: 3, marketing: false }, "sk");
+  await saveDetails(db(), h.id, saved.id, { title: "Pekáreň u Jany", url: "https://example.com/", displayName: "Jana", email, marketing: false }, "sk");
   return h;
 }
 

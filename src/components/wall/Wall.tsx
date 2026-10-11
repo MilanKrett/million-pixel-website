@@ -656,18 +656,10 @@ export function Wall({ initial, blockPriceCents, currency, directLinkOpen, selec
     focusRental(Math.floor(Math.random() * m.rentals.length));
   }, [focusRental]);
 
+  // The share page of a place: a picture of it for social networks, then the wall zoomed in on it.
   const shareUrl = useCallback(
-    (index: number) => {
-      const m = modelRef.current;
-      const rect = rentalRect(m.rentals[index]);
-      const zoom = Math.max(2, zoomForRect(dims(), rect.w * m.block, rect.h * m.block));
-      const url = new URL(localePath(locale, "/"), window.location.origin);
-      url.searchParams.set("x", String(rect.x));
-      url.searchParams.set("y", String(rect.y));
-      url.searchParams.set("zoom", String(zoom));
-      return url.toString();
-    },
-    [dims, locale],
+    (index: number) => new URL(localePath(locale, `/p/${modelRef.current.rentals[index][0]}`), window.location.origin).toString(),
+    [locale],
   );
 
   const toggleShowFree = useCallback(
@@ -1423,7 +1415,7 @@ export function Wall({ initial, blockPriceCents, currency, directLinkOpen, selec
         </form>
         )}
         {!selectMode && (
-          <a className="btn btn-rent tb-rent" href={localePath(locale, "/rent")}>
+          <a className="btn btn-rent tb-rent" href={localePath(locale, "/buy")}>
             {t("rent")}
           </a>
         )}

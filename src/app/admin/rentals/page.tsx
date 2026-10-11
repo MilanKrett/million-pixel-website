@@ -50,7 +50,7 @@ async function Rentals({ searchParams }: { searchParams: PageProps<"/admin/renta
             <th scope="col">{t("rentals.colPlace")}</th>
             <th scope="col">{t("rentals.colStatus")}</th>
             <th scope="col">{t("rentals.colEmail")}</th>
-            <th scope="col">{t("rentals.colEnds")}</th>
+            <th scope="col">{t("rentals.colPaid")}</th>
           </tr>
         </thead>
         <tbody>
@@ -75,7 +75,7 @@ async function Rentals({ searchParams }: { searchParams: PageProps<"/admin/renta
                   {r.isTest && ` · ${t("rentals.test")}`}
                 </td>
                 <td className="small">{r.email ?? "—"}</td>
-                <td className="small">{f.date(r.endsAt)}</td>
+                <td className="small">{f.date(r.paidAt)}</td>
               </tr>
             );
           })}

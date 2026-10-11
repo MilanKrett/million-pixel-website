@@ -108,15 +108,9 @@ async function seed(sql: Sql): Promise<void> {
   placed.forEach((p, i) => {
     const id = randomUUID();
     const roll = rng();
-    const status = roll < 0.86 ? "active" : roll < 0.9 ? "grace" : roll < 0.94 ? "in_review" : roll < 0.97 ? "hidden" : "hold";
-    const years = [1, 3, 5][Math.floor(rng() * 3)];
-    let startsAt = new Date(now - Math.floor(rng() * 300) * DAY - Math.floor(rng() * DAY));
-    let endsAt = new Date(startsAt.getTime() + years * 365 * DAY);
-    if (status === "grace") {
-      // Ended 1–12 days ago, still inside the grace period.
-      endsAt = new Date(now - (1 + Math.floor(rng() * 12)) * DAY);
-      startsAt = new Date(endsAt.getTime() - years * 365 * DAY);
-    }
+    const status = roll < 0.9 ? "active" : roll < 0.95 ? "in_review" : roll < 0.98 ? "hidden" : "hold";
+    // Bought places stay for good: no end date.
+    const startsAt = new Date(now - Math.floor(rng() * 300) * DAY - Math.floor(rng() * DAY));
     const paid = status !== "hold";
     const title = randomTitle(rng, i + 1);
     const label = title.replace(/[^A-Za-z ]/g, "").split(" ").filter(Boolean).map((w) => w[0]).join("").toUpperCase() || "PX";
@@ -129,11 +123,9 @@ async function seed(sql: Sql): Promise<void> {
       w: p.w,
       h: p.h,
       status: status === "hidden" ? "active" : status,
-      period_years: years,
       hold_expires_at: status === "hold" ? new Date(now + 15 * 60_000) : null,
       starts_at: paid && status !== "in_review" ? startsAt : null,
-      ends_at: paid && status !== "in_review" ? endsAt : null,
-      price_cents: Math.round(p.w * p.h * grid.block * grid.block * settings.price_cents_per_pixel_year * years),
+      price_cents: Math.round(p.w * p.h * grid.block * grid.block * settings.price_cents_per_pixel),
       paid_at: paid ? new Date(Math.min(now - 60_000, startsAt.getTime() + Math.floor(rng() * DAY))) : null,
       hidden_at: status === "hidden" ? new Date(now - DAY) : null,
       is_test: true,

@@ -194,7 +194,7 @@ export function ModerationQueue({
                     <tr>
                       <th scope="row">{t("paid")}</th>
                       <td>
-                        {item.priceCents !== null ? formatMoney(item.priceCents, currency, "sk-SK") : "—"} · {t("years", { years: item.periodYears ?? 1 })}
+                        {item.priceCents !== null ? formatMoney(item.priceCents, currency, "sk-SK") : "—"}
                       </td>
                     </tr>
                   )}

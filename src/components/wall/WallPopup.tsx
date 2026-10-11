@@ -67,7 +67,7 @@ export function WallPopup({
 
   if (popup.hit.kind === "rental") {
     const index = popup.hit.index;
-    const [no, , , , , rentalTitle, name, domain, until] = model.rentals[index];
+    const [no, , , , , rentalTitle, name, domain, since] = model.rentals[index];
     title = rentalTitle;
 
     const share = async () => {
@@ -95,9 +95,9 @@ export function WallPopup({
             <div className="wall-popup-meta">
               {position_} · {size}
             </div>
-            {until && (
+            {since && (
               <div className="wall-popup-meta">
-                {t("until", { date: format.dateTime(new Date(`${until}T00:00:00Z`), { dateStyle: "medium", timeZone: "UTC" }) })}
+                {t("since", { date: format.dateTime(new Date(`${since}T00:00:00Z`), { dateStyle: "medium", timeZone: "UTC" }) })}
               </div>
             )}
           </div>
@@ -131,7 +131,7 @@ export function WallPopup({
     );
   } else if (popup.hit.kind === "free") {
     title = t("freeTitle");
-    const rentHref = localePath(locale, `/rent?x=${popup.bx}&y=${popup.by}&w=1&h=1`);
+    const rentHref = localePath(locale, `/buy?x=${popup.bx}&y=${popup.by}&w=1&h=1`);
     body = (
       <>
         <p className="wall-popup-text">

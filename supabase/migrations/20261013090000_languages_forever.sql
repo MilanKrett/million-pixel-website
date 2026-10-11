@@ -1,5 +1,5 @@
--- Phase 4: ten languages, end of a rental (reminders, grace period, release),
--- paid extensions and the contact form.
+-- Phase 4: ten languages, pixels bought for good (no rental periods any
+-- more) and the contact form.
 
 -- ---------------------------------------------------------------------------
 -- Languages: en, sk, cs, de, pl, hu, fr, es, it, pt
@@ -38,27 +38,23 @@ on conflict (key) do nothing;
 delete from public.settings where key in ('tagline_en', 'tagline_sk', 'announcement_en', 'announcement_sk');
 
 -- ---------------------------------------------------------------------------
--- End of a rental
+-- Pixels are bought for good (decided 2026-10-11): one price per pixel, paid
+-- once; no rental periods, reminders, grace period or extensions. A bought
+-- place has no end date. Only places an admin reserves may end (ends_at).
 -- ---------------------------------------------------------------------------
 
--- One row per reminder e-mail ("ends in 30 / 7 / 1 days"). Keyed by the end
--- date, so an extended rental is reminded again before its new end.
-create table public.rental_reminders (
-  rental_id uuid not null references public.rentals (id) on delete cascade,
-  ends_at timestamptz not null,
-  days smallint not null check (days >= 1),
-  sent_at timestamptz not null default now(),
-  primary key (rental_id, ends_at, days)
-);
+insert into public.settings (key, value, updated_by)
+select 'price_cents_per_pixel', value, updated_by from public.settings where key = 'price_cents_per_pixel_year'
+on conflict (key) do nothing;
 
-create index rental_reminders_sent_idx on public.rental_reminders (rental_id, sent_at desc);
+delete from public.settings where key in ('price_cents_per_pixel_year', 'periods', 'grace_days', 'reminder_days');
 
-alter table public.rental_reminders enable row level security;
+alter table public.rentals drop column reminders_enabled;
 
--- Consents given when paying for an extension (a new purchase).
-alter table public.payments
-  add column terms_accepted_at timestamptz,
-  add column withdrawal_waiver_at timestamptz;
+comment on column public.rentals.ends_at is
+  'Only for places reserved by an admin; bought places stay on the wall for good (null).';
+comment on column public.rentals.period_years is
+  'Unused since pixels are bought for good (kept for old rows).';
 
 -- ---------------------------------------------------------------------------
 -- Contact form (also the DSA point of contact for users and authorities)
@@ -66,7 +62,7 @@ alter table public.payments
 
 create table public.contact_messages (
   id uuid primary key default gen_random_uuid(),
-  topic text not null check (topic in ('general', 'rental', 'payment', 'legal', 'authority', 'press')),
+  topic text not null check (topic in ('general', 'order', 'payment', 'legal', 'authority', 'press')),
   name text check (name is null or char_length(name) <= 100),
   email text not null check (char_length(email) between 3 and 254),
   message text not null check (char_length(message) between 1 and 5000),

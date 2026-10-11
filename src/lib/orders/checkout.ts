@@ -6,8 +6,8 @@ import { quote } from "@/lib/pricing";
 import type { Settings } from "@/lib/settings/schema";
 
 /**
- * Payment. The price is computed here, on the server, from the rental's size
- * and period — never taken from the browser. Completing or expiring a payment
+ * Payment. The price is computed here, on the server, from the size of the
+ * place — never taken from the browser. Completing or expiring a payment
  * is idempotent: the provider may report the same event more than once.
  */
 
@@ -26,9 +26,9 @@ export async function startCheckout(
 
   return sql.begin(async (tx) => {
     const [rental] = await tx<
-      { id: string; x: number; y: number; w: number; h: number; status: string; stale: boolean; email: string | null; period_years: number | null; terms_accepted_at: Date | null; withdrawal_waiver_at: Date | null; locale: Locale }[]
+      { id: string; x: number; y: number; w: number; h: number; status: string; stale: boolean; email: string | null; terms_accepted_at: Date | null; withdrawal_waiver_at: Date | null; locale: Locale }[]
     >`
-      select id, x, y, w, h, status, rental_hold_is_stale(status, hold_expires_at) as stale, email, period_years,
+      select id, x, y, w, h, status, rental_hold_is_stale(status, hold_expires_at) as stale, email,
              terms_accepted_at, withdrawal_waiver_at, locale
       from rentals where id = ${rentalId} for update
     `;
@@ -40,7 +40,7 @@ export async function startCheckout(
       select id, title from content_versions
       where rental_id = ${rentalId} and status = 'draft' order by created_at desc limit 1
     `;
-    const q = rental.period_years ? quote(settings, rental.w, rental.h, rental.period_years) : null;
+    const q = quote(settings, rental.w, rental.h);
     if (!content?.title || !rental.email || !q || !rental.terms_accepted_at || !rental.withdrawal_waiver_at) {
       return { ok: false, reason: "incomplete" } as const;
     }
@@ -64,7 +64,7 @@ export async function startCheckout(
       rentalId,
       amountCents: q.totalCents,
       currency: q.currency,
-      description: `${rental.w * settings.block_size_px} × ${rental.h * settings.block_size_px} px (x ${range.x0}–${range.x1}, y ${range.y0}–${range.y1}), ${q.years} y — ${content.title}`,
+      description: `${rental.w * settings.block_size_px} × ${rental.h * settings.block_size_px} px (x ${range.x0}–${range.x1}, y ${range.y0}–${range.y1}) — ${content.title}`,
       customerEmail: rental.email,
       locale: rental.locale,
       expiresAt: expires_at,
@@ -72,27 +72,25 @@ export async function startCheckout(
       cancelUrl: urls.cancel,
     });
     await tx`
-      insert into payments (rental_id, kind, period_years, provider, stripe_session_id, amount_cents, currency, status, expires_at)
-      values (${rentalId}, 'new', ${q.years}, ${provider.name}, ${session.sessionId}, ${q.totalCents}, ${q.currency}, 'pending', ${expires_at})
+      insert into payments (rental_id, kind, provider, stripe_session_id, amount_cents, currency, status, expires_at)
+      values (${rentalId}, 'new', ${provider.name}, ${session.sessionId}, ${q.totalCents}, ${q.currency}, 'pending', ${expires_at})
     `;
     return { ok: true, url: session.url, amountCents: q.totalCents } as const;
   });
 }
 
-/** Why a payment was sent back automatically ("too_late": an extension paid after the rental ended). */
-export type RefundReason = "space_taken" | "amount_mismatch" | "duplicate" | "too_late";
+/** Why a payment was sent back automatically. */
+export type RefundReason = "space_taken" | "amount_mismatch" | "duplicate";
 
 export type CompleteResult =
   | { outcome: "paid"; rentalId: string; invoiceNumber: string }
-  | { outcome: "extended"; rentalId: string; invoiceNumber: string; endsAt: Date }
   | { outcome: "refunded"; rentalId: string; reason: RefundReason }
   | { outcome: "already_processed" | "unknown_session" };
 
 /**
- * The provider confirmed a payment. Normally a new order moves to review and
- * an extension moves the end date. If the reservation had already ended, the
- * space is taken again when still free; when someone else got it meanwhile
- * (or an extended rental had ended), the whole amount is refunded.
+ * The provider confirmed a payment. Normally the order moves to review. If the
+ * reservation had already ended, the space is taken again when still free;
+ * when someone else got it meanwhile, the whole amount is refunded.
  */
 export async function completeCheckout(
   sql: Sql,
@@ -100,8 +98,8 @@ export async function completeCheckout(
   paid: { amountCents: number; paymentRef: string },
 ): Promise<CompleteResult> {
   const result = await sql.begin(async (tx): Promise<CompleteResult> => {
-    const [payment] = await tx<{ id: string; rental_id: string; kind: "new" | "extension"; status: string; amount_cents: number; period_years: number }[]>`
-      select id, rental_id, kind, status, amount_cents, period_years from payments where stripe_session_id = ${sessionId} for update
+    const [payment] = await tx<{ id: string; rental_id: string; status: string; amount_cents: number }[]>`
+      select id, rental_id, status, amount_cents from payments where stripe_session_id = ${sessionId} for update
     `;
     if (!payment) return { outcome: "unknown_session" };
     if (payment.status !== "pending" && payment.status !== "expired") return { outcome: "already_processed" };
@@ -128,38 +126,6 @@ export async function completeCheckout(
 
     if (paid.amountCents !== payment.amount_cents) return refund("amount_mismatch");
 
-    const nextInvoice = async () => {
-      const [{ invoice }] = await tx<{ invoice: string }[]>`
-        select to_char(now() at time zone 'Europe/Bratislava', 'YYYY') || '-' || lpad(nextval('invoice_seq')::text, 6, '0') as invoice
-      `;
-      return invoice;
-    };
-
-    if (payment.kind === "extension") {
-      // The new period continues from the current end, also during the grace
-      // period. A rental that ended meanwhile cannot be extended any more.
-      if (!["active", "grace"].includes(rental.status)) return refund("too_late");
-      const invoice = await nextInvoice();
-      await tx`
-        update payments
-        set status = 'paid', paid_at = now(), invoice_number = ${invoice}, stripe_payment_intent_id = ${paid.paymentRef},
-            buyer_email = (select email from rentals where id = ${rental.id})
-        where id = ${payment.id}
-      `;
-      const [{ ends_at }] = await tx<{ ends_at: Date }[]>`
-        update rentals
-        set ends_at = ends_at + make_interval(years => ${payment.period_years}), status = 'active'
-        where id = ${rental.id}
-        returning ends_at
-      `;
-      await tx`
-        insert into audit_log (action, target, details)
-        values ('rental.extended', ${`rental:${rental.id}`},
-                ${tx.json({ sessionId, amount: paid.amountCents, invoice, years: payment.period_years, endsAt: ends_at.toISOString() })})
-      `;
-      return { outcome: "extended", rentalId: rental.id, invoiceNumber: invoice, endsAt: ends_at };
-    }
-
     if (!["hold", "awaiting_payment", "expired"].includes(rental.status)) return refund("duplicate");
 
     if (rental.status === "expired") {
@@ -178,19 +144,18 @@ export async function completeCheckout(
       }
     }
 
-    const invoice = await nextInvoice();
+    const [{ invoice }] = await tx<{ invoice: string }[]>`
+      select to_char(now() at time zone 'Europe/Bratislava', 'YYYY') || '-' || lpad(nextval('invoice_seq')::text, 6, '0') as invoice
+    `;
     await tx`
       update payments
       set status = 'paid', paid_at = now(), invoice_number = ${invoice}, stripe_payment_intent_id = ${paid.paymentRef},
           buyer_email = (select email from rentals where id = ${rental.id})
       where id = ${payment.id}
     `;
-    // The period is the one this payment was for: the order could have been
-    // changed in another tab after the payment page was opened.
     await tx`
       update rentals
-      set status = 'in_review', paid_at = now(), hold_expires_at = null, price_cents = ${paid.amountCents},
-          period_years = ${payment.period_years}
+      set status = 'in_review', paid_at = now(), hold_expires_at = null, price_cents = ${paid.amountCents}
       where id = ${rental.id}
     `;
     await tx`

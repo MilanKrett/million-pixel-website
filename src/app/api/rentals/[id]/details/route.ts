@@ -8,7 +8,7 @@ import { authorizeOrder } from "@/lib/orders/request";
 import { isLinkUnsafe } from "@/lib/moderation/checks";
 import { loadSettings } from "@/lib/settings/load";
 
-/** Step 4: title, link, public name, e-mail, period and consents. */
+/** Step 4: title, link, public name, e-mail and consents. */
 export async function PUT(request: NextRequest, ctx: RouteContext<"/api/rentals/[id]/details">) {
   const { id } = await ctx.params;
   const auth = await authorizeOrder(request, id, { mutate: true, editable: true });
@@ -17,7 +17,7 @@ export async function PUT(request: NextRequest, ctx: RouteContext<"/api/rentals/
   const body = (await request.json().catch(() => null)) as (DetailsInput & { locale?: unknown }) | null;
   if (!body) return jsonError(400, "invalid");
   const settings = await loadSettings(db());
-  const result = validateDetails(body, settings);
+  const result = validateDetails(body);
   if (!result.ok) return jsonError(422, "invalid_details", { errors: result.errors });
   // A page listed as dangerous cannot be saved (spec section 15).
   if (await isLinkUnsafe(result.details.url)) return jsonError(422, "invalid_details", { errors: { url: "urlUnsafe" } });

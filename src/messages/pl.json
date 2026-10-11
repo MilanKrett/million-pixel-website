@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "{site} — {pixels, number} pixels for rent",
-    "description": "{pixels, number} pixels, {price} per pixel per year. Rent a piece of the wall and put your picture, drawing or text with a link on it.",
+    "title": "{site} — {pixels, number} pixels for sale",
+    "description": "{pixels, number} pixels, {price} per pixel. Buy a piece of the wall for good and put your picture, drawing or text with a link on it.",
     "pageTitle": "{page} — {site}"
   },
   "common": {
@@ -13,25 +13,24 @@
     "pixels": "{count, plural, one {# pixel} other {# pixels}}",
     "blocks": "{count, plural, one {# block} other {# blocks}}",
     "pricePerPixel": "{cents, plural, one {# cent} other {# cents}} per pixel",
-    "pricePerPixelMoney": "{price} per pixel",
-    "perYear": "{price} per year"
+    "pricePerPixelMoney": "{price} per pixel"
   },
   "header": {
     "logoTitle": "{site} — home",
     "statsLabel": "Wall statistics",
-    "rented": "Rented pixels",
+    "rented": "Sold pixels",
     "free": "Free",
-    "lastRental": "Last rental",
+    "lastRental": "Last purchase",
     "lastRentalNone": "none yet",
     "justNow": "just now",
-    "progress": "{percent} rented",
-    "progressLabel": "{percent} of the wall is rented",
+    "progress": "{percent} sold",
+    "progressLabel": "{percent} of the wall is sold",
     "slogan": "Leave your mark on the internet"
   },
   "nav": {
     "label": "Main menu",
     "home": "Home",
-    "rent": "Rent pixels",
+    "rent": "Buy pixels",
     "how": "How it works",
     "faq": "FAQ",
     "latest": "Latest",
@@ -50,8 +49,8 @@
   "wall": {
     "regionLabel": "The pixel wall",
     "keyboardHelp": "Use the arrow keys to move, + and − to zoom, Enter to open the spot in the middle and Esc to close a window.",
-    "imageAlt": "The wall of {pixels, number} pixels with all current rentals",
-    "noscript": "Turn on JavaScript to zoom in, search and rent pixels. You can still click rentals on the wall.",
+    "imageAlt": "The wall of {pixels, number} pixels with the pictures of all owners",
+    "noscript": "Turn on JavaScript to zoom in, search and buy pixels. You can still click the pictures on the wall.",
     "zoom": "Zoom",
     "zoomIn": "Zoom in",
     "zoomOut": "Zoom out",
@@ -64,13 +63,13 @@
     "searchPlaceholder": "Title, name or website",
     "searchNone": "Nothing found for “{query}”.",
     "searchMany": "{count, plural, one {# result} other {# results}} — pick one:",
-    "rent": "Rent pixels",
+    "rent": "Buy pixels",
     "coords": "block {bx}, {by} · px {px}, {py}",
     "coordsIdle": "Point at the wall to see coordinates",
     "position": "x {x0}–{x1}, y {y0}–{y1}",
     "size": "{w} × {h} px",
     "reserved": "Reserved",
-    "rentedPending": "Rented — waiting for approval",
+    "rentedPending": "Sold — waiting for approval",
     "updated": "The wall was updated.",
     "tool": "Mouse tool",
     "toolSelect": "Select area",
@@ -81,26 +80,26 @@
   "popup": {
     "label": "Spot details",
     "by": "by {name}",
-    "until": "Until {date}",
     "open": "Open link",
-    "noLink": "This rental has no link.",
+    "noLink": "This spot has no link.",
     "share": "Share",
     "copied": "Link copied",
     "copyFailed": "Copy this link:",
     "report": "Report",
     "freeTitle": "This spot is free",
-    "freeText": "Block {bx}, {by} ({position}) costs {price} per year. You can also select a bigger area.",
-    "rentThis": "Rent this spot",
-    "takenTitle": "This spot is rented",
+    "freeText": "Block {bx}, {by} ({position}) costs {price} — paid once, yours for good. You can also select a bigger area.",
+    "rentThis": "Buy this spot",
+    "takenTitle": "This spot is sold",
     "takenText": "The content will appear on the wall after it is approved.",
     "holdTitle": "This spot is reserved",
-    "holdText": "Someone is renting it right now. If they do not finish within a few minutes, it will be free again."
+    "holdText": "Someone is buying it right now. If they do not finish within a few minutes, it will be free again.",
+    "since": "On the wall since {date}"
   },
   "pages": {
-    "rent": "Rent pixels",
+    "rent": "Buy pixels",
     "how": "How it works",
     "faq": "Frequently asked questions",
-    "latest": "Latest rentals",
+    "latest": "Newest on the wall",
     "mine": "My pixels",
     "contact": "Contact",
     "rules": "Content rules",
@@ -113,20 +112,18 @@
     "notFoundText": "Sorry, there is nothing at this address. Maybe the link is old or mistyped."
   },
   "email": {
-    "footer": "{site} — a wall of a million pixels for rent.",
+    "footer": "{site} — a wall of a million pixels.",
     "greeting": "Hello,",
     "position": "x {x0}–{x1}, y {y0}–{y1}",
     "size": "{w} × {h} px",
-    "years": "{years, plural, one {# year} other {# years}}",
     "companyId": "company ID {id}",
-    "item": "Rental of a {w} × {h} px area on the wall ({position}) for {years, plural, one {# year} other {# years}}",
+    "item": "Spot of {w} × {h} px on the wall ({position}, spot no. {no}), shown for good",
     "vatIncluded": "The price includes VAT {rate} %: {vat}",
     "notVatPayer": "The seller is not a VAT payer.",
     "labels": {
       "title": "Title",
       "position": "Position",
       "size": "Size",
-      "period": "Rental period",
       "number": "Receipt no.",
       "date": "Date",
       "seller": "Seller",
@@ -138,14 +135,14 @@
     "paid": {
       "subject": "Payment received — your pixels are waiting for approval",
       "intro": "Thank you for your order. We received your payment of {amount}. We will check your content, usually within {hours} hours, and let you know when it is on the wall.",
-      "start": "The rental period starts on the day the content is approved.",
-      "rentalHeading": "Your rental",
+      "rentalHeading": "Your spot",
       "receiptHeading": "Receipt",
-      "mine": "You can see your rentals in My pixels:"
+      "mine": "You can see your spots in My pixels:",
+      "forever": "Once approved, your pixels stay on the wall for good — for as long as the site exists."
     },
     "approved": {
       "subject": "Your pixels are on the wall!",
-      "intro": "Good news: “{title}” was approved and is now on the wall at {position}. Your rental is valid until {until}.",
+      "intro": "Good news: “{title}” was approved and is now on the wall at {position}. The pixels are yours for good.",
       "see": "See it on the wall",
       "share": "Show it to your friends:",
       "shareText": "I have my own spot on {site}!",
@@ -153,13 +150,13 @@
     },
     "lateRefund": {
       "subject": "We are sorry — your payment was refunded",
-      "intro": "Your payment of {amount} reached us after the reservation of your spot had ended, and meanwhile someone else rented that space.",
+      "intro": "Your payment of {amount} reached us after the reservation of your spot had ended, and meanwhile someone else bought that space.",
       "refund": "We have refunded the whole amount. Depending on your bank it can take a few days to appear on your account.",
       "again": "Choose another spot"
     },
     "reason": "Reason: {reason}",
     "moderatorNote": "Note from the moderator:",
-    "appeal": "If you think this is a mistake, reply to this e-mail or write to {contact} and mention rental no. {no}. We will look at it again.",
+    "appeal": "If you think this is a mistake, reply to this e-mail or write to {contact} and mention spot no. {no}. We will look at it again.",
     "login": {
       "subject": "Your sign-in link for {site}",
       "intro": "Click the button to sign in to My pixels. The link works once and is valid for {minutes, plural, one {# minute} other {# minutes}}.",
@@ -191,7 +188,7 @@
       "subject": "Your payment was refunded",
       "noReupload": "We did not receive new content for your spot at {position} in time, so we refunded the whole payment of {amount} and released the spot.",
       "rejected": "Your order for the spot at {position} could not be approved, so we refunded the whole payment of {amount} and released the spot.",
-      "admin": "We refunded {amount} for your rental “{title}” at {position}.",
+      "admin": "We refunded {amount} for your spot “{title}” at {position}.",
       "bank": "Depending on your bank it can take a few days to appear on your account."
     },
     "hidden": {
@@ -206,18 +203,18 @@
     },
     "reportReceived": {
       "subject": "We received your report ({reference})",
-      "intro": "Thank you for your report about rental no. {no}. We will look into it as soon as possible and let you know what we decided.",
+      "intro": "Thank you for your report about spot no. {no}. We will look into it as soon as possible and let you know what we decided.",
       "reference": "Reference number: {reference}"
     },
     "reportDecided": {
       "subject": "Decision on your report ({reference})",
-      "actioned": "We checked the content you reported (rental no. {no}) and took action: it is no longer shown on the wall.",
-      "dismissed": "We checked the content you reported (rental no. {no}) and found that it does not break our content rules, so it stays on the wall.",
+      "actioned": "We checked the content you reported (spot no. {no}) and took action: it is no longer shown on the wall.",
+      "dismissed": "We checked the content you reported (spot no. {no}) and found that it does not break our content rules, so it stays on the wall.",
       "thanks": "Thank you for helping us keep the wall friendly."
     },
     "transferOffer": {
       "subject": "Someone is giving you a spot on {site}",
-      "intro": "The owner of the spot “{title}” ({size} at {position}) on {site} wants to give it to you. The rental is valid until {until}.",
+      "intro": "The owner of the spot “{title}” ({size} at {position}) on {site} wants to give it to you. The pixels will then be yours for good.",
       "accept": "Accept the spot",
       "valid": "The link is valid for {days, plural, one {# day} other {# days}}. If you do not want the spot, just ignore this e-mail."
     },
@@ -228,49 +225,16 @@
     "accountDeleted": {
       "subject": "Your account was deleted",
       "intro": "Your account and personal data were deleted as you asked. Receipts are kept for as long as the law requires.",
-      "rentals": "Rentals that are still running stay on the wall until they end."
+      "rentals": "Your pixels stay on the wall, but nobody can manage them any more."
     },
     "staffInvite": {
       "subject": "You can now use the administration of {site}",
       "intro": "You were given the role of {role, select, admin {administrator} other {moderator}}. Sign in with this e-mail address and set up two-factor login with an authenticator app.",
       "button": "Open the administration"
-    },
-    "extensionItem": "Extension of rental no. {no} ({w} × {h} px, {position}) by {years, plural, one {# year} other {# years}}",
-    "reminder": {
-      "subject": "Your pixels on {site} end in {days, plural, one {# day} other {# days}}",
-      "intro": "Your rental “{title}” at {position} ends on {date}.",
-      "extend": "You can extend it with one click. The new period continues from the current end date, so you do not lose a single day:",
-      "button": "Extend my rental",
-      "grace": "If you do not extend it, your content stays on the wall for {grace, plural, one {# more day} other {# more days}} after the end, and only you can still extend it. Then the space is released for others.",
-      "off": "You can turn these reminders off in My pixels:"
-    },
-    "graceStarted": {
-      "subject": "Your rental has ended — extend it by {until}",
-      "intro": "Your rental “{title}” at {position} ended on {date}.",
-      "keep": "Your content stays on the wall until {until}, and until then the space is reserved for you only. Extend now and the new period will continue from {date}:",
-      "after": "After {until} your content will be removed and the space will be free for others."
-    },
-    "ended": {
-      "subject": "Your pixels have left the wall",
-      "intro": "The grace period of your rental “{title}” at {position} is over. We removed your content from the wall and the space is free again.",
-      "thanks": "Thank you for being part of {site}! If the space is still free, you can rent it again — or choose a new one:",
-      "button": "Rent pixels"
-    },
-    "extended": {
-      "subject": "Thank you — your rental now runs until {until}",
-      "intro": "We received your payment of {amount}. Your rental “{title}” at {position} is extended by {years, plural, one {# year} other {# years}} and now runs until {until}."
-    },
-    "extendedFree": {
-      "subject": "We extended your rental for free",
-      "intro": "We extended your rental “{title}” at {position} free of charge by {days, plural, one {# day} other {# days}}. It now runs until {until}."
-    },
-    "extensionRefunded": {
-      "subject": "We are sorry — your extension payment was refunded",
-      "intro": "Your payment of {amount} for extending “{title}” at {position} arrived after the rental had already ended, so we could not extend it. We have refunded the whole amount."
     }
   },
   "rent": {
-    "title": "Rent pixels",
+    "title": "Buy pixels",
     "loading": "Loading…",
     "stepsLabel": "Steps of your order",
     "steps": {
@@ -280,7 +244,7 @@
       "summary": "Summary",
       "payment": "Payment"
     },
-    "salesPaused": "Renting is paused for maintenance at the moment. Please try again later.",
+    "salesPaused": "Sales are paused for maintenance at the moment. Please try again later.",
     "alreadyPaid": "Your last order is paid and waiting for approval.",
     "seeStatus": "See its status",
     "expiredBefore": "Your previous reservation has expired. The place is selected again below if it is still free.",
@@ -294,7 +258,7 @@
     "backToOrder": "Back to my order",
     "keepPlace": "Keep this place",
     "position": "x {x0}–{x1}, y {y0}–{y1}",
-    "selectHelp": "Drag on the wall to select the area you want to rent. It snaps to blocks of 10 × 10 px. Drag the corners to resize it or drag the area to move it. Zoom with the mouse wheel; to move the wall, use the right mouse button or the “Move wall” tool.",
+    "selectHelp": "Drag on the wall to select the area you want to buy. It snaps to blocks of 10 × 10 px. Drag the corners to resize it or drag the area to move it. Zoom with the mouse wheel; to move the wall, use the right mouse button or the “Move wall” tool.",
     "selectHelpTouch": "On a phone: zoom in with two fingers, tap the first corner, then the opposite corner, and adjust the area with its corner handles.",
     "yourSelection": "Your selection",
     "noSelection": "Nothing selected yet.",
@@ -303,16 +267,13 @@
     "pixels": "Pixels",
     "positionLabel": "Position",
     "price": "Price",
-    "pricePeriod": "{years, plural, one {# year} other {# years}}: {price}",
-    "discount": "(−{pct} %)",
-    "years": "{years, plural, one {# year} other {# years}}",
     "conflicts": "{count, plural, one {# block} other {# blocks}} of your selection {count, plural, one {is} other {are}} already taken (red). Move or resize the area.",
-    "tooSmall": "The smallest rental is {min, plural, one {# block} other {# blocks}}.",
-    "tooLarge": "The largest rental is {max, plural, one {# block} other {# blocks}}.",
+    "tooSmall": "The smallest spot is {min, plural, one {# block} other {# blocks}}.",
+    "tooLarge": "The largest spot is {max, plural, one {# block} other {# blocks}}.",
     "reserveErrors": {
       "taken": "Someone reserved part of this area a moment ago. Here are free places of the same size nearby:",
       "rate_limited": "You already have several reservations running. Finish or cancel one of them first.",
-      "sales_paused": "Renting is paused at the moment. Please try again later.",
+      "sales_paused": "Sales are paused at the moment. Please try again later.",
       "invalid": "This area is not on the wall.",
       "too_small": "This area is too small.",
       "too_large": "This area is too large.",
@@ -372,7 +333,7 @@
       "frameHelp": "Drag the picture to choose the part you want; zoom with the slider or the mouse wheel. The frame has the exact proportions of your area.",
       "frameLabel": "Picture framing",
       "zoom": "Zoom",
-      "smallWarning": "Your area is small: fine details and small text will not be readable. Consider renting a bigger area.",
+      "smallWarning": "Your area is small: fine details and small text will not be readable. Consider buying a bigger area.",
       "processingNote": "The server makes the final picture with the same filter (with sharper scaling) and removes all hidden data such as the GPS location.",
       "use": "Use this picture",
       "filterTitle": "Pixel filter",
@@ -431,7 +392,7 @@
       "size": "Size",
       "sizeAuto": "Automatic",
       "oneBlock": "A single 10 × 10 px block holds just one letter or symbol.",
-      "tooLong": "The text does not fit. Shorten it, choose a smaller size or rent a bigger area.",
+      "tooLong": "The text does not fit. Shorten it, choose a smaller size or buy a bigger area.",
       "use": "Use this text"
     },
     "detailsTitle": "Details",
@@ -442,12 +403,12 @@
       "optional": "optional",
       "displayName": "Public name or nickname",
       "email": "E-mail",
-      "emailNote": "for the receipt, reminders and signing in to My pixels",
-      "period": "Rental period",
+      "emailNote": "for the receipt and for signing in to My pixels",
       "consents": "Consents",
       "terms": "I agree to the <terms>terms of service</terms> and the <rules>content rules</rules>.",
       "waiver": "I want the service to start before the 14-day withdrawal period ends and I understand that I then lose the right to withdraw once the content is published.",
-      "marketing": "Send me occasional news (optional)."
+      "marketing": "Send me occasional news (optional).",
+      "price": "Price:"
     },
     "detailErrors": {
       "titleRequired": "Enter a title.",
@@ -456,7 +417,6 @@
       "nameTooLong": "The name can have at most 60 characters.",
       "emailRequired": "Enter your e-mail.",
       "emailInvalid": "This e-mail address does not look right.",
-      "periodRequired": "Choose a rental period.",
       "termsRequired": "You need to agree to the terms and the content rules.",
       "waiverRequired": "This consent is needed to publish your content right after approval.",
       "urlUnsafe": "This page is listed as dangerous (malware or phishing) and cannot be linked."
@@ -466,34 +426,33 @@
     "summaryPreview": "Your content on the wall",
     "editContent": "Change content",
     "editDetails": "Change details",
-    "pricePerYear": "Price per year",
-    "priceYears": "{years, plural, one {# year} other {# years}}",
-    "priceDiscount": "Discount {pct} %",
     "priceTotal": "Total",
     "vatIncluded": "The price includes VAT {rate} %.",
     "notVatPayer": "Final price. The seller is not a VAT payer.",
     "pay": "Pay {price}",
     "redirecting": "Opening the payment…",
-    "payNote": "You pay on the next page. We check the content, usually within {hours} hours; the rental period starts when it is approved.",
+    "payNote": "You pay on the next page. We check the content, usually within {hours} hours; then your pixels are on the wall for good.",
     "devPaymentNote": "Test mode: no real payment is made (Stripe is not connected yet).",
     "payErrors": {
       "expired": "Your reservation has expired. Reserve the place again.",
       "incomplete": "Some details are missing. Check the content and the details.",
-      "sales_paused": "Renting is paused at the moment.",
+      "sales_paused": "Sales are paused at the moment.",
       "already_paid": "This order is already paid.",
       "network": "We could not reach the server. Check your connection and try again.",
       "error": "Something went wrong. Please try again."
-    }
+    },
+    "priceOnce": "paid once — the pixels are yours for good",
+    "priceCalc": "{pixels, plural, one {# pixel} other {# pixels}} × {price}"
   },
   "thanks": {
     "title": "Thank you!",
     "statusReview": "Paid — waiting for approval",
     "statusActive": "Approved — your pixels are on the wall",
-    "reviewText": "We check every picture before it appears on the wall, usually within 24 hours. The rental period starts on approval.",
+    "reviewText": "We check every picture before it appears on the wall, usually within 24 hours. Then it stays there for good.",
     "emailSent": "We sent the confirmation and the receipt to {email}.",
     "seeSpot": "Show my place on the wall",
     "refundedTitle": "We are sorry",
-    "refundedText": "Your payment arrived after your reservation had ended and someone else rented the place in the meantime. We refunded the whole amount.",
+    "refundedText": "Your payment arrived after your reservation had ended and someone else bought the place in the meantime. We refunded the whole amount.",
     "chooseAnother": "Choose another place",
     "notPaidTitle": "Payment not received yet",
     "notPaidText": "We have not received your payment. Your reservation is still waiting for you.",
@@ -508,15 +467,13 @@
     "warning": "TEST PAYMENT — no money is charged.",
     "explain": "This page stands in for Stripe Checkout until the Stripe account is connected. “Pay” confirms the order exactly as a real payment will.",
     "item": "Item",
-    "period": "Period",
     "email": "E-mail",
     "amount": "Amount",
     "status": "Status",
     "pay": "Pay {amount} (test)",
     "cancel": "Cancel and go back",
     "expire": "Let the payment session expire",
-    "back": "Back to renting",
-    "extension": "Extension of rental no. {no}"
+    "back": "Back to the order"
   },
   "devEmails": {
     "title": "E-mails (development)",
@@ -536,7 +493,7 @@
     "hate": "Hate, extremism, bullying or harassment",
     "personal": "Personal data or photos of other people without their consent",
     "fraud": "Fraud, phishing, malware, pyramid schemes or unlicensed gambling",
-    "rights": "Logos, characters or other content the renter has no rights to",
+    "rights": "Logos, characters or other content the owner has no rights to",
     "political": "Political advertising",
     "link": "Link to a page with such content",
     "other": "Something else"
@@ -565,14 +522,14 @@
     }
   },
   "mine": {
-    "signInIntro": "Sign in with the e-mail address you used for your order to see and manage your rentals.",
+    "signInIntro": "Sign in with the e-mail address you used for your order to see and manage your spots.",
     "signedInAs": "Signed in as <b>{email}</b>.",
     "logout": "Sign out",
-    "empty": "There are no rentals for this e-mail address yet.",
-    "rentNow": "Rent pixels »",
+    "empty": "There are no spots for this e-mail address yet.",
+    "rentNow": "Buy pixels »",
     "status": {
       "in_review": "Waiting for approval",
-      "active": "Active",
+      "active": "On the wall",
       "grace": "In the grace period",
       "ended": "Ended",
       "rejected": "Not approved: waiting for new content",
@@ -584,9 +541,6 @@
     "positionValue": "x {x0}–{x1}, y {y0}–{y1}",
     "size": "Size",
     "sizeValue": "{w} × {h} px ({pixels, number} pixels)",
-    "validity": "Valid",
-    "validUntil": "until {date}",
-    "startsAfterApproval": "starts on the day of approval",
     "link": "Link",
     "waitingChange": "A change sent on {date} is waiting for approval; the current content stays on the wall until then.",
     "decision": {
@@ -607,20 +561,19 @@
     "opens": "Opened",
     "receipts": "Receipts:",
     "refundedAmount": "({amount} refunded)",
-    "reminders": "Remind me by e-mail before the rental ends",
-    "transferOpen": "Give this rental to someone else…",
-    "transferHelp": "The new owner gets an e-mail with a link and has to accept the rental within {days, plural, one {# day} other {# days}}. Until then it stays yours.",
+    "transferOpen": "Give this spot to someone else…",
+    "transferHelp": "The new owner gets an e-mail with a link and has to accept the spot within {days, plural, one {# day} other {# days}}. Until then it stays yours.",
     "transferEmail": "E-mail of the new owner",
     "transferSend": "Send",
-    "transferPending": "Waiting for {email} to accept the rental (until {date}).",
+    "transferPending": "Waiting for {email} to accept the spot (until {date}).",
     "transferCancel": "Cancel",
     "cancel": "Cancel",
     "deleteTitle": "Delete my account and personal data",
-    "deleteHelp": "Your account, e-mail address and public name are deleted. Receipts are kept for as long as the law requires. Rentals that are still running stay on the wall until they end, but you can no longer manage them.",
+    "deleteHelp": "Your account, e-mail address and public name are deleted. Receipts are kept for as long as the law requires. Your pixels stay on the wall, but you can no longer manage them.",
     "deleteConfirm": "Type your e-mail address ({email}) to confirm",
     "deleteButton": "Delete account",
     "editTitle": "Change content",
-    "notEditable": "This rental cannot be changed any more.",
+    "notEditable": "This spot cannot be changed any more.",
     "backToList": "Back to My pixels",
     "editIntro": "Change the picture, the title, the link or the name. The change goes to approval; until then the current content stays on the wall.",
     "editRejectedIntro": "Send new content for your spot. It goes to approval again.",
@@ -640,21 +593,21 @@
     "errors": {
       "email_invalid": "Please enter a valid e-mail address.",
       "same_owner": "That is your own address.",
-      "not_found": "The rental was not found.",
-      "not_transferable": "This rental cannot be given away now.",
+      "not_found": "The spot was not found.",
+      "not_transferable": "This spot cannot be given away now.",
       "rate_limited": "Too many attempts. Please try again later.",
       "confirm_mismatch": "The e-mail address does not match.",
       "last_admin": "You are the only administrator; give the role to someone else first.",
       "unchanged": "Nothing was changed.",
-      "not_editable": "This rental cannot be changed any more.",
+      "not_editable": "This spot cannot be changed any more.",
       "no_content": "Please add a picture first.",
       "draft_missing": "The new picture was not found. Please make it again.",
       "error": "Something went wrong. Please try again."
     },
     "lastVersion": "Your last version (not approved)",
     "pictureHelpRejected": "Make a new picture, or keep the last one and change only what the moderator asked for in the texts below.",
-    "extend": "Extend",
-    "graceUntil": "in the grace period until {date}"
+    "since": "On the wall since",
+    "afterApproval": "after approval"
   },
   "receipt": {
     "title": "Receipt",
@@ -664,14 +617,13 @@
     "seller": "Seller",
     "buyer": "Buyer",
     "item": "Item",
-    "itemValue": "Rental of a {w} × {h} px area on the wall (x {x0}–{x1}, y {y0}–{y1}, rental no. {no}) for {years, plural, one {# year} other {# years}}",
+    "itemValue": "Spot of {w} × {h} px on the wall (x {x0}–{x1}, y {y0}–{y1}, spot no. {no}), shown for good",
     "total": "Total paid",
     "vat": "VAT",
     "vatIncluded": "The price includes VAT {rate} %: {vat}",
     "notVatPayer": "The seller is not a VAT payer.",
     "refunded": "Refunded",
-    "print": "Print or save as PDF",
-    "itemExtension": "Extension of the rental of a {w} × {h} px area on the wall (x {x0}–{x1}, y {y0}–{y1}, rental no. {no}) by {years, plural, one {# year} other {# years}}"
+    "print": "Print or save as PDF"
   },
   "transfer": {
     "title": "Accept a spot on the wall",
@@ -688,7 +640,7 @@
     "reference": "Reference number: {reference}",
     "willAnswer": "We sent a confirmation to your e-mail and will let you know what we decided.",
     "noAnswer": "You did not leave an e-mail address, so we cannot tell you the result.",
-    "rentalNo": "Rental number",
+    "rentalNo": "Spot number",
     "rentalNoHelp": "shown in the window when you click the spot on the wall",
     "category": "What is wrong",
     "choose": "— choose —",
@@ -701,8 +653,8 @@
     "send": "Send report",
     "privacy": "We use your e-mail address only to answer this report.",
     "errors": {
-      "invalid": "Please fill in the rental number and what is wrong.",
-      "rental_not_found": "There is no rental with this number on the wall.",
+      "invalid": "Please fill in the spot number and what is wrong.",
+      "rental_not_found": "There is no spot with this number on the wall.",
       "description_required": "Please describe the problem.",
       "email_invalid": "Please enter a valid e-mail address or leave it empty.",
       "rate_limited": "Too many reports from your connection. Please try again later.",
@@ -713,42 +665,5 @@
   "emailSample": {
     "title": "Jane’s Bakery",
     "note": "The logo belongs to another company."
-  },
-  "extend": {
-    "title": "Extend a rental",
-    "intro": "The new period continues from the current end date, so you do not lose a single day.",
-    "rental": "Rental no. {no}",
-    "validUntil": "Valid until {date}.",
-    "inGrace": "The rental ended on {date}. Your content stays on the wall until {until}, and until then only you can extend it.",
-    "choose": "Extend by",
-    "option": "{years, plural, one {# year} other {# years}}",
-    "discount": "{discount} % discount",
-    "newEnd": "new end: {date}",
-    "terms": "I agree to the <terms>terms of service</terms> and the <rules>content rules</rules>.",
-    "waiver": "I want the extension to take effect right after the payment and I understand that I then lose the right to withdraw from this purchase.",
-    "pay": "Pay {amount} and extend",
-    "redirecting": "Opening the payment…",
-    "paidTitle": "Thank you!",
-    "paid": "Your rental now runs until {date}. We sent the receipt to your e-mail.",
-    "processing": "We are waiting for the confirmation of your payment. It usually takes a few seconds — reload this page in a moment. You will also get an e-mail.",
-    "invalidLink": "This link is not valid. Sign in to My pixels to extend your rental.",
-    "signIn": "Sign in to My pixels",
-    "blocked": {
-      "hidden": "This rental is hidden while we look into a report, so it cannot be extended right now. Please contact us.",
-      "reserved": "This place is reserved by the site operator and cannot be extended here.",
-      "not_extendable": "This rental can no longer be extended.",
-      "sales_paused": "Extensions are paused for a short maintenance. Please try again later."
-    },
-    "rentAgain": "Rent this place again",
-    "errors": {
-      "consent_required": "Please confirm both consents.",
-      "invalid_period": "Choose how long to extend.",
-      "not_found": "This rental no longer exists.",
-      "hidden": "This rental is hidden while we look into a report, so it cannot be extended right now.",
-      "reserved": "This place cannot be extended here.",
-      "not_extendable": "This rental can no longer be extended.",
-      "sales_paused": "Extensions are paused for a short maintenance. Please try again later.",
-      "error": "Something went wrong. Please try again."
-    }
   }
 }

@@ -37,7 +37,7 @@ export function ThanksView({ devEmails }: { devEmails: boolean }) {
           <h1>{t("refundedTitle")}</h1>
           <p>{t("refundedText")}</p>
           <p>
-            <a className="btn btn-rent" href={localePath(locale, "/rent")}>
+            <a className="btn btn-rent" href={localePath(locale, "/buy")}>
               {t("chooseAnother")}
             </a>
           </p>
@@ -61,7 +61,7 @@ export function ThanksView({ devEmails }: { devEmails: boolean }) {
           <h1>{t("notPaidTitle")}</h1>
           <p>{t("notPaidText")}</p>
           <p>
-            <a className="btn" href={localePath(locale, "/rent")}>
+            <a className="btn" href={localePath(locale, "/buy")}>
               {t("backToOrder")}
             </a>
           </p>

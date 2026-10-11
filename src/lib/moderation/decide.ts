@@ -15,7 +15,7 @@ import type { Settings } from "@/lib/settings/schema";
 export type { Actor };
 
 export type ApproveResult =
-  | { ok: true; rentalId: string; kind: "new" | "change"; endsAt: Date | null }
+  | { ok: true; rentalId: string; kind: "new" | "change" }
   | { ok: false; reason: "not_found" | "not_pending" | "rental_state" };
 
 export async function approveContent(sql: Sql, contentId: string, actor: Actor): Promise<ApproveResult> {
@@ -25,13 +25,12 @@ export async function approveContent(sql: Sql, contentId: string, actor: Actor):
     `;
     if (!content) return { ok: false, reason: "not_found" };
     if (content.status !== "pending") return { ok: false, reason: "not_pending" };
-    const [rental] = await tx<{ status: string; period_years: number | null }[]>`
-      select status, period_years from rentals where id = ${content.rental_id} for update
+    const [rental] = await tx<{ status: string }[]>`
+      select status from rentals where id = ${content.rental_id} for update
     `;
     if (!rental) return { ok: false, reason: "not_found" };
 
     let kind: "new" | "change";
-    let endsAt: Date | null = null;
     if (rental.status === "in_review") {
       kind = "new";
     } else if (rental.status === "active" || rental.status === "grace") {
@@ -49,20 +48,18 @@ export async function approveContent(sql: Sql, contentId: string, actor: Actor):
       where id = ${content.id}
     `;
     if (kind === "new") {
-      // The rental period runs from approval, not from payment.
-      const [row] = await tx<{ ends_at: Date }[]>`
+      // Bought pixels stay on the wall for good: no end date. starts_at is
+      // the day the place first appeared on the wall.
+      await tx`
         update rentals
-        set status = 'active', active_content_id = ${content.id}, starts_at = now(),
-            ends_at = now() + make_interval(years => ${rental.period_years ?? 1}), reupload_until = null
+        set status = 'active', active_content_id = ${content.id}, starts_at = now(), ends_at = null, reupload_until = null
         where id = ${content.rental_id}
-        returning ends_at
       `;
-      endsAt = row.ends_at;
     } else {
       await tx`update rentals set active_content_id = ${content.id} where id = ${content.rental_id}`;
     }
     await audit(tx, actor, "content.approved", content.rental_id, { content: content.id, kind });
-    return { ok: true, rentalId: content.rental_id, kind, endsAt };
+    return { ok: true, rentalId: content.rental_id, kind };
   });
 }
 
@@ -71,7 +68,7 @@ export async function approveRental(
   sql: Sql,
   rentalId: string,
   actor: Actor,
-): Promise<{ ok: true; endsAt: Date | null } | { ok: false; reason: "not_found" | "not_in_review" | "no_content" }> {
+): Promise<{ ok: true } | { ok: false; reason: "not_found" | "not_in_review" | "no_content" }> {
   const [content] = await sql<{ id: string; status: string }[]>`
     select c.id, r.status from rentals r
     join content_versions c on c.rental_id = r.id and c.status = 'pending'
@@ -84,7 +81,7 @@ export async function approveRental(
   }
   if (content.status !== "in_review") return { ok: false, reason: "not_in_review" };
   const result = await approveContent(sql, content.id, actor);
-  return result.ok ? { ok: true, endsAt: result.endsAt } : { ok: false, reason: "not_in_review" };
+  return result.ok ? { ok: true } : { ok: false, reason: "not_in_review" };
 }
 
 export interface Decision {
@@ -211,7 +208,10 @@ export async function removeRental(sql: Sql, rentalId: string, actor: Actor, dec
   });
 }
 
-/** Extend for free (compensation, contests, own ads). */
+/**
+ * Move the end of a reserved place with an end date (own ads, contests).
+ * Bought places have no end date, so this does not apply to them.
+ */
 export async function extendRental(sql: Sql, rentalId: string, actor: Actor, days: number): Promise<Date | null> {
   if (!Number.isInteger(days) || days < 1 || days > 3650) return null;
   return sql.begin(async (tx) => {

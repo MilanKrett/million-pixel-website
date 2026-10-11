@@ -16,6 +16,7 @@ const { createReservedRental, exportCsv, saveEmailText, saveSettings, setRole } 
 const { loadEmailEnv } = await import("@/lib/email/env");
 const { findOrCreateUser } = await import("@/lib/auth/accounts");
 const { loadWallSnapshot } = await import("@/lib/wall/snapshot");
+const { releaseEndedReservations } = await import("@/lib/orders/lifecycle");
 
 beforeEach(resetDatabase);
 
@@ -39,13 +40,13 @@ async function content(id: string) {
 const decision = { reasonCode: "rights" as const, note: "Logo patrí inej firme." };
 
 describe("approving", () => {
-  it("starts a new rental on approval", async () => {
+  it("puts a new place on the wall for good on approval", async () => {
     const rental = await paidRental({ x: 0, y: 0, w: 2, h: 2 });
     const result = await approveContent(db(), (await pending(rental.id))!, actor);
     expect(result).toMatchObject({ ok: true, kind: "new" });
     const row = await rentalRow(rental.id);
     expect(row.status).toBe("active");
-    expect(row.ends_at!.getFullYear()).toBe(new Date().getFullYear() + 3);
+    expect(row.ends_at).toBeNull();
   });
 
   it("keeps the old content on the wall until a change is approved", async () => {
@@ -123,12 +124,12 @@ describe("rejecting new rentals", () => {
     const rental = await paidRental({ x: 25, y: 20, w: 1, h: 1 });
     await db()`update rentals set user_id = ${jana.id} where id = ${rental.id}`;
     await rejectContent(db(), await settings(), (await pending(rental.id))!, actor, { ...decision, mode: "changes" });
-    expect((await listMyRentals(db(), jana.id, 14))[0]!.decision?.status).toBe("changes_requested");
+    expect((await listMyRentals(db(), jana.id))[0]!.decision?.status).toBe("changes_requested");
     const resent = await submitContentChange(db(), rental.id, { contentId: null, title: "Opravený názov", url: "", displayName: "" }, actor);
     if (!resent.ok) throw new Error(resent.reason);
-    expect((await listMyRentals(db(), jana.id, 14))[0]!.decision).toBeNull();
+    expect((await listMyRentals(db(), jana.id))[0]!.decision).toBeNull();
     await approveContent(db(), resent.contentId, actor);
-    const [mine] = await listMyRentals(db(), jana.id, 14);
+    const [mine] = await listMyRentals(db(), jana.id);
     expect(mine).toMatchObject({ status: "active", decision: null, declined: null });
     expect(mine!.current?.title).toBe("Opravený názov");
   });
@@ -158,7 +159,7 @@ describe("rejecting new rentals", () => {
 });
 
 describe("actions on running rentals", () => {
-  it("hides, shows, extends and removes", async () => {
+  it("hides, shows and removes", async () => {
     const rental = await activeRental({ x: 60, y: 60, w: 2, h: 2 });
     expect(await hideRental(db(), rental.id, actor, decision)).toBe(true);
     expect((await loadWallSnapshot(db(), await settings())).rentals).toHaveLength(0);
@@ -166,9 +167,8 @@ describe("actions on running rentals", () => {
     expect(await unhideRental(db(), rental.id, actor)).toBe(true);
     expect((await loadWallSnapshot(db(), await settings())).rentals).toHaveLength(1);
 
-    const before = (await rentalRow(rental.id)).ends_at!.getTime();
-    const extended = await extendRental(db(), rental.id, actor, 30);
-    expect(extended!.getTime() - before).toBe(30 * 86400_000);
+    // A bought place has no end date to move.
+    expect(await extendRental(db(), rental.id, actor, 30)).toBeNull();
 
     expect(await removeRental(db(), rental.id, actor, decision)).toBe(true);
     expect(await rentalRow(rental.id)).toMatchObject({ status: "removed", cells: 0 });
@@ -251,6 +251,22 @@ describe("administration", () => {
     expect(first.ok).toBe(true);
     expect(await createReservedRental(db(), s, { rect: { x: 2, y: 52, w: 2, h: 2 }, endsAt: null }, actor)).toMatchObject({ ok: false, reason: "taken" });
     expect(await createReservedRental(db(), s, { rect: { x: 99, y: 0, w: 2, h: 1 }, endsAt: null }, actor)).toEqual({ ok: false, reason: "invalid" });
+  });
+
+  it("frees a reserved place after its end date, but never a bought one", async () => {
+    const s = await settings();
+    const reserved = await createReservedRental(db(), s, { rect: { x: 10, y: 50, w: 2, h: 2 }, endsAt: new Date(Date.now() + 86400_000) }, actor);
+    if (!reserved.ok) throw new Error(reserved.reason);
+    const bought = await activeRental({ x: 20, y: 50, w: 1, h: 1 });
+    expect(await extendRental(db(), reserved.id, actor, 10)).not.toBeNull();
+    expect(await releaseEndedReservations(db())).toBe(0);
+
+    // Time passes: the reservation ends (tested by moving its end into the past).
+    await db()`update rentals set starts_at = now() - interval '2 days', ends_at = now() - interval '1 minute' where id = ${reserved.id}`;
+    expect(await releaseEndedReservations(db())).toBe(1);
+    expect(await rentalRow(reserved.id)).toMatchObject({ status: "ended", cells: 0 });
+    expect(await rentalRow(bought.id)).toMatchObject({ status: "active", cells: 1, ends_at: null });
+    expect(await releaseEndedReservations(db())).toBe(0);
   });
 
   it("validates settings and locks the wall size once rentals exist", async () => {

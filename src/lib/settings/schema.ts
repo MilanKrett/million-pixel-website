@@ -11,11 +11,6 @@ import { LOCALES } from "@/i18n/config";
 const localizedText = (max: number) => z.partialRecord(z.enum(LOCALES), z.string().trim().max(max));
 export type LocalizedText = z.infer<ReturnType<typeof localizedText>>;
 
-const period = z.object({
-  years: z.number().int().min(1).max(10),
-  discount_pct: z.number().min(0).max(90),
-});
-
 export const settingsSchema = z.object({
   // Branding and operator
   site_name: z.string().trim().min(1).max(60),
@@ -26,16 +21,16 @@ export const settingsSchema = z.object({
   operator_address: z.string().trim().max(300),
   contact_email: z.string().trim().max(254),
 
-  // Wall geometry. Locked once the first rental exists.
+  // Wall geometry. Locked once the first place is sold or reserved.
   wall_width_px: z.number().int().min(100).max(4000),
   wall_height_px: z.number().int().min(100).max(4000),
   block_size_px: z.number().int().min(1).max(100),
 
-  // Pricing (final prices, VAT included when vat_payer = true)
-  price_cents_per_pixel_year: z.number().min(0).max(100_000),
+  // Pricing: pixels are bought once and stay on the wall for good (final
+  // prices, VAT included when vat_payer = true).
+  price_cents_per_pixel: z.number().min(0).max(100_000),
   min_blocks: z.number().int().min(1),
   max_blocks: z.number().int().min(1).nullable(),
-  periods: z.array(period).min(1).max(6),
   currency: z.string().length(3),
   vat_payer: z.boolean(),
   vat_rate_pct: z.number().min(0).max(50),
@@ -44,10 +39,8 @@ export const settingsSchema = z.object({
   hold_minutes: z.number().int().min(1).max(120),
   // Stripe Checkout Sessions must live between 30 minutes and 24 hours.
   checkout_hold_minutes: z.number().int().min(30).max(24 * 60),
-  grace_days: z.number().int().min(0).max(90),
   review_hours: z.number().int().min(1).max(24 * 14),
   reupload_days: z.number().int().min(1).max(60),
-  reminder_days: z.array(z.number().int().min(1).max(365)).max(6),
   max_active_holds: z.number().int().min(1).max(50),
   magic_link_minutes: z.number().int().min(5).max(60),
   transfer_days: z.number().int().min(1).max(60),
@@ -82,24 +75,17 @@ export const DEFAULT_SETTINGS: Settings = {
   wall_height_px: 1000,
   block_size_px: 10,
 
-  price_cents_per_pixel_year: 10,
+  price_cents_per_pixel: 10,
   min_blocks: 1,
   max_blocks: null,
-  periods: [
-    { years: 1, discount_pct: 0 },
-    { years: 3, discount_pct: 10 },
-    { years: 5, discount_pct: 20 },
-  ],
   currency: "EUR",
   vat_payer: false,
   vat_rate_pct: 23,
 
   hold_minutes: 15,
   checkout_hold_minutes: 30,
-  grace_days: 14,
   review_hours: 24,
   reupload_days: 7,
-  reminder_days: [30, 7, 1],
   max_active_holds: 3,
   magic_link_minutes: 15,
   transfer_days: 7,

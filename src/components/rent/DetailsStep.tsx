@@ -5,20 +5,18 @@ import { useLocale, useTranslations } from "use-intl/react";
 import { localePath } from "@/i18n/config";
 import { useAppLocale } from "@/i18n/provider";
 import { formatMoney } from "@/lib/money";
-import { api, ApiError, type CarriedTexts, type OrderResponse, type RentConfig } from "./shared";
+import { api, ApiError, type CarriedTexts, type OrderResponse } from "./shared";
 
-type Field = "title" | "url" | "displayName" | "email" | "years" | "terms" | "waiver";
+type Field = "title" | "url" | "displayName" | "email" | "terms" | "waiver";
 
-/** Step 4 of the spec: title, link, public name, e-mail, period and consents. */
+/** Step 4 of the spec: title, link, public name, e-mail and consents. */
 export function DetailsStep({
   order,
-  config,
   carried,
   onSaved,
   onBack,
 }: {
   order: OrderResponse;
-  config: RentConfig;
   /** Texts entered for the previous place, used when this order has none yet. */
   carried?: CarriedTexts | null;
   onSaved: (order: OrderResponse) => void;
@@ -44,7 +42,6 @@ export function DetailsStep({
           url: form.get("url"),
           displayName: form.get("displayName"),
           email: form.get("email"),
-          years: Number(form.get("years")),
           terms: form.get("terms") === "on",
           waiver: form.get("waiver") === "on",
           marketing: form.get("marketing") === "on",
@@ -100,17 +97,12 @@ export function DetailsStep({
         {err("email")}
       </label>
 
-      <fieldset className="field">
-        <legend>{t("fields.period")}</legend>
-        {order.quotes.map((q) => (
-          <label key={q.years} className="radio-line">
-            <input type="radio" name="years" value={q.years} defaultChecked={(order.periodYears ?? config.periods[0]?.years) === q.years} />{" "}
-            {t("pricePeriod", { years: q.years, price: formatMoney(q.totalCents, q.currency, intlLocale) })}
-            {q.discountPct > 0 && <span className="muted"> {t("discount", { pct: q.discountPct })}</span>}
-          </label>
-        ))}
-        {err("years")}
-      </fieldset>
+      {order.quote && (
+        <p className="field">
+          {t("fields.price")} <b>{formatMoney(order.quote.totalCents, order.quote.currency, intlLocale)}</b>{" "}
+          <span className="muted small">{t("priceOnce")}</span>
+        </p>
+      )}
 
       <fieldset className="field">
         <legend className="visually-hidden">{t("fields.consents")}</legend>

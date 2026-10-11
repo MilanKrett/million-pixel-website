@@ -33,9 +33,9 @@ async function Receipt({ params }: { params: PageProps<"/[locale]/my-pixels/rece
   if (!session) redirect(`${localePath(locale, "/login")}?next=${encodeURIComponent(localePath(locale, `/my-pixels/receipt/${id}`))}`);
   if (!/^[0-9a-f-]{36}$/i.test(id)) notFound();
   const [p] = await db()<
-    { invoice_number: string | null; amount_cents: number; refunded_cents: number; paid_at: Date | null; period_years: number | null; kind: string; status: string; buyer_email: string | null; x: number; y: number; w: number; h: number; no: number }[]
+    { invoice_number: string | null; amount_cents: number; refunded_cents: number; paid_at: Date | null; status: string; buyer_email: string | null; x: number; y: number; w: number; h: number; no: number }[]
   >`
-    select p.invoice_number, p.amount_cents, p.refunded_cents, p.paid_at, p.period_years, p.kind, p.status, p.buyer_email,
+    select p.invoice_number, p.amount_cents, p.refunded_cents, p.paid_at, p.status, p.buyer_email,
            r.x, r.y, r.w, r.h, r.no
     from payments p join rentals r on r.id = p.rental_id
     where p.id = ${id} and p.status in ('paid', 'refunded', 'partially_refunded')
@@ -57,16 +57,7 @@ async function Receipt({ params }: { params: PageProps<"/[locale]/my-pixels/rece
     [t("receipt.buyer"), p.buyer_email ?? session.user.email],
     [
       t("receipt.item"),
-      t(p.kind === "extension" ? "receipt.itemExtension" : "receipt.itemValue", {
-        w: p.w * block,
-        h: p.h * block,
-        x0: range.x0,
-        x1: range.x1,
-        y0: range.y0,
-        y1: range.y1,
-        years: p.period_years ?? 1,
-        no: p.no,
-      }),
+      t("receipt.itemValue", { w: p.w * block, h: p.h * block, x0: range.x0, x1: range.x1, y0: range.y0, y1: range.y1, no: p.no }),
     ],
     [t("receipt.total"), money(p.amount_cents)],
     [t("receipt.vat"), settings.vat_payer ? t("receipt.vatIncluded", { rate: settings.vat_rate_pct, vat: money(vat) }) : t("receipt.notVatPayer")],

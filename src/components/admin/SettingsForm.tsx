@@ -6,7 +6,7 @@ import { api, ApiError } from "@/components/rent/shared";
 import { LOCALE_NAMES, LOCALES, type Locale } from "@/i18n/config";
 import type { LocalizedText, Settings, SettingKey } from "@/lib/settings/schema";
 
-type Kind = "text" | "longtext" | "int" | "number" | "nullableInt" | "bool" | "periods" | "days" | "formats" | "localized" | "localizedLong";
+type Kind = "text" | "longtext" | "int" | "number" | "nullableInt" | "bool" | "formats" | "localized" | "localizedLong";
 type LocalizedKey = "tagline" | "announcement";
 
 const GROUPS: { key: string; fields: [SettingKey, Kind][] }[] = [
@@ -24,9 +24,8 @@ const GROUPS: { key: string; fields: [SettingKey, Kind][] }[] = [
   {
     key: "prices",
     fields: [
-      ["price_cents_per_pixel_year", "number"],
+      ["price_cents_per_pixel", "number"],
       ["currency", "text"],
-      ["periods", "periods"],
       ["min_blocks", "int"],
       ["max_blocks", "nullableInt"],
       ["vat_payer", "bool"],
@@ -40,8 +39,6 @@ const GROUPS: { key: string; fields: [SettingKey, Kind][] }[] = [
       ["checkout_hold_minutes", "int"],
       ["review_hours", "int"],
       ["reupload_days", "int"],
-      ["grace_days", "int"],
-      ["reminder_days", "days"],
       ["magic_link_minutes", "int"],
       ["transfer_days", "int"],
       ["max_active_holds", "int"],
@@ -76,8 +73,6 @@ const GROUPS: { key: string; fields: [SettingKey, Kind][] }[] = [
 const FORMATS = ["png", "jpeg", "webp", "gif"] as const;
 
 function toText(kind: Kind, value: unknown): string {
-  if (kind === "periods") return (value as Settings["periods"]).map((p) => `${p.years}:${p.discount_pct}`).join(", ");
-  if (kind === "days") return (value as number[]).join(", ");
   if (kind === "nullableInt") return value === null ? "" : String(value);
   if (kind === "bool" || kind === "formats" || kind === "localized" || kind === "localizedLong") return "";
   return String(value ?? "");
@@ -88,16 +83,6 @@ function fromText(kind: Kind, text: string): unknown {
   if (kind === "int") return trimmed === "" ? NaN : Number(trimmed);
   if (kind === "number") return trimmed === "" ? NaN : Number(trimmed.replace(",", "."));
   if (kind === "nullableInt") return trimmed === "" ? null : Number(trimmed);
-  if (kind === "periods") {
-    return trimmed
-      .split(/[,;\s]+/)
-      .filter(Boolean)
-      .map((part) => {
-        const [years, discount] = part.split(":");
-        return { years: Number(years), discount_pct: Number(discount ?? 0) };
-      });
-  }
-  if (kind === "days") return trimmed.split(/[,;\s]+/).filter(Boolean).map(Number);
   return text;
 }
 
@@ -183,7 +168,7 @@ export function SettingsForm({ initial, geometryLocked, sloganDefaults }: { init
           {group.key === "geometry" && <p className="muted small">{geometryLocked ? t("geometryLocked") : t("geometryHelp")}</p>}
           {group.fields.map(([key, kind]) => {
             const label = t(`fields.${key}` as "fields.site_name");
-            const help = t.has(`help.${key}` as "help.periods") ? t(`help.${key}` as "help.periods") : null;
+            const help = t.has(`help.${key}` as "help.tagline") ? t(`help.${key}` as "help.tagline") : null;
             const disabled = group.key === "geometry" && geometryLocked;
             const error = errors[key] ? <span className="field-error">{errorText(errors[key]!)}</span> : null;
             if (kind === "bool") {

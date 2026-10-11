@@ -10,7 +10,7 @@ import { wallImagePath } from "./render";
  * even with 10 000 rentals.
  */
 
-/** [no, x, y, w, h, title, publicName, linkDomain, validUntil (YYYY-MM-DD)] — x/y/w/h in blocks. */
+/** [no, x, y, w, h, title, publicName, linkDomain, onWallSince (YYYY-MM-DD)] — x/y/w/h in blocks. */
 export type WallRentalRow = [number, number, number, number, number, string, string, string, string];
 /** [x, y, w, h] in blocks. */
 export type WallAreaRow = [number, number, number, number];
@@ -41,8 +41,8 @@ export async function loadWallSnapshot(sql: Sql, settings: Settings): Promise<Wa
   const grid = wallGrid(settings);
   const [[latest], rentals, taken, holds] = await Promise.all([
     sql<{ id: number }[]>`select id from wall_versions where image_path <> '' order by id desc limit 1`,
-    sql<{ no: number; x: number; y: number; w: number; h: number; title: string; name: string | null; url: string | null; ends_at: Date | null }[]>`
-      select r.no, r.x, r.y, r.w, r.h, c.title, c.display_name as name, c.url, r.ends_at
+    sql<{ no: number; x: number; y: number; w: number; h: number; title: string; name: string | null; url: string | null; starts_at: Date | null }[]>`
+      select r.no, r.x, r.y, r.w, r.h, c.title, c.display_name as name, c.url, r.starts_at
       from rentals r
       join content_versions c on c.id = r.active_content_id
       where rental_is_displayed(r.status, r.hidden_at, r.active_content_id)
@@ -81,7 +81,7 @@ export async function loadWallSnapshot(sql: Sql, settings: Settings): Promise<Wa
       r.title,
       r.name ?? "",
       displayDomain(r.url),
-      r.ends_at ? r.ends_at.toISOString().slice(0, 10) : "",
+      r.starts_at ? r.starts_at.toISOString().slice(0, 10) : "",
     ]),
     taken: taken.map((r) => [r.x, r.y, r.w, r.h]),
     holds: holds.map((r) => [r.x, r.y, r.w, r.h]),

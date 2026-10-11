@@ -19,7 +19,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const locale = await getLocale();
   const [settings, t] = await Promise.all([getSiteSettings(), getTranslator(locale)]);
   const pixels = settings.wall_width_px * settings.wall_height_px;
-  const price = formatMoney(settings.price_cents_per_pixel_year, settings.currency, intlLocale(locale));
+  const price = formatMoney(settings.price_cents_per_pixel, settings.currency, intlLocale(locale));
   return {
     metadataBase: new URL(process.env.SITE_URL ?? "http://localhost:3000"),
     title: {

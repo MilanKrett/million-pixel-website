@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useFormatter, useTranslations } from "use-intl/react";
 import { api, ApiError } from "@/components/rent/shared";
-import { localePath } from "@/i18n/config";
+import { intlLocale, localePath } from "@/i18n/config";
 import { useAppLocale } from "@/i18n/provider";
 import type { MyRental } from "@/lib/account/my-rentals";
 import { pixelRange } from "@/lib/geometry";
@@ -46,7 +46,7 @@ export function MyPixels({
         <div className="notice">
           <p>{t("empty")}</p>
           <p>
-            <a href={localePath(locale, "/rent")}>{t("rentNow")}</a>
+            <a href={localePath(locale, "/buy")}>{t("rentNow")}</a>
           </p>
         </div>
       ) : (
@@ -77,7 +77,6 @@ function RentalCard({
   const tr = useTranslations("reasons");
   const format = useFormatter();
   const locale = useAppLocale();
-  const [reminders, setReminders] = useState(r.remindersEnabled);
   const [copied, setCopied] = useState(false);
   const w = r.rect.w * blockSize;
   const h = r.rect.h * blockSize;
@@ -85,25 +84,18 @@ function RentalCard({
   const scale = Math.max(1, Math.min(4, Math.floor(200 / Math.max(w, h))));
   const content = r.current ?? r.pending ?? r.declined;
   const spotPath = `${localePath(locale, "/")}?x=${r.rect.x}&y=${r.rect.y}&zoom=4`;
+  // The share page shows a picture of the place on social networks and then opens the wall there.
+  const sharePath = localePath(locale, `/p/${r.no}`);
   const date = (iso: string) => format.dateTime(new Date(iso), { dateStyle: "medium" });
-  const money = (cents: number) => formatMoney(cents, currency, locale === "sk" ? "sk-SK" : "en-GB");
-
-  const toggleReminders = async (enabled: boolean) => {
-    setReminders(enabled);
-    try {
-      await api(`/api/my/rentals/${r.id}`, { method: "POST", body: JSON.stringify({ action: "reminders", enabled }) });
-    } catch {
-      setReminders(!enabled);
-    }
-  };
+  const money = (cents: number) => formatMoney(cents, currency, intlLocale(locale));
 
   const share = async () => {
     try {
-      await navigator.clipboard.writeText(`${siteUrl}${spotPath}`);
+      await navigator.clipboard.writeText(`${siteUrl}${sharePath}`);
       setCopied(true);
       window.setTimeout(() => setCopied(false), 2500);
     } catch {
-      window.prompt(t("share"), `${siteUrl}${spotPath}`);
+      window.prompt(t("share"), `${siteUrl}${sharePath}`);
     }
   };
 
@@ -142,11 +134,8 @@ function RentalCard({
               <td>{t("sizeValue", { w, h, pixels: w * h })}</td>
             </tr>
             <tr>
-              <th scope="row">{t("validity")}</th>
-              <td>
-                {r.endsAt ? t("validUntil", { date: date(r.endsAt) }) : r.status === "in_review" || r.status === "rejected" ? t("startsAfterApproval") : "—"}
-                {r.status === "grace" && r.graceEndsAt && <b> · {t("graceUntil", { date: date(r.graceEndsAt) })}</b>}
-              </td>
+              <th scope="row">{t("since")}</th>
+              <td>{r.startsAt ? date(r.startsAt) : r.status === "in_review" || r.status === "rejected" ? t("afterApproval") : "—"}</td>
             </tr>
             {content?.url && (
               <tr>
@@ -177,11 +166,6 @@ function RentalCard({
           {EDITABLE.includes(r.status) && (
             <a className="btn" href={localePath(locale, `/my-pixels/${r.no}`)}>
               {r.status === "rejected" ? t("sendNew") : t("change")}
-            </a>
-          )}{" "}
-          {(r.status === "active" || r.status === "grace") && !r.hidden && (
-            <a className={r.status === "grace" ? "btn btn-rent" : "btn"} href={localePath(locale, `/extend/${r.no}`)}>
-              {t("extend")}
             </a>
           )}{" "}
           {r.status === "active" || r.status === "grace" ? (
@@ -230,14 +214,6 @@ function RentalCard({
                 {p.refundedCents > 0 && <span className="muted"> {t("refundedAmount", { amount: money(p.refundedCents) })}</span>}
               </span>
             ))}
-          </p>
-        )}
-
-        {(r.status === "active" || r.status === "grace" || r.status === "in_review") && (
-          <p className="small">
-            <label className="check-line">
-              <input type="checkbox" checked={reminders} onChange={(e) => toggleReminders(e.target.checked)} /> {t("reminders")}
-            </label>
           </p>
         )}
 

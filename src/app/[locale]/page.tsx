@@ -22,7 +22,7 @@ async function WallSection() {
   return (
     <Wall
       initial={snapshot}
-      blockPriceCents={Math.round(blockPixels * settings.price_cents_per_pixel_year)}
+      blockPriceCents={Math.round(blockPixels * settings.price_cents_per_pixel)}
       currency={settings.currency}
       directLinkOpen={settings.direct_link_open}
     />

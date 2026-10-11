@@ -2,7 +2,6 @@ import { randomUUID } from "node:crypto";
 import type { Locale } from "@/i18n/config";
 import type { Sql } from "@/lib/db";
 import type { Rect } from "@/lib/geometry";
-import type { Settings } from "@/lib/settings/schema";
 import { storage } from "@/lib/storage";
 import { normalizeUrl } from "@/lib/url";
 import { tokenMatches } from "./tokens";
@@ -16,7 +15,6 @@ export interface OrderState {
   holdExpiresAt: string | null;
   locale: Locale;
   email: string | null;
-  periodYears: number | null;
   termsAccepted: boolean;
   waiver: boolean;
   marketing: boolean;
@@ -45,7 +43,6 @@ export interface RentalRow {
   locale: Locale;
   email: string | null;
   user_id: string | null;
-  period_years: number | null;
   terms_accepted_at: Date | null;
   withdrawal_waiver_at: Date | null;
   marketing_consent: boolean;
@@ -59,7 +56,7 @@ const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 export async function loadRental(sql: Sql, id: string): Promise<RentalRow | null> {
   if (!UUID.test(id)) return null;
   const [row] = await sql<RentalRow[]>`
-    select id, no, x, y, w, h, status, hold_expires_at, order_token_hash, locale, email, user_id, period_years,
+    select id, no, x, y, w, h, status, hold_expires_at, order_token_hash, locale, email, user_id,
            terms_accepted_at, withdrawal_waiver_at, marketing_consent, reupload_until,
            rental_hold_is_stale(status, hold_expires_at) as stale
     from rentals where id = ${id}
@@ -109,7 +106,6 @@ export async function orderState(sql: Sql, rental: RentalRow): Promise<OrderStat
     holdExpiresAt: rental.hold_expires_at ? rental.hold_expires_at.toISOString() : null,
     locale: rental.locale,
     email: rental.email,
-    periodYears: rental.period_years,
     termsAccepted: rental.terms_accepted_at !== null,
     waiver: rental.withdrawal_waiver_at !== null,
     marketing: rental.marketing_consent,
@@ -182,7 +178,6 @@ export interface DetailsInput {
   url: unknown;
   displayName: unknown;
   email: unknown;
-  years: unknown;
   terms: unknown;
   waiver: unknown;
   marketing: unknown;
@@ -193,11 +188,10 @@ export interface Details {
   url: string | null;
   displayName: string | null;
   email: string;
-  years: number;
   marketing: boolean;
 }
 
-export type DetailsErrors = Partial<Record<"title" | "url" | "displayName" | "email" | "years" | "terms" | "waiver", string>>;
+export type DetailsErrors = Partial<Record<"title" | "url" | "displayName" | "email" | "terms" | "waiver", string>>;
 
 const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -228,8 +222,8 @@ export function validateTexts(
   return { ok: true, texts: { title, url, displayName: displayName || null } };
 }
 
-/** Validate step 4. Error values are translation keys (namespace "rent.errors"). */
-export function validateDetails(input: DetailsInput, settings: Settings): { ok: true; details: Details } | { ok: false; errors: DetailsErrors } {
+/** Validate step 4. Error values are translation keys (namespace "rent.detailErrors"). */
+export function validateDetails(input: DetailsInput): { ok: true; details: Details } | { ok: false; errors: DetailsErrors } {
   const texts = validateTexts(input);
   const errors: DetailsErrors = texts.ok ? {} : { ...texts.errors };
   const { title, url, displayName } = texts.ok ? texts.texts : { title: "", url: null, displayName: null };
@@ -238,13 +232,11 @@ export function validateDetails(input: DetailsInput, settings: Settings): { ok: 
   if (!email) errors.email = "emailRequired";
   else if (email.length > 254 || !EMAIL.test(email)) errors.email = "emailInvalid";
 
-  const years = Number(input.years);
-  if (!settings.periods.some((p) => p.years === years)) errors.years = "periodRequired";
   if (input.terms !== true) errors.terms = "termsRequired";
   if (input.waiver !== true) errors.waiver = "waiverRequired";
 
   if (Object.keys(errors).length) return { ok: false, errors };
-  return { ok: true, details: { title, url, displayName, email, years, marketing: input.marketing === true } };
+  return { ok: true, details: { title, url, displayName, email, marketing: input.marketing === true } };
 }
 
 export async function saveDetails(sql: Sql, rentalId: string, contentId: string, details: Details, locale: Locale): Promise<void> {
@@ -256,7 +248,7 @@ export async function saveDetails(sql: Sql, rentalId: string, contentId: string,
     `;
     await tx`
       update rentals
-      set email = ${details.email}, period_years = ${details.years}, locale = ${locale},
+      set email = ${details.email}, locale = ${locale},
           terms_accepted_at = coalesce(terms_accepted_at, now()),
           withdrawal_waiver_at = coalesce(withdrawal_waiver_at, now()),
           marketing_consent = ${details.marketing}

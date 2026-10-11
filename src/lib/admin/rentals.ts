@@ -62,7 +62,7 @@ export async function searchRentals(sql: Sql, query: string, block: number, limi
 export interface RentalDetail {
   rental: {
     id: string; no: number; x: number; y: number; w: number; h: number; status: string; email: string | null; locale: string;
-    period_years: number | null; starts_at: Date | null; ends_at: Date | null; paid_at: Date | null; price_cents: number | null;
+    starts_at: Date | null; ends_at: Date | null; paid_at: Date | null; price_cents: number | null;
     hidden_at: Date | null; hidden_reason: string | null; is_reserved: boolean; is_test: boolean; reupload_until: Date | null;
     active_content_id: string | null; created_at: Date; user_id: string | null;
   };
@@ -75,7 +75,7 @@ export interface RentalDetail {
 
 export async function rentalDetail(sql: Sql, no: number): Promise<RentalDetail | null> {
   const [rental] = await sql<RentalDetail["rental"][]>`
-    select id, no, x, y, w, h, status, email, locale, period_years, starts_at, ends_at, paid_at, price_cents, hidden_at, hidden_reason,
+    select id, no, x, y, w, h, status, email, locale, starts_at, ends_at, paid_at, price_cents, hidden_at, hidden_reason,
            is_reserved, is_test, reupload_until, active_content_id, created_at, user_id
     from rentals where no = ${no}
   `;

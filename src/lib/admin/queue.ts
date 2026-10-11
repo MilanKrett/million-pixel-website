@@ -13,7 +13,6 @@ export interface QueueItem {
   url: string | null;
   displayName: string | null;
   email: string | null;
-  periodYears: number | null;
   priceCents: number | null;
   waitingHours: number;
   checks: Partial<AutoChecks> | null;
@@ -26,13 +25,13 @@ export async function moderationQueue(sql: Sql, limit = 100): Promise<QueueItem[
   const rows = await sql<
     {
       content_id: string; rental_id: string; no: number; x: number; y: number; w: number; h: number; status: string; kind: string;
-      title: string | null; url: string | null; display_name: string | null; email: string | null; period_years: number | null;
+      title: string | null; url: string | null; display_name: string | null; email: string | null;
       price_cents: number | null; hours: number; auto_checks: Partial<AutoChecks> | null; active_content_id: string | null;
       h_rentals: number; h_rejected: number; h_reports: number; h_removed: number;
     }[]
   >`
     select c.id as content_id, r.id as rental_id, r.no, r.x, r.y, r.w, r.h, r.status, c.kind,
-           c.title, c.url, c.display_name, r.email, r.period_years, r.price_cents,
+           c.title, c.url, c.display_name, r.email, r.price_cents,
            (extract(epoch from now() - coalesce(c.submitted_at, c.created_at)) / 3600)::float8 as hours,
            nullif(c.auto_checks, '{}'::jsonb) as auto_checks, r.active_content_id,
            (select count(*) from rentals o where r.email is not null and lower(o.email) = lower(r.email) and o.paid_at is not null)::int as h_rentals,
@@ -57,7 +56,6 @@ export async function moderationQueue(sql: Sql, limit = 100): Promise<QueueItem[
     url: r.url,
     displayName: r.display_name,
     email: r.email,
-    periodYears: r.period_years,
     priceCents: r.price_cents,
     waitingHours: r.hours,
     checks: r.auto_checks,

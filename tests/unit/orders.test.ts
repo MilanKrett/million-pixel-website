@@ -8,28 +8,32 @@ import { DEFAULT_SETTINGS } from "@/lib/settings/schema";
 import { signUpload, verifyUpload } from "@/lib/signing";
 
 describe("pricing", () => {
-  it("charges 10 cents per pixel per year with period discounts", () => {
-    // One block 10 × 10 px = 100 px = 10 € a year.
-    expect(quote(DEFAULT_SETTINGS, 1, 1, 1)).toMatchObject({ pixels: 100, perYearCents: 1000, totalCents: 1000, discountPct: 0 });
-    // 50 × 50 px for 3 years: 250 € × 3 − 10 %.
-    expect(quote(DEFAULT_SETTINGS, 5, 5, 3)).toMatchObject({ pixels: 2500, subtotalCents: 75_000, discountCents: 7_500, totalCents: 67_500 });
-    // 100 × 100 px for 5 years: 1 000 € × 5 − 20 %.
-    expect(quote(DEFAULT_SETTINGS, 10, 10, 5)?.totalCents).toBe(400_000);
-    // The whole wall for one year: 100 000 €.
-    expect(quote(DEFAULT_SETTINGS, 100, 100, 1)?.totalCents).toBe(10_000_000);
+  it("charges 10 cents per pixel, once", () => {
+    // One block 10 × 10 px = 100 px = 10 €.
+    expect(quote(DEFAULT_SETTINGS, 1, 1)).toMatchObject({ blocks: 1, pixels: 100, pricePerPixelCents: 10, totalCents: 1000 });
+    // 50 × 50 px = 250 €, 100 × 100 px = 1 000 €.
+    expect(quote(DEFAULT_SETTINGS, 5, 5)?.totalCents).toBe(25_000);
+    expect(quote(DEFAULT_SETTINGS, 10, 10)?.totalCents).toBe(100_000);
+    // The whole wall: 100 000 €.
+    expect(quote(DEFAULT_SETTINGS, 100, 100)?.totalCents).toBe(10_000_000);
   });
 
-  it("refuses periods that are not offered and invalid sizes", () => {
-    expect(quote(DEFAULT_SETTINGS, 1, 1, 2)).toBeNull();
-    expect(quote(DEFAULT_SETTINGS, 0, 1, 1)).toBeNull();
-    expect(quote(DEFAULT_SETTINGS, 1.5, 1, 1)).toBeNull();
+  it("refuses invalid sizes", () => {
+    expect(quote(DEFAULT_SETTINGS, 0, 1)).toBeNull();
+    expect(quote(DEFAULT_SETTINGS, 1.5, 1)).toBeNull();
+    expect(quote(DEFAULT_SETTINGS, 1, -2)).toBeNull();
+  });
+
+  it("follows the price in the settings", () => {
+    expect(quote({ ...DEFAULT_SETTINGS, price_cents_per_pixel: 100 }, 1, 1)?.totalCents).toBe(10_000);
+    expect(quote({ ...DEFAULT_SETTINGS, price_cents_per_pixel: 2.5 }, 1, 1)?.totalCents).toBe(250);
   });
 
   it("states the VAT contained in the final price for VAT payers", () => {
-    const q = quote({ ...DEFAULT_SETTINGS, vat_payer: true, vat_rate_pct: 23 }, 1, 1, 1)!;
+    const q = quote({ ...DEFAULT_SETTINGS, vat_payer: true, vat_rate_pct: 23 }, 1, 1)!;
     expect(q.totalCents).toBe(1000);
     expect(q.vatCents).toBe(187);
-    expect(quote(DEFAULT_SETTINGS, 1, 1, 1)!.vatCents).toBe(0);
+    expect(quote(DEFAULT_SETTINGS, 1, 1)!.vatCents).toBe(0);
   });
 });
 
@@ -148,30 +152,26 @@ describe("order details", () => {
     url: "shop.example.com",
     displayName: "",
     email: "Jana@Example.com ",
-    years: 3,
     terms: true,
     waiver: true,
     marketing: false,
   };
 
   it("normalises valid input", () => {
-    const result = validateDetails(ok, DEFAULT_SETTINGS);
+    const result = validateDetails(ok);
     expect(result).toEqual({
       ok: true,
-      details: { title: "My shop", url: "https://shop.example.com/", displayName: null, email: "jana@example.com", years: 3, marketing: false },
+      details: { title: "My shop", url: "https://shop.example.com/", displayName: null, email: "jana@example.com", marketing: false },
     });
   });
 
   it("reports every problem at once", () => {
-    const result = validateDetails(
-      { title: "", url: "javascript:alert(1)", displayName: "x".repeat(61), email: "nope", years: 2, terms: false, waiver: "yes", marketing: 1 },
-      DEFAULT_SETTINGS,
-    );
+    const result = validateDetails({ title: "", url: "javascript:alert(1)", displayName: "x".repeat(61), email: "nope", terms: false, waiver: "yes", marketing: 1 });
     expect(result.ok).toBe(false);
     if (!result.ok) {
-      expect(Object.keys(result.errors).sort()).toEqual(["displayName", "email", "terms", "title", "url", "waiver", "years"]);
+      expect(Object.keys(result.errors).sort()).toEqual(["displayName", "email", "terms", "title", "url", "waiver"]);
     }
-    const long = validateDetails({ ...ok, title: "x".repeat(81) }, DEFAULT_SETTINGS);
+    const long = validateDetails({ ...ok, title: "x".repeat(81) });
     expect(long.ok).toBe(false);
   });
 });

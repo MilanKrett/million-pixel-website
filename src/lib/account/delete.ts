@@ -22,7 +22,7 @@ export async function deleteAccount(sql: Sql, userId: string): Promise<{ ok: tru
     }
     const rentals = await tx<{ id: string }[]>`
       update rentals
-      set user_id = null, email = null, marketing_consent = false, order_token_hash = null, client_hash = null, reminders_enabled = false
+      set user_id = null, email = null, marketing_consent = false, order_token_hash = null, client_hash = null
       where user_id = ${userId} or lower(email) = ${user.email}
       returning id
     `;

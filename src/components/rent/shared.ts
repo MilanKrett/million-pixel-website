@@ -55,7 +55,7 @@ export async function api<T>(url: string, init: RequestInit = {}): Promise<T> {
 /** The step to continue with for an order that is still being edited. */
 export function nextStep(order: OrderResponse): Step {
   if (!order.content) return "content";
-  if (!order.content.title || !order.email || !order.periodYears || !order.termsAccepted || !order.waiver) return "details";
+  if (!order.content.title || !order.email || !order.termsAccepted || !order.waiver) return "details";
   return "summary";
 }
 
