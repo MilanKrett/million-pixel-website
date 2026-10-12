@@ -1,7 +1,7 @@
 @echo off
-rem Million Pixel Wall on this computer: database, website and browser.
+rem Million Pixel Website on this computer: database, website and browser.
 rem Close this window to stop everything.
-title Million Pixel Wall
+title Million Pixel Website
 chcp 65001 >nul
 cd /d "%~dp0..\.."
 where node >nul 2>nul

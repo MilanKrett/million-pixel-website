@@ -67,6 +67,20 @@ const SAME_AS_ENGLISH: Record<Exclude<Locale, "en">, string[]> = {
   pt: ["E-mail", "FAQ", "Link", "Total", "Zoom"],
 };
 
+/** The word "wall" in each language: the owner does not want the pixels called a wall anywhere. */
+const WALL_WORDS: Record<Locale, RegExp> = {
+  en: /(?<!\p{L})walls?(?!\p{L})/iu,
+  sk: /(?<!\p{L})(sten(a|y|e|u|ou|ám|ách|ami)|stien)(?!\p{L})/iu,
+  cs: /(?<!\p{L})(zeď|zdi|zdí|zdem|zdech|zdmi)(?!\p{L})/iu,
+  de: /(?<!\p{L})(wand|wände|wänden)(?!\p{L})|pixelwand/iu,
+  pl: /(?<!\p{L})ścian/iu,
+  hu: /fal(at|on|ra|ról|ból|ba|ban|hoz|nak|lal|a|án|ára|ának|ak)?(?!\p{L})/iu,
+  fr: /(?<!\p{L})murs?(?!\p{L})/iu,
+  es: /(?<!\p{L})muros?(?!\p{L})/iu,
+  it: /(?<!\p{L})mur[oi](?!\p{L})/iu,
+  pt: /(?<!\p{L})paredes?(?!\p{L})/iu,
+};
+
 const translator = (locale: Locale) => createTranslator({ locale: intlLocale(locale), messages: getMessages(locale), timeZone: "Europe/Bratislava" });
 
 describe("translations", () => {
@@ -114,7 +128,20 @@ describe("translations", () => {
     });
   }
 
-  it("uses each language's plural forms for the wall", () => {
+  it("never calls the pixels a wall", () => {
+    for (const locale of LOCALES) {
+      for (const [key, value] of Object.entries(flatten(getMessages(locale) as unknown as Tree))) {
+        expect(value, `${locale}: ${key}`).not.toMatch(WALL_WORDS[locale]);
+      }
+    }
+    for (const [locale, admin] of [["en", adminEn], ["sk", adminSk]] as const) {
+      for (const [key, value] of Object.entries(flatten(admin as unknown as Tree))) {
+        expect(value, `admin ${locale}: ${key}`).not.toMatch(WALL_WORDS[locale]);
+      }
+    }
+  });
+
+  it("uses each language's plural forms for a million pixels", () => {
     const million = (locale: Locale) => plain(translator(locale)("common.pixels", { count: 1_000_000 }));
     expect(million("cs")).toBe("1 000 000 pixelů");
     expect(million("de")).toBe("1.000.000 Pixel");

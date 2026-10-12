@@ -1,6 +1,7 @@
 import sharp from "sharp";
 import type { Sql } from "@/lib/db";
 import type { Rect } from "@/lib/geometry";
+import { hexRgb, logoRects } from "@/lib/logo";
 import { drawText, LINE_HEIGHT, textWidth, wrapText } from "@/lib/pixel-font";
 import { wallGrid, type Settings } from "@/lib/settings/schema";
 import { storage } from "@/lib/storage";
@@ -23,13 +24,6 @@ const GREY: Rgb = [0x55, 0x55, 0x55];
 const BORDER: Rgb = [0xcc, 0xcc, 0xcc];
 const ACCENT: Rgb = [0xe8, 0x59, 0x0c];
 
-// The 4 × 4 logo next to the site name (components/site/LogoMark.tsx).
-const LOGO: Rgb[] = [
-  [0xe8, 0x59, 0x0c], [0xf4, 0xf4, 0xf4], [0x19, 0x71, 0xc2], [0x2f, 0x9e, 0x44],
-  [0xf4, 0xf4, 0xf4], [0xf5, 0x9f, 0x00], [0xe8, 0x59, 0x0c], [0xf4, 0xf4, 0xf4],
-  [0x70, 0x48, 0xe8], [0xe8, 0x59, 0x0c], [0xf4, 0xf4, 0xf4], [0x19, 0x71, 0xc2],
-  [0x2f, 0x9e, 0x44], [0xf4, 0xf4, 0xf4], [0xf5, 0x9f, 0x00], [0xe8, 0x59, 0x0c],
-];
 
 /** The newest wall picture, or an empty wall. */
 async function currentWall(sql: Sql, settings: Settings): Promise<Raster> {
@@ -98,8 +92,8 @@ export async function wallOgImage(sql: Sql, settings: Settings, name: string, li
 
   const left = 640;
   const width = OG_WIDTH - left - 40;
-  LOGO.forEach((color, i) => canvas.fill(left + (i % 4) * 16, 40 + Math.floor(i / 4) * 16, 16, 16, color));
-  outline(canvas, left, 40, 64, 64, BORDER);
+  // The logo (lib/logo.ts), 4 pixels per block.
+  for (const r of logoRects()) canvas.fill(left + r.x * 4, 40 + r.y * 4, r.w * 4, r.h * 4, hexRgb(r.fill));
   let y = writeLines(canvas, name, left, 136, width, 5, BLACK, 2) + 18;
   for (const line of lines) y = writeLines(canvas, line, left, y, width, 3, GREY, 2) + 8;
   writeLines(canvas, footer, left, OG_HEIGHT - 70, width, 3, ACCENT, 1);

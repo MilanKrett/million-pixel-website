@@ -10,6 +10,9 @@
 >   francúzština, španielčina, taliančina a portugalčina. Administrácia ostáva po anglicky a po slovensky.
 > - **Zatiaľ bez hostingu a domény** (2026-10-11): stránka beží na počítači zadávateľa z ikony na ploche
 >   (databáza, server a prehliadač naraz, denné zálohy). Ostrý Stripe, hosting a doména prídu neskôr.
+> - **Názov Million Pixel Website a bez slova „stena“** (2026-10-12): v textoch sa vo všetkých jazykoch hovorí
+>   o pixeloch („tvoje pixely sú zverejnené“, „Späť na pixely“). Logo je vlastná pixelová kresba
+>   zaplnenej plochy s farebnými „reklamami“, nie obrázok z The Million Dollar Homepage.
 
 ## 1. Zadanie a spôsob práce
 Postav kompletnú, produkčne pripravenú webovú aplikáciu: verejnú stenu s presne 1 000 000 pixelov (1000 × 1000), ktorú si ktokoľvek môže po kúskoch prenajať za symbolický poplatok a vložiť do svojho kúska vlastný obrázok, fotku, kresbu alebo text s odkazom. Je to moderná verzia legendárnej The Million Dollar Homepage z roku 2005, s rovnakým princípom, rozmermi aj jednoduchým retro vzhľadom. Rozdiely: namiesto trvalého predaja je prenájom na dobu určitú, obsah pred zverejnením schvaľujeme a stránka má vlastnú značku.

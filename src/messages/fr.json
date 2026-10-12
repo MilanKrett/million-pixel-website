@@ -1,13 +1,13 @@
 {
   "meta": {
     "title": "{site} — {pixels, plural, one {# pixel} many {# de pixels} other {# pixels}} à vendre",
-    "description": "{pixels, plural, one {# pixel} many {# de pixels} other {# pixels}}, {price} le pixel. Achetez un morceau du mur pour toujours et placez-y votre image, votre dessin ou votre texte avec un lien.",
+    "description": "{pixels, plural, one {# pixel} many {# de pixels} other {# pixels}}, {price} le pixel. Achetez-en pour toujours et placez-y votre image, votre dessin ou votre texte avec un lien.",
     "pageTitle": "{page} — {site}",
     "pages": {
-      "buy": "Choisissez un emplacement libre sur le mur, importez une photo, dessinez ou écrivez un texte, et payez une seule fois — vos pixels restent sur le mur pour toujours.",
-      "how": "Comment fonctionne {site} : choisissez un emplacement, importez ou dessinez votre image, payez une seule fois {price} le pixel et restez sur le mur pour toujours.",
+      "buy": "Choisissez des pixels libres, importez une photo, dessinez ou écrivez un texte, et payez une seule fois — vos pixels restent publiés pour toujours.",
+      "how": "Comment fonctionne {site} : choisissez un emplacement, importez ou dessinez votre image, payez une seule fois {price} le pixel, et vos pixels restent publiés pour toujours.",
       "faq": "Réponses sur les prix, la validation, les modifications, les cadeaux et les reçus sur {site}.",
-      "latest": "Les dernières images sur {site}, le mur d’un million de pixels.",
+      "latest": "Les dernières images sur {site} : un million de pixels au même endroit.",
       "contact": "Contacter {site} : questions, réclamations et point de contact au titre du règlement sur les services numériques.",
       "rules": "Ce qui peut et ne peut pas apparaître sur {site}.",
       "terms": "Conditions générales de vente de {site}.",
@@ -17,10 +17,10 @@
     }
   },
   "common": {
-    "skipToWall": "Aller au mur",
+    "skipToWall": "Aller aux pixels",
     "skipToContent": "Aller au contenu",
     "close": "Fermer",
-    "backToWall": "Retour au mur",
+    "backToWall": "Retour aux pixels",
     "language": "Langue",
     "pixels": "{count, plural, one {# pixel} many {# de pixels} other {# pixels}}",
     "blocks": "{count, plural, one {# bloc} many {# de blocs} other {# blocs}}",
@@ -29,14 +29,14 @@
   },
   "header": {
     "logoTitle": "{site} — accueil",
-    "statsLabel": "Statistiques du mur",
+    "statsLabel": "Statistiques des pixels",
     "rented": "Pixels vendus",
     "free": "Libres",
     "lastRental": "Dernier achat",
     "lastRentalNone": "aucun pour l’instant",
     "justNow": "à l’instant",
     "progress": "{percent} vendus",
-    "progressLabel": "{percent} du mur est vendu",
+    "progressLabel": "{percent} des pixels sont vendus",
     "slogan": "Laissez votre trace sur Internet"
   },
   "nav": {
@@ -60,10 +60,10 @@
     "complaints": "Réclamations"
   },
   "wall": {
-    "regionLabel": "Le mur de pixels",
+    "regionLabel": "Le million de pixels",
     "keyboardHelp": "Utilisez les flèches pour vous déplacer, + et − pour zoomer, Entrée pour ouvrir l’emplacement au centre et Échap pour fermer une fenêtre.",
-    "imageAlt": "Le mur de {pixels, plural, one {# pixel} many {# de pixels} other {# pixels}} avec les images de tous les propriétaires",
-    "noscript": "Activez JavaScript pour zoomer, chercher et acheter des pixels. Vous pouvez quand même cliquer sur les images du mur.",
+    "imageAlt": "{pixels, plural, one {# pixel} many {# de pixels} other {# pixels}} avec les images de tous les propriétaires",
+    "noscript": "Activez JavaScript pour zoomer, chercher et acheter des pixels. Vous pouvez quand même cliquer sur les images.",
     "zoom": "Zoom",
     "zoomIn": "Zoom avant",
     "zoomOut": "Zoom arrière",
@@ -72,21 +72,21 @@
     "random": "Emplacement au hasard",
     "showFree": "Afficher les espaces libres",
     "search": "Rechercher",
-    "searchLabel": "Rechercher sur le mur",
+    "searchLabel": "Rechercher dans les pixels",
     "searchPlaceholder": "Titre, nom ou site web",
     "searchNone": "Aucun résultat pour « {query} ».",
     "searchMany": "{count, plural, one {# résultat} many {# de résultats} other {# résultats}} — choisissez-en un :",
     "rent": "Acheter des pixels",
     "coords": "bloc {bx}, {by} · px {px}, {py}",
-    "coordsIdle": "Pointez le mur pour voir les coordonnées",
+    "coordsIdle": "Pointez les pixels pour voir les coordonnées",
     "position": "x {x0}–{x1}, y {y0}–{y1}",
     "size": "{w} × {h} px",
     "reserved": "Réservé",
     "rentedPending": "Vendu — en attente de validation",
-    "updated": "Le mur a été mis à jour.",
+    "updated": "Les pixels ont été mis à jour.",
     "tool": "Outil de la souris",
     "toolSelect": "Sélectionner une zone",
-    "toolMove": "Déplacer le mur",
+    "toolMove": "Déplacer la vue",
     "cornerSet": "Premier coin au bloc {bx}, {by}. Déplacez-vous et appuyez sur Entrée pour le coin opposé.",
     "areaSet": "Zone choisie jusqu’au bloc {bx}, {by}."
   },
@@ -103,16 +103,16 @@
     "freeText": "Le bloc {bx}, {by} ({position}) coûte {price} — payé une seule fois, à vous pour toujours. Vous pouvez aussi sélectionner une zone plus grande.",
     "rentThis": "Acheter cet emplacement",
     "takenTitle": "Cet emplacement est vendu",
-    "takenText": "Le contenu apparaîtra sur le mur après validation.",
+    "takenText": "Le contenu sera publié après validation.",
     "holdTitle": "Cet emplacement est réservé",
     "holdText": "Quelqu’un est en train de l’acheter. Si l’achat n’est pas finalisé d’ici quelques minutes, l’emplacement sera de nouveau libre.",
-    "since": "Sur le mur depuis le {date}"
+    "since": "Publié depuis le {date}"
   },
   "pages": {
     "rent": "Acheter des pixels",
     "how": "Comment ça marche",
     "faq": "Questions fréquentes",
-    "latest": "Nouveautés sur le mur",
+    "latest": "Dernières images",
     "mine": "Mes pixels",
     "contact": "Contact",
     "rules": "Règles de contenu",
@@ -122,15 +122,15 @@
     "notFoundTitle": "Page introuvable",
     "notFoundText": "Désolés, il n’y a rien à cette adresse. Le lien est peut-être ancien ou mal saisi.",
     "complaints": "Procédure de réclamation",
-    "share": "Emplacement sur le mur"
+    "share": "Emplacement parmi les pixels"
   },
   "email": {
-    "footer": "{site} — un mur d’un million de pixels.",
+    "footer": "{site} — un million de pixels au même endroit.",
     "greeting": "Bonjour,",
     "position": "x {x0}–{x1}, y {y0}–{y1}",
     "size": "{w} × {h} px",
     "companyId": "numéro d’entreprise {id}",
-    "item": "Emplacement de {w} × {h} px sur le mur ({position}, emplacement n° {no}), affiché pour toujours",
+    "item": "Emplacement de {w} × {h} px ({position}, emplacement n° {no}), affiché pour toujours",
     "vatIncluded": "Le prix comprend la TVA à {rate} % : {vat}",
     "notVatPayer": "Le vendeur n’est pas assujetti à la TVA.",
     "labels": {
@@ -147,16 +147,16 @@
     },
     "paid": {
       "subject": "Paiement reçu — vos pixels attendent la validation",
-      "intro": "Merci pour votre commande. Nous avons bien reçu votre paiement de {amount}. Nous vérifierons votre contenu, généralement sous {hours, plural, one {# heure} other {# heures}}, et vous préviendrons dès qu’il sera sur le mur.",
+      "intro": "Merci pour votre commande. Nous avons bien reçu votre paiement de {amount}. Nous vérifierons votre contenu, généralement sous {hours, plural, one {# heure} other {# heures}}, et vous préviendrons dès qu’il sera publié.",
       "rentalHeading": "Votre emplacement",
       "receiptHeading": "Reçu",
       "mine": "Vous retrouverez vos emplacements dans Mes pixels :",
-      "forever": "Une fois validés, vos pixels restent sur le mur pour toujours — tant que le site existe."
+      "forever": "Une fois validés, vos pixels restent publiés pour toujours — tant que le site existe."
     },
     "approved": {
-      "subject": "Vos pixels sont sur le mur !",
-      "intro": "Bonne nouvelle : votre contenu « {title} » a été validé et se trouve maintenant sur le mur, à la position {position}. Les pixels sont à vous pour toujours.",
-      "see": "Voir sur le mur",
+      "subject": "Vos pixels sont publiés !",
+      "intro": "Bonne nouvelle : votre contenu « {title} » a été validé et est maintenant publié, à la position {position}. Les pixels sont à vous pour toujours.",
+      "see": "Voir vos pixels",
       "share": "Montrez-le à vos amis :",
       "shareText": "J’ai mon propre emplacement sur {site} !",
       "shareEmail": "E-mail"
@@ -178,7 +178,7 @@
     },
     "changeApproved": {
       "subject": "Votre modification a été validée",
-      "intro": "La nouvelle version de « {title} » est maintenant sur le mur, à la position {position}."
+      "intro": "La nouvelle version de « {title} » est maintenant publiée, à la position {position}."
     },
     "rejected": {
       "subject": "Votre contenu n’a pas été validé",
@@ -189,11 +189,11 @@
     },
     "changesRequested": {
       "subject": "Merci d’ajuster votre contenu",
-      "intro": "Votre contenu pour l’emplacement à la position {position} (« {title} ») doit être modifié avant que nous puissions le mettre sur le mur."
+      "intro": "Votre contenu pour l’emplacement à la position {position} (« {title} ») doit être modifié avant que nous puissions le publier."
     },
     "changeRejected": {
       "subject": "Votre modification n’a pas été validée",
-      "intro": "Nous n’avons pas pu valider la modification de « {title} » à la position {position}. Votre contenu précédent reste sur le mur.",
+      "intro": "Nous n’avons pas pu valider la modification de « {title} » à la position {position}. Votre contenu précédent reste publié.",
       "again": "Vous pouvez envoyer une autre modification dans Mes pixels.",
       "button": "Ouvrir Mes pixels"
     },
@@ -206,12 +206,12 @@
     },
     "hidden": {
       "subject": "Vos pixels ont été masqués temporairement",
-      "intro": "Votre contenu « {title} » à la position {position} a été masqué du mur le temps que nous l’examinions.",
-      "next": "Nous vous informerons du résultat. Si le contenu est conforme, il reviendra sur le mur."
+      "intro": "Votre contenu « {title} » à la position {position} a été masqué le temps que nous l’examinions.",
+      "next": "Nous vous informerons du résultat. Si le contenu est conforme, il sera de nouveau affiché."
     },
     "removed": {
-      "subject": "Votre contenu a été retiré du mur",
-      "intro": "Nous avons retiré du mur « {title} » à la position {position}, car ce contenu enfreint nos règles de contenu.",
+      "subject": "Votre contenu a été retiré",
+      "intro": "Nous avons retiré « {title} » à la position {position}, car ce contenu enfreint nos règles de contenu.",
       "terms": "Comme le prévoient les conditions générales de vente, un contenu retiré pour non-respect des règles n’est pas remboursé."
     },
     "reportReceived": {
@@ -221,9 +221,9 @@
     },
     "reportDecided": {
       "subject": "Décision concernant votre signalement ({reference})",
-      "actioned": "Nous avons examiné le contenu que vous avez signalé (emplacement n° {no}) et avons pris des mesures : il n’est plus affiché sur le mur.",
-      "dismissed": "Nous avons examiné le contenu que vous avez signalé (emplacement n° {no}) et avons constaté qu’il n’enfreint pas nos règles de contenu ; il reste donc sur le mur.",
-      "thanks": "Merci de nous aider à garder le mur convivial."
+      "actioned": "Nous avons examiné le contenu que vous avez signalé (emplacement n° {no}) et avons pris des mesures : il n’est plus affiché.",
+      "dismissed": "Nous avons examiné le contenu que vous avez signalé (emplacement n° {no}) et avons constaté qu’il n’enfreint pas nos règles de contenu ; il reste donc publié.",
+      "thanks": "Merci de nous aider à garder les pixels conviviaux."
     },
     "transferOffer": {
       "subject": "Quelqu’un vous offre un emplacement sur {site}",
@@ -238,7 +238,7 @@
     "accountDeleted": {
       "subject": "Votre compte a été supprimé",
       "intro": "Votre compte et vos données personnelles ont été supprimés comme vous l’avez demandé. Les reçus sont conservés aussi longtemps que la loi l’exige.",
-      "rentals": "Vos pixels restent sur le mur, mais plus personne ne peut les gérer."
+      "rentals": "Vos pixels restent publiés, mais plus personne ne peut les gérer."
     },
     "staffInvite": {
       "subject": "Vous avez désormais accès à l’administration de {site}",
@@ -279,7 +279,7 @@
     "backToOrder": "Retour à ma commande",
     "keepPlace": "Garder cet emplacement",
     "position": "x {x0}–{x1}, y {y0}–{y1}",
-    "selectHelp": "Faites glisser sur le mur pour sélectionner la zone que vous voulez acheter. Elle s’aligne sur des blocs de 10 × 10 px. Faites glisser les coins pour la redimensionner, ou la zone elle-même pour la déplacer. Zoomez avec la molette de la souris ; pour déplacer le mur, utilisez le bouton droit de la souris ou l’outil « Déplacer le mur ».",
+    "selectHelp": "Faites glisser sur les pixels pour sélectionner la zone que vous voulez acheter. Elle s’aligne sur des blocs de 10 × 10 px. Faites glisser les coins pour la redimensionner, ou la zone elle-même pour la déplacer. Zoomez avec la molette de la souris ; pour déplacer la vue, utilisez le bouton droit de la souris ou l’outil « Déplacer la vue ».",
     "selectHelpTouch": "Sur un téléphone : zoomez avec deux doigts, touchez le premier coin, puis le coin opposé, et ajustez la zone avec les poignées des coins.",
     "yourSelection": "Votre sélection",
     "noSelection": "Rien n’est encore sélectionné.",
@@ -295,7 +295,7 @@
       "taken": "Quelqu’un vient de réserver une partie de cette zone. Voici des emplacements libres de même taille à proximité :",
       "rate_limited": "Vous avez déjà plusieurs réservations en cours. Terminez ou annulez-en une d’abord.",
       "sales_paused": "Les ventes sont suspendues pour le moment. Veuillez réessayer plus tard.",
-      "invalid": "Cette zone n’est pas sur le mur.",
+      "invalid": "Cette zone est en dehors des pixels.",
       "too_small": "Cette zone est trop petite.",
       "too_large": "Cette zone est trop grande.",
       "network": "Impossible de joindre le serveur. Vérifiez votre connexion et réessayez.",
@@ -317,7 +317,7 @@
     "find": "Chercher",
     "noSpots": "Aucun emplacement libre de cette taille. Essayez plus petit.",
     "spotsNear": "Les plus proches du centre :",
-    "spotsRandom": "Ailleurs sur le mur :",
+    "spotsRandom": "Ailleurs :",
     "spot": "x {x}, y {y} ({w} × {h} px)",
     "contentTitle": "Votre image ({w} × {h} px)",
     "currentContent": "Votre contenu actuel",
@@ -444,7 +444,7 @@
     },
     "back": "Retour",
     "summaryTitle": "Récapitulatif",
-    "summaryPreview": "Votre contenu sur le mur",
+    "summaryPreview": "Aperçu de vos pixels",
     "editContent": "Modifier le contenu",
     "editDetails": "Modifier les informations",
     "priceTotal": "Total",
@@ -452,7 +452,7 @@
     "notVatPayer": "Prix final. Le vendeur n’est pas assujetti à la TVA.",
     "pay": "Payer {price}",
     "redirecting": "Ouverture du paiement…",
-    "payNote": "Vous payez sur la page suivante. Nous vérifions le contenu, généralement sous {hours, plural, one {# heure} other {# heures}} ; ensuite, vos pixels sont sur le mur pour toujours.",
+    "payNote": "Vous payez sur la page suivante. Nous vérifions le contenu, généralement sous {hours, plural, one {# heure} other {# heures}} ; ensuite, vos pixels sont publiés pour toujours.",
     "devPaymentNote": "Mode test : aucun paiement réel n’est effectué (Stripe n’est pas encore connecté).",
     "payErrors": {
       "expired": "Votre réservation a expiré. Réservez de nouveau l’emplacement.",
@@ -468,10 +468,10 @@
   "thanks": {
     "title": "Merci !",
     "statusReview": "Payé — en attente de validation",
-    "statusActive": "Validé — vos pixels sont sur le mur",
-    "reviewText": "Nous vérifions chaque image avant qu’elle n’apparaisse sur le mur, généralement sous 24 heures. Ensuite, elle y reste pour toujours.",
+    "statusActive": "Validé — vos pixels sont publiés",
+    "reviewText": "Nous vérifions chaque image avant sa publication, généralement sous 24 heures. Ensuite, elle reste publiée pour toujours.",
     "emailSent": "Nous avons envoyé la confirmation et le reçu à {email}.",
-    "seeSpot": "Voir mon emplacement sur le mur",
+    "seeSpot": "Voir mes pixels",
     "refundedTitle": "Nous sommes désolés",
     "refundedText": "Votre paiement est arrivé après la fin de votre réservation et, entre-temps, quelqu’un d’autre a acheté l’emplacement. Nous vous avons remboursé l’intégralité du montant.",
     "chooseAnother": "Choisir un autre emplacement",
@@ -481,7 +481,7 @@
     "noOrderTitle": "Aucune commande",
     "noOrderText": "Il n’y a aucune commande dans ce navigateur.",
     "devEmails": "Développement : les e-mails sont dans la boîte locale",
-    "backToWall": "Retour au mur"
+    "backToWall": "Retour aux pixels"
   },
   "devCheckout": {
     "title": "Paiement test",
@@ -550,7 +550,7 @@
     "rentNow": "Acheter des pixels »",
     "status": {
       "in_review": "En attente de validation",
-      "active": "Sur le mur",
+      "active": "Publié",
       "grace": "En période de grâce",
       "ended": "Terminé",
       "rejected": "Non validé : en attente d’un nouveau contenu",
@@ -563,11 +563,11 @@
     "size": "Taille",
     "sizeValue": "{w} × {h} px ({pixels, plural, one {# pixel} many {# de pixels} other {# pixels}})",
     "link": "Lien",
-    "waitingChange": "Une modification envoyée le {date} est en attente de validation ; d’ici là, le contenu actuel reste sur le mur.",
+    "waitingChange": "Une modification envoyée le {date} est en attente de validation ; d’ici là, le contenu actuel reste publié.",
     "decision": {
       "rejected": "Nous n’avons pas pu valider votre contenu.",
       "changes": "Veuillez ajuster votre contenu.",
-      "changeRejected": "Votre dernière modification n’a pas été validée ; le contenu précédent reste sur le mur."
+      "changeRejected": "Votre dernière modification n’a pas été validée ; le contenu précédent reste publié."
     },
     "reason": "Motif : {reason}",
     "reuploadUntil": "Envoyez un nouveau contenu avant le {date}. Sinon, nous vous rembourserons l’intégralité du paiement et libérerons l’emplacement.",
@@ -590,27 +590,27 @@
     "transferCancel": "Annuler",
     "cancel": "Annuler",
     "deleteTitle": "Supprimer mon compte et mes données personnelles",
-    "deleteHelp": "Votre compte, votre adresse e-mail et votre nom public sont supprimés. Les reçus sont conservés aussi longtemps que la loi l’exige. Vos pixels restent sur le mur, mais vous ne pourrez plus les gérer.",
+    "deleteHelp": "Votre compte, votre adresse e-mail et votre nom public sont supprimés. Les reçus sont conservés aussi longtemps que la loi l’exige. Vos pixels restent publiés, mais vous ne pourrez plus les gérer.",
     "deleteConfirm": "Saisissez votre adresse e-mail ({email}) pour confirmer",
     "deleteButton": "Supprimer le compte",
     "editTitle": "Modifier le contenu",
     "notEditable": "Cet emplacement ne peut plus être modifié.",
     "backToList": "Retour à Mes pixels",
-    "editIntro": "Modifiez l’image, le titre, le lien ou le nom. La modification part en validation ; d’ici là, le contenu actuel reste sur le mur.",
+    "editIntro": "Modifiez l’image, le titre, le lien ou le nom. La modification part en validation ; d’ici là, le contenu actuel reste publié.",
     "editRejectedIntro": "Envoyez un nouveau contenu pour votre emplacement. Il repassera en validation.",
-    "onWallNow": "Actuellement sur le mur",
+    "onWallNow": "Actuellement publié",
     "waitingApproval": "En attente de validation",
     "newPicture": "Nouvelle image (pas encore envoyée)",
     "pictureTitle": "Nouvelle image ({w} × {h} px)",
     "pictureHelp": "Facultatif : gardez l’image actuelle et ne modifiez que les textes ci-dessous.",
     "textsTitle": "Titre, lien et nom",
     "submit": "Envoyer pour validation",
-    "publish": "Publier sur le mur",
+    "publish": "Publier",
     "submitNote": "Nous vérifions chaque modification, généralement sous {hours, plural, one {# heure} other {# heures}}.",
     "sentTitle": "Envoyé pour validation.",
-    "sentKeep": "Nous la vérifierons, généralement sous {hours, plural, one {# heure} other {# heures}}. D’ici là, votre contenu actuel reste sur le mur.",
+    "sentKeep": "Nous la vérifierons, généralement sous {hours, plural, one {# heure} other {# heures}}. D’ici là, votre contenu actuel reste publié.",
     "sentNew": "Nous la vérifierons, généralement sous {hours, plural, one {# heure} other {# heures}}, et vous informerons par e-mail.",
-    "published": "La modification est sur le mur.",
+    "published": "La modification est publiée.",
     "errors": {
       "email_invalid": "Veuillez saisir une adresse e-mail valide.",
       "same_owner": "C’est votre propre adresse.",
@@ -627,7 +627,7 @@
     },
     "lastVersion": "Votre dernière version (non validée)",
     "pictureHelpRejected": "Créez une nouvelle image, ou gardez la précédente et ne modifiez dans les textes ci-dessous que ce que le modérateur a demandé.",
-    "since": "Sur le mur depuis",
+    "since": "Publié depuis",
     "afterApproval": "après validation"
   },
   "receipt": {
@@ -638,7 +638,7 @@
     "seller": "Vendeur",
     "buyer": "Acheteur",
     "item": "Article",
-    "itemValue": "Emplacement de {w} × {h} px sur le mur (x {x0}–{x1}, y {y0}–{y1}, emplacement n° {no}), affiché pour toujours",
+    "itemValue": "Emplacement de {w} × {h} px (x {x0}–{x1}, y {y0}–{y1}, emplacement n° {no}), affiché pour toujours",
     "total": "Total payé",
     "vat": "TVA",
     "vatIncluded": "Le prix comprend la TVA à {rate} % : {vat}",
@@ -647,13 +647,13 @@
     "print": "Imprimer ou enregistrer en PDF"
   },
   "transfer": {
-    "title": "Accepter un emplacement sur le mur",
-    "intro": "Quelqu’un vous offre un emplacement sur le mur. Acceptez-le pour en devenir propriétaire ; nous vous connecterons à Mes pixels avec votre adresse e-mail.",
+    "title": "Accepter un emplacement de pixels",
+    "intro": "Quelqu’un vous offre un emplacement de pixels. Acceptez-le pour en devenir propriétaire ; nous vous connecterons à Mes pixels avec votre adresse e-mail.",
     "accept": "Accepter l’emplacement",
     "invalid": "Ce lien n’est plus valable (l’emplacement a déjà été accepté, l’offre a été annulée ou elle a expiré)."
   },
   "report": {
-    "intro": "Signalez-nous un contenu du mur qui enfreint la loi ou nos règles de contenu. Chaque signalement est examiné par une personne.",
+    "intro": "Signalez-nous un contenu publié qui enfreint la loi ou nos règles de contenu. Chaque signalement est examiné par une personne.",
     "rules": "Ce qui est interdit est indiqué dans les <link>règles de contenu</link>.",
     "authoritiesTitle": "Pour les autorités",
     "authorities": "Point de contact au titre du règlement sur les services numériques (UE 2022/2065) pour les autorités et les utilisateurs : {email}. Nous répondons en slovaque ou en anglais.",
@@ -675,7 +675,7 @@
     "privacy": "Nous utilisons votre adresse e-mail uniquement pour répondre à ce signalement.",
     "errors": {
       "invalid": "Veuillez indiquer le numéro de l’emplacement et le problème.",
-      "rental_not_found": "Aucun emplacement ne porte ce numéro sur le mur.",
+      "rental_not_found": "Aucun emplacement ne porte ce numéro.",
       "description_required": "Veuillez décrire le problème.",
       "email_invalid": "Veuillez saisir une adresse e-mail valide ou laisser le champ vide.",
       "rate_limited": "Trop de signalements depuis votre connexion. Veuillez réessayer plus tard.",
@@ -689,21 +689,21 @@
     "message": "Bonjour, puis-je changer le lien de mon emplacement ?"
   },
   "how": {
-    "intro": "{site} est un mur de {pixels, plural, one {# pixel} many {# de pixels} other {# pixels}}. Achetez-en un morceau une seule fois, placez-y votre image, et elle y restera pour toujours — tant que le site existera.",
+    "intro": "{site}, c’est {pixels, plural, one {# pixel} many {# de pixels} other {# pixels}} au même endroit. Achetez-en une partie une seule fois, placez-y votre image, et elle y restera pour toujours — tant que le site existera.",
     "step1Title": "Choisissez votre emplacement",
-    "step1": "Faites glisser sur le mur pour sélectionner une zone libre. Elle s’aligne sur des blocs de 10 × 10 px, et vous voyez tout de suite la taille et le prix. Vous ne savez pas où ? « Trouvez-moi un emplacement » propose des emplacements libres de la taille voulue.",
+    "step1": "Faites glisser sur les pixels pour sélectionner une zone libre. Elle s’aligne sur des blocs de 10 × 10 px, et vous voyez tout de suite la taille et le prix. Vous ne savez pas où ? « Trouvez-moi un emplacement » propose des emplacements libres de la taille voulue.",
     "step2Title": "Importez ou dessinez",
     "step2": "Importez une photo — notre filtre pixel la transforme en exactement autant de pixels que vous en achetez —, dessinez dans l’éditeur de pixels ou écrivez un texte. Ajoutez un titre, un lien facultatif et votre nom ou pseudo.",
-    "step3Title": "Payez, et vous êtes sur le mur",
-    "step3": "Payez en toute sécurité par carte, Apple Pay ou Google Pay. Une personne vérifie chaque image, généralement sous {hours, plural, one {# heure} other {# heures}}, puis vos pixels sont sur le mur pour toujours.",
+    "step3Title": "Payez, et vos pixels sont en ligne",
+    "step3": "Payez en toute sécurité par carte, Apple Pay ou Google Pay. Une personne vérifie chaque image, généralement sous {hours, plural, one {# heure} other {# heures}}, puis vos pixels sont publiés pour toujours.",
     "pricesTitle": "Prix",
     "pricesIntro": "Un pixel coûte {price}. Vous payez une seule fois ; il n’y a pas de frais annuels.",
     "colSize": "Taille",
     "colPixels": "Pixels",
     "colPrice": "Prix",
     "blocks": "{count, plural, one {# bloc} many {# de blocs} other {# blocs}}",
-    "rulesTitle": "Ce qui peut être sur le mur",
-    "rules": "Des images, des dessins et des textes qui respectent nos <rules>règles de contenu</rules> : rien d’illégal, pas de nudité, de violence, de haine ni d’escroquerie, et uniquement des contenus sur lesquels vous avez des droits. Le mur est une seule image fixe : les animations et les vidéos ne sont pas possibles.",
+    "rulesTitle": "Ce qui peut être publié",
+    "rules": "Des images, des dessins et des textes qui respectent nos <rules>règles de contenu</rules> : rien d’illégal, pas de nudité, de violence, de haine ni d’escroquerie, et uniquement des contenus sur lesquels vous avez des droits. Tous les pixels forment une seule image fixe : les animations et les vidéos ne sont pas possibles.",
     "start": "Acheter des pixels",
     "more": "Plus de réponses dans la <faq>FAQ</faq>."
   },
@@ -711,31 +711,31 @@
     "intro": "Les réponses aux questions les plus fréquentes. Autre chose ? <contact>Écrivez-nous</contact>.",
     "costQ": "Combien ça coûte ?",
     "costA": "{price} le pixel, payé une seule fois. Le plus petit emplacement est un bloc de 10 × 10 px pour {block} ; 50 × 50 px coûtent {spot50} et 100 × 100 px coûtent {spot100}. {vat}",
-    "howLongQ": "Combien de temps mes pixels resteront-ils sur le mur ?",
-    "howLongA": "Pour toujours. Vous payez une seule fois et votre image reste sur le mur tant que {site} existe. Il n’y a ni frais annuels, ni rien à renouveler.",
+    "howLongQ": "Combien de temps mes pixels resteront-ils publiés ?",
+    "howLongA": "Pour toujours. Vous payez une seule fois et votre image reste publiée tant que {site} existe. Il n’y a ni frais annuels, ni rien à renouveler.",
     "whatQ": "Que puis-je mettre sur mes pixels ?",
     "whatA": "Une photo ou une image (PNG, JPG, WebP ou GIF fixe jusqu’à {mb} Mo), un dessin réalisé dans notre éditeur de pixels, ou une zone colorée avec du texte. Vous pouvez ajouter un titre, un lien et votre nom ou pseudo. Tout doit respecter les <rules>règles de contenu</rules>.",
-    "whenQ": "Quand mes pixels apparaîtront-ils sur le mur ?",
-    "whenA": "Après qu’une personne a vérifié votre image, généralement sous {hours, plural, one {# heure} other {# heures}} après votre paiement. Nous vous prévenons par e-mail dès qu’elle est sur le mur.",
+    "whenQ": "Quand mes pixels seront-ils publiés ?",
+    "whenA": "Après qu’une personne a vérifié votre image, généralement sous {hours, plural, one {# heure} other {# heures}} après votre paiement. Nous vous prévenons par e-mail dès qu’elle est publiée.",
     "rejectedQ": "Et si vous refusez mon contenu ?",
     "rejectedA": "Vous recevez un e-mail avec le motif et pouvez envoyer un autre contenu sous {days, plural, one {# jour} other {# jours}} ; d’ici là, votre emplacement reste réservé. Sinon, nous vous remboursons l’intégralité du paiement et l’emplacement redevient libre.",
     "changeQ": "Puis-je changer mon image plus tard ?",
-    "changeA": "Oui, à tout moment dans Mes pixels : l’image, le titre, le lien ou le nom. Chaque modification est de nouveau vérifiée et, d’ici là, votre image actuelle reste sur le mur.",
+    "changeA": "Oui, à tout moment dans Mes pixels : l’image, le titre, le lien ou le nom. Chaque modification est de nouveau vérifiée et, d’ici là, votre image actuelle reste publiée.",
     "closeQ": "Que se passe-t-il si le site ferme un jour ?",
-    "closeA": "Nous voulons garder le mur en ligne très longtemps. Si nous devions un jour le fermer, nous préviendrions tous les propriétaires par e-mail à l’avance. Les détails figurent dans les <terms>conditions générales de vente</terms>.",
+    "closeA": "Nous voulons garder le site en ligne très longtemps. Si nous devions un jour le fermer, nous préviendrions tous les propriétaires par e-mail à l’avance. Les détails figurent dans les <terms>conditions générales de vente</terms>.",
     "blocksQ": "Pourquoi les pixels sont-ils vendus par blocs de 10 × 10 ?",
-    "blocksA": "Un pixel seul serait trop petit pour être vu ou cliqué. Les blocs de 10 × 10 px gardent le mur ordonné et rendent chaque emplacement cliquable et facile à trouver. Le plus petit emplacement est un bloc, soit 100 pixels.",
+    "blocksA": "Un pixel seul serait trop petit pour être vu ou cliqué. Les blocs de 10 × 10 px gardent les pixels ordonnés et rendent chaque emplacement cliquable et facile à trouver. Le plus petit emplacement est un bloc, soit 100 pixels.",
     "giftQ": "Puis-je offrir mes pixels ?",
     "giftA": "Oui. Dans Mes pixels, choisissez « Offrir cet emplacement à quelqu’un d’autre » et saisissez l’adresse e-mail de la personne. Elle reçoit un lien et devient la nouvelle propriétaire dès qu’elle l’accepte.",
     "receiptQ": "Est-ce que je reçois un reçu ?",
     "receiptA": "Oui. Après le paiement, nous vous envoyons par e-mail la confirmation avec un reçu, et vous pouvez imprimer chaque reçu ou l’enregistrer en PDF dans Mes pixels.",
     "privateQ": "Mon adresse e-mail sera-t-elle visible ?",
-    "privateA": "Non. Seuls le titre, le lien et le nom public que vous choisissez sont affichés sur le mur. Votre adresse e-mail reste privée."
+    "privateA": "Non. Seuls le titre, le lien et le nom public que vous choisissez sont affichés publiquement. Votre adresse e-mail reste privée."
   },
   "latest": {
-    "intro": "Les dernières images sur le mur. Cliquez sur l’une d’elles pour la voir sur le mur.",
-    "empty": "Il n’y a encore aucune image sur le mur. La vôtre peut être la première !",
-    "since": "sur le mur depuis le {date}"
+    "intro": "Les dernières images. Cliquez sur l’une d’elles pour la voir parmi les pixels.",
+    "empty": "Il n’y a encore aucune image. La vôtre peut être la première !",
+    "since": "publié depuis le {date}"
   },
   "contact": {
     "intro": "Des questions sur votre commande, des idées ou des problèmes ? Écrivez-nous via le formulaire ou par e-mail. Nous répondons généralement sous deux jours ouvrés.",
@@ -752,7 +752,7 @@
     "name": "Votre nom",
     "email": "Votre e-mail",
     "spotNo": "Numéro de l’emplacement",
-    "spotNoHelp": "si le message concerne un emplacement sur le mur",
+    "spotNoHelp": "si le message concerne un emplacement précis",
     "message": "Message",
     "optional": "facultatif",
     "send": "Envoyer le message",
@@ -774,29 +774,29 @@
     "emailLabel": "E-mail",
     "dsaTitle": "Point de contact au titre du règlement sur les services numériques",
     "dsa": "Les autorités des États membres de l’UE, la Commission européenne, le comité européen des services numériques et les utilisateurs peuvent nous contacter par voie électronique à {email} ou via le formulaire ci-dessus (sujet « Autorité »). Vous pouvez nous écrire en slovaque ou en anglais.",
-    "reportHint": "Pour signaler un contenu illicite sur le mur, utilisez le <report>formulaire de signalement</report> : il est transmis directement à la modération."
+    "reportHint": "Pour signaler un contenu illicite, utilisez le <report>formulaire de signalement</report> : il est transmis directement à la modération."
   },
   "share": {
     "title": "« {title} » sur {site}",
     "ogText": "J’ai mon propre emplacement sur {site} !",
-    "description": "{size} sur le mur d’un million de pixels. Cliquez pour le voir.",
-    "see": "Voir sur le mur",
-    "redirecting": "Ouverture du mur…",
-    "gone": "Cet emplacement n’est pas affiché sur le mur pour le moment."
+    "description": "{size} parmi un million de pixels. Cliquez pour le voir.",
+    "see": "Voir parmi les pixels",
+    "redirecting": "Ouverture des pixels…",
+    "gone": "Cet emplacement n’est pas affiché pour le moment."
   },
   "goWarning": {
     "title": "Ce lien peut être dangereux",
     "text": "Un contrôle de sécurité a signalé la page derrière ce lien comme dangereuse (logiciel malveillant ou hameçonnage). Nous avons suspendu la redirection le temps qu’un modérateur l’examine.",
     "address": "L’adresse était :",
-    "back": "Retour au mur"
+    "back": "Retour aux pixels"
   },
   "legal": {
     "todo": "[à compléter]",
     "draft": "Ce texte est un modèle. Les parties marquées « [à compléter] » seront remplies et l’ensemble du texte sera vérifié par un avocat avant le lancement du site.",
-    "rules": "Ces règles s’appliquent à tout ce qui est affiché sur {site} : images, dessins, textes, titres, noms et liens. Une personne vérifie chaque contenu avant qu’il n’apparaisse sur le mur. En passant commande, vous confirmez que votre contenu respecte ces règles.\n\n## Interdit\n- tout ce qui est illégal ;\n- la nudité, la pornographie et les contenus sexuels ;\n- la violence, le sang et les armes dans un contexte agressif ;\n- la haine, les symboles extrémistes, l’intimidation et le harcèlement ;\n- les données personnelles ou les photos d’autres personnes sans leur consentement ;\n- les escroqueries, le hameçonnage, les logiciels malveillants, les systèmes pyramidaux et les jeux d’argent sans licence ;\n- les logos, personnages et autres contenus sur lesquels vous n’avez pas de droits ;\n- la publicité politique ;\n- les liens vers des sites proposant de tels contenus.\n\n## Limites techniques\nLe mur est une seule image fixe : les animations et les vidéos ne sont pas possibles. Les liens doivent commencer par http:// ou https://. Nous pouvons refuser un contenu illisible à sa taille ou qui se fait passer pour une partie du site (par exemple de faux boutons).\n\n## Quand un contenu enfreint les règles\n- Avant validation, nous refusons le contenu et vous expliquons pourquoi. Vous pouvez envoyer un autre contenu sous {days, plural, one {# jour} other {# jours}} ; sinon, nous vous remboursons l’intégralité du paiement.\n- Après validation, nous pouvons masquer immédiatement un contenu et le retirer définitivement s’il enfreint ces règles ou la loi. Un contenu retiré n’est pas remboursé (voir les [conditions générales de vente](/terms)). Vous recevez toujours un e-mail expliquant les motifs.\n- Vous pouvez contester toute décision : répondez à notre e-mail ou écrivez à {email}. Une personne réexamine la décision.\n\n## Signalement\nToute personne peut signaler un contenu avec le bouton « Signaler » dans la fenêtre de chaque emplacement ou sur la page [Signaler un contenu](/report). Nous confirmons chaque signalement et informons son auteur de notre décision.",
-    "terms": "## 1. Qui sommes-nous\nLe site {site} (le « site ») est exploité par {operator}, numéro d’entreprise {companyId}, siège social {address}, e-mail {email} (l’« exploitant », « nous »). Immatriculation : {todo}\n\n## 2. Ce que vous achetez\n- Le site affiche un mur de {pixels, plural, one {# pixel} many {# de pixels} other {# pixels}} divisé en blocs de 10 × 10 px. Vous achetez le droit d’afficher votre propre contenu (une image, un dessin ou un texte avec un lien facultatif) sur un rectangle de blocs entiers que vous choisissez (l’« emplacement »).\n- Le prix est de {price} par pixel. Vous payez une seule fois ; il n’y a pas de frais récurrents. Tous les prix sont définitifs. {vat}\n- Votre contenu reste sur le mur sans limite de durée, tant que nous exploitons le site. Vous ne devenez propriétaire d’aucune partie du site, de son logiciel ni de l’image du mur dans son ensemble.\n\n## 3. Conclusion du contrat\n- Vous choisissez un emplacement (nous vous le réservons pour une courte durée), ajoutez votre contenu et vos informations, acceptez les présentes conditions et les [règles de contenu](/content-rules), puis payez via le prestataire de paiement Stripe.\n- Le contrat est conclu à la réception de votre paiement. Nous vous envoyons une confirmation avec un reçu par e-mail.\n- Avant que votre contenu n’apparaisse sur le mur, une personne le vérifie, généralement sous {hours, plural, one {# heure} other {# heures}}.\n\n## 4. Validation et refus\n- Si nous ne pouvons pas valider votre contenu, nous vous en expliquons la raison. Vous pouvez envoyer un autre contenu sous {days, plural, one {# jour} other {# jours}} ; l’emplacement vous reste réservé jusque-là.\n- Si aucun contenu acceptable ne nous parvient dans ce délai, le contrat prend fin et nous vous remboursons automatiquement l’intégralité du paiement.\n\n## 5. Votre contenu\n- Vous êtes responsable de votre contenu. Vous confirmez détenir tous les droits nécessaires et que votre contenu respecte les règles de contenu et la loi.\n- Vous nous autorisez à afficher votre contenu sur le site, dans des images du mur (par exemple dans des aperçus sur les réseaux sociaux) et dans des supports consacrés au site, tant que le site existe.\n- Vous pouvez modifier votre contenu à tout moment dans Mes pixels ; chaque modification est de nouveau vérifiée.\n- Si un contenu enfreint les règles de contenu ou la loi, nous pouvons le masquer immédiatement et le retirer. Un contenu retiré pour non-respect des règles n’est pas remboursé. Nous vous indiquons toujours les motifs et vous pouvez contester la décision.\n\n## 6. Offrir l’emplacement à quelqu’un d’autre\nVous pouvez offrir votre emplacement à une autre personne dans Mes pixels. Vos droits et obligations au titre des présentes conditions sont transférés au nouveau propriétaire lorsqu’il accepte l’offre.\n\n## 7. Droit de rétractation\n- En tant que consommateur, vous pouvez vous rétracter d’un contrat conclu à distance dans un délai de 14 jours sans avoir à vous justifier.\n- Lors de la commande, vous demandez que le service commence avant la fin de ce délai et vous reconnaissez perdre votre droit de rétractation dès la publication de votre contenu sur le mur. Jusque-là, vous pouvez vous rétracter par e-mail à {email} ; nous vous remboursons le paiement sous 14 jours.\n- Modèle de formulaire de rétractation : {todo}\n\n## 8. Disponibilité et fin du site\n- Nous veillons à ce que le site fonctionne sans interruption, mais nous ne pouvons pas le garantir à tout moment (maintenance, pannes de nos prestataires).\n- Nous avons l’intention d’exploiter le site pour une durée indéterminée. Si nous décidions un jour de le fermer, nous en informerions tous les propriétaires par e-mail à l’avance. Délai de préavis et ce que les propriétaires reçoivent dans ce cas : {todo}\n\n## 9. Réclamations\nLa manière de déposer une réclamation est décrite dans la [procédure de réclamation](/complaints).\n\n## 10. Données personnelles\nNous traitons les données personnelles comme décrit dans la [politique de confidentialité](/privacy).\n\n## 11. Dispositions finales\n- Les présentes conditions sont régies par le droit de la République slovaque. Règlement extrajudiciaire des litiges de consommation : {todo}\n- Nous pouvons modifier les présentes conditions pour l’avenir ; votre achat est régi par les conditions en vigueur le jour de votre paiement.\n- Les présentes conditions sont applicables à partir du {todo}.",
-    "complaints": "Cette procédure explique comment déposer une réclamation si notre service ne fonctionne pas comme il le devrait — par exemple si votre emplacement ne s’affiche pas correctement, si le mur n’affiche pas votre contenu validé ou si un paiement n’a pas été traité correctement.\n\n## Comment déposer une réclamation\n- Écrivez à {email} ou utilisez le [formulaire de contact](/contact) (sujet « Réclamation ou question juridique »).\n- Indiquez le numéro de l’emplacement, l’adresse e-mail de votre commande, ce qui ne va pas et, si possible, une capture d’écran.\n- Nous accusons réception de votre réclamation sans délai.\n\n## Comment nous traitons une réclamation\n- Nous statuons sur votre réclamation sans délai, au plus tard dans les 30 jours suivant sa réception, et vous communiquons le résultat par e-mail.\n- Si la réclamation est fondée, nous corrigeons le problème (par exemple, nous affichons de nouveau correctement votre contenu) ; si ce n’est pas possible, nous remboursons le prix ou une partie équitable de celui-ci.\n- Nous conservons une trace de chaque réclamation et de la manière dont elle a été traitée.\n\n## Contestation des décisions de modération\nSi vous n’êtes pas d’accord avec une décision concernant votre contenu (refus, masquage ou retrait), répondez à notre e-mail ou écrivez à {email}. Une personne réexamine la décision.\n\n## Règlement extrajudiciaire des litiges\nSi le traitement de votre réclamation ne vous satisfait pas, vous pouvez nous demander d’y remédier. Si nous refusons ou ne répondons pas dans un délai de 30 jours, vous pouvez vous adresser à un organisme de règlement extrajudiciaire des litiges de consommation : {todo}\n\nCette procédure est applicable à partir du {todo}.",
-    "privacy": "Nous protégeons vos données personnelles et ne collectons que ce dont nous avons besoin pour faire fonctionner {site}.\n\n## Responsable du traitement\n{operator}, numéro d’entreprise {companyId}, {address}, e-mail {email}. Délégué à la protection des données : {todo}\n\n## Quelles données nous traitons et pourquoi\n- Commandes et paiements : votre adresse e-mail, l’emplacement, votre contenu, le titre, le lien et le nom public, vos consentements et les données de paiement — pour conclure et exécuter le contrat (art. 6, par. 1, point b), du RGPD) et respecter nos obligations comptables (art. 6, par. 1, point c), du RGPD). Les données de carte sont traitées uniquement par le prestataire de paiement Stripe ; nous ne les voyons jamais.\n- Compte (Mes pixels) : votre adresse e-mail et l’historique de vos connexions — pour vous permettre de gérer vos emplacements (art. 6, par. 1, point b), du RGPD).\n- Modération et signalements : les vérifications de contenus, les signalements et les décisions, y compris l’adresse e-mail de l’auteur d’un signalement s’il la fournit — pour respecter les obligations du règlement sur les services numériques et assurer la sécurité du site (art. 6, par. 1, points c) et f), du RGPD).\n- Formulaire de contact : votre nom, votre adresse e-mail et votre message — pour vous répondre (art. 6, par. 1, point f), du RGPD).\n- Sécurité : une forme codée à sens unique (hachée) de votre adresse IP pour limiter les abus, par exemple le nombre de réservations, ainsi que les journaux techniques du serveur (art. 6, par. 1, point f), du RGPD).\n- Actualités par e-mail : uniquement avec votre accord ; vous pouvez retirer votre consentement à tout moment (art. 6, par. 1, point a), du RGPD).\n\n## Contenu public\nVotre image, votre titre, votre lien et votre nom public sont affichés publiquement sur le mur. Votre adresse e-mail n’est jamais affichée.\n\n## Cookies\nNous utilisons uniquement les cookies nécessaires au fonctionnement du site : votre connexion, une commande en cours et la langue choisie. Nous n’utilisons aucun cookie publicitaire ni de suivi. Les visites sont comptées sans cookies et sans vous identifier. Service de statistiques : {todo}\n\n## Qui reçoit les données\nUniquement les prestataires qui nous aident à faire fonctionner le site, dans le cadre de contrats de sous-traitance : hébergement et base de données {todo}, stockage de fichiers {todo}, paiements (Stripe), envoi d’e-mails {todo}, protection contre les robots (Cloudflare Turnstile) et vérification des liens et des images à la recherche de contenus dangereux {todo}. Certains d’entre eux sont établis en dehors de l’UE ; le transfert est encadré par les clauses contractuelles types de l’UE ou par le cadre de protection des données UE–États-Unis (EU-US Data Privacy Framework).\n\n## Durée de conservation\n- Commandes et reçus : aussi longtemps que l’exige la législation comptable et fiscale (en Slovaquie, en général 10 ans).\n- Compte : jusqu’à ce que vous le supprimiez dans Mes pixels.\n- Messages du formulaire de contact : deux ans après leur traitement.\n- Signalements : {todo} après leur traitement.\n- Journaux techniques et données de sécurité : une courte durée, au maximum {todo}.\n\n## Vos droits\nVous disposez d’un droit d’accès, de rectification, d’effacement, de limitation du traitement et de portabilité des données, ainsi que d’un droit d’opposition ; vous pouvez retirer votre consentement à tout moment. Écrivez à {email}. Vous pouvez supprimer vous-même votre compte dans Mes pixels. Vous pouvez également introduire une réclamation auprès de l’autorité de contrôle : Úrad na ochranu osobných údajov Slovenskej republiky (Office de protection des données personnelles de la République slovaque), Hraničná 12, 820 07 Bratislava, www.dataprotection.gov.sk.\n\nCette politique est applicable à partir du {todo}.",
+    "rules": "Ces règles s’appliquent à tout ce qui est affiché sur {site} : images, dessins, textes, titres, noms et liens. Une personne vérifie chaque contenu avant sa publication. En passant commande, vous confirmez que votre contenu respecte ces règles.\n\n## Interdit\n- tout ce qui est illégal ;\n- la nudité, la pornographie et les contenus sexuels ;\n- la violence, le sang et les armes dans un contexte agressif ;\n- la haine, les symboles extrémistes, l’intimidation et le harcèlement ;\n- les données personnelles ou les photos d’autres personnes sans leur consentement ;\n- les escroqueries, le hameçonnage, les logiciels malveillants, les systèmes pyramidaux et les jeux d’argent sans licence ;\n- les logos, personnages et autres contenus sur lesquels vous n’avez pas de droits ;\n- la publicité politique ;\n- les liens vers des sites proposant de tels contenus.\n\n## Limites techniques\nTous les pixels forment une seule image fixe : les animations et les vidéos ne sont pas possibles. Les liens doivent commencer par http:// ou https://. Nous pouvons refuser un contenu illisible à sa taille ou qui se fait passer pour une partie du site (par exemple de faux boutons).\n\n## Quand un contenu enfreint les règles\n- Avant validation, nous refusons le contenu et vous expliquons pourquoi. Vous pouvez envoyer un autre contenu sous {days, plural, one {# jour} other {# jours}} ; sinon, nous vous remboursons l’intégralité du paiement.\n- Après validation, nous pouvons masquer immédiatement un contenu et le retirer définitivement s’il enfreint ces règles ou la loi. Un contenu retiré n’est pas remboursé (voir les [conditions générales de vente](/terms)). Vous recevez toujours un e-mail expliquant les motifs.\n- Vous pouvez contester toute décision : répondez à notre e-mail ou écrivez à {email}. Une personne réexamine la décision.\n\n## Signalement\nToute personne peut signaler un contenu avec le bouton « Signaler » dans la fenêtre de chaque emplacement ou sur la page [Signaler un contenu](/report). Nous confirmons chaque signalement et informons son auteur de notre décision.",
+    "terms": "## 1. Qui sommes-nous\nLe site {site} (le « site ») est exploité par {operator}, numéro d’entreprise {companyId}, siège social {address}, e-mail {email} (l’« exploitant », « nous »). Immatriculation : {todo}\n\n## 2. Ce que vous achetez\n- Le site affiche {pixels, plural, one {# pixel} many {# de pixels} other {# pixels}} divisés en blocs de 10 × 10 px. Vous achetez le droit d’afficher votre propre contenu (une image, un dessin ou un texte avec un lien facultatif) sur un rectangle de blocs entiers que vous choisissez (l’« emplacement »).\n- Le prix est de {price} par pixel. Vous payez une seule fois ; il n’y a pas de frais récurrents. Tous les prix sont définitifs. {vat}\n- Votre contenu reste publié sans limite de durée, tant que nous exploitons le site. Vous ne devenez propriétaire d’aucune partie du site, de son logiciel ni de l’image de l’ensemble des pixels.\n\n## 3. Conclusion du contrat\n- Vous choisissez un emplacement (nous vous le réservons pour une courte durée), ajoutez votre contenu et vos informations, acceptez les présentes conditions et les [règles de contenu](/content-rules), puis payez via le prestataire de paiement Stripe.\n- Le contrat est conclu à la réception de votre paiement. Nous vous envoyons une confirmation avec un reçu par e-mail.\n- Avant la publication de votre contenu, une personne le vérifie, généralement sous {hours, plural, one {# heure} other {# heures}}.\n\n## 4. Validation et refus\n- Si nous ne pouvons pas valider votre contenu, nous vous en expliquons la raison. Vous pouvez envoyer un autre contenu sous {days, plural, one {# jour} other {# jours}} ; l’emplacement vous reste réservé jusque-là.\n- Si aucun contenu acceptable ne nous parvient dans ce délai, le contrat prend fin et nous vous remboursons automatiquement l’intégralité du paiement.\n\n## 5. Votre contenu\n- Vous êtes responsable de votre contenu. Vous confirmez détenir tous les droits nécessaires et que votre contenu respecte les règles de contenu et la loi.\n- Vous nous autorisez à afficher votre contenu sur le site, dans des images d’ensemble des pixels (par exemple dans des aperçus sur les réseaux sociaux) et dans des supports consacrés au site, tant que le site existe.\n- Vous pouvez modifier votre contenu à tout moment dans Mes pixels ; chaque modification est de nouveau vérifiée.\n- Si un contenu enfreint les règles de contenu ou la loi, nous pouvons le masquer immédiatement et le retirer. Un contenu retiré pour non-respect des règles n’est pas remboursé. Nous vous indiquons toujours les motifs et vous pouvez contester la décision.\n\n## 6. Offrir l’emplacement à quelqu’un d’autre\nVous pouvez offrir votre emplacement à une autre personne dans Mes pixels. Vos droits et obligations au titre des présentes conditions sont transférés au nouveau propriétaire lorsqu’il accepte l’offre.\n\n## 7. Droit de rétractation\n- En tant que consommateur, vous pouvez vous rétracter d’un contrat conclu à distance dans un délai de 14 jours sans avoir à vous justifier.\n- Lors de la commande, vous demandez que le service commence avant la fin de ce délai et vous reconnaissez perdre votre droit de rétractation dès la publication de votre contenu. Jusque-là, vous pouvez vous rétracter par e-mail à {email} ; nous vous remboursons le paiement sous 14 jours.\n- Modèle de formulaire de rétractation : {todo}\n\n## 8. Disponibilité et fin du site\n- Nous veillons à ce que le site fonctionne sans interruption, mais nous ne pouvons pas le garantir à tout moment (maintenance, pannes de nos prestataires).\n- Nous avons l’intention d’exploiter le site pour une durée indéterminée. Si nous décidions un jour de le fermer, nous en informerions tous les propriétaires par e-mail à l’avance. Délai de préavis et ce que les propriétaires reçoivent dans ce cas : {todo}\n\n## 9. Réclamations\nLa manière de déposer une réclamation est décrite dans la [procédure de réclamation](/complaints).\n\n## 10. Données personnelles\nNous traitons les données personnelles comme décrit dans la [politique de confidentialité](/privacy).\n\n## 11. Dispositions finales\n- Les présentes conditions sont régies par le droit de la République slovaque. Règlement extrajudiciaire des litiges de consommation : {todo}\n- Nous pouvons modifier les présentes conditions pour l’avenir ; votre achat est régi par les conditions en vigueur le jour de votre paiement.\n- Les présentes conditions sont applicables à partir du {todo}.",
+    "complaints": "Cette procédure explique comment déposer une réclamation si notre service ne fonctionne pas comme il le devrait — par exemple si votre emplacement ne s’affiche pas correctement, si votre contenu validé n’est pas affiché ou si un paiement n’a pas été traité correctement.\n\n## Comment déposer une réclamation\n- Écrivez à {email} ou utilisez le [formulaire de contact](/contact) (sujet « Réclamation ou question juridique »).\n- Indiquez le numéro de l’emplacement, l’adresse e-mail de votre commande, ce qui ne va pas et, si possible, une capture d’écran.\n- Nous accusons réception de votre réclamation sans délai.\n\n## Comment nous traitons une réclamation\n- Nous statuons sur votre réclamation sans délai, au plus tard dans les 30 jours suivant sa réception, et vous communiquons le résultat par e-mail.\n- Si la réclamation est fondée, nous corrigeons le problème (par exemple, nous affichons de nouveau correctement votre contenu) ; si ce n’est pas possible, nous remboursons le prix ou une partie équitable de celui-ci.\n- Nous conservons une trace de chaque réclamation et de la manière dont elle a été traitée.\n\n## Contestation des décisions de modération\nSi vous n’êtes pas d’accord avec une décision concernant votre contenu (refus, masquage ou retrait), répondez à notre e-mail ou écrivez à {email}. Une personne réexamine la décision.\n\n## Règlement extrajudiciaire des litiges\nSi le traitement de votre réclamation ne vous satisfait pas, vous pouvez nous demander d’y remédier. Si nous refusons ou ne répondons pas dans un délai de 30 jours, vous pouvez vous adresser à un organisme de règlement extrajudiciaire des litiges de consommation : {todo}\n\nCette procédure est applicable à partir du {todo}.",
+    "privacy": "Nous protégeons vos données personnelles et ne collectons que ce dont nous avons besoin pour faire fonctionner {site}.\n\n## Responsable du traitement\n{operator}, numéro d’entreprise {companyId}, {address}, e-mail {email}. Délégué à la protection des données : {todo}\n\n## Quelles données nous traitons et pourquoi\n- Commandes et paiements : votre adresse e-mail, l’emplacement, votre contenu, le titre, le lien et le nom public, vos consentements et les données de paiement — pour conclure et exécuter le contrat (art. 6, par. 1, point b), du RGPD) et respecter nos obligations comptables (art. 6, par. 1, point c), du RGPD). Les données de carte sont traitées uniquement par le prestataire de paiement Stripe ; nous ne les voyons jamais.\n- Compte (Mes pixels) : votre adresse e-mail et l’historique de vos connexions — pour vous permettre de gérer vos emplacements (art. 6, par. 1, point b), du RGPD).\n- Modération et signalements : les vérifications de contenus, les signalements et les décisions, y compris l’adresse e-mail de l’auteur d’un signalement s’il la fournit — pour respecter les obligations du règlement sur les services numériques et assurer la sécurité du site (art. 6, par. 1, points c) et f), du RGPD).\n- Formulaire de contact : votre nom, votre adresse e-mail et votre message — pour vous répondre (art. 6, par. 1, point f), du RGPD).\n- Sécurité : une forme codée à sens unique (hachée) de votre adresse IP pour limiter les abus, par exemple le nombre de réservations, ainsi que les journaux techniques du serveur (art. 6, par. 1, point f), du RGPD).\n- Actualités par e-mail : uniquement avec votre accord ; vous pouvez retirer votre consentement à tout moment (art. 6, par. 1, point a), du RGPD).\n\n## Contenu public\nVotre image, votre titre, votre lien et votre nom public sont affichés publiquement sur le site. Votre adresse e-mail n’est jamais affichée.\n\n## Cookies\nNous utilisons uniquement les cookies nécessaires au fonctionnement du site : votre connexion, une commande en cours et la langue choisie. Nous n’utilisons aucun cookie publicitaire ni de suivi. Les visites sont comptées sans cookies et sans vous identifier. Service de statistiques : {todo}\n\n## Qui reçoit les données\nUniquement les prestataires qui nous aident à faire fonctionner le site, dans le cadre de contrats de sous-traitance : hébergement et base de données {todo}, stockage de fichiers {todo}, paiements (Stripe), envoi d’e-mails {todo}, protection contre les robots (Cloudflare Turnstile) et vérification des liens et des images à la recherche de contenus dangereux {todo}. Certains d’entre eux sont établis en dehors de l’UE ; le transfert est encadré par les clauses contractuelles types de l’UE ou par le cadre de protection des données UE–États-Unis (EU-US Data Privacy Framework).\n\n## Durée de conservation\n- Commandes et reçus : aussi longtemps que l’exige la législation comptable et fiscale (en Slovaquie, en général 10 ans).\n- Compte : jusqu’à ce que vous le supprimiez dans Mes pixels.\n- Messages du formulaire de contact : deux ans après leur traitement.\n- Signalements : {todo} après leur traitement.\n- Journaux techniques et données de sécurité : une courte durée, au maximum {todo}.\n\n## Vos droits\nVous disposez d’un droit d’accès, de rectification, d’effacement, de limitation du traitement et de portabilité des données, ainsi que d’un droit d’opposition ; vous pouvez retirer votre consentement à tout moment. Écrivez à {email}. Vous pouvez supprimer vous-même votre compte dans Mes pixels. Vous pouvez également introduire une réclamation auprès de l’autorité de contrôle : Úrad na ochranu osobných údajov Slovenskej republiky (Office de protection des données personnelles de la République slovaque), Hraničná 12, 820 07 Bratislava, www.dataprotection.gov.sk.\n\nCette politique est applicable à partir du {todo}.",
     "vatPayer": "Les prix comprennent la TVA à {rate} %.",
     "notVatPayer": "Nous ne sommes pas assujettis à la TVA ; aucune TVA n’est donc facturée."
   }

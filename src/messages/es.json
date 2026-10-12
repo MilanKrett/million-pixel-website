@@ -1,13 +1,13 @@
 {
   "meta": {
     "title": "{site} — {pixels, plural, one {# píxel} many {# de píxeles} other {# píxeles}} a la venta",
-    "description": "{pixels, plural, one {# píxel} many {# de píxeles} other {# píxeles}}, {price} por píxel. Compra un trozo del muro para siempre y pon en él tu imagen, tu dibujo o tu texto con un enlace.",
+    "description": "{pixels, plural, one {# píxel} many {# de píxeles} other {# píxeles}}, {price} por píxel. Compra algunos para siempre y pon en ellos tu imagen, tu dibujo o tu texto con un enlace.",
     "pageTitle": "{page} — {site}",
     "pages": {
-      "buy": "Elige un espacio libre en el muro, sube una foto, dibuja o escribe un texto y paga una sola vez: tus píxeles se quedan en el muro para siempre.",
-      "how": "Cómo funciona {site}: elige un espacio, sube o dibuja tu imagen, paga una sola vez {price} por píxel y quédate en el muro para siempre.",
+      "buy": "Elige píxeles libres, sube una foto, dibuja o escribe un texto y paga una sola vez: tus píxeles quedan publicados para siempre.",
+      "how": "Cómo funciona {site}: elige un espacio, sube o dibuja tu imagen, paga una sola vez {price} por píxel y tus píxeles quedarán publicados para siempre.",
       "faq": "Respuestas sobre precios, aprobación, cambios, regalos y recibos en {site}.",
-      "latest": "Las imágenes más recientes de {site}, el muro de un millón de píxeles.",
+      "latest": "Las imágenes más recientes de {site}: un millón de píxeles en un solo lugar.",
       "contact": "Contacto de {site}: preguntas, reclamaciones y punto de contacto según el Reglamento de Servicios Digitales.",
       "rules": "Qué puede y qué no puede aparecer en {site}.",
       "terms": "Condiciones generales de {site}.",
@@ -17,10 +17,10 @@
     }
   },
   "common": {
-    "skipToWall": "Ir al muro",
+    "skipToWall": "Ir a los píxeles",
     "skipToContent": "Ir al contenido",
     "close": "Cerrar",
-    "backToWall": "Volver al muro",
+    "backToWall": "Volver a los píxeles",
     "language": "Idioma",
     "pixels": "{count, plural, one {# píxel} many {# de píxeles} other {# píxeles}}",
     "blocks": "{count, plural, one {# bloque} many {# de bloques} other {# bloques}}",
@@ -29,14 +29,14 @@
   },
   "header": {
     "logoTitle": "{site} — inicio",
-    "statsLabel": "Estadísticas del muro",
+    "statsLabel": "Estadísticas de los píxeles",
     "rented": "Píxeles vendidos",
     "free": "Libres",
     "lastRental": "Última compra",
     "lastRentalNone": "ninguna todavía",
     "justNow": "ahora mismo",
     "progress": "{percent} vendido",
-    "progressLabel": "{percent} del muro está vendido",
+    "progressLabel": "{percent} de los píxeles están vendidos",
     "slogan": "Deja tu huella en internet"
   },
   "nav": {
@@ -60,10 +60,10 @@
     "complaints": "Reclamaciones"
   },
   "wall": {
-    "regionLabel": "El muro de píxeles",
+    "regionLabel": "El millón de píxeles",
     "keyboardHelp": "Usa las flechas para moverte, + y − para hacer zoom, Intro para abrir el espacio del centro y Esc para cerrar una ventana.",
-    "imageAlt": "El muro de {pixels, plural, one {# píxel} many {# de píxeles} other {# píxeles}} con las imágenes de todos los propietarios",
-    "noscript": "Activa JavaScript para hacer zoom, buscar y comprar píxeles. Aun así, puedes hacer clic en las imágenes del muro.",
+    "imageAlt": "{pixels, plural, one {# píxel} many {# de píxeles} other {# píxeles}} con las imágenes de todos los propietarios",
+    "noscript": "Activa JavaScript para hacer zoom, buscar y comprar píxeles. Aun así, puedes hacer clic en las imágenes.",
     "zoom": "Zoom",
     "zoomIn": "Acercar",
     "zoomOut": "Alejar",
@@ -72,21 +72,21 @@
     "random": "Espacio al azar",
     "showFree": "Mostrar espacios libres",
     "search": "Buscar",
-    "searchLabel": "Buscar en el muro",
+    "searchLabel": "Buscar en los píxeles",
     "searchPlaceholder": "Título, nombre o web",
     "searchNone": "No se ha encontrado nada para «{query}».",
     "searchMany": "{count, plural, one {# resultado} many {# de resultados} other {# resultados}} — elige uno:",
     "rent": "Comprar píxeles",
     "coords": "bloque {bx}, {by} · px {px}, {py}",
-    "coordsIdle": "Señala el muro para ver las coordenadas",
+    "coordsIdle": "Señala los píxeles para ver las coordenadas",
     "position": "x {x0}–{x1}, y {y0}–{y1}",
     "size": "{w} × {h} px",
     "reserved": "Reservado",
     "rentedPending": "Vendido: pendiente de aprobación",
-    "updated": "El muro se ha actualizado.",
+    "updated": "Los píxeles se han actualizado.",
     "tool": "Herramienta del ratón",
     "toolSelect": "Seleccionar área",
-    "toolMove": "Mover muro",
+    "toolMove": "Mover vista",
     "cornerSet": "Primera esquina en el bloque {bx}, {by}. Muévete y pulsa Intro para marcar la esquina opuesta.",
     "areaSet": "Área elegida hasta el bloque {bx}, {by}."
   },
@@ -103,16 +103,16 @@
     "freeText": "El bloque {bx}, {by} ({position}) cuesta {price}: se paga una vez y es tuyo para siempre. También puedes seleccionar un área más grande.",
     "rentThis": "Comprar este espacio",
     "takenTitle": "Este espacio está vendido",
-    "takenText": "El contenido aparecerá en el muro cuando se apruebe.",
+    "takenText": "El contenido se publicará cuando se apruebe.",
     "holdTitle": "Este espacio está reservado",
     "holdText": "Alguien lo está comprando ahora mismo. Si no termina en unos minutos, volverá a estar libre.",
-    "since": "En el muro desde el {date}"
+    "since": "Publicado desde el {date}"
   },
   "pages": {
     "rent": "Comprar píxeles",
     "how": "Cómo funciona",
     "faq": "Preguntas frecuentes",
-    "latest": "Lo más nuevo del muro",
+    "latest": "Imágenes más recientes",
     "mine": "Mis píxeles",
     "contact": "Contacto",
     "rules": "Normas de contenido",
@@ -122,15 +122,15 @@
     "notFoundTitle": "Página no encontrada",
     "notFoundText": "Lo sentimos, no hay nada en esta dirección. Puede que el enlace sea antiguo o esté mal escrito.",
     "complaints": "Procedimiento de reclamaciones",
-    "share": "Espacio en el muro"
+    "share": "Espacio entre los píxeles"
   },
   "email": {
-    "footer": "{site}: un muro de un millón de píxeles.",
+    "footer": "{site}: un millón de píxeles en un solo lugar.",
     "greeting": "Hola:",
     "position": "x {x0}–{x1}, y {y0}–{y1}",
     "size": "{w} × {h} px",
     "companyId": "n.º de identificación {id}",
-    "item": "Espacio de {w} × {h} px en el muro ({position}, espacio n.º {no}), mostrado para siempre",
+    "item": "Espacio de {w} × {h} px ({position}, espacio n.º {no}), mostrado para siempre",
     "vatIncluded": "El precio incluye un {rate} % de IVA: {vat}",
     "notVatPayer": "El vendedor no es sujeto pasivo del IVA.",
     "labels": {
@@ -147,16 +147,16 @@
     },
     "paid": {
       "subject": "Pago recibido: tus píxeles están pendientes de aprobación",
-      "intro": "Gracias por tu pedido. Hemos recibido tu pago de {amount}. Revisaremos tu contenido, normalmente en {hours, plural, one {# hora} other {# horas}}, y te avisaremos cuando esté en el muro.",
+      "intro": "Gracias por tu pedido. Hemos recibido tu pago de {amount}. Revisaremos tu contenido, normalmente en {hours, plural, one {# hora} other {# horas}}, y te avisaremos cuando esté publicado.",
       "rentalHeading": "Tu espacio",
       "receiptHeading": "Recibo",
       "mine": "Puedes ver tus espacios en Mis píxeles:",
-      "forever": "Una vez aprobados, tus píxeles se quedan en el muro para siempre, mientras exista el sitio."
+      "forever": "Una vez aprobados, tus píxeles quedan publicados para siempre, mientras exista el sitio."
     },
     "approved": {
-      "subject": "¡Tus píxeles están en el muro!",
-      "intro": "Buenas noticias: tu contenido «{title}» se ha aprobado y ya está en el muro, en la posición {position}. Los píxeles son tuyos para siempre.",
-      "see": "Verlo en el muro",
+      "subject": "¡Tus píxeles están publicados!",
+      "intro": "Buenas noticias: tu contenido «{title}» se ha aprobado y ya está publicado, en la posición {position}. Los píxeles son tuyos para siempre.",
+      "see": "Ver tus píxeles",
       "share": "Enséñaselo a tus amigos:",
       "shareText": "¡Tengo mi propio espacio en {site}!",
       "shareEmail": "Correo"
@@ -178,7 +178,7 @@
     },
     "changeApproved": {
       "subject": "Tu cambio se ha aprobado",
-      "intro": "La nueva versión de «{title}» ya está en el muro, en la posición {position}."
+      "intro": "La nueva versión de «{title}» ya está publicada, en la posición {position}."
     },
     "rejected": {
       "subject": "Tu contenido no se ha aprobado",
@@ -189,11 +189,11 @@
     },
     "changesRequested": {
       "subject": "Ajusta tu contenido, por favor",
-      "intro": "Tu contenido para el espacio en la posición {position} («{title}») necesita un cambio antes de que podamos ponerlo en el muro."
+      "intro": "Tu contenido para el espacio en la posición {position} («{title}») necesita un cambio antes de que podamos publicarlo."
     },
     "changeRejected": {
       "subject": "Tu cambio no se ha aprobado",
-      "intro": "No hemos podido aprobar el cambio de «{title}» en la posición {position}. Tu contenido anterior sigue en el muro.",
+      "intro": "No hemos podido aprobar el cambio de «{title}» en la posición {position}. Tu contenido anterior sigue publicado.",
       "again": "Puedes enviar otro cambio en Mis píxeles.",
       "button": "Abrir Mis píxeles"
     },
@@ -206,12 +206,12 @@
     },
     "hidden": {
       "subject": "Hemos ocultado tus píxeles temporalmente",
-      "intro": "Tu contenido «{title}» en la posición {position} se ha ocultado del muro mientras lo revisamos.",
-      "next": "Te comunicaremos el resultado. Si el contenido está bien, volverá al muro."
+      "intro": "Tu contenido «{title}» en la posición {position} se ha ocultado mientras lo revisamos.",
+      "next": "Te comunicaremos el resultado. Si el contenido está bien, volverá a mostrarse."
     },
     "removed": {
-      "subject": "Hemos retirado tu contenido del muro",
-      "intro": "Hemos retirado del muro «{title}» en la posición {position} porque incumple nuestras normas de contenido.",
+      "subject": "Hemos retirado tu contenido",
+      "intro": "Hemos retirado «{title}» en la posición {position} porque incumple nuestras normas de contenido.",
       "terms": "Tal como indican las condiciones generales, el contenido retirado por incumplir las normas no se reembolsa."
     },
     "reportReceived": {
@@ -221,9 +221,9 @@
     },
     "reportDecided": {
       "subject": "Decisión sobre tu denuncia ({reference})",
-      "actioned": "Hemos revisado el contenido que denunciaste (espacio n.º {no}) y hemos tomado medidas: ya no se muestra en el muro.",
-      "dismissed": "Hemos revisado el contenido que denunciaste (espacio n.º {no}) y hemos concluido que no incumple nuestras normas de contenido, así que sigue en el muro.",
-      "thanks": "Gracias por ayudarnos a mantener un muro agradable."
+      "actioned": "Hemos revisado el contenido que denunciaste (espacio n.º {no}) y hemos tomado medidas: ya no se muestra.",
+      "dismissed": "Hemos revisado el contenido que denunciaste (espacio n.º {no}) y hemos concluido que no incumple nuestras normas de contenido, así que sigue publicado.",
+      "thanks": "Gracias por ayudarnos a que los píxeles sigan siendo un lugar agradable."
     },
     "transferOffer": {
       "subject": "Alguien te regala un espacio en {site}",
@@ -238,7 +238,7 @@
     "accountDeleted": {
       "subject": "Hemos eliminado tu cuenta",
       "intro": "Hemos eliminado tu cuenta y tus datos personales, tal como pediste. Los recibos se conservan durante el tiempo que exige la ley.",
-      "rentals": "Tus píxeles se quedan en el muro, pero ya nadie podrá gestionarlos."
+      "rentals": "Tus píxeles siguen publicados, pero ya nadie podrá gestionarlos."
     },
     "staffInvite": {
       "subject": "Ya puedes usar la administración de {site}",
@@ -279,7 +279,7 @@
     "backToOrder": "Volver a mi pedido",
     "keepPlace": "Quedarme con este espacio",
     "position": "x {x0}–{x1}, y {y0}–{y1}",
-    "selectHelp": "Arrastra sobre el muro para seleccionar el área que quieres comprar. Se ajusta a bloques de 10 × 10 px. Arrastra las esquinas para cambiar su tamaño o arrastra el área para moverla. Haz zoom con la rueda del ratón; para mover el muro, usa el botón derecho del ratón o la herramienta «Mover muro».",
+    "selectHelp": "Arrastra sobre los píxeles para seleccionar el área que quieres comprar. Se ajusta a bloques de 10 × 10 px. Arrastra las esquinas para cambiar su tamaño o arrastra el área para moverla. Haz zoom con la rueda del ratón; para mover la vista, usa el botón derecho del ratón o la herramienta «Mover vista».",
     "selectHelpTouch": "En el móvil: amplía con dos dedos, toca la primera esquina y después la opuesta, y ajusta el área con los tiradores de las esquinas.",
     "yourSelection": "Tu selección",
     "noSelection": "Todavía no has seleccionado nada.",
@@ -295,7 +295,7 @@
       "taken": "Alguien acaba de reservar parte de esta área. Estos son espacios libres del mismo tamaño cerca:",
       "rate_limited": "Ya tienes varias reservas en curso. Termina o cancela una de ellas primero.",
       "sales_paused": "Las ventas están pausadas en este momento. Vuelve a intentarlo más tarde.",
-      "invalid": "Esta área no está en el muro.",
+      "invalid": "Esta área está fuera de los píxeles.",
       "too_small": "Esta área es demasiado pequeña.",
       "too_large": "Esta área es demasiado grande.",
       "network": "No hemos podido conectar con el servidor. Comprueba tu conexión y vuelve a intentarlo.",
@@ -317,7 +317,7 @@
     "find": "Buscar",
     "noSpots": "No hay ningún espacio libre de este tamaño. Prueba con uno más pequeño.",
     "spotsNear": "Más cerca del centro:",
-    "spotsRandom": "En otras partes del muro:",
+    "spotsRandom": "En otras partes:",
     "spot": "x {x}, y {y} ({w} × {h} px)",
     "contentTitle": "Tu imagen ({w} × {h} px)",
     "currentContent": "Tu contenido actual",
@@ -444,7 +444,7 @@
     },
     "back": "Atrás",
     "summaryTitle": "Resumen",
-    "summaryPreview": "Tu contenido en el muro",
+    "summaryPreview": "Vista previa de tus píxeles",
     "editContent": "Cambiar contenido",
     "editDetails": "Cambiar datos",
     "priceTotal": "Total",
@@ -452,7 +452,7 @@
     "notVatPayer": "Precio final. El vendedor no es sujeto pasivo del IVA.",
     "pay": "Pagar {price}",
     "redirecting": "Abriendo el pago…",
-    "payNote": "Pagas en la página siguiente. Revisamos el contenido, normalmente en {hours, plural, one {# hora} other {# horas}}; después, tus píxeles se quedan en el muro para siempre.",
+    "payNote": "Pagas en la página siguiente. Revisamos el contenido, normalmente en {hours, plural, one {# hora} other {# horas}}; después, tus píxeles quedan publicados para siempre.",
     "devPaymentNote": "Modo de prueba: no se realiza ningún pago real (Stripe aún no está conectado).",
     "payErrors": {
       "expired": "Tu reserva ha caducado. Vuelve a reservar el espacio.",
@@ -468,10 +468,10 @@
   "thanks": {
     "title": "¡Gracias!",
     "statusReview": "Pagado: pendiente de aprobación",
-    "statusActive": "Aprobado: tus píxeles están en el muro",
-    "reviewText": "Revisamos cada imagen antes de que aparezca en el muro, normalmente en 24 horas. Después se queda ahí para siempre.",
+    "statusActive": "Aprobado: tus píxeles están publicados",
+    "reviewText": "Revisamos cada imagen antes de publicarla, normalmente en 24 horas. Después sigue publicada para siempre.",
     "emailSent": "Hemos enviado la confirmación y el recibo a {email}.",
-    "seeSpot": "Ver mi espacio en el muro",
+    "seeSpot": "Ver mis píxeles",
     "refundedTitle": "Lo sentimos",
     "refundedText": "Tu pago llegó cuando tu reserva ya había terminado y, mientras tanto, otra persona compró el espacio. Te hemos devuelto el importe íntegro.",
     "chooseAnother": "Elegir otro espacio",
@@ -481,7 +481,7 @@
     "noOrderTitle": "No hay ningún pedido",
     "noOrderText": "No hay ningún pedido en este navegador.",
     "devEmails": "Desarrollo: los correos están en el buzón local",
-    "backToWall": "Volver al muro"
+    "backToWall": "Volver a los píxeles"
   },
   "devCheckout": {
     "title": "Pago de prueba",
@@ -550,7 +550,7 @@
     "rentNow": "Comprar píxeles »",
     "status": {
       "in_review": "Pendiente de aprobación",
-      "active": "En el muro",
+      "active": "Publicado",
       "grace": "En periodo de gracia",
       "ended": "Finalizado",
       "rejected": "No aprobado: pendiente de nuevo contenido",
@@ -563,11 +563,11 @@
     "size": "Tamaño",
     "sizeValue": "{w} × {h} px ({pixels, plural, one {# píxel} many {# de píxeles} other {# píxeles}})",
     "link": "Enlace",
-    "waitingChange": "Un cambio enviado el {date} está pendiente de aprobación; hasta entonces, el contenido actual sigue en el muro.",
+    "waitingChange": "Un cambio enviado el {date} está pendiente de aprobación; hasta entonces, el contenido actual sigue publicado.",
     "decision": {
       "rejected": "No hemos podido aprobar tu contenido.",
       "changes": "Ajusta tu contenido, por favor.",
-      "changeRejected": "Tu último cambio no se ha aprobado; el contenido anterior sigue en el muro."
+      "changeRejected": "Tu último cambio no se ha aprobado; el contenido anterior sigue publicado."
     },
     "reason": "Motivo: {reason}",
     "reuploadUntil": "Envía contenido nuevo antes del {date}. Si no, te devolveremos el pago íntegro y liberaremos el espacio.",
@@ -590,27 +590,27 @@
     "transferCancel": "Cancelar",
     "cancel": "Cancelar",
     "deleteTitle": "Eliminar mi cuenta y mis datos personales",
-    "deleteHelp": "Se eliminan tu cuenta, tu dirección de correo y tu nombre público. Los recibos se conservan durante el tiempo que exige la ley. Tus píxeles se quedan en el muro, pero ya no podrás gestionarlos.",
+    "deleteHelp": "Se eliminan tu cuenta, tu dirección de correo y tu nombre público. Los recibos se conservan durante el tiempo que exige la ley. Tus píxeles siguen publicados, pero ya no podrás gestionarlos.",
     "deleteConfirm": "Escribe tu dirección de correo ({email}) para confirmar",
     "deleteButton": "Eliminar cuenta",
     "editTitle": "Cambiar contenido",
     "notEditable": "Este espacio ya no se puede cambiar.",
     "backToList": "Volver a Mis píxeles",
-    "editIntro": "Cambia la imagen, el título, el enlace o el nombre. El cambio pasa a aprobación; hasta entonces, el contenido actual sigue en el muro.",
+    "editIntro": "Cambia la imagen, el título, el enlace o el nombre. El cambio pasa a aprobación; hasta entonces, el contenido actual sigue publicado.",
     "editRejectedIntro": "Envía contenido nuevo para tu espacio. Volverá a pasar por aprobación.",
-    "onWallNow": "Ahora en el muro",
+    "onWallNow": "Publicado ahora",
     "waitingApproval": "Pendiente de aprobación",
     "newPicture": "Imagen nueva (aún sin enviar)",
     "pictureTitle": "Imagen nueva ({w} × {h} px)",
     "pictureHelp": "Opcional: conserva la imagen actual y cambia solo los textos de abajo.",
     "textsTitle": "Título, enlace y nombre",
     "submit": "Enviar a aprobación",
-    "publish": "Publicar en el muro",
+    "publish": "Publicar",
     "submitNote": "Revisamos cada cambio, normalmente en {hours, plural, one {# hora} other {# horas}}.",
     "sentTitle": "Enviado a aprobación.",
-    "sentKeep": "Lo revisaremos, normalmente en {hours, plural, one {# hora} other {# horas}}. Hasta entonces, tu contenido actual sigue en el muro.",
+    "sentKeep": "Lo revisaremos, normalmente en {hours, plural, one {# hora} other {# horas}}. Hasta entonces, tu contenido actual sigue publicado.",
     "sentNew": "Lo revisaremos, normalmente en {hours, plural, one {# hora} other {# horas}}, y te avisaremos por correo.",
-    "published": "El cambio ya está en el muro.",
+    "published": "El cambio ya está publicado.",
     "errors": {
       "email_invalid": "Introduce una dirección de correo válida.",
       "same_owner": "Esa es tu propia dirección.",
@@ -627,7 +627,7 @@
     },
     "lastVersion": "Tu última versión (no aprobada)",
     "pictureHelpRejected": "Crea una imagen nueva o conserva la anterior y cambia en los textos de abajo solo lo que ha pedido el moderador.",
-    "since": "En el muro desde",
+    "since": "Publicado desde",
     "afterApproval": "tras la aprobación"
   },
   "receipt": {
@@ -638,7 +638,7 @@
     "seller": "Vendedor",
     "buyer": "Comprador",
     "item": "Concepto",
-    "itemValue": "Espacio de {w} × {h} px en el muro (x {x0}–{x1}, y {y0}–{y1}, espacio n.º {no}), mostrado para siempre",
+    "itemValue": "Espacio de {w} × {h} px (x {x0}–{x1}, y {y0}–{y1}, espacio n.º {no}), mostrado para siempre",
     "total": "Total pagado",
     "vat": "IVA",
     "vatIncluded": "El precio incluye un {rate} % de IVA: {vat}",
@@ -647,13 +647,13 @@
     "print": "Imprimir o guardar como PDF"
   },
   "transfer": {
-    "title": "Aceptar un espacio en el muro",
-    "intro": "Alguien te ha regalado un espacio en el muro. Acéptalo y pasará a ser tuyo; iniciaremos tu sesión en Mis píxeles con tu dirección de correo.",
+    "title": "Aceptar un espacio de píxeles",
+    "intro": "Alguien te ha regalado un espacio de píxeles. Acéptalo y pasará a ser tuyo; iniciaremos tu sesión en Mis píxeles con tu dirección de correo.",
     "accept": "Aceptar el espacio",
     "invalid": "Este enlace ya no es válido (el espacio ya se aceptó, la oferta se canceló o caducó)."
   },
   "report": {
-    "intro": "Avísanos de cualquier contenido del muro que infrinja la ley o nuestras normas de contenido. Una persona revisa cada denuncia.",
+    "intro": "Avísanos de cualquier contenido publicado que infrinja la ley o nuestras normas de contenido. Una persona revisa cada denuncia.",
     "rules": "Lo que no está permitido aparece en las <link>normas de contenido</link>.",
     "authoritiesTitle": "Para autoridades",
     "authorities": "Punto de contacto según el Reglamento de Servicios Digitales (UE 2022/2065) para autoridades y usuarios: {email}. Respondemos en eslovaco o en inglés.",
@@ -662,7 +662,7 @@
     "willAnswer": "Te hemos enviado una confirmación por correo y te comunicaremos nuestra decisión.",
     "noAnswer": "No has dejado una dirección de correo, así que no podremos comunicarte el resultado.",
     "rentalNo": "Número del espacio",
-    "rentalNoHelp": "aparece en la ventana al hacer clic en el espacio del muro",
+    "rentalNoHelp": "aparece en la ventana al hacer clic en el espacio",
     "category": "Qué ocurre",
     "choose": "— elige —",
     "description": "Detalles",
@@ -675,7 +675,7 @@
     "privacy": "Solo usaremos tu dirección de correo para responder a esta denuncia.",
     "errors": {
       "invalid": "Indica el número del espacio y qué ocurre.",
-      "rental_not_found": "No hay ningún espacio con este número en el muro.",
+      "rental_not_found": "No hay ningún espacio con este número.",
       "description_required": "Describe el problema.",
       "email_invalid": "Introduce una dirección de correo válida o deja el campo vacío.",
       "rate_limited": "Demasiadas denuncias desde tu conexión. Vuelve a intentarlo más tarde.",
@@ -689,21 +689,21 @@
     "message": "Hola, ¿puedo cambiar el enlace de mi espacio?"
   },
   "how": {
-    "intro": "{site} es un muro de {pixels, plural, one {# píxel} many {# de píxeles} other {# píxeles}}. Compra un trozo una sola vez, pon en él tu imagen y se quedará ahí para siempre, mientras exista el sitio.",
+    "intro": "{site} es {pixels, plural, one {# píxel} many {# de píxeles} other {# píxeles}} en un solo lugar. Compra una parte una sola vez, pon en ella tu imagen y se quedará ahí para siempre, mientras exista el sitio.",
     "step1Title": "Elige tu espacio",
-    "step1": "Arrastra sobre el muro para seleccionar un área libre. Se ajusta a bloques de 10 × 10 px y ves el tamaño y el precio al instante. ¿No sabes dónde? «Búscame un espacio» te sugiere espacios libres del tamaño que quieras.",
+    "step1": "Arrastra sobre los píxeles para seleccionar un área libre. Se ajusta a bloques de 10 × 10 px y ves el tamaño y el precio al instante. ¿No sabes dónde? «Búscame un espacio» te sugiere espacios libres del tamaño que quieras.",
     "step2Title": "Sube o dibuja",
     "step2": "Sube una foto (nuestro filtro de píxeles la convierte exactamente en los píxeles que compres), dibuja en el editor de píxeles o escribe un texto. Añade un título, un enlace opcional y tu nombre o apodo.",
-    "step3Title": "Paga y ya estás en el muro",
-    "step3": "Paga de forma segura con tarjeta, Apple Pay o Google Pay. Una persona revisa cada imagen, normalmente en {hours, plural, one {# hora} other {# horas}}, y después tus píxeles se quedan en el muro para siempre.",
+    "step3Title": "Paga y tus píxeles se publican",
+    "step3": "Paga de forma segura con tarjeta, Apple Pay o Google Pay. Una persona revisa cada imagen, normalmente en {hours, plural, one {# hora} other {# horas}}, y después tus píxeles quedan publicados para siempre.",
     "pricesTitle": "Precios",
     "pricesIntro": "Un píxel cuesta {price}. Pagas una sola vez; no hay cuota anual.",
     "colSize": "Tamaño",
     "colPixels": "Píxeles",
     "colPrice": "Precio",
     "blocks": "{count, plural, one {# bloque} many {# de bloques} other {# bloques}}",
-    "rulesTitle": "Qué puede haber en el muro",
-    "rules": "Imágenes, dibujos y textos que cumplan nuestras <rules>normas de contenido</rules>: nada ilegal, nada de desnudos, violencia, odio ni estafas, y solo contenido sobre el que tengas derechos. El muro es una única imagen fija, así que no se admiten animaciones ni vídeos.",
+    "rulesTitle": "Qué se puede publicar",
+    "rules": "Imágenes, dibujos y textos que cumplan nuestras <rules>normas de contenido</rules>: nada ilegal, nada de desnudos, violencia, odio ni estafas, y solo contenido sobre el que tengas derechos. Todos los píxeles forman una única imagen fija, así que no se admiten animaciones ni vídeos.",
     "start": "Comprar píxeles",
     "more": "Encontrarás más respuestas en las <faq>preguntas frecuentes</faq>."
   },
@@ -711,31 +711,31 @@
     "intro": "Respuestas a las preguntas más habituales. ¿Tienes otra duda? <contact>Escríbenos</contact>.",
     "costQ": "¿Cuánto cuesta?",
     "costA": "{price} por píxel, en un único pago. El espacio más pequeño es un bloque de 10 × 10 px por {block}; 50 × 50 px cuestan {spot50} y 100 × 100 px cuestan {spot100}. {vat}",
-    "howLongQ": "¿Cuánto tiempo estarán mis píxeles en el muro?",
-    "howLongA": "Para siempre. Pagas una vez y tu imagen se queda en el muro mientras exista {site}. No hay cuota anual ni nada que renovar.",
+    "howLongQ": "¿Cuánto tiempo estarán publicados mis píxeles?",
+    "howLongA": "Para siempre. Pagas una vez y tu imagen sigue publicada mientras exista {site}. No hay cuota anual ni nada que renovar.",
     "whatQ": "¿Qué puedo poner en mis píxeles?",
     "whatA": "Una foto o una imagen (PNG, JPG, WebP o un GIF estático de hasta {mb} MB), un dibujo de nuestro editor de píxeles o un área de color con texto. Puedes añadir un título, un enlace y tu nombre o apodo. Todo debe cumplir las <rules>normas de contenido</rules>.",
-    "whenQ": "¿Cuándo aparecerán mis píxeles en el muro?",
-    "whenA": "Cuando una persona haya revisado tu imagen, normalmente en {hours, plural, one {# hora} other {# horas}} desde el pago. Te avisaremos por correo en cuanto esté en el muro.",
+    "whenQ": "¿Cuándo se publicarán mis píxeles?",
+    "whenA": "Cuando una persona haya revisado tu imagen, normalmente en {hours, plural, one {# hora} other {# horas}} desde el pago. Te avisaremos por correo en cuanto esté publicada.",
     "rejectedQ": "¿Y si rechazáis mi contenido?",
     "rejectedA": "Recibirás un correo con el motivo y podrás enviar otro contenido en un plazo de {days, plural, one {# día} other {# días}}; hasta entonces, tu espacio sigue reservado. Si no lo haces, te devolveremos el pago íntegro y el espacio volverá a quedar libre.",
     "changeQ": "¿Puedo cambiar mi imagen más adelante?",
-    "changeA": "Sí, en cualquier momento en Mis píxeles: la imagen, el título, el enlace o el nombre. Cada cambio se revisa de nuevo y, mientras tanto, tu imagen actual sigue en el muro.",
+    "changeA": "Sí, en cualquier momento en Mis píxeles: la imagen, el título, el enlace o el nombre. Cada cambio se revisa de nuevo y, mientras tanto, tu imagen actual sigue publicada.",
     "closeQ": "¿Qué pasa si el sitio cierra algún día?",
-    "closeA": "Queremos mantener el muro en línea durante mucho tiempo. Si algún día tuviéramos que cerrarlo, avisaríamos con antelación a todos los propietarios por correo. Los detalles están en las <terms>condiciones generales</terms>.",
+    "closeA": "Queremos mantener el sitio en línea durante mucho tiempo. Si algún día tuviéramos que cerrarlo, avisaríamos con antelación a todos los propietarios por correo. Los detalles están en las <terms>condiciones generales</terms>.",
     "blocksQ": "¿Por qué se venden los píxeles en bloques de 10 × 10?",
-    "blocksA": "Un solo píxel sería demasiado pequeño para verlo o hacer clic en él. Los bloques de 10 × 10 px mantienen el muro ordenado y hacen que cada espacio sea fácil de encontrar y de pulsar. El espacio más pequeño es un bloque, es decir, 100 píxeles.",
+    "blocksA": "Un solo píxel sería demasiado pequeño para verlo o hacer clic en él. Los bloques de 10 × 10 px mantienen los píxeles ordenados y hacen que cada espacio sea fácil de encontrar y de pulsar. El espacio más pequeño es un bloque, es decir, 100 píxeles.",
     "giftQ": "¿Puedo regalar mis píxeles?",
     "giftA": "Sí. En Mis píxeles, elige «Regalar este espacio a otra persona» e introduce su dirección de correo. Recibirá un enlace y el espacio pasará a ser suyo en cuanto lo acepte.",
     "receiptQ": "¿Obtendré un recibo?",
     "receiptA": "Sí. Después del pago te enviamos por correo la confirmación con un recibo, y en Mis píxeles puedes imprimir cada recibo o guardarlo como PDF.",
     "privateQ": "¿Se verá mi dirección de correo?",
-    "privateA": "No. En el muro solo se muestran el título, el enlace y el nombre público que elijas. Tu dirección de correo es privada."
+    "privateA": "No. Públicamente solo se muestran el título, el enlace y el nombre público que elijas. Tu dirección de correo es privada."
   },
   "latest": {
-    "intro": "Las imágenes más recientes del muro. Haz clic en una para verla en el muro.",
-    "empty": "Todavía no hay imágenes en el muro. ¡La tuya puede ser la primera!",
-    "since": "en el muro desde el {date}"
+    "intro": "Las imágenes más recientes. Haz clic en una para verla entre los píxeles.",
+    "empty": "Todavía no hay imágenes. ¡La tuya puede ser la primera!",
+    "since": "publicado desde el {date}"
   },
   "contact": {
     "intro": "¿Preguntas sobre tu pedido, ideas o problemas? Escríbenos con el formulario o por correo. Solemos responder en dos días laborables.",
@@ -752,7 +752,7 @@
     "name": "Tu nombre",
     "email": "Tu correo",
     "spotNo": "Número del espacio",
-    "spotNoHelp": "si el mensaje trata de un espacio del muro",
+    "spotNoHelp": "si el mensaje trata de un espacio concreto",
     "message": "Mensaje",
     "optional": "opcional",
     "send": "Enviar mensaje",
@@ -774,29 +774,29 @@
     "emailLabel": "Correo electrónico",
     "dsaTitle": "Punto de contacto según el Reglamento de Servicios Digitales",
     "dsa": "Las autoridades de los Estados miembros de la UE, la Comisión Europea, la Junta Europea de Servicios Digitales y los usuarios pueden ponerse en contacto con nosotros por vía electrónica en {email} o mediante el formulario de arriba (tema «Autoridad»). Puedes escribirnos en eslovaco o en inglés.",
-    "reportHint": "Para denunciar contenido ilegal del muro, usa el <report>formulario de denuncia</report>: llega directamente a moderación."
+    "reportHint": "Para denunciar contenido ilegal, usa el <report>formulario de denuncia</report>: llega directamente a moderación."
   },
   "share": {
     "title": "«{title}» en {site}",
     "ogText": "¡Tengo mi propio espacio en {site}!",
-    "description": "{size} en el muro de un millón de píxeles. Haz clic para verlo.",
-    "see": "Ver en el muro",
-    "redirecting": "Abriendo el muro…",
-    "gone": "Este espacio no se muestra en el muro en este momento."
+    "description": "{size} entre un millón de píxeles. Haz clic para verlo.",
+    "see": "Ver entre los píxeles",
+    "redirecting": "Abriendo los píxeles…",
+    "gone": "Este espacio no se muestra en este momento."
   },
   "goWarning": {
     "title": "Este enlace puede ser peligroso",
     "text": "Un control de seguridad ha marcado la página de este enlace como peligrosa (malware o phishing). Hemos detenido la redirección mientras un moderador la revisa.",
     "address": "La dirección era:",
-    "back": "Volver al muro"
+    "back": "Volver a los píxeles"
   },
   "legal": {
     "todo": "[por completar]",
     "draft": "Este texto es una plantilla. Las partes marcadas como «[por completar]» se rellenarán y un abogado revisará todo el texto antes de lanzar el sitio.",
-    "rules": "Estas normas se aplican a todo lo que se muestra en {site}: imágenes, dibujos, textos, títulos, nombres y enlaces. Una persona revisa todo el contenido antes de que aparezca en el muro. Al hacer un pedido, confirmas que tu contenido cumple estas normas.\n\n## No se permite\n- nada ilegal;\n- desnudos, pornografía ni contenido sexual;\n- violencia, sangre ni armas en un contexto agresivo;\n- odio, símbolos extremistas, acoso ni intimidación;\n- datos personales ni fotos de otras personas sin su consentimiento;\n- estafas, phishing, malware, esquemas piramidales ni juegos de azar sin licencia;\n- logotipos, personajes ni otro contenido sobre el que no tengas derechos;\n- publicidad política;\n- enlaces a sitios web con ese tipo de contenido.\n\n## Límites técnicos\nEl muro es una única imagen fija: no se admiten animaciones ni vídeos. Los enlaces deben empezar por http:// o https://. Podemos rechazar contenido que no se pueda leer a su tamaño o que se haga pasar por parte del sitio web (por ejemplo, botones falsos).\n\n## Cuando el contenido incumple las normas\n- Antes de aprobarlo, rechazamos el contenido y te explicamos por qué. Puedes enviar otro contenido en un plazo de {days, plural, one {# día} other {# días}}; si no, te devolvemos el pago íntegro.\n- Después de aprobarlo, podemos ocultar el contenido de inmediato y retirarlo definitivamente si incumple estas normas o la ley. El contenido retirado no se reembolsa (consulta las [condiciones generales](/terms)). Siempre recibirás un correo con los motivos.\n- Puedes oponerte a cualquier decisión: responde a nuestro correo o escribe a {email}. Una persona vuelve a revisarlo.\n\n## Denuncias\nCualquiera puede denunciar contenido con el botón «Denunciar» de la ventana de cada espacio o en la página [Denunciar contenido](/report). Confirmamos cada denuncia y comunicamos nuestra decisión a quien la presentó.",
-    "terms": "## 1. Quiénes somos\nEl sitio web {site} (el «sitio») lo gestiona {operator}, n.º de identificación {companyId}, con domicilio social en {address}, correo electrónico {email} (el «titular», «nosotros»). Datos registrales: {todo}\n\n## 2. Qué compras\n- El sitio muestra un muro de {pixels, plural, one {# píxel} many {# de píxeles} other {# píxeles}} dividido en bloques de 10 × 10 px. Compras el derecho a mostrar tu propio contenido (una imagen, un dibujo o un texto con un enlace opcional) en un rectángulo de bloques completos que eliges tú (el «espacio»).\n- El precio es de {price} por píxel. Pagas una sola vez; no hay cuotas periódicas. Todos los precios son finales. {vat}\n- Tu contenido permanece en el muro sin límite de tiempo, mientras gestionemos el sitio. No adquieres la propiedad de ninguna parte del sitio, de su software ni de la imagen del muro en su conjunto.\n\n## 3. Cómo se celebra el contrato\n- Eliges un espacio (te lo reservamos durante un breve tiempo), añades tu contenido y tus datos, aceptas estas condiciones y las [normas de contenido](/content-rules) y pagas a través del proveedor de pagos Stripe.\n- El contrato se celebra cuando recibimos tu pago. Te enviamos por correo una confirmación con un recibo.\n- Antes de que tu contenido aparezca en el muro, una persona lo revisa, normalmente en {hours, plural, one {# hora} other {# horas}}.\n\n## 4. Aprobación y rechazo\n- Si no podemos aprobar tu contenido, te explicamos por qué. Puedes enviar otro contenido en un plazo de {days, plural, one {# día} other {# días}}; hasta entonces, el espacio sigue reservado para ti.\n- Si no llega a tiempo un contenido aceptable, el contrato se extingue y te devolvemos automáticamente el pago íntegro.\n\n## 5. Tu contenido\n- Eres responsable de tu contenido. Confirmas que tienes todos los derechos sobre él y que cumple las normas de contenido y la ley.\n- Nos permites mostrar tu contenido en el sitio, en imágenes del muro (por ejemplo, en vistas previas en redes sociales) y en materiales sobre el sitio, mientras el sitio exista.\n- Puedes cambiar tu contenido en cualquier momento en Mis píxeles; cada cambio se revisa de nuevo.\n- Si el contenido incumple las normas de contenido o la ley, podemos ocultarlo de inmediato y retirarlo. El contenido retirado por incumplir las normas no se reembolsa. Siempre te comunicamos los motivos y puedes oponerte.\n\n## 6. Regalar el espacio a otra persona\nPuedes regalar tu espacio a otra persona en Mis píxeles. Tus derechos y obligaciones según estas condiciones pasan al nuevo propietario cuando acepta la oferta.\n\n## 7. Derecho de desistimiento\n- Como consumidor, puedes desistir de un contrato celebrado a distancia en un plazo de 14 días sin indicar el motivo.\n- Al hacer el pedido, nos pides que empecemos a prestar el servicio antes de que termine ese plazo y reconoces que pierdes el derecho de desistimiento en cuanto tu contenido se publique en el muro. Hasta entonces, puedes desistir por correo a {email}; te devolvemos el pago en un plazo de 14 días.\n- Modelo de formulario de desistimiento: {todo}\n\n## 8. Disponibilidad y cierre del sitio\n- Procuramos que el sitio funcione sin interrupciones, pero no podemos garantizarlo en todo momento (mantenimiento, caídas de nuestros proveedores).\n- Tenemos la intención de gestionar el sitio por tiempo indefinido. Si algún día decidimos cerrarlo, avisaremos con antelación a todos los propietarios por correo. Plazo de preaviso y lo que reciben los propietarios en ese caso: {todo}\n\n## 9. Reclamaciones\nCómo presentar una reclamación se describe en el [procedimiento de reclamaciones](/complaints).\n\n## 10. Datos personales\nTratamos los datos personales tal como se describe en la [política de privacidad](/privacy).\n\n## 11. Disposiciones finales\n- Estas condiciones se rigen por la ley de la República Eslovaca. Resolución alternativa de litigios en materia de consumo: {todo}\n- Podemos modificar estas condiciones para el futuro; a tu compra se le aplican las condiciones vigentes el día de tu pago.\n- Estas condiciones son válidas desde el {todo}.",
-    "complaints": "Este procedimiento explica cómo reclamar si nuestro servicio no funciona como debe; por ejemplo, si tu espacio no se muestra correctamente, el muro no muestra tu contenido aprobado o un pago no se ha procesado correctamente.\n\n## Cómo reclamar\n- Escribe a {email} o usa el [formulario de contacto](/contact) (tema «Reclamación o asunto legal»).\n- Indica el número del espacio, la dirección de correo de tu pedido, qué falla y, si es posible, una captura de pantalla.\n- Confirmamos sin demora que hemos recibido tu reclamación.\n\n## Cómo tramitamos una reclamación\n- Resolvemos tu reclamación sin demora y, a más tardar, en un plazo de 30 días desde su recepción, y te comunicamos el resultado por correo.\n- Si la reclamación está justificada, solucionamos el problema (por ejemplo, volvemos a mostrar correctamente tu contenido); si no es posible, te devolvemos el precio o una parte proporcionada.\n- Llevamos un registro de cada reclamación y de cómo se resolvió.\n\n## Objeciones a las decisiones de moderación\nSi no estás de acuerdo con una decisión sobre tu contenido (rechazo, ocultación o retirada), responde a nuestro correo o escribe a {email}. Una persona vuelve a revisar la decisión.\n\n## Resolución alternativa de litigios\nSi la tramitación de tu reclamación no te satisface, puedes pedirnos que lo solucionemos. Si nos negamos o no respondemos en 30 días, puedes acudir a una entidad de resolución alternativa de litigios en materia de consumo: {todo}\n\nEste procedimiento es válido desde el {todo}.",
-    "privacy": "Protegemos tus datos personales y solo recogemos lo que necesitamos para gestionar {site}.\n\n## Responsable del tratamiento\n{operator}, n.º de identificación {companyId}, {address}, correo electrónico {email}. Delegado de protección de datos: {todo}\n\n## Qué datos tratamos y por qué\n- Pedidos y pagos: tu dirección de correo, el espacio, tu contenido, el título, el enlace y el nombre público, tus consentimientos y los registros de pago, para celebrar y ejecutar el contrato (art. 6.1.b del RGPD) y cumplir las obligaciones contables (art. 6.1.c del RGPD). Los datos de la tarjeta los trata únicamente el proveedor de pagos Stripe; nosotros nunca los vemos.\n- Cuenta (Mis píxeles): tu dirección de correo y los registros de inicio de sesión, para que puedas gestionar tus espacios (art. 6.1.b del RGPD).\n- Moderación y denuncias: revisiones de contenido, denuncias y decisiones, incluida la dirección de correo de quien denuncia si la facilita, para cumplir las obligaciones del Reglamento de Servicios Digitales y mantener un sitio seguro (art. 6.1.c y f del RGPD).\n- Formulario de contacto: tu nombre, tu dirección de correo y tu mensaje, para responderte (art. 6.1.f del RGPD).\n- Seguridad: una forma codificada en un solo sentido (hash) de tu dirección IP para limitar abusos, por ejemplo el número de reservas, y los registros técnicos del servidor (art. 6.1.f del RGPD).\n- Novedades por correo: solo si das tu consentimiento; puedes retirarlo en cualquier momento (art. 6.1.a del RGPD).\n\n## Contenido público\nTu imagen, tu título, tu enlace y tu nombre público se muestran públicamente en el muro. Tu dirección de correo nunca se muestra.\n\n## Cookies\nSolo usamos las cookies que el sitio necesita para funcionar: tu inicio de sesión, un pedido en curso y el idioma que elegiste. No usamos cookies publicitarias ni de seguimiento. Las visitas se cuentan sin cookies y sin identificarte. Servicio de estadísticas: {todo}\n\n## Quién recibe los datos\nSolo los proveedores que nos ayudan a gestionar el sitio, con contratos de encargo del tratamiento: alojamiento y base de datos {todo}, almacenamiento de archivos {todo}, pagos (Stripe), envío de correos {todo}, protección contra bots (Cloudflare Turnstile) y comprobación de enlaces e imágenes en busca de contenido peligroso {todo}. Algunos están establecidos fuera de la UE; la transferencia está protegida por las cláusulas contractuales tipo de la UE o por el Marco de Privacidad de Datos UE-EE. UU. (EU-US Data Privacy Framework).\n\n## Cuánto tiempo conservamos los datos\n- Pedidos y recibos: el tiempo que exige la normativa contable y fiscal (en Eslovaquia, por lo general, 10 años).\n- Cuenta: hasta que la elimines en Mis píxeles.\n- Mensajes del formulario de contacto: dos años después de atenderlos.\n- Denuncias: {todo} después de resolverlas.\n- Registros técnicos y de seguridad: poco tiempo, como máximo {todo}.\n\n## Tus derechos\nTienes derecho de acceso, rectificación, supresión, limitación del tratamiento y portabilidad de los datos, así como derecho de oposición; puedes retirar tu consentimiento en cualquier momento. Escribe a {email}. También puedes eliminar tu cuenta directamente en Mis píxeles. Además, puedes presentar una reclamación ante la autoridad de control: Úrad na ochranu osobných údajov Slovenskej republiky (Oficina de Protección de Datos Personales de la República Eslovaca), Hraničná 12, 820 07 Bratislava, www.dataprotection.gov.sk.\n\nEsta política es válida desde el {todo}.",
+    "rules": "Estas normas se aplican a todo lo que se muestra en {site}: imágenes, dibujos, textos, títulos, nombres y enlaces. Una persona revisa todo el contenido antes de publicarlo. Al hacer un pedido, confirmas que tu contenido cumple estas normas.\n\n## No se permite\n- nada ilegal;\n- desnudos, pornografía ni contenido sexual;\n- violencia, sangre ni armas en un contexto agresivo;\n- odio, símbolos extremistas, acoso ni intimidación;\n- datos personales ni fotos de otras personas sin su consentimiento;\n- estafas, phishing, malware, esquemas piramidales ni juegos de azar sin licencia;\n- logotipos, personajes ni otro contenido sobre el que no tengas derechos;\n- publicidad política;\n- enlaces a sitios web con ese tipo de contenido.\n\n## Límites técnicos\nTodos los píxeles forman una única imagen fija: no se admiten animaciones ni vídeos. Los enlaces deben empezar por http:// o https://. Podemos rechazar contenido que no se pueda leer a su tamaño o que se haga pasar por parte del sitio web (por ejemplo, botones falsos).\n\n## Cuando el contenido incumple las normas\n- Antes de aprobarlo, rechazamos el contenido y te explicamos por qué. Puedes enviar otro contenido en un plazo de {days, plural, one {# día} other {# días}}; si no, te devolvemos el pago íntegro.\n- Después de aprobarlo, podemos ocultar el contenido de inmediato y retirarlo definitivamente si incumple estas normas o la ley. El contenido retirado no se reembolsa (consulta las [condiciones generales](/terms)). Siempre recibirás un correo con los motivos.\n- Puedes oponerte a cualquier decisión: responde a nuestro correo o escribe a {email}. Una persona vuelve a revisarlo.\n\n## Denuncias\nCualquiera puede denunciar contenido con el botón «Denunciar» de la ventana de cada espacio o en la página [Denunciar contenido](/report). Confirmamos cada denuncia y comunicamos nuestra decisión a quien la presentó.",
+    "terms": "## 1. Quiénes somos\nEl sitio web {site} (el «sitio») lo gestiona {operator}, n.º de identificación {companyId}, con domicilio social en {address}, correo electrónico {email} (el «titular», «nosotros»). Datos registrales: {todo}\n\n## 2. Qué compras\n- El sitio muestra {pixels, plural, one {# píxel} many {# de píxeles} other {# píxeles}} divididos en bloques de 10 × 10 px. Compras el derecho a mostrar tu propio contenido (una imagen, un dibujo o un texto con un enlace opcional) en un rectángulo de bloques completos que eliges tú (el «espacio»).\n- El precio es de {price} por píxel. Pagas una sola vez; no hay cuotas periódicas. Todos los precios son finales. {vat}\n- Tu contenido permanece publicado sin límite de tiempo, mientras gestionemos el sitio. No adquieres la propiedad de ninguna parte del sitio, de su software ni de la imagen de todos los píxeles en su conjunto.\n\n## 3. Cómo se celebra el contrato\n- Eliges un espacio (te lo reservamos durante un breve tiempo), añades tu contenido y tus datos, aceptas estas condiciones y las [normas de contenido](/content-rules) y pagas a través del proveedor de pagos Stripe.\n- El contrato se celebra cuando recibimos tu pago. Te enviamos por correo una confirmación con un recibo.\n- Antes de publicar tu contenido, una persona lo revisa, normalmente en {hours, plural, one {# hora} other {# horas}}.\n\n## 4. Aprobación y rechazo\n- Si no podemos aprobar tu contenido, te explicamos por qué. Puedes enviar otro contenido en un plazo de {days, plural, one {# día} other {# días}}; hasta entonces, el espacio sigue reservado para ti.\n- Si no llega a tiempo un contenido aceptable, el contrato se extingue y te devolvemos automáticamente el pago íntegro.\n\n## 5. Tu contenido\n- Eres responsable de tu contenido. Confirmas que tienes todos los derechos sobre él y que cumple las normas de contenido y la ley.\n- Nos permites mostrar tu contenido en el sitio, en imágenes de conjunto de los píxeles (por ejemplo, en vistas previas en redes sociales) y en materiales sobre el sitio, mientras el sitio exista.\n- Puedes cambiar tu contenido en cualquier momento en Mis píxeles; cada cambio se revisa de nuevo.\n- Si el contenido incumple las normas de contenido o la ley, podemos ocultarlo de inmediato y retirarlo. El contenido retirado por incumplir las normas no se reembolsa. Siempre te comunicamos los motivos y puedes oponerte.\n\n## 6. Regalar el espacio a otra persona\nPuedes regalar tu espacio a otra persona en Mis píxeles. Tus derechos y obligaciones según estas condiciones pasan al nuevo propietario cuando acepta la oferta.\n\n## 7. Derecho de desistimiento\n- Como consumidor, puedes desistir de un contrato celebrado a distancia en un plazo de 14 días sin indicar el motivo.\n- Al hacer el pedido, nos pides que empecemos a prestar el servicio antes de que termine ese plazo y reconoces que pierdes el derecho de desistimiento en cuanto tu contenido se publique. Hasta entonces, puedes desistir por correo a {email}; te devolvemos el pago en un plazo de 14 días.\n- Modelo de formulario de desistimiento: {todo}\n\n## 8. Disponibilidad y cierre del sitio\n- Procuramos que el sitio funcione sin interrupciones, pero no podemos garantizarlo en todo momento (mantenimiento, caídas de nuestros proveedores).\n- Tenemos la intención de gestionar el sitio por tiempo indefinido. Si algún día decidimos cerrarlo, avisaremos con antelación a todos los propietarios por correo. Plazo de preaviso y lo que reciben los propietarios en ese caso: {todo}\n\n## 9. Reclamaciones\nCómo presentar una reclamación se describe en el [procedimiento de reclamaciones](/complaints).\n\n## 10. Datos personales\nTratamos los datos personales tal como se describe en la [política de privacidad](/privacy).\n\n## 11. Disposiciones finales\n- Estas condiciones se rigen por la ley de la República Eslovaca. Resolución alternativa de litigios en materia de consumo: {todo}\n- Podemos modificar estas condiciones para el futuro; a tu compra se le aplican las condiciones vigentes el día de tu pago.\n- Estas condiciones son válidas desde el {todo}.",
+    "complaints": "Este procedimiento explica cómo reclamar si nuestro servicio no funciona como debe; por ejemplo, si tu espacio no se muestra correctamente, tu contenido aprobado no se muestra o un pago no se ha procesado correctamente.\n\n## Cómo reclamar\n- Escribe a {email} o usa el [formulario de contacto](/contact) (tema «Reclamación o asunto legal»).\n- Indica el número del espacio, la dirección de correo de tu pedido, qué falla y, si es posible, una captura de pantalla.\n- Confirmamos sin demora que hemos recibido tu reclamación.\n\n## Cómo tramitamos una reclamación\n- Resolvemos tu reclamación sin demora y, a más tardar, en un plazo de 30 días desde su recepción, y te comunicamos el resultado por correo.\n- Si la reclamación está justificada, solucionamos el problema (por ejemplo, volvemos a mostrar correctamente tu contenido); si no es posible, te devolvemos el precio o una parte proporcionada.\n- Llevamos un registro de cada reclamación y de cómo se resolvió.\n\n## Objeciones a las decisiones de moderación\nSi no estás de acuerdo con una decisión sobre tu contenido (rechazo, ocultación o retirada), responde a nuestro correo o escribe a {email}. Una persona vuelve a revisar la decisión.\n\n## Resolución alternativa de litigios\nSi la tramitación de tu reclamación no te satisface, puedes pedirnos que lo solucionemos. Si nos negamos o no respondemos en 30 días, puedes acudir a una entidad de resolución alternativa de litigios en materia de consumo: {todo}\n\nEste procedimiento es válido desde el {todo}.",
+    "privacy": "Protegemos tus datos personales y solo recogemos lo que necesitamos para gestionar {site}.\n\n## Responsable del tratamiento\n{operator}, n.º de identificación {companyId}, {address}, correo electrónico {email}. Delegado de protección de datos: {todo}\n\n## Qué datos tratamos y por qué\n- Pedidos y pagos: tu dirección de correo, el espacio, tu contenido, el título, el enlace y el nombre público, tus consentimientos y los registros de pago, para celebrar y ejecutar el contrato (art. 6.1.b del RGPD) y cumplir las obligaciones contables (art. 6.1.c del RGPD). Los datos de la tarjeta los trata únicamente el proveedor de pagos Stripe; nosotros nunca los vemos.\n- Cuenta (Mis píxeles): tu dirección de correo y los registros de inicio de sesión, para que puedas gestionar tus espacios (art. 6.1.b del RGPD).\n- Moderación y denuncias: revisiones de contenido, denuncias y decisiones, incluida la dirección de correo de quien denuncia si la facilita, para cumplir las obligaciones del Reglamento de Servicios Digitales y mantener un sitio seguro (art. 6.1.c y f del RGPD).\n- Formulario de contacto: tu nombre, tu dirección de correo y tu mensaje, para responderte (art. 6.1.f del RGPD).\n- Seguridad: una forma codificada en un solo sentido (hash) de tu dirección IP para limitar abusos, por ejemplo el número de reservas, y los registros técnicos del servidor (art. 6.1.f del RGPD).\n- Novedades por correo: solo si das tu consentimiento; puedes retirarlo en cualquier momento (art. 6.1.a del RGPD).\n\n## Contenido público\nTu imagen, tu título, tu enlace y tu nombre público se muestran públicamente en el sitio. Tu dirección de correo nunca se muestra.\n\n## Cookies\nSolo usamos las cookies que el sitio necesita para funcionar: tu inicio de sesión, un pedido en curso y el idioma que elegiste. No usamos cookies publicitarias ni de seguimiento. Las visitas se cuentan sin cookies y sin identificarte. Servicio de estadísticas: {todo}\n\n## Quién recibe los datos\nSolo los proveedores que nos ayudan a gestionar el sitio, con contratos de encargo del tratamiento: alojamiento y base de datos {todo}, almacenamiento de archivos {todo}, pagos (Stripe), envío de correos {todo}, protección contra bots (Cloudflare Turnstile) y comprobación de enlaces e imágenes en busca de contenido peligroso {todo}. Algunos están establecidos fuera de la UE; la transferencia está protegida por las cláusulas contractuales tipo de la UE o por el Marco de Privacidad de Datos UE-EE. UU. (EU-US Data Privacy Framework).\n\n## Cuánto tiempo conservamos los datos\n- Pedidos y recibos: el tiempo que exige la normativa contable y fiscal (en Eslovaquia, por lo general, 10 años).\n- Cuenta: hasta que la elimines en Mis píxeles.\n- Mensajes del formulario de contacto: dos años después de atenderlos.\n- Denuncias: {todo} después de resolverlas.\n- Registros técnicos y de seguridad: poco tiempo, como máximo {todo}.\n\n## Tus derechos\nTienes derecho de acceso, rectificación, supresión, limitación del tratamiento y portabilidad de los datos, así como derecho de oposición; puedes retirar tu consentimiento en cualquier momento. Escribe a {email}. También puedes eliminar tu cuenta directamente en Mis píxeles. Además, puedes presentar una reclamación ante la autoridad de control: Úrad na ochranu osobných údajov Slovenskej republiky (Oficina de Protección de Datos Personales de la República Eslovaca), Hraničná 12, 820 07 Bratislava, www.dataprotection.gov.sk.\n\nEsta política es válida desde el {todo}.",
     "vatPayer": "Los precios incluyen un {rate} % de IVA.",
     "notVatPayer": "No somos sujetos pasivos del IVA, así que no se cobra IVA."
   }

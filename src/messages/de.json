@@ -1,13 +1,13 @@
 {
   "meta": {
     "title": "{site} — {pixels, number} Pixel zu verkaufen",
-    "description": "{pixels, number} Pixel, {price} pro Pixel. Kauf dir für immer ein Stück der Wand und setz dein Bild, deine Zeichnung oder deinen Text mit Link darauf.",
+    "description": "{pixels, number} Pixel, {price} pro Pixel. Kauf dir für immer einige davon und setz dein Bild, deine Zeichnung oder deinen Text mit Link darauf.",
     "pageTitle": "{page} — {site}",
     "pages": {
-      "buy": "Such dir einen freien Platz auf der Wand aus, lade ein Foto hoch, zeichne oder schreib einen Text und bezahl einmal — deine Pixel bleiben für immer auf der Wand.",
-      "how": "So funktioniert {site}: Platz wählen, Bild hochladen oder zeichnen, einmal {price} pro Pixel bezahlen und für immer auf der Wand bleiben.",
+      "buy": "Such dir freie Pixel aus, lade ein Foto hoch, zeichne oder schreib einen Text und bezahl einmal — deine Pixel bleiben für immer veröffentlicht.",
+      "how": "So funktioniert {site}: Platz wählen, Bild hochladen oder zeichnen, einmal {price} pro Pixel bezahlen und für immer veröffentlicht bleiben.",
       "faq": "Antworten zu Preisen, Freigabe, Änderungen, Geschenken und Belegen auf {site}.",
-      "latest": "Die neuesten Bilder auf {site}, der Wand aus einer Million Pixel.",
+      "latest": "Die neuesten Bilder auf {site}: eine Million Pixel an einem Ort.",
       "contact": "Kontakt zu {site}: Fragen, Beschwerden und die Kontaktstelle nach dem Gesetz über digitale Dienste.",
       "rules": "Was auf {site} erscheinen darf und was nicht.",
       "terms": "Allgemeine Geschäftsbedingungen von {site}.",
@@ -17,10 +17,10 @@
     }
   },
   "common": {
-    "skipToWall": "Zur Wand springen",
+    "skipToWall": "Zu den Pixeln springen",
     "skipToContent": "Zum Inhalt springen",
     "close": "Schließen",
-    "backToWall": "Zurück zur Wand",
+    "backToWall": "Zurück zu den Pixeln",
     "language": "Sprache",
     "pixels": "{count, plural, one {# Pixel} other {# Pixel}}",
     "blocks": "{count, plural, one {# Block} other {# Blöcke}}",
@@ -29,14 +29,14 @@
   },
   "header": {
     "logoTitle": "{site} — Startseite",
-    "statsLabel": "Statistik der Wand",
+    "statsLabel": "Pixel-Statistik",
     "rented": "Verkaufte Pixel",
     "free": "Frei",
     "lastRental": "Letzter Kauf",
     "lastRentalNone": "noch keiner",
     "justNow": "gerade eben",
     "progress": "{percent} verkauft",
-    "progressLabel": "{percent} der Wand sind verkauft",
+    "progressLabel": "{percent} der Pixel sind verkauft",
     "slogan": "Hinterlasse deine Spur im Internet"
   },
   "nav": {
@@ -60,10 +60,10 @@
     "complaints": "Beschwerden"
   },
   "wall": {
-    "regionLabel": "Die Pixelwand",
+    "regionLabel": "Die Million Pixel",
     "keyboardHelp": "Mit den Pfeiltasten verschiebst du, mit + und − zoomst du, Enter öffnet den Platz in der Mitte und Esc schließt ein Fenster.",
-    "imageAlt": "Die Wand aus {pixels, number} Pixeln mit den Bildern aller Besitzer",
-    "noscript": "Schalte JavaScript ein, um zu zoomen, zu suchen und Pixel zu kaufen. Die Bilder auf der Wand kannst du auch ohne anklicken.",
+    "imageAlt": "{pixels, number} Pixel mit den Bildern aller Besitzer",
+    "noscript": "Schalte JavaScript ein, um zu zoomen, zu suchen und Pixel zu kaufen. Die Bilder kannst du auch ohne anklicken.",
     "zoom": "Zoom",
     "zoomIn": "Vergrößern",
     "zoomOut": "Verkleinern",
@@ -72,21 +72,21 @@
     "random": "Zufälliger Platz",
     "showFree": "Freie Plätze zeigen",
     "search": "Suchen",
-    "searchLabel": "Auf der Wand suchen",
+    "searchLabel": "In den Pixeln suchen",
     "searchPlaceholder": "Titel, Name oder Website",
     "searchNone": "Für „{query}“ wurde nichts gefunden.",
     "searchMany": "{count, plural, one {# Treffer} other {# Treffer}} — wähle einen aus:",
     "rent": "Pixel kaufen",
     "coords": "Block {bx}, {by} · px {px}, {py}",
-    "coordsIdle": "Zeig auf die Wand, um die Koordinaten zu sehen",
+    "coordsIdle": "Zeig auf die Pixel, um die Koordinaten zu sehen",
     "position": "x {x0}–{x1}, y {y0}–{y1}",
     "size": "{w} × {h} px",
     "reserved": "Reserviert",
     "rentedPending": "Verkauft — wartet auf Freigabe",
-    "updated": "Die Wand wurde aktualisiert.",
+    "updated": "Die Pixel wurden aktualisiert.",
     "tool": "Mauswerkzeug",
     "toolSelect": "Fläche wählen",
-    "toolMove": "Wand verschieben",
+    "toolMove": "Ansicht verschieben",
     "cornerSet": "Erste Ecke bei Block {bx}, {by}. Beweg dich und drück Enter für die gegenüberliegende Ecke.",
     "areaSet": "Fläche bis Block {bx}, {by} gewählt."
   },
@@ -103,16 +103,16 @@
     "freeText": "Block {bx}, {by} ({position}) kostet {price} — einmal bezahlt, für immer deiner. Du kannst auch eine größere Fläche wählen.",
     "rentThis": "Diesen Platz kaufen",
     "takenTitle": "Dieser Platz ist verkauft",
-    "takenText": "Der Inhalt erscheint nach der Freigabe auf der Wand.",
+    "takenText": "Der Inhalt wird nach der Freigabe veröffentlicht.",
     "holdTitle": "Dieser Platz ist reserviert",
     "holdText": "Jemand kauft ihn gerade. Wenn die Bestellung nicht in wenigen Minuten abgeschlossen wird, ist er wieder frei.",
-    "since": "Auf der Wand seit {date}"
+    "since": "Veröffentlicht seit {date}"
   },
   "pages": {
     "rent": "Pixel kaufen",
     "how": "So funktioniert’s",
     "faq": "Häufige Fragen",
-    "latest": "Neu auf der Wand",
+    "latest": "Neueste Bilder",
     "mine": "Meine Pixel",
     "contact": "Kontakt",
     "rules": "Inhaltsregeln",
@@ -122,15 +122,15 @@
     "notFoundTitle": "Seite nicht gefunden",
     "notFoundText": "Leider gibt es unter dieser Adresse nichts. Vielleicht ist der Link alt oder vertippt.",
     "complaints": "Beschwerdeverfahren",
-    "share": "Platz auf der Wand"
+    "share": "Platz unter den Pixeln"
   },
   "email": {
-    "footer": "{site} — eine Wand aus einer Million Pixel.",
+    "footer": "{site} — eine Million Pixel an einem Ort.",
     "greeting": "Hallo,",
     "position": "x {x0}–{x1}, y {y0}–{y1}",
     "size": "{w} × {h} px",
     "companyId": "Firmennummer {id}",
-    "item": "Platz von {w} × {h} px auf der Wand ({position}, Platz Nr. {no}), dauerhaft angezeigt",
+    "item": "Platz von {w} × {h} px ({position}, Platz Nr. {no}), dauerhaft angezeigt",
     "vatIncluded": "Im Preis sind {rate} % MwSt. enthalten: {vat}",
     "notVatPayer": "Der Verkäufer ist nicht umsatzsteuerpflichtig.",
     "labels": {
@@ -147,16 +147,16 @@
     },
     "paid": {
       "subject": "Zahlung erhalten — deine Pixel warten auf die Freigabe",
-      "intro": "Danke für deine Bestellung. Wir haben deine Zahlung von {amount} erhalten. Wir prüfen deinen Inhalt meist innerhalb von {hours} Stunden und melden uns, sobald er auf der Wand ist.",
+      "intro": "Danke für deine Bestellung. Wir haben deine Zahlung von {amount} erhalten. Wir prüfen deinen Inhalt meist innerhalb von {hours} Stunden und melden uns, sobald er veröffentlicht ist.",
       "rentalHeading": "Dein Platz",
       "receiptHeading": "Beleg",
       "mine": "Deine Plätze findest du unter Meine Pixel:",
-      "forever": "Nach der Freigabe bleiben deine Pixel für immer auf der Wand — so lange es die Seite gibt."
+      "forever": "Nach der Freigabe bleiben deine Pixel für immer veröffentlicht — so lange es die Seite gibt."
     },
     "approved": {
-      "subject": "Deine Pixel sind auf der Wand!",
-      "intro": "Gute Nachricht: „{title}“ wurde freigegeben und ist jetzt auf der Wand bei {position}. Die Pixel gehören für immer dir.",
-      "see": "Auf der Wand ansehen",
+      "subject": "Deine Pixel sind veröffentlicht!",
+      "intro": "Gute Nachricht: „{title}“ wurde freigegeben und ist jetzt bei {position} veröffentlicht. Die Pixel gehören für immer dir.",
+      "see": "Deine Pixel ansehen",
       "share": "Zeig es deinen Freunden:",
       "shareText": "Ich habe meinen eigenen Platz auf {site}!",
       "shareEmail": "E-Mail"
@@ -178,7 +178,7 @@
     },
     "changeApproved": {
       "subject": "Deine Änderung wurde freigegeben",
-      "intro": "Die neue Version von „{title}“ ist jetzt auf der Wand bei {position}."
+      "intro": "Die neue Version von „{title}“ ist jetzt bei {position} veröffentlicht."
     },
     "rejected": {
       "subject": "Dein Inhalt wurde nicht freigegeben",
@@ -189,11 +189,11 @@
     },
     "changesRequested": {
       "subject": "Bitte pass deinen Inhalt an",
-      "intro": "Dein Inhalt für den Platz bei {position} („{title}“) muss geändert werden, bevor wir ihn auf die Wand setzen können."
+      "intro": "Dein Inhalt für den Platz bei {position} („{title}“) muss geändert werden, bevor wir ihn veröffentlichen können."
     },
     "changeRejected": {
       "subject": "Deine Änderung wurde nicht freigegeben",
-      "intro": "Wir konnten die Änderung an „{title}“ bei {position} nicht freigeben. Dein vorheriger Inhalt bleibt auf der Wand.",
+      "intro": "Wir konnten die Änderung an „{title}“ bei {position} nicht freigeben. Dein vorheriger Inhalt bleibt veröffentlicht.",
       "again": "Unter Meine Pixel kannst du eine andere Änderung schicken.",
       "button": "Meine Pixel öffnen"
     },
@@ -206,12 +206,12 @@
     },
     "hidden": {
       "subject": "Deine Pixel wurden vorübergehend ausgeblendet",
-      "intro": "Dein Inhalt „{title}“ bei {position} wurde von der Wand ausgeblendet, während wir ihn prüfen.",
-      "next": "Wir teilen dir das Ergebnis mit. Ist der Inhalt in Ordnung, kommt er wieder auf die Wand."
+      "intro": "Dein Inhalt „{title}“ bei {position} wurde ausgeblendet, während wir ihn prüfen.",
+      "next": "Wir teilen dir das Ergebnis mit. Ist der Inhalt in Ordnung, wird er wieder angezeigt."
     },
     "removed": {
-      "subject": "Dein Inhalt wurde von der Wand entfernt",
-      "intro": "Wir haben „{title}“ bei {position} von der Wand entfernt, weil der Inhalt gegen unsere Inhaltsregeln verstößt.",
+      "subject": "Dein Inhalt wurde entfernt",
+      "intro": "Wir haben „{title}“ bei {position} entfernt, weil der Inhalt gegen unsere Inhaltsregeln verstößt.",
       "terms": "Wie in den AGB festgelegt, wird für Inhalte, die wegen eines Regelverstoßes entfernt wurden, nichts erstattet."
     },
     "reportReceived": {
@@ -221,9 +221,9 @@
     },
     "reportDecided": {
       "subject": "Entscheidung zu deiner Meldung ({reference})",
-      "actioned": "Wir haben den gemeldeten Inhalt (Platz Nr. {no}) geprüft und gehandelt: Er wird nicht mehr auf der Wand gezeigt.",
-      "dismissed": "Wir haben den gemeldeten Inhalt (Platz Nr. {no}) geprüft und festgestellt, dass er nicht gegen unsere Inhaltsregeln verstößt; er bleibt daher auf der Wand.",
-      "thanks": "Danke, dass du hilfst, die Wand freundlich zu halten."
+      "actioned": "Wir haben den gemeldeten Inhalt (Platz Nr. {no}) geprüft und gehandelt: Er wird nicht mehr gezeigt.",
+      "dismissed": "Wir haben den gemeldeten Inhalt (Platz Nr. {no}) geprüft und festgestellt, dass er nicht gegen unsere Inhaltsregeln verstößt; er bleibt daher veröffentlicht.",
+      "thanks": "Danke, dass du hilfst, die Pixel freundlich zu halten."
     },
     "transferOffer": {
       "subject": "Jemand schenkt dir einen Platz auf {site}",
@@ -238,7 +238,7 @@
     "accountDeleted": {
       "subject": "Dein Konto wurde gelöscht",
       "intro": "Dein Konto und deine persönlichen Daten wurden wie gewünscht gelöscht. Belege bewahren wir so lange auf, wie es das Gesetz verlangt.",
-      "rentals": "Deine Pixel bleiben auf der Wand, aber niemand kann sie mehr verwalten."
+      "rentals": "Deine Pixel bleiben veröffentlicht, aber niemand kann sie mehr verwalten."
     },
     "staffInvite": {
       "subject": "Du kannst jetzt die Verwaltung von {site} nutzen",
@@ -279,7 +279,7 @@
     "backToOrder": "Zurück zu meiner Bestellung",
     "keepPlace": "Diesen Platz behalten",
     "position": "x {x0}–{x1}, y {y0}–{y1}",
-    "selectHelp": "Zieh auf der Wand, um die Fläche zu wählen, die du kaufen möchtest. Sie rastet an Blöcken von 10 × 10 px ein. Zieh an den Ecken, um die Größe zu ändern, oder zieh die Fläche, um sie zu verschieben. Zoom mit dem Mausrad; die Wand verschiebst du mit der rechten Maustaste oder dem Werkzeug „Wand verschieben“.",
+    "selectHelp": "Zieh über die Pixel, um die Fläche zu wählen, die du kaufen möchtest. Sie rastet an Blöcken von 10 × 10 px ein. Zieh an den Ecken, um die Größe zu ändern, oder zieh die Fläche, um sie zu verschieben. Zoom mit dem Mausrad; die Ansicht verschiebst du mit der rechten Maustaste oder dem Werkzeug „Ansicht verschieben“.",
     "selectHelpTouch": "Auf dem Handy: mit zwei Fingern vergrößern, auf die erste Ecke tippen, dann auf die gegenüberliegende, und die Fläche mit den Eckgriffen anpassen.",
     "yourSelection": "Deine Auswahl",
     "noSelection": "Noch nichts ausgewählt.",
@@ -295,7 +295,7 @@
       "taken": "Jemand hat gerade einen Teil dieser Fläche reserviert. Hier sind freie Plätze derselben Größe in der Nähe:",
       "rate_limited": "Du hast schon mehrere laufende Reservierungen. Schließ zuerst eine ab oder brich sie ab.",
       "sales_paused": "Der Verkauf ist gerade pausiert. Bitte versuch es später noch einmal.",
-      "invalid": "Diese Fläche liegt nicht auf der Wand.",
+      "invalid": "Diese Fläche liegt außerhalb der Pixel.",
       "too_small": "Diese Fläche ist zu klein.",
       "too_large": "Diese Fläche ist zu groß.",
       "network": "Der Server ist nicht erreichbar. Prüf deine Verbindung und versuch es noch einmal.",
@@ -317,7 +317,7 @@
     "find": "Suchen",
     "noSpots": "Kein freier Platz dieser Größe. Versuch einen kleineren.",
     "spotsNear": "Am nächsten zur Mitte:",
-    "spotsRandom": "Anderswo auf der Wand:",
+    "spotsRandom": "Anderswo:",
     "spot": "x {x}, y {y} ({w} × {h} px)",
     "contentTitle": "Dein Bild ({w} × {h} px)",
     "currentContent": "Dein aktueller Inhalt",
@@ -444,7 +444,7 @@
     },
     "back": "Zurück",
     "summaryTitle": "Übersicht",
-    "summaryPreview": "Dein Inhalt auf der Wand",
+    "summaryPreview": "Vorschau deiner Pixel",
     "editContent": "Inhalt ändern",
     "editDetails": "Angaben ändern",
     "priceTotal": "Gesamt",
@@ -452,7 +452,7 @@
     "notVatPayer": "Endpreis. Der Verkäufer ist nicht umsatzsteuerpflichtig.",
     "pay": "{price} bezahlen",
     "redirecting": "Die Zahlung wird geöffnet …",
-    "payNote": "Du bezahlst auf der nächsten Seite. Wir prüfen den Inhalt meist innerhalb von {hours} Stunden; danach sind deine Pixel für immer auf der Wand.",
+    "payNote": "Du bezahlst auf der nächsten Seite. Wir prüfen den Inhalt meist innerhalb von {hours} Stunden; danach sind deine Pixel für immer veröffentlicht.",
     "devPaymentNote": "Testmodus: Es findet keine echte Zahlung statt (Stripe ist noch nicht verbunden).",
     "payErrors": {
       "expired": "Deine Reservierung ist abgelaufen. Reservier den Platz noch einmal.",
@@ -468,10 +468,10 @@
   "thanks": {
     "title": "Danke!",
     "statusReview": "Bezahlt — wartet auf Freigabe",
-    "statusActive": "Freigegeben — deine Pixel sind auf der Wand",
-    "reviewText": "Wir prüfen jedes Bild, bevor es auf der Wand erscheint, meist innerhalb von 24 Stunden. Danach bleibt es für immer dort.",
+    "statusActive": "Freigegeben — deine Pixel sind veröffentlicht",
+    "reviewText": "Wir prüfen jedes Bild, bevor es veröffentlicht wird, meist innerhalb von 24 Stunden. Danach bleibt es für immer veröffentlicht.",
     "emailSent": "Die Bestätigung und den Beleg haben wir an {email} geschickt.",
-    "seeSpot": "Meinen Platz auf der Wand zeigen",
+    "seeSpot": "Meine Pixel zeigen",
     "refundedTitle": "Es tut uns leid",
     "refundedText": "Deine Zahlung kam erst nach dem Ende deiner Reservierung an, und inzwischen hat jemand anderes den Platz gekauft. Wir haben den ganzen Betrag erstattet.",
     "chooseAnother": "Anderen Platz wählen",
@@ -481,7 +481,7 @@
     "noOrderTitle": "Keine Bestellung",
     "noOrderText": "In diesem Browser gibt es keine Bestellung.",
     "devEmails": "Entwicklung: Die E-Mails liegen im lokalen Postfach",
-    "backToWall": "Zurück zur Wand"
+    "backToWall": "Zurück zu den Pixeln"
   },
   "devCheckout": {
     "title": "Testzahlung",
@@ -550,7 +550,7 @@
     "rentNow": "Pixel kaufen »",
     "status": {
       "in_review": "Wartet auf Freigabe",
-      "active": "Auf der Wand",
+      "active": "Veröffentlicht",
       "grace": "In der Schonfrist",
       "ended": "Beendet",
       "rejected": "Nicht freigegeben: wartet auf neuen Inhalt",
@@ -563,11 +563,11 @@
     "size": "Größe",
     "sizeValue": "{w} × {h} px ({pixels, number} Pixel)",
     "link": "Link",
-    "waitingChange": "Eine am {date} gesendete Änderung wartet auf die Freigabe; bis dahin bleibt der bisherige Inhalt auf der Wand.",
+    "waitingChange": "Eine am {date} gesendete Änderung wartet auf die Freigabe; bis dahin bleibt der bisherige Inhalt veröffentlicht.",
     "decision": {
       "rejected": "Wir konnten deinen Inhalt nicht freigeben.",
       "changes": "Bitte pass deinen Inhalt an.",
-      "changeRejected": "Deine letzte Änderung wurde nicht freigegeben; der vorherige Inhalt bleibt auf der Wand."
+      "changeRejected": "Deine letzte Änderung wurde nicht freigegeben; der vorherige Inhalt bleibt veröffentlicht."
     },
     "reason": "Grund: {reason}",
     "reuploadUntil": "Schick bis {date} neuen Inhalt. Sonst erstatten wir die ganze Zahlung und geben den Platz frei.",
@@ -590,27 +590,27 @@
     "transferCancel": "Abbrechen",
     "cancel": "Abbrechen",
     "deleteTitle": "Mein Konto und meine persönlichen Daten löschen",
-    "deleteHelp": "Dein Konto, deine E-Mail-Adresse und dein öffentlicher Name werden gelöscht. Belege bewahren wir so lange auf, wie es das Gesetz verlangt. Deine Pixel bleiben auf der Wand, aber du kannst sie nicht mehr verwalten.",
+    "deleteHelp": "Dein Konto, deine E-Mail-Adresse und dein öffentlicher Name werden gelöscht. Belege bewahren wir so lange auf, wie es das Gesetz verlangt. Deine Pixel bleiben veröffentlicht, aber du kannst sie nicht mehr verwalten.",
     "deleteConfirm": "Gib zur Bestätigung deine E-Mail-Adresse ein ({email})",
     "deleteButton": "Konto löschen",
     "editTitle": "Inhalt ändern",
     "notEditable": "Dieser Platz kann nicht mehr geändert werden.",
     "backToList": "Zurück zu Meine Pixel",
-    "editIntro": "Ändere das Bild, den Titel, den Link oder den Namen. Die Änderung geht zur Freigabe; bis dahin bleibt der bisherige Inhalt auf der Wand.",
+    "editIntro": "Ändere das Bild, den Titel, den Link oder den Namen. Die Änderung geht zur Freigabe; bis dahin bleibt der bisherige Inhalt veröffentlicht.",
     "editRejectedIntro": "Schick neuen Inhalt für deinen Platz. Er geht erneut zur Freigabe.",
-    "onWallNow": "Jetzt auf der Wand",
+    "onWallNow": "Jetzt veröffentlicht",
     "waitingApproval": "Wartet auf Freigabe",
     "newPicture": "Neues Bild (noch nicht gesendet)",
     "pictureTitle": "Neues Bild ({w} × {h} px)",
     "pictureHelp": "Freiwillig: Behalte das aktuelle Bild und ändere nur die Texte unten.",
     "textsTitle": "Titel, Link und Name",
     "submit": "Zur Freigabe senden",
-    "publish": "Auf der Wand veröffentlichen",
+    "publish": "Veröffentlichen",
     "submitNote": "Wir prüfen jede Änderung meist innerhalb von {hours, plural, one {# Stunde} other {# Stunden}}.",
     "sentTitle": "Zur Freigabe gesendet.",
-    "sentKeep": "Wir prüfen sie meist innerhalb von {hours, plural, one {# Stunde} other {# Stunden}}. Bis dahin bleibt dein bisheriger Inhalt auf der Wand.",
+    "sentKeep": "Wir prüfen sie meist innerhalb von {hours, plural, one {# Stunde} other {# Stunden}}. Bis dahin bleibt dein bisheriger Inhalt veröffentlicht.",
     "sentNew": "Wir prüfen sie meist innerhalb von {hours, plural, one {# Stunde} other {# Stunden}} und melden uns per E-Mail.",
-    "published": "Die Änderung ist auf der Wand.",
+    "published": "Die Änderung ist veröffentlicht.",
     "errors": {
       "email_invalid": "Bitte gib eine gültige E-Mail-Adresse ein.",
       "same_owner": "Das ist deine eigene Adresse.",
@@ -627,7 +627,7 @@
     },
     "lastVersion": "Deine letzte Version (nicht freigegeben)",
     "pictureHelpRejected": "Erstell ein neues Bild oder behalte das letzte und ändere in den Texten unten nur, worum der Moderator gebeten hat.",
-    "since": "Auf der Wand seit",
+    "since": "Veröffentlicht seit",
     "afterApproval": "nach der Freigabe"
   },
   "receipt": {
@@ -638,7 +638,7 @@
     "seller": "Verkäufer",
     "buyer": "Käufer",
     "item": "Artikel",
-    "itemValue": "Platz von {w} × {h} px auf der Wand (x {x0}–{x1}, y {y0}–{y1}, Platz Nr. {no}), dauerhaft angezeigt",
+    "itemValue": "Platz von {w} × {h} px (x {x0}–{x1}, y {y0}–{y1}, Platz Nr. {no}), dauerhaft angezeigt",
     "total": "Gesamt bezahlt",
     "vat": "MwSt.",
     "vatIncluded": "Im Preis sind {rate} % MwSt. enthalten: {vat}",
@@ -647,13 +647,13 @@
     "print": "Drucken oder als PDF speichern"
   },
   "transfer": {
-    "title": "Platz auf der Wand annehmen",
-    "intro": "Jemand hat dir einen Platz auf der Wand geschenkt. Nimm ihn an, um sein Besitzer zu werden; wir melden dich mit deiner E-Mail-Adresse bei Meine Pixel an.",
+    "title": "Pixel-Platz annehmen",
+    "intro": "Jemand hat dir einen Platz mit Pixeln geschenkt. Nimm ihn an, um sein Besitzer zu werden; wir melden dich mit deiner E-Mail-Adresse bei Meine Pixel an.",
     "accept": "Platz annehmen",
     "invalid": "Dieser Link gilt nicht mehr (der Platz wurde schon angenommen, das Angebot zurückgezogen oder es ist abgelaufen)."
   },
   "report": {
-    "intro": "Sag uns Bescheid über Inhalte auf der Wand, die gegen das Gesetz oder unsere Inhaltsregeln verstoßen. Jede Meldung prüft ein Mensch.",
+    "intro": "Sag uns Bescheid über veröffentlichte Inhalte, die gegen das Gesetz oder unsere Inhaltsregeln verstoßen. Jede Meldung prüft ein Mensch.",
     "rules": "Was nicht erlaubt ist, steht in den <link>Inhaltsregeln</link>.",
     "authoritiesTitle": "Für Behörden",
     "authorities": "Kontaktstelle nach dem Gesetz über digitale Dienste (EU 2022/2065) für Behörden und Nutzer: {email}. Wir antworten auf Slowakisch oder Englisch.",
@@ -662,7 +662,7 @@
     "willAnswer": "Wir haben dir eine Bestätigung geschickt und teilen dir unsere Entscheidung mit.",
     "noAnswer": "Du hast keine E-Mail-Adresse angegeben, daher können wir dir das Ergebnis nicht mitteilen.",
     "rentalNo": "Nummer des Platzes",
-    "rentalNoHelp": "steht im Fenster, wenn du auf den Platz auf der Wand klickst",
+    "rentalNoHelp": "steht im Fenster, wenn du auf den Platz klickst",
     "category": "Was ist falsch",
     "choose": "— auswählen —",
     "description": "Details",
@@ -675,7 +675,7 @@
     "privacy": "Wir verwenden deine E-Mail-Adresse nur, um dir zu dieser Meldung zu antworten.",
     "errors": {
       "invalid": "Bitte gib die Nummer des Platzes an und was falsch ist.",
-      "rental_not_found": "Auf der Wand gibt es keinen Platz mit dieser Nummer.",
+      "rental_not_found": "Es gibt keinen Platz mit dieser Nummer.",
       "description_required": "Bitte beschreib das Problem.",
       "email_invalid": "Bitte gib eine gültige E-Mail-Adresse ein oder lass das Feld leer.",
       "rate_limited": "Zu viele Meldungen von deiner Verbindung. Bitte versuch es später noch einmal.",
@@ -689,21 +689,21 @@
     "message": "Hallo, kann ich den Link meines Platzes ändern?"
   },
   "how": {
-    "intro": "{site} ist eine Wand aus {pixels, number} Pixeln. Kauf dir einmal ein Stück davon, setz dein Bild darauf, und es bleibt für immer dort — so lange es die Seite gibt.",
+    "intro": "{site} besteht aus {pixels, number} Pixeln an einem Ort. Kauf dir einmal einige davon, setz dein Bild darauf, und es bleibt für immer dort — so lange es die Seite gibt.",
     "step1Title": "Wähl deinen Platz",
-    "step1": "Zieh über die Wand, um eine freie Fläche zu wählen. Sie rastet an Blöcken von 10 × 10 px ein, und du siehst sofort Größe und Preis. Unsicher, wohin? „Such mir einen Platz“ schlägt freie Plätze in der gewünschten Größe vor.",
+    "step1": "Zieh über die Pixel, um eine freie Fläche zu wählen. Sie rastet an Blöcken von 10 × 10 px ein, und du siehst sofort Größe und Preis. Unsicher, wohin? „Such mir einen Platz“ schlägt freie Plätze in der gewünschten Größe vor.",
     "step2Title": "Hochladen oder zeichnen",
     "step2": "Lade ein Foto hoch — unser Pixelfilter macht daraus genau so viele Pixel, wie du kaufst —, zeichne im Pixeleditor oder schreib einen Text. Füg einen Titel, einen optionalen Link und deinen Namen oder Spitznamen hinzu.",
-    "step3Title": "Bezahlen und du bist auf der Wand",
-    "step3": "Bezahl sicher mit Karte, Apple Pay oder Google Pay. Jedes Bild prüft ein Mensch, meist innerhalb von {hours, plural, one {# Stunde} other {# Stunden}}, danach sind deine Pixel für immer auf der Wand.",
+    "step3Title": "Bezahlen und deine Pixel sind online",
+    "step3": "Bezahl sicher mit Karte, Apple Pay oder Google Pay. Jedes Bild prüft ein Mensch, meist innerhalb von {hours, plural, one {# Stunde} other {# Stunden}}, danach sind deine Pixel für immer veröffentlicht.",
     "pricesTitle": "Preise",
     "pricesIntro": "Ein Pixel kostet {price}. Du bezahlst einmal; es gibt keine jährliche Gebühr.",
     "colSize": "Größe",
     "colPixels": "Pixel",
     "colPrice": "Preis",
     "blocks": "{count, plural, one {# Block} other {# Blöcke}}",
-    "rulesTitle": "Was auf die Wand darf",
-    "rules": "Bilder, Zeichnungen und Texte, die unsere <rules>Inhaltsregeln</rules> einhalten: nichts Illegales, keine Nacktheit, Gewalt, Hetze oder Betrug, und nur Inhalte, an denen du die Rechte hast. Die Wand ist ein einziges Standbild, Animationen und Videos sind daher nicht möglich.",
+    "rulesTitle": "Was veröffentlicht werden darf",
+    "rules": "Bilder, Zeichnungen und Texte, die unsere <rules>Inhaltsregeln</rules> einhalten: nichts Illegales, keine Nacktheit, Gewalt, Hetze oder Betrug, und nur Inhalte, an denen du die Rechte hast. Alle Pixel bilden ein einziges Standbild, Animationen und Videos sind daher nicht möglich.",
     "start": "Pixel kaufen",
     "more": "Weitere Antworten findest du in den <faq>FAQ</faq>."
   },
@@ -711,31 +711,31 @@
     "intro": "Antworten auf die häufigsten Fragen. Etwas anderes? <contact>Schreib uns</contact>.",
     "costQ": "Was kostet das?",
     "costA": "{price} pro Pixel, einmal bezahlt. Der kleinste Platz ist ein Block von 10 × 10 px für {block}; 50 × 50 px kosten {spot50} und 100 × 100 px kosten {spot100}. {vat}",
-    "howLongQ": "Wie lange bleiben meine Pixel auf der Wand?",
-    "howLongA": "Für immer. Du bezahlst einmal, und dein Bild bleibt auf der Wand, so lange es {site} gibt. Keine jährliche Gebühr, nichts zu verlängern.",
+    "howLongQ": "Wie lange bleiben meine Pixel veröffentlicht?",
+    "howLongA": "Für immer. Du bezahlst einmal, und dein Bild bleibt veröffentlicht, so lange es {site} gibt. Keine jährliche Gebühr, nichts zu verlängern.",
     "whatQ": "Was kann ich auf meine Pixel setzen?",
     "whatA": "Ein Foto oder Bild (PNG, JPG, WebP oder ein unbewegtes GIF bis {mb} MB), eine Zeichnung aus unserem Pixeleditor oder eine farbige Fläche mit Text. Du kannst einen Titel, einen Link und deinen Namen oder Spitznamen hinzufügen. Alles muss die <rules>Inhaltsregeln</rules> einhalten.",
-    "whenQ": "Wann erscheinen meine Pixel auf der Wand?",
-    "whenA": "Nachdem ein Mensch dein Bild geprüft hat, meist innerhalb von {hours, plural, one {# Stunde} other {# Stunden}} nach der Zahlung. Sobald es auf der Wand ist, sagen wir dir per E-Mail Bescheid.",
+    "whenQ": "Wann werden meine Pixel veröffentlicht?",
+    "whenA": "Nachdem ein Mensch dein Bild geprüft hat, meist innerhalb von {hours, plural, one {# Stunde} other {# Stunden}} nach der Zahlung. Sobald es veröffentlicht ist, sagen wir dir per E-Mail Bescheid.",
     "rejectedQ": "Was, wenn ihr meinen Inhalt ablehnt?",
     "rejectedA": "Du bekommst eine E-Mail mit dem Grund und kannst innerhalb von {days, plural, one {# Tag} other {# Tagen}} anderen Inhalt schicken; so lange bleibt dein Platz für dich reserviert. Tust du das nicht, erstatten wir die ganze Zahlung und der Platz wird wieder frei.",
     "changeQ": "Kann ich mein Bild später ändern?",
-    "changeA": "Ja, jederzeit unter Meine Pixel: das Bild, den Titel, den Link oder den Namen. Jede Änderung wird erneut geprüft, bis dahin bleibt dein aktuelles Bild auf der Wand.",
+    "changeA": "Ja, jederzeit unter Meine Pixel: das Bild, den Titel, den Link oder den Namen. Jede Änderung wird erneut geprüft, bis dahin bleibt dein aktuelles Bild veröffentlicht.",
     "closeQ": "Was passiert, wenn die Seite eines Tages schließt?",
-    "closeA": "Wir möchten die Wand sehr lange online halten. Sollten wir sie je schließen müssen, informieren wir alle Besitzer vorher per E-Mail. Die Einzelheiten stehen in den <terms>AGB</terms>.",
+    "closeA": "Wir möchten die Seite sehr lange online halten. Sollten wir sie je schließen müssen, informieren wir alle Besitzer vorher per E-Mail. Die Einzelheiten stehen in den <terms>AGB</terms>.",
     "blocksQ": "Warum werden Pixel in Blöcken von 10 × 10 verkauft?",
-    "blocksA": "Ein einzelnes Pixel wäre zu klein, um es zu sehen oder anzuklicken. Blöcke von 10 × 10 px halten die Wand ordentlich und machen jeden Platz anklickbar und leicht zu finden. Der kleinste Platz ist ein Block, also 100 Pixel.",
+    "blocksA": "Ein einzelnes Pixel wäre zu klein, um es zu sehen oder anzuklicken. Blöcke von 10 × 10 px halten die Pixel ordentlich und machen jeden Platz anklickbar und leicht zu finden. Der kleinste Platz ist ein Block, also 100 Pixel.",
     "giftQ": "Kann ich meine Pixel verschenken?",
     "giftA": "Ja. Wähl unter Meine Pixel „Diesen Platz an jemand anderen verschenken“ und gib die E-Mail-Adresse ein. Die Person bekommt einen Link und wird neuer Besitzer, sobald sie annimmt.",
     "receiptQ": "Bekomme ich einen Beleg?",
     "receiptA": "Ja. Nach der Zahlung schicken wir dir die Bestätigung mit Beleg per E-Mail, und unter Meine Pixel kannst du jeden Beleg drucken oder als PDF speichern.",
     "privateQ": "Ist meine E-Mail-Adresse sichtbar?",
-    "privateA": "Nein. Auf der Wand erscheinen nur der Titel, der Link und der öffentliche Name, den du wählst. Deine E-Mail-Adresse bleibt privat."
+    "privateA": "Nein. Öffentlich erscheinen nur der Titel, der Link und der öffentliche Name, den du wählst. Deine E-Mail-Adresse bleibt privat."
   },
   "latest": {
-    "intro": "Die neuesten Bilder auf der Wand. Klick auf eines, um es auf der Wand zu sehen.",
-    "empty": "Auf der Wand sind noch keine Bilder. Deins kann das erste sein!",
-    "since": "auf der Wand seit {date}"
+    "intro": "Die neuesten Bilder. Klick auf eines, um es unter den Pixeln zu sehen.",
+    "empty": "Es gibt noch keine Bilder. Deins kann das erste sein!",
+    "since": "veröffentlicht seit {date}"
   },
   "contact": {
     "intro": "Fragen zu deiner Bestellung, Ideen oder Probleme? Schreib uns über das Formular oder per E-Mail. Wir antworten meist innerhalb von zwei Werktagen.",
@@ -752,7 +752,7 @@
     "name": "Dein Name",
     "email": "Deine E-Mail",
     "spotNo": "Nummer des Platzes",
-    "spotNoHelp": "wenn es um einen Platz auf der Wand geht",
+    "spotNoHelp": "wenn es um einen bestimmten Platz geht",
     "message": "Nachricht",
     "optional": "freiwillig",
     "send": "Nachricht senden",
@@ -774,29 +774,29 @@
     "emailLabel": "E-Mail",
     "dsaTitle": "Kontaktstelle nach dem Gesetz über digitale Dienste",
     "dsa": "Behörden der EU-Mitgliedstaaten, die Europäische Kommission, das Europäische Gremium für digitale Dienste und Nutzer können uns elektronisch unter {email} oder über das Formular oben (Thema „Behörde“) erreichen. Du kannst uns auf Slowakisch oder Englisch schreiben.",
-    "reportHint": "Rechtswidrige Inhalte auf der Wand melde bitte über das <report>Meldeformular</report>: Es geht direkt an die Moderation."
+    "reportHint": "Rechtswidrige Inhalte melde bitte über das <report>Meldeformular</report>: Es geht direkt an die Moderation."
   },
   "share": {
     "title": "„{title}“ auf {site}",
     "ogText": "Ich habe meinen eigenen Platz auf {site}!",
-    "description": "{size} auf der Wand aus einer Million Pixel. Klick und sieh es dir an.",
-    "see": "Auf der Wand ansehen",
-    "redirecting": "Die Wand wird geöffnet …",
-    "gone": "Dieser Platz wird gerade nicht auf der Wand gezeigt."
+    "description": "{size} unter einer Million Pixel. Klick und sieh es dir an.",
+    "see": "Unter den Pixeln ansehen",
+    "redirecting": "Die Pixel werden geöffnet …",
+    "gone": "Dieser Platz wird gerade nicht gezeigt."
   },
   "goWarning": {
     "title": "Dieser Link könnte gefährlich sein",
     "text": "Eine Sicherheitsprüfung hat die Seite hinter diesem Link als gefährlich eingestuft (Schadsoftware oder Phishing). Wir haben die Weiterleitung angehalten, bis ein Moderator sie geprüft hat.",
     "address": "Die Adresse war:",
-    "back": "Zurück zur Wand"
+    "back": "Zurück zu den Pixeln"
   },
   "legal": {
     "todo": "[zu ergänzen]",
     "draft": "Dieser Text ist eine Vorlage. Mit „[zu ergänzen]“ markierte Stellen werden vor dem Start der Seite ausgefüllt und der ganze Text von einem Anwalt geprüft.",
-    "rules": "Diese Regeln gelten für alles, was auf {site} gezeigt wird: Bilder, Zeichnungen, Texte, Titel, Namen und Links. Ein Mensch prüft alle Inhalte, bevor sie auf der Wand erscheinen. Mit deiner Bestellung bestätigst du, dass dein Inhalt diese Regeln einhält.\n\n## Nicht erlaubt\n- alles Rechtswidrige;\n- Nacktheit, Pornografie und sexuelle Inhalte;\n- Gewalt, Blut und Waffen in aggressivem Zusammenhang;\n- Hass, extremistische Symbole, Mobbing und Belästigung;\n- persönliche Daten oder Fotos anderer Menschen ohne deren Einwilligung;\n- Betrug, Phishing, Schadsoftware, Schneeballsysteme und Glücksspiel ohne Lizenz;\n- Logos, Figuren und andere Inhalte, an denen du keine Rechte hast;\n- politische Werbung;\n- Links zu Websites mit solchen Inhalten.\n\n## Technische Grenzen\nDie Wand ist ein einziges Standbild: Animationen und Videos sind nicht möglich. Links müssen mit http:// oder https:// beginnen. Wir können Inhalte ablehnen, die in ihrer Größe nicht lesbar sind oder sich als Teil der Website ausgeben (zum Beispiel falsche Schaltflächen).\n\n## Wenn Inhalte gegen die Regeln verstoßen\n- Vor der Freigabe lehnen wir den Inhalt ab und sagen dir, warum. Du kannst innerhalb von {days, plural, one {# Tag} other {# Tagen}} anderen Inhalt schicken; sonst erstatten wir die ganze Zahlung.\n- Nach der Freigabe können wir Inhalte sofort ausblenden und endgültig entfernen, wenn sie gegen diese Regeln oder das Gesetz verstoßen. Für entfernte Inhalte wird nichts erstattet (siehe [AGB](/terms)). Du bekommst immer eine E-Mail mit der Begründung.\n- Gegen jede Entscheidung kannst du Einspruch einlegen: Antworte auf unsere E-Mail oder schreib an {email}. Ein Mensch sieht es sich noch einmal an.\n\n## Melden\nJede und jeder kann Inhalte über die Schaltfläche „Melden“ im Fenster jedes Platzes oder auf der Seite [Inhalt melden](/report) melden. Wir bestätigen jede Meldung und teilen der meldenden Person unsere Entscheidung mit.",
-    "terms": "## 1. Wer wir sind\nDie Website {site} (die „Seite“) wird betrieben von {operator}, Firmennummer {companyId}, Sitz {address}, E-Mail {email} (der „Betreiber“, „wir“). Registereintrag: {todo}\n\n## 2. Was du kaufst\n- Die Seite zeigt eine Wand aus {pixels, number} Pixeln, aufgeteilt in Blöcke von 10 × 10 px. Du kaufst das Recht, eigene Inhalte (ein Bild, eine Zeichnung oder einen Text mit optionalem Link) auf einem von dir gewählten Rechteck aus ganzen Blöcken zu zeigen (der „Platz“).\n- Der Preis beträgt {price} pro Pixel. Du bezahlst einmal; es gibt keine wiederkehrenden Gebühren. Alle Preise sind Endpreise. {vat}\n- Dein Inhalt bleibt ohne zeitliche Begrenzung auf der Wand, so lange wir die Seite betreiben. Du wirst nicht Eigentümer eines Teils der Seite, ihrer Software oder des Bildes der Wand als Ganzes.\n\n## 3. Wie der Vertrag zustande kommt\n- Du wählst einen Platz (wir reservieren ihn kurz für dich), fügst Inhalt und Angaben hinzu, stimmst diesen Bedingungen und den [Inhaltsregeln](/content-rules) zu und bezahlst über den Zahlungsdienst Stripe.\n- Der Vertrag kommt mit dem Eingang deiner Zahlung zustande. Wir schicken dir eine Bestätigung mit Beleg per E-Mail.\n- Bevor dein Inhalt auf der Wand erscheint, prüft ihn ein Mensch, meist innerhalb von {hours, plural, one {# Stunde} other {# Stunden}}.\n\n## 4. Freigabe und Ablehnung\n- Können wir deinen Inhalt nicht freigeben, sagen wir dir, warum. Du kannst innerhalb von {days, plural, one {# Tag} other {# Tagen}} anderen Inhalt schicken; so lange bleibt der Platz für dich reserviert.\n- Kommt bis dahin kein freigabefähiger Inhalt, endet der Vertrag und wir erstatten automatisch die ganze Zahlung.\n\n## 5. Dein Inhalt\n- Du bist für deinen Inhalt verantwortlich. Du bestätigst, dass du alle Rechte daran hast und dass er die Inhaltsregeln und das Gesetz einhält.\n- Du erlaubst uns, deinen Inhalt auf der Seite, in Bildern der Wand (zum Beispiel in Vorschauen in sozialen Netzwerken) und in Materialien über die Seite zu zeigen, so lange es die Seite gibt.\n- Du kannst deinen Inhalt jederzeit unter Meine Pixel ändern; jede Änderung wird erneut geprüft.\n- Verstößt ein Inhalt gegen die Inhaltsregeln oder das Gesetz, können wir ihn sofort ausblenden und entfernen. Für Inhalte, die wegen eines Regelverstoßes entfernt wurden, wird nichts erstattet. Wir teilen dir immer die Gründe mit, und du kannst Einspruch einlegen.\n\n## 6. Platz verschenken\nDu kannst deinen Platz unter Meine Pixel einer anderen Person schenken. Deine Rechte und Pflichten aus diesen Bedingungen gehen auf den neuen Besitzer über, sobald er das Angebot annimmt.\n\n## 7. Widerrufsrecht\n- Als Verbraucher kannst du einen Fernabsatzvertrag innerhalb von 14 Tagen ohne Angabe von Gründen widerrufen.\n- Bei der Bestellung verlangst du, dass wir mit der Leistung vor Ablauf dieser Frist beginnen, und nimmst zur Kenntnis, dass du dein Widerrufsrecht verlierst, sobald dein Inhalt auf der Wand veröffentlicht ist. Bis dahin kannst du per E-Mail an {email} widerrufen; wir erstatten die Zahlung innerhalb von 14 Tagen.\n- Muster-Widerrufsformular: {todo}\n\n## 8. Verfügbarkeit und Ende der Seite\n- Wir sorgen dafür, dass die Seite ohne Unterbrechung funktioniert, können das aber nicht zu jedem Zeitpunkt garantieren (Wartung, Ausfälle unserer Dienstleister).\n- Wir wollen die Seite auf unbestimmte Zeit betreiben. Sollten wir uns je entschließen, sie zu schließen, informieren wir alle Besitzer vorher per E-Mail. Ankündigungsfrist und was die Besitzer in diesem Fall erhalten: {todo}\n\n## 9. Beschwerden\nWie du dich beschwerst, beschreibt das [Beschwerdeverfahren](/complaints).\n\n## 10. Personenbezogene Daten\nWir verarbeiten personenbezogene Daten wie in der [Datenschutzerklärung](/privacy) beschrieben.\n\n## 11. Schlussbestimmungen\n- Für diese Bedingungen gilt das Recht der Slowakischen Republik. Außergerichtliche Streitbeilegung für Verbraucher: {todo}\n- Wir können diese Bedingungen für die Zukunft ändern; für deinen Kauf gelten die Bedingungen am Tag deiner Zahlung.\n- Diese Bedingungen gelten ab {todo}.",
-    "complaints": "Dieses Verfahren erklärt, wie du dich beschwerst, wenn unser Dienst nicht so funktioniert, wie er soll — zum Beispiel wenn dein Platz nicht richtig angezeigt wird, die Wand deinen freigegebenen Inhalt nicht zeigt oder eine Zahlung nicht richtig verarbeitet wurde.\n\n## So beschwerst du dich\n- Schreib an {email} oder nutze das [Kontaktformular](/contact) (Thema „Beschwerde oder rechtliche Frage“).\n- Bitte nenn die Platznummer, die E-Mail-Adresse deiner Bestellung, was nicht stimmt, und wenn möglich einen Screenshot.\n- Wir bestätigen den Eingang deiner Beschwerde unverzüglich.\n\n## So bearbeiten wir eine Beschwerde\n- Wir entscheiden unverzüglich über deine Beschwerde, spätestens innerhalb von 30 Tagen nach Eingang, und teilen dir das Ergebnis per E-Mail mit.\n- Ist die Beschwerde berechtigt, beheben wir das Problem (zum Beispiel zeigen wir deinen Inhalt wieder richtig an); ist das nicht möglich, erstatten wir den Preis oder einen angemessenen Teil davon.\n- Wir dokumentieren jede Beschwerde und ihre Erledigung.\n\n## Einwände gegen Entscheidungen der Moderation\nWenn du mit einer Entscheidung über deinen Inhalt (Ablehnung, Ausblenden oder Entfernen) nicht einverstanden bist, antworte auf unsere E-Mail oder schreib an {email}. Ein Mensch sieht sich die Entscheidung noch einmal an.\n\n## Außergerichtliche Streitbeilegung\nWenn du mit der Bearbeitung deiner Beschwerde nicht zufrieden bist, kannst du uns um Abhilfe bitten. Lehnen wir das ab oder antworten wir nicht innerhalb von 30 Tagen, kannst du dich an eine Stelle zur außergerichtlichen Beilegung von Verbraucherstreitigkeiten wenden: {todo}\n\nDieses Verfahren gilt ab {todo}.",
-    "privacy": "Wir schützen deine personenbezogenen Daten und erheben nur, was wir für den Betrieb von {site} brauchen.\n\n## Verantwortlicher\n{operator}, Firmennummer {companyId}, {address}, E-Mail {email}. Datenschutzbeauftragter: {todo}\n\n## Welche Daten wir verarbeiten und warum\n- Bestellungen und Zahlungen: deine E-Mail-Adresse, der Platz, dein Inhalt, Titel, Link und öffentlicher Name, deine Einwilligungen und Zahlungsdaten — zum Abschluss und zur Erfüllung des Vertrags (Art. 6 Abs. 1 lit. b DSGVO) und zur Erfüllung von Buchhaltungspflichten (Art. 6 Abs. 1 lit. c DSGVO). Kartendaten verarbeitet nur der Zahlungsdienst Stripe; wir sehen sie nie.\n- Konto (Meine Pixel): deine E-Mail-Adresse und Anmeldedaten — damit du deine Plätze verwalten kannst (Art. 6 Abs. 1 lit. b DSGVO).\n- Moderation und Meldungen: Prüfungen von Inhalten, Meldungen und Entscheidungen, einschließlich der E-Mail-Adresse einer meldenden Person, falls angegeben — zur Erfüllung der Pflichten aus dem Gesetz über digitale Dienste und für eine sichere Seite (Art. 6 Abs. 1 lit. c und f DSGVO).\n- Kontaktformular: dein Name, deine E-Mail-Adresse und Nachricht — um dir zu antworten (Art. 6 Abs. 1 lit. f DSGVO).\n- Sicherheit: eine einweg-verschlüsselte (gehashte) Form deiner IP-Adresse, um Missbrauch zu begrenzen, zum Beispiel die Zahl der Reservierungen, und technische Server-Protokolle (Art. 6 Abs. 1 lit. f DSGVO).\n- Neuigkeiten per E-Mail: nur mit deiner Einwilligung; du kannst sie jederzeit widerrufen (Art. 6 Abs. 1 lit. a DSGVO).\n\n## Öffentliche Inhalte\nDein Bild, Titel, Link und öffentlicher Name werden auf der Wand öffentlich gezeigt. Deine E-Mail-Adresse wird nie angezeigt.\n\n## Cookies\nWir verwenden nur Cookies, die die Seite zum Funktionieren braucht: deine Anmeldung, eine laufende Bestellung und die gewählte Sprache. Werbe- oder Tracking-Cookies verwenden wir nicht. Besuche zählen wir ohne Cookies und ohne dich zu identifizieren. Statistikdienst: {todo}\n\n## Wer die Daten erhält\nNur Dienstleister, die uns beim Betrieb der Seite helfen, auf Grundlage von Auftragsverarbeitungsverträgen: Hosting und Datenbank {todo}, Dateispeicher {todo}, Zahlungen (Stripe), E-Mail-Versand {todo}, Schutz vor Bots (Cloudflare Turnstile) und Prüfung von Links und Bildern auf gefährliche Inhalte {todo}. Einige von ihnen haben ihren Sitz außerhalb der EU; die Übermittlung ist durch die EU-Standardvertragsklauseln oder das EU-US Data Privacy Framework geschützt.\n\n## Wie lange wir Daten speichern\n- Bestellungen und Belege: so lange, wie es Buchhaltungs- und Steuerrecht verlangen (in der Slowakei in der Regel 10 Jahre).\n- Konto: bis du es unter Meine Pixel löschst.\n- Nachrichten aus dem Kontaktformular: zwei Jahre nach ihrer Erledigung.\n- Meldungen: {todo} nach ihrer Erledigung.\n- Technische Protokolle und Sicherheitsdaten: kurze Zeit, höchstens {todo}.\n\n## Deine Rechte\nDu hast das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung und Datenübertragbarkeit sowie das Recht auf Widerspruch; Einwilligungen kannst du jederzeit widerrufen. Schreib an {email}. Dein Konto kannst du unter Meine Pixel selbst löschen. Du kannst dich auch bei der Aufsichtsbehörde beschweren: Úrad na ochranu osobných údajov Slovenskej republiky (Amt für den Schutz personenbezogener Daten der Slowakischen Republik), Hraničná 12, 820 07 Bratislava, www.dataprotection.gov.sk.\n\nDiese Erklärung gilt ab {todo}.",
+    "rules": "Diese Regeln gelten für alles, was auf {site} gezeigt wird: Bilder, Zeichnungen, Texte, Titel, Namen und Links. Ein Mensch prüft alle Inhalte, bevor sie veröffentlicht werden. Mit deiner Bestellung bestätigst du, dass dein Inhalt diese Regeln einhält.\n\n## Nicht erlaubt\n- alles Rechtswidrige;\n- Nacktheit, Pornografie und sexuelle Inhalte;\n- Gewalt, Blut und Waffen in aggressivem Zusammenhang;\n- Hass, extremistische Symbole, Mobbing und Belästigung;\n- persönliche Daten oder Fotos anderer Menschen ohne deren Einwilligung;\n- Betrug, Phishing, Schadsoftware, Schneeballsysteme und Glücksspiel ohne Lizenz;\n- Logos, Figuren und andere Inhalte, an denen du keine Rechte hast;\n- politische Werbung;\n- Links zu Websites mit solchen Inhalten.\n\n## Technische Grenzen\nAlle Pixel bilden ein einziges Standbild: Animationen und Videos sind nicht möglich. Links müssen mit http:// oder https:// beginnen. Wir können Inhalte ablehnen, die in ihrer Größe nicht lesbar sind oder sich als Teil der Website ausgeben (zum Beispiel falsche Schaltflächen).\n\n## Wenn Inhalte gegen die Regeln verstoßen\n- Vor der Freigabe lehnen wir den Inhalt ab und sagen dir, warum. Du kannst innerhalb von {days, plural, one {# Tag} other {# Tagen}} anderen Inhalt schicken; sonst erstatten wir die ganze Zahlung.\n- Nach der Freigabe können wir Inhalte sofort ausblenden und endgültig entfernen, wenn sie gegen diese Regeln oder das Gesetz verstoßen. Für entfernte Inhalte wird nichts erstattet (siehe [AGB](/terms)). Du bekommst immer eine E-Mail mit der Begründung.\n- Gegen jede Entscheidung kannst du Einspruch einlegen: Antworte auf unsere E-Mail oder schreib an {email}. Ein Mensch sieht es sich noch einmal an.\n\n## Melden\nJede und jeder kann Inhalte über die Schaltfläche „Melden“ im Fenster jedes Platzes oder auf der Seite [Inhalt melden](/report) melden. Wir bestätigen jede Meldung und teilen der meldenden Person unsere Entscheidung mit.",
+    "terms": "## 1. Wer wir sind\nDie Website {site} (die „Seite“) wird betrieben von {operator}, Firmennummer {companyId}, Sitz {address}, E-Mail {email} (der „Betreiber“, „wir“). Registereintrag: {todo}\n\n## 2. Was du kaufst\n- Die Seite zeigt {pixels, number} Pixel, aufgeteilt in Blöcke von 10 × 10 px. Du kaufst das Recht, eigene Inhalte (ein Bild, eine Zeichnung oder einen Text mit optionalem Link) auf einem von dir gewählten Rechteck aus ganzen Blöcken zu zeigen (der „Platz“).\n- Der Preis beträgt {price} pro Pixel. Du bezahlst einmal; es gibt keine wiederkehrenden Gebühren. Alle Preise sind Endpreise. {vat}\n- Dein Inhalt bleibt ohne zeitliche Begrenzung veröffentlicht, so lange wir die Seite betreiben. Du wirst nicht Eigentümer eines Teils der Seite, ihrer Software oder des Gesamtbildes aller Pixel.\n\n## 3. Wie der Vertrag zustande kommt\n- Du wählst einen Platz (wir reservieren ihn kurz für dich), fügst Inhalt und Angaben hinzu, stimmst diesen Bedingungen und den [Inhaltsregeln](/content-rules) zu und bezahlst über den Zahlungsdienst Stripe.\n- Der Vertrag kommt mit dem Eingang deiner Zahlung zustande. Wir schicken dir eine Bestätigung mit Beleg per E-Mail.\n- Bevor dein Inhalt veröffentlicht wird, prüft ihn ein Mensch, meist innerhalb von {hours, plural, one {# Stunde} other {# Stunden}}.\n\n## 4. Freigabe und Ablehnung\n- Können wir deinen Inhalt nicht freigeben, sagen wir dir, warum. Du kannst innerhalb von {days, plural, one {# Tag} other {# Tagen}} anderen Inhalt schicken; so lange bleibt der Platz für dich reserviert.\n- Kommt bis dahin kein freigabefähiger Inhalt, endet der Vertrag und wir erstatten automatisch die ganze Zahlung.\n\n## 5. Dein Inhalt\n- Du bist für deinen Inhalt verantwortlich. Du bestätigst, dass du alle Rechte daran hast und dass er die Inhaltsregeln und das Gesetz einhält.\n- Du erlaubst uns, deinen Inhalt auf der Seite, in Gesamtbildern der Pixel (zum Beispiel in Vorschauen in sozialen Netzwerken) und in Materialien über die Seite zu zeigen, so lange es die Seite gibt.\n- Du kannst deinen Inhalt jederzeit unter Meine Pixel ändern; jede Änderung wird erneut geprüft.\n- Verstößt ein Inhalt gegen die Inhaltsregeln oder das Gesetz, können wir ihn sofort ausblenden und entfernen. Für Inhalte, die wegen eines Regelverstoßes entfernt wurden, wird nichts erstattet. Wir teilen dir immer die Gründe mit, und du kannst Einspruch einlegen.\n\n## 6. Platz verschenken\nDu kannst deinen Platz unter Meine Pixel einer anderen Person schenken. Deine Rechte und Pflichten aus diesen Bedingungen gehen auf den neuen Besitzer über, sobald er das Angebot annimmt.\n\n## 7. Widerrufsrecht\n- Als Verbraucher kannst du einen Fernabsatzvertrag innerhalb von 14 Tagen ohne Angabe von Gründen widerrufen.\n- Bei der Bestellung verlangst du, dass wir mit der Leistung vor Ablauf dieser Frist beginnen, und nimmst zur Kenntnis, dass du dein Widerrufsrecht verlierst, sobald dein Inhalt veröffentlicht ist. Bis dahin kannst du per E-Mail an {email} widerrufen; wir erstatten die Zahlung innerhalb von 14 Tagen.\n- Muster-Widerrufsformular: {todo}\n\n## 8. Verfügbarkeit und Ende der Seite\n- Wir sorgen dafür, dass die Seite ohne Unterbrechung funktioniert, können das aber nicht zu jedem Zeitpunkt garantieren (Wartung, Ausfälle unserer Dienstleister).\n- Wir wollen die Seite auf unbestimmte Zeit betreiben. Sollten wir uns je entschließen, sie zu schließen, informieren wir alle Besitzer vorher per E-Mail. Ankündigungsfrist und was die Besitzer in diesem Fall erhalten: {todo}\n\n## 9. Beschwerden\nWie du dich beschwerst, beschreibt das [Beschwerdeverfahren](/complaints).\n\n## 10. Personenbezogene Daten\nWir verarbeiten personenbezogene Daten wie in der [Datenschutzerklärung](/privacy) beschrieben.\n\n## 11. Schlussbestimmungen\n- Für diese Bedingungen gilt das Recht der Slowakischen Republik. Außergerichtliche Streitbeilegung für Verbraucher: {todo}\n- Wir können diese Bedingungen für die Zukunft ändern; für deinen Kauf gelten die Bedingungen am Tag deiner Zahlung.\n- Diese Bedingungen gelten ab {todo}.",
+    "complaints": "Dieses Verfahren erklärt, wie du dich beschwerst, wenn unser Dienst nicht so funktioniert, wie er soll — zum Beispiel wenn dein Platz nicht richtig angezeigt wird, dein freigegebener Inhalt nicht angezeigt wird oder eine Zahlung nicht richtig verarbeitet wurde.\n\n## So beschwerst du dich\n- Schreib an {email} oder nutze das [Kontaktformular](/contact) (Thema „Beschwerde oder rechtliche Frage“).\n- Bitte nenn die Platznummer, die E-Mail-Adresse deiner Bestellung, was nicht stimmt, und wenn möglich einen Screenshot.\n- Wir bestätigen den Eingang deiner Beschwerde unverzüglich.\n\n## So bearbeiten wir eine Beschwerde\n- Wir entscheiden unverzüglich über deine Beschwerde, spätestens innerhalb von 30 Tagen nach Eingang, und teilen dir das Ergebnis per E-Mail mit.\n- Ist die Beschwerde berechtigt, beheben wir das Problem (zum Beispiel zeigen wir deinen Inhalt wieder richtig an); ist das nicht möglich, erstatten wir den Preis oder einen angemessenen Teil davon.\n- Wir dokumentieren jede Beschwerde und ihre Erledigung.\n\n## Einwände gegen Entscheidungen der Moderation\nWenn du mit einer Entscheidung über deinen Inhalt (Ablehnung, Ausblenden oder Entfernen) nicht einverstanden bist, antworte auf unsere E-Mail oder schreib an {email}. Ein Mensch sieht sich die Entscheidung noch einmal an.\n\n## Außergerichtliche Streitbeilegung\nWenn du mit der Bearbeitung deiner Beschwerde nicht zufrieden bist, kannst du uns um Abhilfe bitten. Lehnen wir das ab oder antworten wir nicht innerhalb von 30 Tagen, kannst du dich an eine Stelle zur außergerichtlichen Beilegung von Verbraucherstreitigkeiten wenden: {todo}\n\nDieses Verfahren gilt ab {todo}.",
+    "privacy": "Wir schützen deine personenbezogenen Daten und erheben nur, was wir für den Betrieb von {site} brauchen.\n\n## Verantwortlicher\n{operator}, Firmennummer {companyId}, {address}, E-Mail {email}. Datenschutzbeauftragter: {todo}\n\n## Welche Daten wir verarbeiten und warum\n- Bestellungen und Zahlungen: deine E-Mail-Adresse, der Platz, dein Inhalt, Titel, Link und öffentlicher Name, deine Einwilligungen und Zahlungsdaten — zum Abschluss und zur Erfüllung des Vertrags (Art. 6 Abs. 1 lit. b DSGVO) und zur Erfüllung von Buchhaltungspflichten (Art. 6 Abs. 1 lit. c DSGVO). Kartendaten verarbeitet nur der Zahlungsdienst Stripe; wir sehen sie nie.\n- Konto (Meine Pixel): deine E-Mail-Adresse und Anmeldedaten — damit du deine Plätze verwalten kannst (Art. 6 Abs. 1 lit. b DSGVO).\n- Moderation und Meldungen: Prüfungen von Inhalten, Meldungen und Entscheidungen, einschließlich der E-Mail-Adresse einer meldenden Person, falls angegeben — zur Erfüllung der Pflichten aus dem Gesetz über digitale Dienste und für eine sichere Seite (Art. 6 Abs. 1 lit. c und f DSGVO).\n- Kontaktformular: dein Name, deine E-Mail-Adresse und Nachricht — um dir zu antworten (Art. 6 Abs. 1 lit. f DSGVO).\n- Sicherheit: eine einweg-verschlüsselte (gehashte) Form deiner IP-Adresse, um Missbrauch zu begrenzen, zum Beispiel die Zahl der Reservierungen, und technische Server-Protokolle (Art. 6 Abs. 1 lit. f DSGVO).\n- Neuigkeiten per E-Mail: nur mit deiner Einwilligung; du kannst sie jederzeit widerrufen (Art. 6 Abs. 1 lit. a DSGVO).\n\n## Öffentliche Inhalte\nDein Bild, Titel, Link und öffentlicher Name werden öffentlich gezeigt. Deine E-Mail-Adresse wird nie angezeigt.\n\n## Cookies\nWir verwenden nur Cookies, die die Seite zum Funktionieren braucht: deine Anmeldung, eine laufende Bestellung und die gewählte Sprache. Werbe- oder Tracking-Cookies verwenden wir nicht. Besuche zählen wir ohne Cookies und ohne dich zu identifizieren. Statistikdienst: {todo}\n\n## Wer die Daten erhält\nNur Dienstleister, die uns beim Betrieb der Seite helfen, auf Grundlage von Auftragsverarbeitungsverträgen: Hosting und Datenbank {todo}, Dateispeicher {todo}, Zahlungen (Stripe), E-Mail-Versand {todo}, Schutz vor Bots (Cloudflare Turnstile) und Prüfung von Links und Bildern auf gefährliche Inhalte {todo}. Einige von ihnen haben ihren Sitz außerhalb der EU; die Übermittlung ist durch die EU-Standardvertragsklauseln oder das EU-US Data Privacy Framework geschützt.\n\n## Wie lange wir Daten speichern\n- Bestellungen und Belege: so lange, wie es Buchhaltungs- und Steuerrecht verlangen (in der Slowakei in der Regel 10 Jahre).\n- Konto: bis du es unter Meine Pixel löschst.\n- Nachrichten aus dem Kontaktformular: zwei Jahre nach ihrer Erledigung.\n- Meldungen: {todo} nach ihrer Erledigung.\n- Technische Protokolle und Sicherheitsdaten: kurze Zeit, höchstens {todo}.\n\n## Deine Rechte\nDu hast das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung und Datenübertragbarkeit sowie das Recht auf Widerspruch; Einwilligungen kannst du jederzeit widerrufen. Schreib an {email}. Dein Konto kannst du unter Meine Pixel selbst löschen. Du kannst dich auch bei der Aufsichtsbehörde beschweren: Úrad na ochranu osobných údajov Slovenskej republiky (Amt für den Schutz personenbezogener Daten der Slowakischen Republik), Hraničná 12, 820 07 Bratislava, www.dataprotection.gov.sk.\n\nDiese Erklärung gilt ab {todo}.",
     "vatPayer": "Die Preise enthalten {rate} % MwSt.",
     "notVatPayer": "Wir sind nicht umsatzsteuerpflichtig, daher wird keine MwSt. berechnet."
   }

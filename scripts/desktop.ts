@@ -121,7 +121,7 @@ async function main(): Promise<void> {
   loadEnv();
   const url = requireEnv("DATABASE_URL");
   say("");
-  say("  Million Pixel Wall — spúšťam stránku na tomto počítači / starting the site on this computer");
+  say("  Million Pixel Website — spúšťam stránku na tomto počítači / starting the site on this computer");
   say("  Zatvorením tohto okna ju vypneš / close this window to stop it");
   say("");
 

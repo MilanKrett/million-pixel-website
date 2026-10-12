@@ -1,13 +1,13 @@
 {
   "meta": {
     "title": "{site} — {pixels, plural, one {# piksel} few {# piksele} many {# pikseli} other {# piksela}} na sprzedaż",
-    "description": "{pixels, plural, one {# piksel} few {# piksele} many {# pikseli} other {# piksela}}, {price} za piksel. Kup kawałek ściany na zawsze i umieść na nim swój obrazek, rysunek albo tekst z linkiem.",
+    "description": "{pixels, plural, one {# piksel} few {# piksele} many {# pikseli} other {# piksela}}, {price} za piksel. Kup część z nich na zawsze i umieść na nich swój obrazek, rysunek albo tekst z linkiem.",
     "pageTitle": "{page} — {site}",
     "pages": {
-      "buy": "Wybierz wolne miejsce na ścianie, wgraj zdjęcie, narysuj obrazek albo napisz tekst i zapłać raz — Twoje piksele zostaną na ścianie na zawsze.",
-      "how": "Jak działa {site}: wybierz miejsce, wgraj albo narysuj obrazek, zapłać jednorazowo {price} za piksel i zostań na ścianie na zawsze.",
+      "buy": "Wybierz wolne piksele, wgraj zdjęcie, narysuj obrazek albo napisz tekst i zapłać raz — Twoje piksele pozostaną opublikowane na zawsze.",
+      "how": "Jak działa {site}: wybierz miejsce, wgraj albo narysuj obrazek, zapłać jednorazowo {price} za piksel, a Twoje piksele pozostaną opublikowane na zawsze.",
       "faq": "Odpowiedzi na pytania o ceny, zatwierdzanie, zmiany, prezenty i dowody zakupu na {site}.",
-      "latest": "Najnowsze obrazki na {site}, ścianie z miliona pikseli.",
+      "latest": "Najnowsze obrazki na {site}: milion pikseli w jednym miejscu.",
       "contact": "Kontakt z {site}: pytania, reklamacje i punkt kontaktowy zgodnie z aktem o usługach cyfrowych.",
       "rules": "Co może, a co nie może pojawić się na {site}.",
       "terms": "Regulamin serwisu {site}.",
@@ -17,10 +17,10 @@
     }
   },
   "common": {
-    "skipToWall": "Przejdź do ściany",
+    "skipToWall": "Przejdź do pikseli",
     "skipToContent": "Przejdź do treści",
     "close": "Zamknij",
-    "backToWall": "Wróć do ściany",
+    "backToWall": "Wróć do pikseli",
     "language": "Język",
     "pixels": "{count, plural, one {# piksel} few {# piksele} many {# pikseli} other {# piksela}}",
     "blocks": "{count, plural, one {# blok} few {# bloki} many {# bloków} other {# bloku}}",
@@ -29,14 +29,14 @@
   },
   "header": {
     "logoTitle": "{site} — strona główna",
-    "statsLabel": "Statystyki ściany",
+    "statsLabel": "Statystyki pikseli",
     "rented": "Sprzedane piksele",
     "free": "Wolne",
     "lastRental": "Ostatni zakup",
     "lastRentalNone": "jeszcze brak",
     "justNow": "przed chwilą",
     "progress": "sprzedano {percent}",
-    "progressLabel": "Sprzedano {percent} ściany",
+    "progressLabel": "Sprzedano {percent} pikseli",
     "slogan": "Zostaw swój ślad w internecie"
   },
   "nav": {
@@ -60,10 +60,10 @@
     "complaints": "Reklamacje"
   },
   "wall": {
-    "regionLabel": "Ściana pikseli",
+    "regionLabel": "Milion pikseli",
     "keyboardHelp": "Strzałkami przesuwasz widok, klawiszami + i − powiększasz, Enter otwiera miejsce na środku, a Esc zamyka okno.",
-    "imageAlt": "Ściana z {pixels, plural, one {# piksela} few {# pikseli} many {# pikseli} other {# piksela}} z obrazkami wszystkich właścicieli",
-    "noscript": "Włącz JavaScript, aby powiększać, wyszukiwać i kupować piksele. Obrazki na ścianie możesz klikać także bez niego.",
+    "imageAlt": "{pixels, plural, one {# piksel} few {# piksele} many {# pikseli} other {# piksela}} z obrazkami wszystkich właścicieli",
+    "noscript": "Włącz JavaScript, aby powiększać, wyszukiwać i kupować piksele. Obrazki możesz klikać także bez niego.",
     "zoom": "Powiększenie",
     "zoomIn": "Powiększ",
     "zoomOut": "Pomniejsz",
@@ -72,21 +72,21 @@
     "random": "Losowe miejsce",
     "showFree": "Pokaż wolne miejsca",
     "search": "Szukaj",
-    "searchLabel": "Szukaj na ścianie",
+    "searchLabel": "Szukaj w pikselach",
     "searchPlaceholder": "Tytuł, nazwa lub strona",
     "searchNone": "Nic nie znaleziono dla „{query}”.",
     "searchMany": "{count, plural, one {# wynik} few {# wyniki} many {# wyników} other {# wyniku}} — wybierz jeden:",
     "rent": "Kup piksele",
     "coords": "blok {bx}, {by} · px {px}, {py}",
-    "coordsIdle": "Wskaż ścianę, aby zobaczyć współrzędne",
+    "coordsIdle": "Wskaż piksele, aby zobaczyć współrzędne",
     "position": "x {x0}–{x1}, y {y0}–{y1}",
     "size": "{w} × {h} px",
     "reserved": "Zarezerwowane",
     "rentedPending": "Sprzedane — czeka na zatwierdzenie",
-    "updated": "Ściana została zaktualizowana.",
+    "updated": "Piksele zostały zaktualizowane.",
     "tool": "Narzędzie myszy",
     "toolSelect": "Zaznacz obszar",
-    "toolMove": "Przesuń ścianę",
+    "toolMove": "Przesuń widok",
     "cornerSet": "Pierwszy róg w bloku {bx}, {by}. Przesuń kursor i naciśnij Enter, aby wybrać przeciwległy róg.",
     "areaSet": "Wybrano obszar do bloku {bx}, {by}."
   },
@@ -103,16 +103,16 @@
     "freeText": "Blok {bx}, {by} ({position}) kosztuje {price} — płacisz raz i jest Twój na zawsze. Możesz też zaznaczyć większy obszar.",
     "rentThis": "Kup to miejsce",
     "takenTitle": "To miejsce jest sprzedane",
-    "takenText": "Treść pojawi się na ścianie po zatwierdzeniu.",
+    "takenText": "Treść zostanie opublikowana po zatwierdzeniu.",
     "holdTitle": "To miejsce jest zarezerwowane",
     "holdText": "Ktoś właśnie je kupuje. Jeśli nie dokończy zakupu w ciągu kilku minut, znów będzie wolne.",
-    "since": "Na ścianie od {date}"
+    "since": "Opublikowane od {date}"
   },
   "pages": {
     "rent": "Kup piksele",
     "how": "Jak to działa",
     "faq": "Najczęściej zadawane pytania",
-    "latest": "Najnowsze na ścianie",
+    "latest": "Najnowsze obrazki",
     "mine": "Moje piksele",
     "contact": "Kontakt",
     "rules": "Zasady dotyczące treści",
@@ -122,15 +122,15 @@
     "notFoundTitle": "Nie znaleziono strony",
     "notFoundText": "Przepraszamy, pod tym adresem nic nie ma. Może link jest nieaktualny albo zawiera literówkę.",
     "complaints": "Procedura reklamacyjna",
-    "share": "Miejsce na ścianie"
+    "share": "Miejsce wśród pikseli"
   },
   "email": {
-    "footer": "{site} — ściana z miliona pikseli.",
+    "footer": "{site} — milion pikseli w jednym miejscu.",
     "greeting": "Dzień dobry,",
     "position": "x {x0}–{x1}, y {y0}–{y1}",
     "size": "{w} × {h} px",
     "companyId": "nr identyfikacyjny {id}",
-    "item": "Miejsce {w} × {h} px na ścianie ({position}, miejsce nr {no}), wyświetlane na zawsze",
+    "item": "Miejsce {w} × {h} px ({position}, miejsce nr {no}), wyświetlane na zawsze",
     "vatIncluded": "Cena zawiera VAT {rate}%: {vat}",
     "notVatPayer": "Sprzedawca nie jest czynnym podatnikiem VAT.",
     "labels": {
@@ -147,16 +147,16 @@
     },
     "paid": {
       "subject": "Płatność otrzymana — Twoje piksele czekają na zatwierdzenie",
-      "intro": "Dziękujemy za zamówienie. Otrzymaliśmy Twoją płatność w wysokości {amount}. Sprawdzimy Twoją treść, zwykle w ciągu {hours, plural, one {# godziny} few {# godzin} many {# godzin} other {# godziny}}, i damy Ci znać, gdy będzie na ścianie.",
+      "intro": "Dziękujemy za zamówienie. Otrzymaliśmy Twoją płatność w wysokości {amount}. Sprawdzimy Twoją treść, zwykle w ciągu {hours, plural, one {# godziny} few {# godzin} many {# godzin} other {# godziny}}, i damy Ci znać, gdy zostanie opublikowana.",
       "rentalHeading": "Twoje miejsce",
       "receiptHeading": "Dowód zakupu",
       "mine": "Swoje miejsca znajdziesz w sekcji Moje piksele:",
-      "forever": "Po zatwierdzeniu Twoje piksele zostaną na ścianie na zawsze — tak długo, jak istnieje strona."
+      "forever": "Po zatwierdzeniu Twoje piksele pozostaną opublikowane na zawsze — tak długo, jak istnieje strona."
     },
     "approved": {
-      "subject": "Twoje piksele są na ścianie!",
-      "intro": "Dobra wiadomość: Twoja treść „{title}” została zatwierdzona i jest teraz na ścianie na pozycji {position}. Piksele są Twoje na zawsze.",
-      "see": "Zobacz na ścianie",
+      "subject": "Twoje piksele są opublikowane!",
+      "intro": "Dobra wiadomość: Twoja treść „{title}” została zatwierdzona i jest teraz opublikowana na pozycji {position}. Piksele są Twoje na zawsze.",
+      "see": "Zobacz swoje piksele",
       "share": "Pokaż to znajomym:",
       "shareText": "Mam własne miejsce na {site}!",
       "shareEmail": "E-mail"
@@ -178,7 +178,7 @@
     },
     "changeApproved": {
       "subject": "Twoja zmiana została zatwierdzona",
-      "intro": "Nowa wersja „{title}” jest teraz na ścianie na pozycji {position}."
+      "intro": "Nowa wersja „{title}” jest teraz opublikowana na pozycji {position}."
     },
     "rejected": {
       "subject": "Twoja treść nie została zatwierdzona",
@@ -189,11 +189,11 @@
     },
     "changesRequested": {
       "subject": "Prosimy o poprawienie treści",
-      "intro": "Twoja treść dla miejsca na pozycji {position} („{title}”) wymaga zmiany, zanim umieścimy ją na ścianie."
+      "intro": "Twoja treść dla miejsca na pozycji {position} („{title}”) wymaga zmiany, zanim ją opublikujemy."
     },
     "changeRejected": {
       "subject": "Twoja zmiana nie została zatwierdzona",
-      "intro": "Nie mogliśmy zatwierdzić zmiany „{title}” na pozycji {position}. Na ścianie zostaje Twoja poprzednia treść.",
+      "intro": "Nie mogliśmy zatwierdzić zmiany „{title}” na pozycji {position}. Opublikowana pozostaje Twoja poprzednia treść.",
       "again": "W sekcji Moje piksele możesz wysłać inną zmianę.",
       "button": "Otwórz Moje piksele"
     },
@@ -206,12 +206,12 @@
     },
     "hidden": {
       "subject": "Twoje piksele zostały tymczasowo ukryte",
-      "intro": "Twoja treść „{title}” na pozycji {position} została ukryta na ścianie na czas, gdy ją sprawdzamy.",
-      "next": "Poinformujemy Cię o wyniku. Jeśli z treścią wszystko jest w porządku, wróci na ścianę."
+      "intro": "Twoja treść „{title}” na pozycji {position} została ukryta na czas, gdy ją sprawdzamy.",
+      "next": "Poinformujemy Cię o wyniku. Jeśli z treścią wszystko jest w porządku, znów ją opublikujemy."
     },
     "removed": {
-      "subject": "Twoja treść została usunięta ze ściany",
-      "intro": "Usunęliśmy ze ściany „{title}” na pozycji {position}, ponieważ narusza nasze zasady dotyczące treści.",
+      "subject": "Twoja treść została usunięta",
+      "intro": "Usunęliśmy „{title}” na pozycji {position}, ponieważ narusza nasze zasady dotyczące treści.",
       "terms": "Zgodnie z regulaminem za treści usunięte z powodu naruszenia zasad nie przysługuje zwrot pieniędzy."
     },
     "reportReceived": {
@@ -221,9 +221,9 @@
     },
     "reportDecided": {
       "subject": "Decyzja w sprawie Twojego zgłoszenia ({reference})",
-      "actioned": "Sprawdziliśmy zgłoszoną przez Ciebie treść (miejsce nr {no}) i podjęliśmy działania: nie jest już wyświetlana na ścianie.",
-      "dismissed": "Sprawdziliśmy zgłoszoną przez Ciebie treść (miejsce nr {no}) i stwierdziliśmy, że nie narusza naszych zasad dotyczących treści, dlatego pozostaje na ścianie.",
-      "thanks": "Dziękujemy, że pomagasz dbać o to, by ściana była przyjazna."
+      "actioned": "Sprawdziliśmy zgłoszoną przez Ciebie treść (miejsce nr {no}) i podjęliśmy działania: nie jest już wyświetlana.",
+      "dismissed": "Sprawdziliśmy zgłoszoną przez Ciebie treść (miejsce nr {no}) i stwierdziliśmy, że nie narusza naszych zasad dotyczących treści, dlatego pozostaje opublikowana.",
+      "thanks": "Dziękujemy, że pomagasz dbać o to, by piksele były przyjazne."
     },
     "transferOffer": {
       "subject": "Ktoś daje Ci w prezencie miejsce na {site}",
@@ -238,7 +238,7 @@
     "accountDeleted": {
       "subject": "Twoje konto zostało usunięte",
       "intro": "Zgodnie z Twoją prośbą usunęliśmy Twoje konto i dane osobowe. Dowody zakupu przechowujemy tak długo, jak wymaga tego prawo.",
-      "rentals": "Twoje piksele zostają na ścianie, ale nikt nie może już nimi zarządzać."
+      "rentals": "Twoje piksele pozostają opublikowane, ale nikt nie może już nimi zarządzać."
     },
     "staffInvite": {
       "subject": "Masz teraz dostęp do panelu administracyjnego {site}",
@@ -279,7 +279,7 @@
     "backToOrder": "Wróć do mojego zamówienia",
     "keepPlace": "Zostaw to miejsce",
     "position": "x {x0}–{x1}, y {y0}–{y1}",
-    "selectHelp": "Przeciągnij po ścianie, aby zaznaczyć obszar, który chcesz kupić. Zaznaczenie przyciąga się do bloków 10 × 10 px. Przeciągnij rogi, aby zmienić rozmiar, albo przeciągnij obszar, aby go przesunąć. Powiększaj kółkiem myszy; ścianę przesuniesz prawym przyciskiem myszy lub narzędziem „Przesuń ścianę”.",
+    "selectHelp": "Przeciągnij po pikselach, aby zaznaczyć obszar, który chcesz kupić. Zaznaczenie przyciąga się do bloków 10 × 10 px. Przeciągnij rogi, aby zmienić rozmiar, albo przeciągnij obszar, aby go przesunąć. Powiększaj kółkiem myszy; widok przesuniesz prawym przyciskiem myszy lub narzędziem „Przesuń widok”.",
     "selectHelpTouch": "Na telefonie: powiększ dwoma palcami, stuknij pierwszy róg, potem przeciwległy, a obszar dopasuj uchwytami w rogach.",
     "yourSelection": "Twoje zaznaczenie",
     "noSelection": "Nic jeszcze nie zaznaczono.",
@@ -295,7 +295,7 @@
       "taken": "Ktoś przed chwilą zarezerwował część tego obszaru. Oto wolne miejsca tej samej wielkości w pobliżu:",
       "rate_limited": "Masz już kilka aktywnych rezerwacji. Najpierw dokończ albo anuluj jedną z nich.",
       "sales_paused": "Sprzedaż jest obecnie wstrzymana. Spróbuj ponownie później.",
-      "invalid": "Ten obszar nie leży na ścianie.",
+      "invalid": "Ten obszar leży poza pikselami.",
       "too_small": "Ten obszar jest za mały.",
       "too_large": "Ten obszar jest za duży.",
       "network": "Nie udało się połączyć z serwerem. Sprawdź połączenie i spróbuj ponownie.",
@@ -317,7 +317,7 @@
     "find": "Szukaj",
     "noSpots": "Brak wolnego miejsca tej wielkości. Spróbuj mniejszego.",
     "spotsNear": "Najbliżej środka:",
-    "spotsRandom": "W innych częściach ściany:",
+    "spotsRandom": "W innych miejscach:",
     "spot": "x {x}, y {y} ({w} × {h} px)",
     "contentTitle": "Twój obrazek ({w} × {h} px)",
     "currentContent": "Twoja obecna treść",
@@ -444,7 +444,7 @@
     },
     "back": "Wstecz",
     "summaryTitle": "Podsumowanie",
-    "summaryPreview": "Twoja treść na ścianie",
+    "summaryPreview": "Podgląd Twoich pikseli",
     "editContent": "Zmień treść",
     "editDetails": "Zmień dane",
     "priceTotal": "Razem",
@@ -452,7 +452,7 @@
     "notVatPayer": "Cena końcowa. Sprzedawca nie jest czynnym podatnikiem VAT.",
     "pay": "Zapłać {price}",
     "redirecting": "Otwieranie płatności…",
-    "payNote": "Płacisz na następnej stronie. Treść sprawdzamy zwykle w ciągu {hours, plural, one {# godziny} few {# godzin} many {# godzin} other {# godziny}}; potem Twoje piksele są na ścianie na zawsze.",
+    "payNote": "Płacisz na następnej stronie. Treść sprawdzamy zwykle w ciągu {hours, plural, one {# godziny} few {# godzin} many {# godzin} other {# godziny}}; potem Twoje piksele są opublikowane na zawsze.",
     "devPaymentNote": "Tryb testowy: nie jest pobierana żadna prawdziwa płatność (Stripe nie jest jeszcze podłączony).",
     "payErrors": {
       "expired": "Twoja rezerwacja wygasła. Zarezerwuj miejsce ponownie.",
@@ -468,10 +468,10 @@
   "thanks": {
     "title": "Dziękujemy!",
     "statusReview": "Opłacone — czeka na zatwierdzenie",
-    "statusActive": "Zatwierdzone — Twoje piksele są na ścianie",
-    "reviewText": "Sprawdzamy każdy obrazek, zanim pojawi się na ścianie, zwykle w ciągu 24 godzin. Potem zostaje tam na zawsze.",
+    "statusActive": "Zatwierdzone — Twoje piksele są opublikowane",
+    "reviewText": "Sprawdzamy każdy obrazek przed publikacją, zwykle w ciągu 24 godzin. Potem pozostaje opublikowany na zawsze.",
     "emailSent": "Potwierdzenie i dowód zakupu wysłaliśmy na adres {email}.",
-    "seeSpot": "Pokaż moje miejsce na ścianie",
+    "seeSpot": "Pokaż moje piksele",
     "refundedTitle": "Przykro nam",
     "refundedText": "Twoja płatność dotarła po zakończeniu rezerwacji, a w międzyczasie ktoś inny kupił to miejsce. Zwróciliśmy całą kwotę.",
     "chooseAnother": "Wybierz inne miejsce",
@@ -481,7 +481,7 @@
     "noOrderTitle": "Brak zamówienia",
     "noOrderText": "W tej przeglądarce nie ma żadnego zamówienia.",
     "devEmails": "Tryb deweloperski: e-maile są w lokalnej skrzynce",
-    "backToWall": "Wróć do ściany"
+    "backToWall": "Wróć do pikseli"
   },
   "devCheckout": {
     "title": "Płatność testowa",
@@ -550,7 +550,7 @@
     "rentNow": "Kup piksele »",
     "status": {
       "in_review": "Czeka na zatwierdzenie",
-      "active": "Na ścianie",
+      "active": "Opublikowane",
       "grace": "W okresie karencji",
       "ended": "Zakończone",
       "rejected": "Niezatwierdzone: czeka na nową treść",
@@ -563,11 +563,11 @@
     "size": "Rozmiar",
     "sizeValue": "{w} × {h} px ({pixels, number} pikseli)",
     "link": "Link",
-    "waitingChange": "Zmiana wysłana {date} czeka na zatwierdzenie; do tego czasu na ścianie zostaje obecna treść.",
+    "waitingChange": "Zmiana wysłana {date} czeka na zatwierdzenie; do tego czasu opublikowana pozostaje obecna treść.",
     "decision": {
       "rejected": "Nie mogliśmy zatwierdzić Twojej treści.",
       "changes": "Popraw swoją treść.",
-      "changeRejected": "Twoja ostatnia zmiana nie została zatwierdzona; na ścianie zostaje poprzednia treść."
+      "changeRejected": "Twoja ostatnia zmiana nie została zatwierdzona; opublikowana pozostaje poprzednia treść."
     },
     "reason": "Powód: {reason}",
     "reuploadUntil": "Wyślij nową treść do {date}. W przeciwnym razie zwrócimy całą płatność i zwolnimy miejsce.",
@@ -590,27 +590,27 @@
     "transferCancel": "Anuluj",
     "cancel": "Anuluj",
     "deleteTitle": "Usuń moje konto i dane osobowe",
-    "deleteHelp": "Twoje konto, adres e-mail i publiczna nazwa zostaną usunięte. Dowody zakupu przechowujemy tak długo, jak wymaga tego prawo. Twoje piksele zostaną na ścianie, ale nie będzie już można nimi zarządzać.",
+    "deleteHelp": "Twoje konto, adres e-mail i publiczna nazwa zostaną usunięte. Dowody zakupu przechowujemy tak długo, jak wymaga tego prawo. Twoje piksele pozostaną opublikowane, ale nie będzie już można nimi zarządzać.",
     "deleteConfirm": "Wpisz swój adres e-mail ({email}), aby potwierdzić",
     "deleteButton": "Usuń konto",
     "editTitle": "Zmień treść",
     "notEditable": "Tego miejsca nie można już zmienić.",
     "backToList": "Wróć do sekcji Moje piksele",
-    "editIntro": "Zmień obrazek, tytuł, link lub nazwę. Zmiana trafi do zatwierdzenia; do tego czasu na ścianie zostaje obecna treść.",
+    "editIntro": "Zmień obrazek, tytuł, link lub nazwę. Zmiana trafi do zatwierdzenia; do tego czasu opublikowana pozostaje obecna treść.",
     "editRejectedIntro": "Wyślij nową treść dla swojego miejsca. Ponownie trafi do zatwierdzenia.",
-    "onWallNow": "Teraz na ścianie",
+    "onWallNow": "Teraz opublikowane",
     "waitingApproval": "Czeka na zatwierdzenie",
     "newPicture": "Nowy obrazek (jeszcze niewysłany)",
     "pictureTitle": "Nowy obrazek ({w} × {h} px)",
     "pictureHelp": "Opcjonalnie: zostaw obecny obrazek i zmień tylko teksty poniżej.",
     "textsTitle": "Tytuł, link i nazwa",
     "submit": "Wyślij do zatwierdzenia",
-    "publish": "Opublikuj na ścianie",
+    "publish": "Opublikuj",
     "submitNote": "Każdą zmianę sprawdzamy zwykle w ciągu {hours, plural, one {# godziny} few {# godzin} many {# godzin} other {# godziny}}.",
     "sentTitle": "Wysłano do zatwierdzenia.",
-    "sentKeep": "Sprawdzimy ją zwykle w ciągu {hours, plural, one {# godziny} few {# godzin} many {# godzin} other {# godziny}}. Do tego czasu na ścianie zostaje Twoja obecna treść.",
+    "sentKeep": "Sprawdzimy ją zwykle w ciągu {hours, plural, one {# godziny} few {# godzin} many {# godzin} other {# godziny}}. Do tego czasu opublikowana pozostaje Twoja obecna treść.",
     "sentNew": "Sprawdzimy ją zwykle w ciągu {hours, plural, one {# godziny} few {# godzin} many {# godzin} other {# godziny}} i damy Ci znać e-mailem.",
-    "published": "Zmiana jest na ścianie.",
+    "published": "Zmiana jest opublikowana.",
     "errors": {
       "email_invalid": "Podaj prawidłowy adres e-mail.",
       "same_owner": "To Twój własny adres.",
@@ -627,7 +627,7 @@
     },
     "lastVersion": "Twoja ostatnia wersja (niezatwierdzona)",
     "pictureHelpRejected": "Utwórz nowy obrazek albo zostaw poprzedni i zmień w tekstach poniżej tylko to, o co prosił moderator.",
-    "since": "Na ścianie od",
+    "since": "Opublikowane od",
     "afterApproval": "po zatwierdzeniu"
   },
   "receipt": {
@@ -638,7 +638,7 @@
     "seller": "Sprzedawca",
     "buyer": "Kupujący",
     "item": "Usługa",
-    "itemValue": "Miejsce {w} × {h} px na ścianie (x {x0}–{x1}, y {y0}–{y1}, miejsce nr {no}), wyświetlane na zawsze",
+    "itemValue": "Miejsce {w} × {h} px (x {x0}–{x1}, y {y0}–{y1}, miejsce nr {no}), wyświetlane na zawsze",
     "total": "Zapłacono łącznie",
     "vat": "VAT",
     "vatIncluded": "Cena zawiera VAT {rate}%: {vat}",
@@ -647,13 +647,13 @@
     "print": "Drukuj lub zapisz jako PDF"
   },
   "transfer": {
-    "title": "Przyjmij miejsce na ścianie",
-    "intro": "Ktoś podarował Ci miejsce na ścianie. Przyjmij je, a staniesz się jego właścicielem; zalogujemy Cię do sekcji Moje piksele Twoim adresem e-mail.",
+    "title": "Przyjmij miejsce z pikselami",
+    "intro": "Ktoś podarował Ci miejsce z pikselami. Przyjmij je, a staniesz się jego właścicielem; zalogujemy Cię do sekcji Moje piksele Twoim adresem e-mail.",
     "accept": "Przyjmij miejsce",
     "invalid": "Ten link nie jest już ważny (miejsce zostało już przyjęte, oferta została anulowana albo wygasła)."
   },
   "report": {
-    "intro": "Daj nam znać o treściach na ścianie, które naruszają prawo lub nasze zasady dotyczące treści. Każde zgłoszenie sprawdza człowiek.",
+    "intro": "Daj nam znać o opublikowanych treściach, które naruszają prawo lub nasze zasady dotyczące treści. Każde zgłoszenie sprawdza człowiek.",
     "rules": "Co jest zabronione, znajdziesz w <link>zasadach dotyczących treści</link>.",
     "authoritiesTitle": "Dla organów",
     "authorities": "Punkt kontaktowy zgodnie z aktem o usługach cyfrowych (UE 2022/2065) dla organów i użytkowników: {email}. Odpowiadamy po słowacku lub po angielsku.",
@@ -662,7 +662,7 @@
     "willAnswer": "Wysłaliśmy potwierdzenie na Twój e-mail i poinformujemy Cię o naszej decyzji.",
     "noAnswer": "Nie podano adresu e-mail, więc nie możemy przekazać Ci wyniku.",
     "rentalNo": "Numer miejsca",
-    "rentalNoHelp": "widoczny w oknie po kliknięciu miejsca na ścianie",
+    "rentalNoHelp": "widoczny w oknie po kliknięciu miejsca",
     "category": "Co jest nie tak",
     "choose": "— wybierz —",
     "description": "Szczegóły",
@@ -675,7 +675,7 @@
     "privacy": "Twój adres e-mail wykorzystamy wyłącznie do odpowiedzi na to zgłoszenie.",
     "errors": {
       "invalid": "Podaj numer miejsca i napisz, co jest nie tak.",
-      "rental_not_found": "Na ścianie nie ma miejsca o tym numerze.",
+      "rental_not_found": "Nie ma miejsca o tym numerze.",
       "description_required": "Opisz problem.",
       "email_invalid": "Podaj prawidłowy adres e-mail albo zostaw pole puste.",
       "rate_limited": "Zbyt wiele zgłoszeń z Twojego połączenia. Spróbuj ponownie później.",
@@ -689,21 +689,21 @@
     "message": "Dzień dobry, czy mogę zmienić link mojego miejsca?"
   },
   "how": {
-    "intro": "{site} to ściana z {pixels, plural, one {# piksela} few {# pikseli} many {# pikseli} other {# piksela}}. Kup raz jej kawałek, umieść na nim swój obrazek, a zostanie tam na zawsze — tak długo, jak istnieje strona.",
+    "intro": "{site} to {pixels, plural, one {# piksel} few {# piksele} many {# pikseli} other {# piksela}} w jednym miejscu. Kup raz ich część, umieść na niej swój obrazek, a zostanie tam na zawsze — tak długo, jak istnieje strona.",
     "step1Title": "Wybierz miejsce",
-    "step1": "Przeciągnij po ścianie, aby zaznaczyć wolny obszar. Zaznaczenie przyciąga się do bloków 10 × 10 px, a rozmiar i cenę widzisz od razu. Nie wiesz, gdzie? „Znajdź mi miejsce” podpowie wolne miejsca w wybranym rozmiarze.",
+    "step1": "Przeciągnij po pikselach, aby zaznaczyć wolny obszar. Zaznaczenie przyciąga się do bloków 10 × 10 px, a rozmiar i cenę widzisz od razu. Nie wiesz, gdzie? „Znajdź mi miejsce” podpowie wolne miejsca w wybranym rozmiarze.",
     "step2Title": "Wgraj albo narysuj",
     "step2": "Wgraj zdjęcie — nasz filtr pikseli zamieni je dokładnie w tyle pikseli, ile kupisz — narysuj coś w edytorze pikseli albo napisz tekst. Dodaj tytuł, opcjonalny link i swoje imię lub pseudonim.",
-    "step3Title": "Zapłać i jesteś na ścianie",
-    "step3": "Zapłać bezpiecznie kartą, przez Apple Pay lub Google Pay. Każdy obrazek sprawdza człowiek, zwykle w ciągu {hours, plural, one {# godziny} few {# godzin} many {# godzin} other {# godziny}}, a potem Twoje piksele są na ścianie na zawsze.",
+    "step3Title": "Zapłać, a Twoje piksele trafią do sieci",
+    "step3": "Zapłać bezpiecznie kartą, przez Apple Pay lub Google Pay. Każdy obrazek sprawdza człowiek, zwykle w ciągu {hours, plural, one {# godziny} few {# godzin} many {# godzin} other {# godziny}}, a potem Twoje piksele są opublikowane na zawsze.",
     "pricesTitle": "Ceny",
     "pricesIntro": "Jeden piksel kosztuje {price}. Płacisz raz; nie ma żadnej rocznej opłaty.",
     "colSize": "Rozmiar",
     "colPixels": "Piksele",
     "colPrice": "Cena",
     "blocks": "{count, plural, one {# blok} few {# bloki} many {# bloków} other {# bloku}}",
-    "rulesTitle": "Co może być na ścianie",
-    "rules": "Obrazki, rysunki i teksty zgodne z naszymi <rules>zasadami dotyczącymi treści</rules>: nic nielegalnego, żadnej nagości, przemocy, nienawiści ani oszustw i tylko treści, do których masz prawa. Ściana to jeden nieruchomy obraz, więc animacje i filmy nie są możliwe.",
+    "rulesTitle": "Co można opublikować",
+    "rules": "Obrazki, rysunki i teksty zgodne z naszymi <rules>zasadami dotyczącymi treści</rules>: nic nielegalnego, żadnej nagości, przemocy, nienawiści ani oszustw i tylko treści, do których masz prawa. Wszystkie piksele tworzą jeden nieruchomy obraz, więc animacje i filmy nie są możliwe.",
     "start": "Kup piksele",
     "more": "Więcej odpowiedzi znajdziesz w <faq>FAQ</faq>."
   },
@@ -711,31 +711,31 @@
     "intro": "Odpowiedzi na najczęstsze pytania. Masz inne pytanie? <contact>Napisz do nas</contact>.",
     "costQ": "Ile to kosztuje?",
     "costA": "{price} za piksel, płatne raz. Najmniejsze miejsce to jeden blok 10 × 10 px za {block}; 50 × 50 px kosztuje {spot50}, a 100 × 100 px kosztuje {spot100}. {vat}",
-    "howLongQ": "Jak długo moje piksele zostaną na ścianie?",
-    "howLongA": "Na zawsze. Płacisz raz, a Twój obrazek zostaje na ścianie tak długo, jak istnieje {site}. Nie ma rocznej opłaty ani niczego do odnawiania.",
+    "howLongQ": "Jak długo moje piksele pozostaną opublikowane?",
+    "howLongA": "Na zawsze. Płacisz raz, a Twój obrazek pozostaje opublikowany tak długo, jak istnieje {site}. Nie ma rocznej opłaty ani niczego do odnawiania.",
     "whatQ": "Co mogę umieścić na swoich pikselach?",
     "whatA": "Zdjęcie lub obrazek (PNG, JPG, WebP albo nieruchomy GIF do {mb} MB), rysunek z naszego edytora pikseli albo kolorowy obszar z tekstem. Możesz dodać tytuł, link i swoje imię lub pseudonim. Wszystko musi być zgodne z <rules>zasadami dotyczącymi treści</rules>.",
-    "whenQ": "Kiedy moje piksele pojawią się na ścianie?",
-    "whenA": "Gdy człowiek sprawdzi Twój obrazek, zwykle w ciągu {hours, plural, one {# godziny} few {# godzin} many {# godzin} other {# godziny}} od płatności. Gdy tylko będzie na ścianie, damy Ci znać e-mailem.",
+    "whenQ": "Kiedy moje piksele zostaną opublikowane?",
+    "whenA": "Gdy człowiek sprawdzi Twój obrazek, zwykle w ciągu {hours, plural, one {# godziny} few {# godzin} many {# godzin} other {# godziny}} od płatności. Gdy tylko zostanie opublikowany, damy Ci znać e-mailem.",
     "rejectedQ": "Co jeśli odrzucicie moją treść?",
     "rejectedA": "Dostaniesz e-mail z uzasadnieniem i w ciągu {days, plural, one {# dnia} few {# dni} many {# dni} other {# dnia}} możesz wysłać inną treść; do tego czasu Twoje miejsce pozostaje zarezerwowane. Jeśli tego nie zrobisz, zwrócimy całą płatność, a miejsce znów będzie wolne.",
     "changeQ": "Czy mogę później zmienić obrazek?",
-    "changeA": "Tak, w każdej chwili w sekcji Moje piksele: obrazek, tytuł, link lub nazwę. Każda zmiana jest ponownie sprawdzana, a do tego czasu na ścianie zostaje Twój obecny obrazek.",
+    "changeA": "Tak, w każdej chwili w sekcji Moje piksele: obrazek, tytuł, link lub nazwę. Każda zmiana jest ponownie sprawdzana, a do tego czasu opublikowany pozostaje Twój obecny obrazek.",
     "closeQ": "Co się stanie, jeśli strona kiedyś przestanie działać?",
-    "closeA": "Chcemy utrzymać ścianę w sieci przez bardzo długi czas. Gdybyśmy kiedykolwiek musieli ją zamknąć, z wyprzedzeniem poinformujemy wszystkich właścicieli e-mailem. Szczegóły znajdziesz w <terms>regulaminie</terms>.",
+    "closeA": "Chcemy utrzymać stronę w sieci przez bardzo długi czas. Gdybyśmy kiedykolwiek musieli ją zamknąć, z wyprzedzeniem poinformujemy wszystkich właścicieli e-mailem. Szczegóły znajdziesz w <terms>regulaminie</terms>.",
     "blocksQ": "Dlaczego piksele są sprzedawane w blokach 10 × 10?",
-    "blocksA": "Pojedynczy piksel byłby za mały, żeby go zobaczyć albo kliknąć. Dzięki blokom 10 × 10 px na ścianie panuje porządek, a każde miejsce da się kliknąć i łatwo znaleźć. Najmniejsze miejsce to jeden blok, czyli 100 pikseli.",
+    "blocksA": "Pojedynczy piksel byłby za mały, żeby go zobaczyć albo kliknąć. Dzięki blokom 10 × 10 px wśród pikseli panuje porządek, a każde miejsce da się kliknąć i łatwo znaleźć. Najmniejsze miejsce to jeden blok, czyli 100 pikseli.",
     "giftQ": "Czy mogę podarować swoje piksele?",
     "giftA": "Tak. W sekcji Moje piksele wybierz „Podaruj to miejsce komuś innemu” i wpisz adres e-mail tej osoby. Dostanie link i zostanie nowym właścicielem, gdy przyjmie miejsce.",
     "receiptQ": "Czy dostanę dowód zakupu?",
     "receiptA": "Tak. Po płatności wyślemy Ci e-mailem potwierdzenie z dowodem zakupu, a każdy dowód zakupu możesz w sekcji Moje piksele wydrukować lub zapisać jako PDF.",
     "privateQ": "Czy mój adres e-mail będzie widoczny?",
-    "privateA": "Nie. Na ścianie wyświetlane są tylko tytuł, link i wybrana przez Ciebie publiczna nazwa. Twój adres e-mail pozostaje prywatny."
+    "privateA": "Nie. Publicznie wyświetlane są tylko tytuł, link i wybrana przez Ciebie publiczna nazwa. Twój adres e-mail pozostaje prywatny."
   },
   "latest": {
-    "intro": "Najnowsze obrazki na ścianie. Kliknij obrazek, aby zobaczyć go na ścianie.",
-    "empty": "Na ścianie nie ma jeszcze żadnych obrazków. Twój może być pierwszy!",
-    "since": "na ścianie od {date}"
+    "intro": "Najnowsze obrazki. Kliknij obrazek, aby zobaczyć go wśród pikseli.",
+    "empty": "Nie ma jeszcze żadnych obrazków. Twój może być pierwszy!",
+    "since": "opublikowane od {date}"
   },
   "contact": {
     "intro": "Pytania o zamówienie, pomysły albo problemy? Napisz do nas przez formularz lub e-mailem. Zwykle odpowiadamy w ciągu dwóch dni roboczych.",
@@ -752,7 +752,7 @@
     "name": "Twoje imię",
     "email": "Twój e-mail",
     "spotNo": "Numer miejsca",
-    "spotNoHelp": "jeśli wiadomość dotyczy miejsca na ścianie",
+    "spotNoHelp": "jeśli wiadomość dotyczy konkretnego miejsca",
     "message": "Wiadomość",
     "optional": "opcjonalnie",
     "send": "Wyślij wiadomość",
@@ -774,29 +774,29 @@
     "emailLabel": "E-mail",
     "dsaTitle": "Punkt kontaktowy zgodnie z aktem o usługach cyfrowych",
     "dsa": "Organy państw członkowskich UE, Komisja Europejska, Europejska Rada ds. Usług Cyfrowych oraz użytkownicy mogą kontaktować się z nami elektronicznie pod adresem {email} lub przez powyższy formularz (temat „Organ”). Możesz pisać do nas po słowacku lub po angielsku.",
-    "reportHint": "Aby zgłosić nielegalne treści na ścianie, użyj <report>formularza zgłoszenia</report>: trafia on prosto do moderacji."
+    "reportHint": "Aby zgłosić nielegalne treści, użyj <report>formularza zgłoszenia</report>: trafia on prosto do moderacji."
   },
   "share": {
     "title": "„{title}” na {site}",
     "ogText": "Mam własne miejsce na {site}!",
-    "description": "{size} na ścianie z miliona pikseli. Kliknij, aby zobaczyć.",
-    "see": "Zobacz na ścianie",
-    "redirecting": "Otwieranie ściany…",
-    "gone": "To miejsce nie jest obecnie wyświetlane na ścianie."
+    "description": "{size} wśród miliona pikseli. Kliknij, aby zobaczyć.",
+    "see": "Zobacz wśród pikseli",
+    "redirecting": "Otwieranie pikseli…",
+    "gone": "To miejsce nie jest obecnie wyświetlane."
   },
   "goWarning": {
     "title": "Ten link może być niebezpieczny",
     "text": "Kontrola bezpieczeństwa oznaczyła stronę pod tym linkiem jako niebezpieczną (złośliwe oprogramowanie lub phishing). Wstrzymaliśmy przekierowanie, dopóki moderator tego nie sprawdzi.",
     "address": "Adres:",
-    "back": "Wróć do ściany"
+    "back": "Wróć do pikseli"
   },
   "legal": {
     "todo": "[do uzupełnienia]",
     "draft": "Ten tekst jest szablonem. Miejsca oznaczone „[do uzupełnienia]” zostaną uzupełnione, a cały tekst sprawdzi prawnik przed uruchomieniem strony.",
-    "rules": "Te zasady dotyczą wszystkiego, co jest wyświetlane na {site}: obrazków, rysunków, tekstów, tytułów, nazw i linków. Każdą treść sprawdza człowiek, zanim pojawi się na ścianie. Składając zamówienie, potwierdzasz, że Twoja treść jest zgodna z tymi zasadami.\n\n## Zabronione\n- wszystko, co nielegalne;\n- nagość, pornografia i treści seksualne;\n- przemoc, krew i broń w agresywnym kontekście;\n- nienawiść, symbole ekstremistyczne, zastraszanie i nękanie;\n- dane osobowe lub zdjęcia innych osób bez ich zgody;\n- oszustwa, phishing, złośliwe oprogramowanie, piramidy finansowe i hazard bez licencji;\n- logo, postacie i inne treści, do których nie masz praw;\n- reklama polityczna;\n- linki do stron z takimi treściami.\n\n## Ograniczenia techniczne\nŚciana to jeden nieruchomy obraz: animacje i filmy nie są możliwe. Linki muszą zaczynać się od http:// lub https://. Możemy odrzucić treści, które w danym rozmiarze są nieczytelne lub udają część strony (na przykład fałszywe przyciski).\n\n## Gdy treść narusza zasady\n- Przed zatwierdzeniem odrzucamy treść i podajemy powód. W ciągu {days, plural, one {# dnia} few {# dni} many {# dni} other {# dnia}} możesz wysłać inną treść; w przeciwnym razie zwracamy całą płatność.\n- Po zatwierdzeniu możemy natychmiast ukryć treść i usunąć ją na stałe, jeśli narusza te zasady lub prawo. Za usunięte treści nie przysługuje zwrot pieniędzy (zob. [regulamin](/terms)). Zawsze otrzymasz e-mail z uzasadnieniem.\n- Od każdej decyzji możesz się odwołać: odpowiedz na nasz e-mail lub napisz na adres {email}. Sprawę ponownie rozpatrzy człowiek.\n\n## Zgłaszanie\nKażdy może zgłosić treść przyciskiem „Zgłoś” w oknie każdego miejsca albo na stronie [Zgłoś treść](/report). Potwierdzamy każde zgłoszenie i informujemy zgłaszającego o naszej decyzji.",
-    "terms": "## 1. Kim jesteśmy\nStronę internetową {site} („strona”) prowadzi {operator}, nr identyfikacyjny {companyId}, siedziba {address}, e-mail {email} („operator”, „my”). Wpis do rejestru: {todo}\n\n## 2. Co kupujesz\n- Strona wyświetla ścianę z {pixels, plural, one {# piksela} few {# pikseli} many {# pikseli} other {# piksela}} podzieloną na bloki 10 × 10 px. Kupujesz prawo do wyświetlania własnej treści (obrazka, rysunku lub tekstu z opcjonalnym linkiem) na wybranym przez siebie prostokącie złożonym z całych bloków („miejsce”).\n- Cena wynosi {price} za piksel. Płacisz raz; nie ma żadnych opłat cyklicznych. Wszystkie ceny są cenami końcowymi. {vat}\n- Twoja treść pozostaje na ścianie bez ograniczenia czasowego, tak długo, jak prowadzimy stronę. Nie stajesz się właścicielem żadnej części strony, jej oprogramowania ani obrazu ściany jako całości.\n\n## 3. Jak zawierana jest umowa\n- Wybierasz miejsce (rezerwujemy je dla Ciebie na krótki czas), dodajesz treść i dane, akceptujesz niniejszy regulamin i [zasady dotyczące treści](/content-rules) oraz płacisz za pośrednictwem operatora płatności Stripe.\n- Umowa zostaje zawarta z chwilą otrzymania Twojej płatności. Potwierdzenie z dowodem zakupu wysyłamy Ci e-mailem.\n- Zanim Twoja treść pojawi się na ścianie, sprawdza ją człowiek, zwykle w ciągu {hours, plural, one {# godziny} few {# godzin} many {# godzin} other {# godziny}}.\n\n## 4. Zatwierdzenie i odrzucenie\n- Jeśli nie możemy zatwierdzić Twojej treści, podajemy powód. W ciągu {days, plural, one {# dnia} few {# dni} many {# dni} other {# dnia}} możesz wysłać inną treść; do tego czasu miejsce pozostaje dla Ciebie zarezerwowane.\n- Jeśli w tym terminie nie otrzymamy treści, którą można zatwierdzić, umowa wygasa, a my automatycznie zwracamy całą płatność.\n\n## 5. Twoja treść\n- Odpowiadasz za swoją treść. Potwierdzasz, że masz do niej wszelkie prawa i że jest zgodna z zasadami dotyczącymi treści oraz z prawem.\n- Zezwalasz nam na wyświetlanie Twojej treści na stronie, na obrazach ściany (na przykład w podglądach w mediach społecznościowych) oraz w materiałach o stronie, tak długo, jak strona istnieje.\n- Swoją treść możesz w każdej chwili zmienić w sekcji Moje piksele; każda zmiana jest ponownie sprawdzana.\n- Jeśli treść narusza zasady dotyczące treści lub prawo, możemy ją natychmiast ukryć i usunąć. Za treści usunięte z powodu naruszenia zasad nie przysługuje zwrot pieniędzy. Zawsze podajemy uzasadnienie, a Ty możesz się odwołać.\n\n## 6. Podarowanie miejsca innej osobie\nSwoje miejsce możesz podarować innej osobie w sekcji Moje piksele. Twoje prawa i obowiązki wynikające z niniejszego regulaminu przechodzą na nowego właściciela z chwilą przyjęcia przez niego oferty.\n\n## 7. Prawo odstąpienia od umowy\n- Jako konsument możesz odstąpić od umowy zawartej na odległość w terminie 14 dni bez podawania przyczyny.\n- Składając zamówienie, żądasz rozpoczęcia świadczenia usługi przed upływem tego terminu i przyjmujesz do wiadomości, że z chwilą opublikowania Twojej treści na ścianie tracisz prawo odstąpienia od umowy. Do tego czasu możesz odstąpić od umowy, pisząc na adres {email}; płatność zwrócimy w ciągu 14 dni.\n- Wzór formularza odstąpienia od umowy: {todo}\n\n## 8. Dostępność i zakończenie działania strony\n- Dbamy o to, aby strona działała bez przerw, ale nie możemy zagwarantować tego w każdej chwili (prace konserwacyjne, awarie u naszych dostawców).\n- Zamierzamy prowadzić stronę przez czas nieokreślony. Jeśli kiedykolwiek postanowimy ją zamknąć, z wyprzedzeniem poinformujemy o tym e-mailem wszystkich właścicieli. Okres wypowiedzenia i to, co w takim przypadku otrzymują właściciele: {todo}\n\n## 9. Reklamacje\nSposób składania reklamacji opisuje [procedura reklamacyjna](/complaints).\n\n## 10. Dane osobowe\nDane osobowe przetwarzamy zgodnie z [polityką prywatności](/privacy).\n\n## 11. Postanowienia końcowe\n- Niniejszy regulamin podlega prawu Republiki Słowackiej. Pozasądowe rozwiązywanie sporów konsumenckich: {todo}\n- Możemy zmienić niniejszy regulamin na przyszłość; do Twojego zakupu stosuje się regulamin obowiązujący w dniu Twojej płatności.\n- Niniejszy regulamin obowiązuje od {todo}.",
-    "complaints": "Ta procedura wyjaśnia, jak złożyć reklamację, jeśli nasza usługa nie działa tak, jak powinna — na przykład gdy Twoje miejsce nie jest wyświetlane prawidłowo, ściana nie pokazuje Twojej zatwierdzonej treści albo płatność nie została prawidłowo przetworzona.\n\n## Jak złożyć reklamację\n- Napisz na adres {email} albo skorzystaj z [formularza kontaktowego](/contact) (temat „Reklamacja lub sprawa prawna”).\n- Podaj numer miejsca, adres e-mail użyty przy zamówieniu, opis problemu i, jeśli to możliwe, zrzut ekranu.\n- Niezwłocznie potwierdzimy otrzymanie Twojej reklamacji.\n\n## Jak rozpatrujemy reklamację\n- O Twojej reklamacji decydujemy niezwłocznie, najpóźniej w ciągu 30 dni od jej otrzymania, a wynik przekazujemy Ci e-mailem.\n- Jeśli reklamacja jest uzasadniona, usuwamy problem (na przykład ponownie prawidłowo wyświetlamy Twoją treść); jeśli nie jest to możliwe, zwracamy cenę lub jej odpowiednią część.\n- Prowadzimy rejestr wszystkich reklamacji i sposobu ich rozpatrzenia.\n\n## Zastrzeżenia do decyzji moderacji\nJeśli nie zgadzasz się z decyzją dotyczącą Twojej treści (odrzuceniem, ukryciem lub usunięciem), odpowiedz na nasz e-mail lub napisz na adres {email}. Decyzję ponownie rozpatrzy człowiek.\n\n## Pozasądowe rozwiązywanie sporów\nJeśli sposób rozpatrzenia reklamacji Cię nie zadowala, możesz zwrócić się do nas o naprawienie sytuacji. Jeśli odmówimy lub nie odpowiemy w ciągu 30 dni, możesz zwrócić się do podmiotu pozasądowego rozwiązywania sporów konsumenckich: {todo}\n\nNiniejsza procedura obowiązuje od {todo}.",
-    "privacy": "Chronimy Twoje dane osobowe i zbieramy tylko te, których potrzebujemy do prowadzenia {site}.\n\n## Administrator\n{operator}, nr identyfikacyjny {companyId}, {address}, e-mail {email}. Inspektor ochrony danych: {todo}\n\n## Jakie dane przetwarzamy i dlaczego\n- Zamówienia i płatności: Twój adres e-mail, miejsce, Twoja treść, tytuł, link i publiczna nazwa, Twoje zgody i dane o płatnościach — w celu zawarcia i wykonania umowy (art. 6 ust. 1 lit. b RODO) oraz wypełnienia obowiązków księgowych (art. 6 ust. 1 lit. c RODO). Danymi kart płatniczych zajmuje się wyłącznie operator płatności Stripe; nigdy ich nie widzimy.\n- Konto (Moje piksele): Twój adres e-mail i zapisy logowań — aby umożliwić Ci zarządzanie miejscami (art. 6 ust. 1 lit. b RODO).\n- Moderacja i zgłoszenia: kontrole treści, zgłoszenia i decyzje, w tym adres e-mail zgłaszającego, jeśli go poda — w celu wypełnienia obowiązków wynikających z aktu o usługach cyfrowych i zapewnienia bezpieczeństwa strony (art. 6 ust. 1 lit. c i f RODO).\n- Formularz kontaktowy: Twoje imię, adres e-mail i wiadomość — aby Ci odpowiedzieć (art. 6 ust. 1 lit. f RODO).\n- Bezpieczeństwo: jednokierunkowo zakodowana (zahaszowana) postać Twojego adresu IP w celu ograniczania nadużyć, na przykład liczby rezerwacji, oraz techniczne logi serwera (art. 6 ust. 1 lit. f RODO).\n- Nowości e-mailem: tylko za Twoją zgodą; zgodę możesz w każdej chwili wycofać (art. 6 ust. 1 lit. a RODO).\n\n## Treści publiczne\nTwój obrazek, tytuł, link i publiczna nazwa są publicznie wyświetlane na ścianie. Twój adres e-mail nigdy nie jest wyświetlany.\n\n## Pliki cookie\nUżywamy tylko plików cookie niezbędnych do działania strony: logowania, zamówienia w toku i wybranego języka. Nie używamy plików cookie reklamowych ani śledzących. Odwiedziny liczymy bez plików cookie i bez identyfikowania Cię. Usługa statystyczna: {todo}\n\n## Kto otrzymuje dane\nWyłącznie dostawcy, którzy pomagają nam prowadzić stronę, na podstawie umów powierzenia przetwarzania danych: hosting i baza danych {todo}, przechowywanie plików {todo}, płatności (Stripe), wysyłka e-maili {todo}, ochrona przed botami (Cloudflare Turnstile) oraz sprawdzanie linków i obrazków pod kątem niebezpiecznych treści {todo}. Niektórzy z nich mają siedzibę poza UE; przekazanie danych jest zabezpieczone standardowymi klauzulami umownymi UE lub ramami ochrony danych UE-USA (EU-US Data Privacy Framework).\n\n## Jak długo przechowujemy dane\n- Zamówienia i dowody zakupu: tak długo, jak wymagają tego przepisy rachunkowe i podatkowe (na Słowacji zasadniczo 10 lat).\n- Konto: do czasu, gdy usuniesz je w sekcji Moje piksele.\n- Wiadomości z formularza kontaktowego: dwa lata od ich załatwienia.\n- Zgłoszenia: {todo} od ich rozpatrzenia.\n- Logi techniczne i zapisy bezpieczeństwa: krótko, najwyżej {todo}.\n\n## Twoje prawa\nMasz prawo dostępu do danych, ich sprostowania, usunięcia, ograniczenia przetwarzania i przenoszenia oraz prawo wniesienia sprzeciwu; zgodę możesz w każdej chwili wycofać. Napisz na adres {email}. Konto możesz samodzielnie usunąć w sekcji Moje piksele. Możesz też złożyć skargę do organu nadzorczego: Úrad na ochranu osobných údajov Slovenskej republiky (Urząd Ochrony Danych Osobowych Republiki Słowackiej), Hraničná 12, 820 07 Bratislava, www.dataprotection.gov.sk.\n\nNiniejsza polityka obowiązuje od {todo}.",
+    "rules": "Te zasady dotyczą wszystkiego, co jest wyświetlane na {site}: obrazków, rysunków, tekstów, tytułów, nazw i linków. Każdą treść przed publikacją sprawdza człowiek. Składając zamówienie, potwierdzasz, że Twoja treść jest zgodna z tymi zasadami.\n\n## Zabronione\n- wszystko, co nielegalne;\n- nagość, pornografia i treści seksualne;\n- przemoc, krew i broń w agresywnym kontekście;\n- nienawiść, symbole ekstremistyczne, zastraszanie i nękanie;\n- dane osobowe lub zdjęcia innych osób bez ich zgody;\n- oszustwa, phishing, złośliwe oprogramowanie, piramidy finansowe i hazard bez licencji;\n- logo, postacie i inne treści, do których nie masz praw;\n- reklama polityczna;\n- linki do stron z takimi treściami.\n\n## Ograniczenia techniczne\nWszystkie piksele tworzą jeden nieruchomy obraz: animacje i filmy nie są możliwe. Linki muszą zaczynać się od http:// lub https://. Możemy odrzucić treści, które w danym rozmiarze są nieczytelne lub udają część strony (na przykład fałszywe przyciski).\n\n## Gdy treść narusza zasady\n- Przed zatwierdzeniem odrzucamy treść i podajemy powód. W ciągu {days, plural, one {# dnia} few {# dni} many {# dni} other {# dnia}} możesz wysłać inną treść; w przeciwnym razie zwracamy całą płatność.\n- Po zatwierdzeniu możemy natychmiast ukryć treść i usunąć ją na stałe, jeśli narusza te zasady lub prawo. Za usunięte treści nie przysługuje zwrot pieniędzy (zob. [regulamin](/terms)). Zawsze otrzymasz e-mail z uzasadnieniem.\n- Od każdej decyzji możesz się odwołać: odpowiedz na nasz e-mail lub napisz na adres {email}. Sprawę ponownie rozpatrzy człowiek.\n\n## Zgłaszanie\nKażdy może zgłosić treść przyciskiem „Zgłoś” w oknie każdego miejsca albo na stronie [Zgłoś treść](/report). Potwierdzamy każde zgłoszenie i informujemy zgłaszającego o naszej decyzji.",
+    "terms": "## 1. Kim jesteśmy\nStronę internetową {site} („strona”) prowadzi {operator}, nr identyfikacyjny {companyId}, siedziba {address}, e-mail {email} („operator”, „my”). Wpis do rejestru: {todo}\n\n## 2. Co kupujesz\n- Strona wyświetla {pixels, plural, one {# piksel} few {# piksele} many {# pikseli} other {# piksela}} podzielonych na bloki 10 × 10 px. Kupujesz prawo do wyświetlania własnej treści (obrazka, rysunku lub tekstu z opcjonalnym linkiem) na wybranym przez siebie prostokącie złożonym z całych bloków („miejsce”).\n- Cena wynosi {price} za piksel. Płacisz raz; nie ma żadnych opłat cyklicznych. Wszystkie ceny są cenami końcowymi. {vat}\n- Twoja treść pozostaje opublikowana bez ograniczenia czasowego, tak długo, jak prowadzimy stronę. Nie stajesz się właścicielem żadnej części strony, jej oprogramowania ani obrazu wszystkich pikseli jako całości.\n\n## 3. Jak zawierana jest umowa\n- Wybierasz miejsce (rezerwujemy je dla Ciebie na krótki czas), dodajesz treść i dane, akceptujesz niniejszy regulamin i [zasady dotyczące treści](/content-rules) oraz płacisz za pośrednictwem operatora płatności Stripe.\n- Umowa zostaje zawarta z chwilą otrzymania Twojej płatności. Potwierdzenie z dowodem zakupu wysyłamy Ci e-mailem.\n- Przed publikacją Twoją treść sprawdza człowiek, zwykle w ciągu {hours, plural, one {# godziny} few {# godzin} many {# godzin} other {# godziny}}.\n\n## 4. Zatwierdzenie i odrzucenie\n- Jeśli nie możemy zatwierdzić Twojej treści, podajemy powód. W ciągu {days, plural, one {# dnia} few {# dni} many {# dni} other {# dnia}} możesz wysłać inną treść; do tego czasu miejsce pozostaje dla Ciebie zarezerwowane.\n- Jeśli w tym terminie nie otrzymamy treści, którą można zatwierdzić, umowa wygasa, a my automatycznie zwracamy całą płatność.\n\n## 5. Twoja treść\n- Odpowiadasz za swoją treść. Potwierdzasz, że masz do niej wszelkie prawa i że jest zgodna z zasadami dotyczącymi treści oraz z prawem.\n- Zezwalasz nam na wyświetlanie Twojej treści na stronie, na zbiorczych obrazach pikseli (na przykład w podglądach w mediach społecznościowych) oraz w materiałach o stronie, tak długo, jak strona istnieje.\n- Swoją treść możesz w każdej chwili zmienić w sekcji Moje piksele; każda zmiana jest ponownie sprawdzana.\n- Jeśli treść narusza zasady dotyczące treści lub prawo, możemy ją natychmiast ukryć i usunąć. Za treści usunięte z powodu naruszenia zasad nie przysługuje zwrot pieniędzy. Zawsze podajemy uzasadnienie, a Ty możesz się odwołać.\n\n## 6. Podarowanie miejsca innej osobie\nSwoje miejsce możesz podarować innej osobie w sekcji Moje piksele. Twoje prawa i obowiązki wynikające z niniejszego regulaminu przechodzą na nowego właściciela z chwilą przyjęcia przez niego oferty.\n\n## 7. Prawo odstąpienia od umowy\n- Jako konsument możesz odstąpić od umowy zawartej na odległość w terminie 14 dni bez podawania przyczyny.\n- Składając zamówienie, żądasz rozpoczęcia świadczenia usługi przed upływem tego terminu i przyjmujesz do wiadomości, że z chwilą opublikowania Twojej treści tracisz prawo odstąpienia od umowy. Do tego czasu możesz odstąpić od umowy, pisząc na adres {email}; płatność zwrócimy w ciągu 14 dni.\n- Wzór formularza odstąpienia od umowy: {todo}\n\n## 8. Dostępność i zakończenie działania strony\n- Dbamy o to, aby strona działała bez przerw, ale nie możemy zagwarantować tego w każdej chwili (prace konserwacyjne, awarie u naszych dostawców).\n- Zamierzamy prowadzić stronę przez czas nieokreślony. Jeśli kiedykolwiek postanowimy ją zamknąć, z wyprzedzeniem poinformujemy o tym e-mailem wszystkich właścicieli. Okres wypowiedzenia i to, co w takim przypadku otrzymują właściciele: {todo}\n\n## 9. Reklamacje\nSposób składania reklamacji opisuje [procedura reklamacyjna](/complaints).\n\n## 10. Dane osobowe\nDane osobowe przetwarzamy zgodnie z [polityką prywatności](/privacy).\n\n## 11. Postanowienia końcowe\n- Niniejszy regulamin podlega prawu Republiki Słowackiej. Pozasądowe rozwiązywanie sporów konsumenckich: {todo}\n- Możemy zmienić niniejszy regulamin na przyszłość; do Twojego zakupu stosuje się regulamin obowiązujący w dniu Twojej płatności.\n- Niniejszy regulamin obowiązuje od {todo}.",
+    "complaints": "Ta procedura wyjaśnia, jak złożyć reklamację, jeśli nasza usługa nie działa tak, jak powinna — na przykład gdy Twoje miejsce nie jest wyświetlane prawidłowo, Twoja zatwierdzona treść nie jest wyświetlana albo płatność nie została prawidłowo przetworzona.\n\n## Jak złożyć reklamację\n- Napisz na adres {email} albo skorzystaj z [formularza kontaktowego](/contact) (temat „Reklamacja lub sprawa prawna”).\n- Podaj numer miejsca, adres e-mail użyty przy zamówieniu, opis problemu i, jeśli to możliwe, zrzut ekranu.\n- Niezwłocznie potwierdzimy otrzymanie Twojej reklamacji.\n\n## Jak rozpatrujemy reklamację\n- O Twojej reklamacji decydujemy niezwłocznie, najpóźniej w ciągu 30 dni od jej otrzymania, a wynik przekazujemy Ci e-mailem.\n- Jeśli reklamacja jest uzasadniona, usuwamy problem (na przykład ponownie prawidłowo wyświetlamy Twoją treść); jeśli nie jest to możliwe, zwracamy cenę lub jej odpowiednią część.\n- Prowadzimy rejestr wszystkich reklamacji i sposobu ich rozpatrzenia.\n\n## Zastrzeżenia do decyzji moderacji\nJeśli nie zgadzasz się z decyzją dotyczącą Twojej treści (odrzuceniem, ukryciem lub usunięciem), odpowiedz na nasz e-mail lub napisz na adres {email}. Decyzję ponownie rozpatrzy człowiek.\n\n## Pozasądowe rozwiązywanie sporów\nJeśli sposób rozpatrzenia reklamacji Cię nie zadowala, możesz zwrócić się do nas o naprawienie sytuacji. Jeśli odmówimy lub nie odpowiemy w ciągu 30 dni, możesz zwrócić się do podmiotu pozasądowego rozwiązywania sporów konsumenckich: {todo}\n\nNiniejsza procedura obowiązuje od {todo}.",
+    "privacy": "Chronimy Twoje dane osobowe i zbieramy tylko te, których potrzebujemy do prowadzenia {site}.\n\n## Administrator\n{operator}, nr identyfikacyjny {companyId}, {address}, e-mail {email}. Inspektor ochrony danych: {todo}\n\n## Jakie dane przetwarzamy i dlaczego\n- Zamówienia i płatności: Twój adres e-mail, miejsce, Twoja treść, tytuł, link i publiczna nazwa, Twoje zgody i dane o płatnościach — w celu zawarcia i wykonania umowy (art. 6 ust. 1 lit. b RODO) oraz wypełnienia obowiązków księgowych (art. 6 ust. 1 lit. c RODO). Danymi kart płatniczych zajmuje się wyłącznie operator płatności Stripe; nigdy ich nie widzimy.\n- Konto (Moje piksele): Twój adres e-mail i zapisy logowań — aby umożliwić Ci zarządzanie miejscami (art. 6 ust. 1 lit. b RODO).\n- Moderacja i zgłoszenia: kontrole treści, zgłoszenia i decyzje, w tym adres e-mail zgłaszającego, jeśli go poda — w celu wypełnienia obowiązków wynikających z aktu o usługach cyfrowych i zapewnienia bezpieczeństwa strony (art. 6 ust. 1 lit. c i f RODO).\n- Formularz kontaktowy: Twoje imię, adres e-mail i wiadomość — aby Ci odpowiedzieć (art. 6 ust. 1 lit. f RODO).\n- Bezpieczeństwo: jednokierunkowo zakodowana (zahaszowana) postać Twojego adresu IP w celu ograniczania nadużyć, na przykład liczby rezerwacji, oraz techniczne logi serwera (art. 6 ust. 1 lit. f RODO).\n- Nowości e-mailem: tylko za Twoją zgodą; zgodę możesz w każdej chwili wycofać (art. 6 ust. 1 lit. a RODO).\n\n## Treści publiczne\nTwój obrazek, tytuł, link i publiczna nazwa są wyświetlane publicznie. Twój adres e-mail nigdy nie jest wyświetlany.\n\n## Pliki cookie\nUżywamy tylko plików cookie niezbędnych do działania strony: logowania, zamówienia w toku i wybranego języka. Nie używamy plików cookie reklamowych ani śledzących. Odwiedziny liczymy bez plików cookie i bez identyfikowania Cię. Usługa statystyczna: {todo}\n\n## Kto otrzymuje dane\nWyłącznie dostawcy, którzy pomagają nam prowadzić stronę, na podstawie umów powierzenia przetwarzania danych: hosting i baza danych {todo}, przechowywanie plików {todo}, płatności (Stripe), wysyłka e-maili {todo}, ochrona przed botami (Cloudflare Turnstile) oraz sprawdzanie linków i obrazków pod kątem niebezpiecznych treści {todo}. Niektórzy z nich mają siedzibę poza UE; przekazanie danych jest zabezpieczone standardowymi klauzulami umownymi UE lub ramami ochrony danych UE-USA (EU-US Data Privacy Framework).\n\n## Jak długo przechowujemy dane\n- Zamówienia i dowody zakupu: tak długo, jak wymagają tego przepisy rachunkowe i podatkowe (na Słowacji zasadniczo 10 lat).\n- Konto: do czasu, gdy usuniesz je w sekcji Moje piksele.\n- Wiadomości z formularza kontaktowego: dwa lata od ich załatwienia.\n- Zgłoszenia: {todo} od ich rozpatrzenia.\n- Logi techniczne i zapisy bezpieczeństwa: krótko, najwyżej {todo}.\n\n## Twoje prawa\nMasz prawo dostępu do danych, ich sprostowania, usunięcia, ograniczenia przetwarzania i przenoszenia oraz prawo wniesienia sprzeciwu; zgodę możesz w każdej chwili wycofać. Napisz na adres {email}. Konto możesz samodzielnie usunąć w sekcji Moje piksele. Możesz też złożyć skargę do organu nadzorczego: Úrad na ochranu osobných údajov Slovenskej republiky (Urząd Ochrony Danych Osobowych Republiki Słowackiej), Hraničná 12, 820 07 Bratislava, www.dataprotection.gov.sk.\n\nNiniejsza polityka obowiązuje od {todo}.",
     "vatPayer": "Ceny zawierają VAT {rate}%.",
     "notVatPayer": "Nie jesteśmy czynnym podatnikiem VAT, dlatego VAT nie jest naliczany."
   }

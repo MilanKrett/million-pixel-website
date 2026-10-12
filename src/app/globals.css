@@ -1,7 +1,7 @@
 /*
  * Retro look of a 2005 website: white background, narrow header, system
  * fonts, 1 px grey borders, classic blue underlined links. Colour accent only
- * in the logo and on the "Rent pixels" button. No gradients, big rounded
+ * in the logo and on the "Buy pixels" button. No gradients, big rounded
  * corners, shadows or animated sections.
  */
 
@@ -233,6 +233,8 @@ a.btn-rent:visited {
 .logo-mark {
   flex: none;
   display: block;
+  width: 48px;
+  height: 48px;
 }
 
 .logo-name {
@@ -706,6 +708,11 @@ a.btn-rent:visited {
 @media (max-width: 700px) {
   .page {
     padding-bottom: 76px;
+  }
+
+  .logo-mark {
+    width: 32px;
+    height: 32px;
   }
 
   .logo-name {

@@ -1,15 +1,15 @@
 {
   "meta": {
     "title": "{site} — {pixels, plural, one {# píxel} many {# de píxeis} other {# píxeis}} à venda",
-    "description": "{pixels, plural, one {# píxel} many {# de píxeis} other {# píxeis}}, {price} por píxel. Compre um pedaço da parede para sempre e coloque nele a sua imagem, o seu desenho ou o seu texto com um link.",
+    "description": "{pixels, plural, one {# píxel} many {# de píxeis} other {# píxeis}}, {price} por píxel. Compre alguns para sempre e coloque neles a sua imagem, o seu desenho ou o seu texto com um link.",
     "pageTitle": "{page} — {site}",
     "pages": {
-      "buy": "Escolha um espaço livre na parede, carregue uma fotografia, desenhe ou escreva um texto e pague uma única vez — os seus píxeis ficam na parede para sempre.",
-      "how": "{site} — como funciona: escolha um espaço, carregue ou desenhe a sua imagem, pague uma única vez {price} por píxel e fique na parede para sempre.",
+      "buy": "Escolha píxeis livres, carregue uma fotografia, desenhe ou escreva um texto e pague uma única vez — os seus píxeis ficam publicados para sempre.",
+      "how": "{site} — como funciona: escolha um espaço, carregue ou desenhe a sua imagem, pague uma única vez {price} por píxel e os seus píxeis ficam publicados para sempre.",
       "faq": "{site}: respostas sobre preços, aprovação, alterações, ofertas e recibos.",
-      "latest": "{site}: as imagens mais recentes da parede de um milhão de píxeis.",
+      "latest": "{site}: as imagens mais recentes — um milhão de píxeis num só lugar.",
       "contact": "{site} — contacto: perguntas, reclamações e ponto de contacto nos termos do Regulamento dos Serviços Digitais.",
-      "rules": "{site}: o que pode e o que não pode aparecer na parede.",
+      "rules": "{site}: o que pode e o que não pode ser publicado.",
       "terms": "{site} — termos e condições.",
       "complaints": "{site} — como apresentar uma reclamação.",
       "privacy": "{site} — como protegemos os seus dados pessoais.",
@@ -17,10 +17,10 @@
     }
   },
   "common": {
-    "skipToWall": "Ir para a parede",
+    "skipToWall": "Ir para os píxeis",
     "skipToContent": "Ir para o conteúdo",
     "close": "Fechar",
-    "backToWall": "Voltar à parede",
+    "backToWall": "Voltar aos píxeis",
     "language": "Idioma",
     "pixels": "{count, plural, one {# píxel} many {# de píxeis} other {# píxeis}}",
     "blocks": "{count, plural, one {# bloco} many {# de blocos} other {# blocos}}",
@@ -29,14 +29,14 @@
   },
   "header": {
     "logoTitle": "{site} — início",
-    "statsLabel": "Estatísticas da parede",
+    "statsLabel": "Estatísticas dos píxeis",
     "rented": "Píxeis vendidos",
     "free": "Livres",
     "lastRental": "Última compra",
     "lastRentalNone": "ainda nenhuma",
     "justNow": "agora mesmo",
     "progress": "{percent} vendido",
-    "progressLabel": "{percent} da parede vendido",
+    "progressLabel": "{percent} dos píxeis vendidos",
     "slogan": "Deixe a sua marca na internet"
   },
   "nav": {
@@ -60,10 +60,10 @@
     "complaints": "Reclamações"
   },
   "wall": {
-    "regionLabel": "A parede de píxeis",
+    "regionLabel": "O milhão de píxeis",
     "keyboardHelp": "Use as setas para se deslocar, + e − para ampliar ou reduzir, Enter para abrir o espaço ao centro e Esc para fechar uma janela.",
-    "imageAlt": "A parede de {pixels, plural, one {# píxel} many {# de píxeis} other {# píxeis}} com as imagens de todos os proprietários",
-    "noscript": "Ative o JavaScript para ampliar, pesquisar e comprar píxeis. Mesmo assim, pode clicar nas imagens da parede.",
+    "imageAlt": "{pixels, plural, one {# píxel} many {# de píxeis} other {# píxeis}} com as imagens de todos os proprietários",
+    "noscript": "Ative o JavaScript para ampliar, pesquisar e comprar píxeis. Mesmo assim, pode clicar nas imagens.",
     "zoom": "Zoom",
     "zoomIn": "Ampliar",
     "zoomOut": "Reduzir",
@@ -72,21 +72,21 @@
     "random": "Espaço aleatório",
     "showFree": "Mostrar espaços livres",
     "search": "Pesquisar",
-    "searchLabel": "Pesquisar na parede",
+    "searchLabel": "Pesquisar nos píxeis",
     "searchPlaceholder": "Título, nome ou site",
     "searchNone": "Nada encontrado para «{query}».",
     "searchMany": "{count, plural, one {# resultado} many {# de resultados} other {# resultados}} — escolha um:",
     "rent": "Comprar píxeis",
     "coords": "bloco {bx}, {by} · px {px}, {py}",
-    "coordsIdle": "Aponte para a parede para ver as coordenadas",
+    "coordsIdle": "Aponte para os píxeis para ver as coordenadas",
     "position": "x {x0}–{x1}, y {y0}–{y1}",
     "size": "{w} × {h} px",
     "reserved": "Reservado",
     "rentedPending": "Vendido — a aguardar aprovação",
-    "updated": "A parede foi atualizada.",
+    "updated": "Os píxeis foram atualizados.",
     "tool": "Ferramenta do rato",
     "toolSelect": "Selecionar área",
-    "toolMove": "Mover a parede",
+    "toolMove": "Mover a vista",
     "cornerSet": "Primeiro canto no bloco {bx}, {by}. Desloque-se e prima Enter para marcar o canto oposto.",
     "areaSet": "Área escolhida até ao bloco {bx}, {by}."
   },
@@ -103,16 +103,16 @@
     "freeText": "O bloco {bx}, {by} ({position}) custa {price} — paga uma única vez e é seu para sempre. Também pode selecionar uma área maior.",
     "rentThis": "Comprar este espaço",
     "takenTitle": "Este espaço está vendido",
-    "takenText": "O conteúdo aparecerá na parede depois de aprovado.",
+    "takenText": "O conteúdo será publicado depois de aprovado.",
     "holdTitle": "Este espaço está reservado",
     "holdText": "Alguém está a comprá-lo neste momento. Se a compra não for concluída dentro de alguns minutos, voltará a ficar livre.",
-    "since": "Na parede desde {date}"
+    "since": "Publicado desde {date}"
   },
   "pages": {
     "rent": "Comprar píxeis",
     "how": "Como funciona",
     "faq": "Perguntas frequentes",
-    "latest": "Novidades na parede",
+    "latest": "Imagens mais recentes",
     "mine": "Os meus píxeis",
     "contact": "Contacto",
     "rules": "Regras de conteúdo",
@@ -122,15 +122,15 @@
     "notFoundTitle": "Página não encontrada",
     "notFoundText": "Lamentamos, mas não há nada neste endereço. Talvez o link seja antigo ou tenha um erro.",
     "complaints": "Procedimento de reclamações",
-    "share": "Espaço na parede"
+    "share": "Espaço entre os píxeis"
   },
   "email": {
-    "footer": "{site} — uma parede de um milhão de píxeis.",
+    "footer": "{site} — um milhão de píxeis num só lugar.",
     "greeting": "Olá,",
     "position": "x {x0}–{x1}, y {y0}–{y1}",
     "size": "{w} × {h} px",
     "companyId": "n.º de identificação {id}",
-    "item": "Espaço de {w} × {h} px na parede ({position}, espaço n.º {no}), apresentado para sempre",
+    "item": "Espaço de {w} × {h} px ({position}, espaço n.º {no}), apresentado para sempre",
     "vatIncluded": "O preço inclui IVA à taxa de {rate}%: {vat}",
     "notVatPayer": "O vendedor não é sujeito passivo de IVA.",
     "labels": {
@@ -147,16 +147,16 @@
     },
     "paid": {
       "subject": "Pagamento recebido — os seus píxeis aguardam aprovação",
-      "intro": "Obrigado pela sua encomenda. Recebemos o seu pagamento de {amount}. Vamos verificar o seu conteúdo, normalmente no prazo de {hours, plural, one {# hora} other {# horas}}, e avisamos quando estiver na parede.",
+      "intro": "Obrigado pela sua encomenda. Recebemos o seu pagamento de {amount}. Vamos verificar o seu conteúdo, normalmente no prazo de {hours, plural, one {# hora} other {# horas}}, e avisamos quando estiver publicado.",
       "rentalHeading": "O seu espaço",
       "receiptHeading": "Recibo",
       "mine": "Pode ver os seus espaços na secção Os meus píxeis:",
-      "forever": "Depois de aprovados, os seus píxeis ficam na parede para sempre — enquanto o site existir."
+      "forever": "Depois de aprovados, os seus píxeis ficam publicados para sempre — enquanto o site existir."
     },
     "approved": {
-      "subject": "Os seus píxeis estão na parede!",
-      "intro": "Boas notícias: o seu conteúdo «{title}» foi aprovado e já está na parede, na posição {position}. Os píxeis são seus para sempre.",
-      "see": "Ver na parede",
+      "subject": "Os seus píxeis estão publicados!",
+      "intro": "Boas notícias: o seu conteúdo «{title}» foi aprovado e já está publicado, na posição {position}. Os píxeis são seus para sempre.",
+      "see": "Ver os seus píxeis",
       "share": "Mostre aos seus amigos:",
       "shareText": "Tenho o meu próprio espaço em {site}!",
       "shareEmail": "E-mail"
@@ -178,7 +178,7 @@
     },
     "changeApproved": {
       "subject": "A sua alteração foi aprovada",
-      "intro": "A nova versão de «{title}» já está na parede, na posição {position}."
+      "intro": "A nova versão de «{title}» já está publicada, na posição {position}."
     },
     "rejected": {
       "subject": "O seu conteúdo não foi aprovado",
@@ -189,11 +189,11 @@
     },
     "changesRequested": {
       "subject": "Ajuste o seu conteúdo, por favor",
-      "intro": "O seu conteúdo para o espaço na posição {position} («{title}») precisa de uma alteração antes de o podermos colocar na parede."
+      "intro": "O seu conteúdo para o espaço na posição {position} («{title}») precisa de uma alteração antes de o podermos publicar."
     },
     "changeRejected": {
       "subject": "A sua alteração não foi aprovada",
-      "intro": "Não foi possível aprovar a alteração de «{title}» na posição {position}. O seu conteúdo anterior continua na parede.",
+      "intro": "Não foi possível aprovar a alteração de «{title}» na posição {position}. O seu conteúdo anterior continua publicado.",
       "again": "Pode enviar outra alteração na secção Os meus píxeis.",
       "button": "Abrir Os meus píxeis"
     },
@@ -206,12 +206,12 @@
     },
     "hidden": {
       "subject": "Os seus píxeis foram ocultados temporariamente",
-      "intro": "O seu conteúdo «{title}» na posição {position} foi ocultado da parede enquanto o analisamos.",
-      "next": "Comunicaremos o resultado. Se o conteúdo estiver em ordem, voltará à parede."
+      "intro": "O seu conteúdo «{title}» na posição {position} foi ocultado enquanto o analisamos.",
+      "next": "Comunicaremos o resultado. Se o conteúdo estiver em ordem, voltará a ser apresentado."
     },
     "removed": {
-      "subject": "O seu conteúdo foi removido da parede",
-      "intro": "Removemos da parede «{title}» na posição {position} porque viola as nossas regras de conteúdo.",
+      "subject": "O seu conteúdo foi removido",
+      "intro": "Removemos «{title}» na posição {position} porque viola as nossas regras de conteúdo.",
       "terms": "Conforme previsto nos termos e condições, os conteúdos removidos por violação das regras não são reembolsados."
     },
     "reportReceived": {
@@ -221,9 +221,9 @@
     },
     "reportDecided": {
       "subject": "Decisão sobre a sua denúncia ({reference})",
-      "actioned": "Analisámos o conteúdo que denunciou (espaço n.º {no}) e tomámos medidas: já não aparece na parede.",
-      "dismissed": "Analisámos o conteúdo que denunciou (espaço n.º {no}) e concluímos que não viola as nossas regras de conteúdo, por isso continua na parede.",
-      "thanks": "Obrigado por nos ajudar a manter a parede um lugar agradável."
+      "actioned": "Analisámos o conteúdo que denunciou (espaço n.º {no}) e tomámos medidas: já não aparece.",
+      "dismissed": "Analisámos o conteúdo que denunciou (espaço n.º {no}) e concluímos que não viola as nossas regras de conteúdo, por isso continua publicado.",
+      "thanks": "Obrigado por nos ajudar a manter os píxeis um lugar agradável."
     },
     "transferOffer": {
       "subject": "Alguém lhe oferece um espaço em {site}",
@@ -238,7 +238,7 @@
     "accountDeleted": {
       "subject": "A sua conta foi eliminada",
       "intro": "Conforme pediu, eliminámos a sua conta e os seus dados pessoais. Os recibos são conservados durante o tempo exigido por lei.",
-      "rentals": "Os seus píxeis ficam na parede, mas já ninguém os pode gerir."
+      "rentals": "Os seus píxeis continuam publicados, mas já ninguém os pode gerir."
     },
     "staffInvite": {
       "subject": "Já pode usar a administração de {site}",
@@ -279,7 +279,7 @@
     "backToOrder": "Voltar à minha encomenda",
     "keepPlace": "Manter este espaço",
     "position": "x {x0}–{x1}, y {y0}–{y1}",
-    "selectHelp": "Arraste sobre a parede para selecionar a área que quer comprar. A seleção ajusta-se a blocos de 10 × 10 px. Arraste os cantos para a redimensionar ou arraste a área para a mover. Amplie com a roda do rato; para mover a parede, use o botão direito do rato ou a ferramenta «Mover a parede».",
+    "selectHelp": "Arraste sobre os píxeis para selecionar a área que quer comprar. A seleção ajusta-se a blocos de 10 × 10 px. Arraste os cantos para a redimensionar ou arraste a área para a mover. Amplie com a roda do rato; para mover a vista, use o botão direito do rato ou a ferramenta «Mover a vista».",
     "selectHelpTouch": "No telemóvel: amplie com dois dedos, toque no primeiro canto e depois no canto oposto, e ajuste a área com as pegas dos cantos.",
     "yourSelection": "A sua seleção",
     "noSelection": "Ainda não selecionou nada.",
@@ -295,7 +295,7 @@
       "taken": "Alguém acabou de reservar parte desta área. Eis espaços livres do mesmo tamanho nas proximidades:",
       "rate_limited": "Já tem várias reservas em curso. Conclua ou cancele uma delas primeiro.",
       "sales_paused": "As vendas estão suspensas neste momento. Tente novamente mais tarde.",
-      "invalid": "Esta área não está na parede.",
+      "invalid": "Esta área está fora dos píxeis.",
       "too_small": "Esta área é demasiado pequena.",
       "too_large": "Esta área é demasiado grande.",
       "network": "Não foi possível contactar o servidor. Verifique a sua ligação e tente novamente.",
@@ -317,7 +317,7 @@
     "find": "Procurar",
     "noSpots": "Não há nenhum espaço livre deste tamanho. Experimente um mais pequeno.",
     "spotsNear": "Mais perto do centro:",
-    "spotsRandom": "Noutros pontos da parede:",
+    "spotsRandom": "Noutros pontos:",
     "spot": "x {x}, y {y} ({w} × {h} px)",
     "contentTitle": "A sua imagem ({w} × {h} px)",
     "currentContent": "O seu conteúdo atual",
@@ -444,7 +444,7 @@
     },
     "back": "Voltar",
     "summaryTitle": "Resumo",
-    "summaryPreview": "O seu conteúdo na parede",
+    "summaryPreview": "Pré-visualização dos seus píxeis",
     "editContent": "Alterar conteúdo",
     "editDetails": "Alterar dados",
     "priceTotal": "Total",
@@ -452,7 +452,7 @@
     "notVatPayer": "Preço final. O vendedor não é sujeito passivo de IVA.",
     "pay": "Pagar {price}",
     "redirecting": "A abrir o pagamento…",
-    "payNote": "Paga na página seguinte. Verificamos o conteúdo, normalmente no prazo de {hours, plural, one {# hora} other {# horas}}; depois, os seus píxeis ficam na parede para sempre.",
+    "payNote": "Paga na página seguinte. Verificamos o conteúdo, normalmente no prazo de {hours, plural, one {# hora} other {# horas}}; depois, os seus píxeis ficam publicados para sempre.",
     "devPaymentNote": "Modo de teste: não é efetuado nenhum pagamento real (o Stripe ainda não está ligado).",
     "payErrors": {
       "expired": "A sua reserva expirou. Reserve novamente o espaço.",
@@ -468,10 +468,10 @@
   "thanks": {
     "title": "Obrigado!",
     "statusReview": "Pago — a aguardar aprovação",
-    "statusActive": "Aprovado — os seus píxeis estão na parede",
-    "reviewText": "Verificamos todas as imagens antes de aparecerem na parede, normalmente no prazo de 24 horas. Depois, ficam lá para sempre.",
+    "statusActive": "Aprovado — os seus píxeis estão publicados",
+    "reviewText": "Verificamos todas as imagens antes de as publicar, normalmente no prazo de 24 horas. Depois, ficam publicadas para sempre.",
     "emailSent": "Enviámos a confirmação e o recibo para {email}.",
-    "seeSpot": "Ver o meu espaço na parede",
+    "seeSpot": "Ver os meus píxeis",
     "refundedTitle": "Lamentamos",
     "refundedText": "O seu pagamento chegou depois de a reserva ter terminado e, entretanto, outra pessoa comprou o espaço. Reembolsámos o valor total.",
     "chooseAnother": "Escolher outro espaço",
@@ -481,7 +481,7 @@
     "noOrderTitle": "Sem encomenda",
     "noOrderText": "Não existe nenhuma encomenda neste navegador.",
     "devEmails": "Desenvolvimento: os e-mails estão na caixa local",
-    "backToWall": "Voltar à parede"
+    "backToWall": "Voltar aos píxeis"
   },
   "devCheckout": {
     "title": "Pagamento de teste",
@@ -550,7 +550,7 @@
     "rentNow": "Comprar píxeis »",
     "status": {
       "in_review": "A aguardar aprovação",
-      "active": "Na parede",
+      "active": "Publicado",
       "grace": "Em período de tolerância",
       "ended": "Terminado",
       "rejected": "Não aprovado: a aguardar novo conteúdo",
@@ -563,11 +563,11 @@
     "size": "Tamanho",
     "sizeValue": "{w} × {h} px ({pixels, plural, one {# píxel} many {# de píxeis} other {# píxeis}})",
     "link": "Link",
-    "waitingChange": "Uma alteração enviada em {date} aguarda aprovação; até lá, o conteúdo atual continua na parede.",
+    "waitingChange": "Uma alteração enviada em {date} aguarda aprovação; até lá, o conteúdo atual continua publicado.",
     "decision": {
       "rejected": "Não foi possível aprovar o seu conteúdo.",
       "changes": "Ajuste o seu conteúdo, por favor.",
-      "changeRejected": "A sua última alteração não foi aprovada; o conteúdo anterior continua na parede."
+      "changeRejected": "A sua última alteração não foi aprovada; o conteúdo anterior continua publicado."
     },
     "reason": "Motivo: {reason}",
     "reuploadUntil": "Envie novo conteúdo até {date}. Caso contrário, reembolsamos o pagamento total e libertamos o espaço.",
@@ -590,27 +590,27 @@
     "transferCancel": "Cancelar",
     "cancel": "Cancelar",
     "deleteTitle": "Eliminar a minha conta e os meus dados pessoais",
-    "deleteHelp": "A sua conta, o seu endereço de e-mail e o seu nome público são eliminados. Os recibos são conservados durante o tempo exigido por lei. Os seus píxeis ficam na parede, mas deixa de os poder gerir.",
+    "deleteHelp": "A sua conta, o seu endereço de e-mail e o seu nome público são eliminados. Os recibos são conservados durante o tempo exigido por lei. Os seus píxeis continuam publicados, mas deixa de os poder gerir.",
     "deleteConfirm": "Escreva o seu endereço de e-mail ({email}) para confirmar",
     "deleteButton": "Eliminar conta",
     "editTitle": "Alterar conteúdo",
     "notEditable": "Este espaço já não pode ser alterado.",
     "backToList": "Voltar à secção Os meus píxeis",
-    "editIntro": "Altere a imagem, o título, o link ou o nome. A alteração segue para aprovação; até lá, o conteúdo atual continua na parede.",
+    "editIntro": "Altere a imagem, o título, o link ou o nome. A alteração segue para aprovação; até lá, o conteúdo atual continua publicado.",
     "editRejectedIntro": "Envie novo conteúdo para o seu espaço. Voltará a passar pela aprovação.",
-    "onWallNow": "Agora na parede",
+    "onWallNow": "Publicado agora",
     "waitingApproval": "A aguardar aprovação",
     "newPicture": "Nova imagem (ainda não enviada)",
     "pictureTitle": "Nova imagem ({w} × {h} px)",
     "pictureHelp": "Opcional: mantenha a imagem atual e altere apenas os textos abaixo.",
     "textsTitle": "Título, link e nome",
     "submit": "Enviar para aprovação",
-    "publish": "Publicar na parede",
+    "publish": "Publicar",
     "submitNote": "Verificamos cada alteração, normalmente no prazo de {hours, plural, one {# hora} other {# horas}}.",
     "sentTitle": "Enviado para aprovação.",
-    "sentKeep": "Vamos verificá-la, normalmente no prazo de {hours, plural, one {# hora} other {# horas}}. Até lá, o seu conteúdo atual continua na parede.",
+    "sentKeep": "Vamos verificá-la, normalmente no prazo de {hours, plural, one {# hora} other {# horas}}. Até lá, o seu conteúdo atual continua publicado.",
     "sentNew": "Vamos verificá-la, normalmente no prazo de {hours, plural, one {# hora} other {# horas}}, e avisamos por e-mail.",
-    "published": "A alteração está na parede.",
+    "published": "A alteração está publicada.",
     "errors": {
       "email_invalid": "Introduza um endereço de e-mail válido.",
       "same_owner": "Esse é o seu próprio endereço.",
@@ -627,7 +627,7 @@
     },
     "lastVersion": "A sua última versão (não aprovada)",
     "pictureHelpRejected": "Crie uma nova imagem ou mantenha a anterior e altere nos textos abaixo apenas o que o moderador pediu.",
-    "since": "Na parede desde",
+    "since": "Publicado desde",
     "afterApproval": "após a aprovação"
   },
   "receipt": {
@@ -638,7 +638,7 @@
     "seller": "Vendedor",
     "buyer": "Comprador",
     "item": "Artigo",
-    "itemValue": "Espaço de {w} × {h} px na parede (x {x0}–{x1}, y {y0}–{y1}, espaço n.º {no}), apresentado para sempre",
+    "itemValue": "Espaço de {w} × {h} px (x {x0}–{x1}, y {y0}–{y1}, espaço n.º {no}), apresentado para sempre",
     "total": "Total pago",
     "vat": "IVA",
     "vatIncluded": "O preço inclui IVA à taxa de {rate}%: {vat}",
@@ -647,13 +647,13 @@
     "print": "Imprimir ou guardar como PDF"
   },
   "transfer": {
-    "title": "Aceitar um espaço na parede",
-    "intro": "Alguém lhe ofereceu um espaço na parede. Aceite-o e passará a ser seu; iniciaremos a sua sessão na secção Os meus píxeis com o seu endereço de e-mail.",
+    "title": "Aceitar um espaço de píxeis",
+    "intro": "Alguém lhe ofereceu um espaço de píxeis. Aceite-o e passará a ser seu; iniciaremos a sua sessão na secção Os meus píxeis com o seu endereço de e-mail.",
     "accept": "Aceitar o espaço",
     "invalid": "Este link já não é válido (o espaço já foi aceite, a oferta foi cancelada ou expirou)."
   },
   "report": {
-    "intro": "Informe-nos sobre conteúdos da parede que violem a lei ou as nossas regras de conteúdo. Cada denúncia é verificada por uma pessoa.",
+    "intro": "Informe-nos sobre conteúdos publicados que violem a lei ou as nossas regras de conteúdo. Cada denúncia é verificada por uma pessoa.",
     "rules": "O que não é permitido consta das <link>regras de conteúdo</link>.",
     "authoritiesTitle": "Para autoridades",
     "authorities": "Ponto de contacto nos termos do Regulamento dos Serviços Digitais (UE 2022/2065) para autoridades e utilizadores: {email}. Respondemos em eslovaco ou em inglês.",
@@ -662,7 +662,7 @@
     "willAnswer": "Enviámos uma confirmação para o seu e-mail e vamos comunicar-lhe a nossa decisão.",
     "noAnswer": "Não deixou um endereço de e-mail, por isso não lhe poderemos comunicar o resultado.",
     "rentalNo": "Número do espaço",
-    "rentalNoHelp": "aparece na janela quando clica no espaço da parede",
+    "rentalNoHelp": "aparece na janela quando clica no espaço",
     "category": "Qual é o problema",
     "choose": "— escolha —",
     "description": "Detalhes",
@@ -675,7 +675,7 @@
     "privacy": "Utilizamos o seu endereço de e-mail apenas para responder a esta denúncia.",
     "errors": {
       "invalid": "Indique o número do espaço e qual é o problema.",
-      "rental_not_found": "Não existe nenhum espaço com este número na parede.",
+      "rental_not_found": "Não existe nenhum espaço com este número.",
       "description_required": "Descreva o problema.",
       "email_invalid": "Introduza um endereço de e-mail válido ou deixe o campo vazio.",
       "rate_limited": "Demasiadas denúncias a partir da sua ligação. Tente novamente mais tarde.",
@@ -689,21 +689,21 @@
     "message": "Olá, posso alterar o link do meu espaço?"
   },
   "how": {
-    "intro": "{site} é uma parede de {pixels, plural, one {# píxel} many {# de píxeis} other {# píxeis}}. Compre um pedaço uma única vez, coloque nele a sua imagem e ela ficará lá para sempre — enquanto o site existir.",
+    "intro": "{site} reúne {pixels, plural, one {# píxel} many {# de píxeis} other {# píxeis}} num só lugar. Compre uma parte uma única vez, coloque nela a sua imagem e ela ficará lá para sempre — enquanto o site existir.",
     "step1Title": "Escolha o seu espaço",
-    "step1": "Arraste sobre a parede para selecionar uma área livre. A seleção ajusta-se a blocos de 10 × 10 px e vê de imediato o tamanho e o preço. Não sabe onde? «Encontre-me um espaço» sugere espaços livres do tamanho que pretende.",
+    "step1": "Arraste sobre os píxeis para selecionar uma área livre. A seleção ajusta-se a blocos de 10 × 10 px e vê de imediato o tamanho e o preço. Não sabe onde? «Encontre-me um espaço» sugere espaços livres do tamanho que pretende.",
     "step2Title": "Carregue ou desenhe",
     "step2": "Carregue uma fotografia — o nosso filtro de píxeis transforma-a exatamente no número de píxeis que comprar —, desenhe no editor de píxeis ou escreva um texto. Adicione um título, um link opcional e o seu nome ou alcunha.",
-    "step3Title": "Pague e já está na parede",
-    "step3": "Pague em segurança com cartão, Apple Pay ou Google Pay. Uma pessoa verifica cada imagem, normalmente no prazo de {hours, plural, one {# hora} other {# horas}}, e depois os seus píxeis ficam na parede para sempre.",
+    "step3Title": "Pague e os seus píxeis ficam online",
+    "step3": "Pague em segurança com cartão, Apple Pay ou Google Pay. Uma pessoa verifica cada imagem, normalmente no prazo de {hours, plural, one {# hora} other {# horas}}, e depois os seus píxeis ficam publicados para sempre.",
     "pricesTitle": "Preços",
     "pricesIntro": "Um píxel custa {price}. Paga uma única vez; não há qualquer taxa anual.",
     "colSize": "Tamanho",
     "colPixels": "Píxeis",
     "colPrice": "Preço",
     "blocks": "{count, plural, one {# bloco} many {# de blocos} other {# blocos}}",
-    "rulesTitle": "O que pode estar na parede",
-    "rules": "Imagens, desenhos e textos que respeitem as nossas <rules>regras de conteúdo</rules>: nada ilegal, nada de nudez, violência, ódio ou burlas, e apenas conteúdos sobre os quais tenha direitos. A parede é uma única imagem estática, por isso não são possíveis animações nem vídeos.",
+    "rulesTitle": "O que pode ser publicado",
+    "rules": "Imagens, desenhos e textos que respeitem as nossas <rules>regras de conteúdo</rules>: nada ilegal, nada de nudez, violência, ódio ou burlas, e apenas conteúdos sobre os quais tenha direitos. Todos os píxeis formam uma única imagem estática, por isso não são possíveis animações nem vídeos.",
     "start": "Comprar píxeis",
     "more": "Encontra mais respostas nas <faq>perguntas frequentes</faq>."
   },
@@ -711,31 +711,31 @@
     "intro": "Respostas às perguntas mais frequentes. Tem outra dúvida? <contact>Escreva-nos</contact>.",
     "costQ": "Quanto custa?",
     "costA": "{price} por píxel, num único pagamento. O espaço mais pequeno é um bloco de 10 × 10 px por {block}; 50 × 50 px custam {spot50} e 100 × 100 px custam {spot100}. {vat}",
-    "howLongQ": "Durante quanto tempo ficam os meus píxeis na parede?",
-    "howLongA": "Para sempre. Paga uma vez e a sua imagem fica na parede enquanto {site} existir. Não há taxa anual nem nada para renovar.",
+    "howLongQ": "Durante quanto tempo ficam publicados os meus píxeis?",
+    "howLongA": "Para sempre. Paga uma vez e a sua imagem fica publicada enquanto {site} existir. Não há taxa anual nem nada para renovar.",
     "whatQ": "O que posso colocar nos meus píxeis?",
     "whatA": "Uma fotografia ou imagem (PNG, JPG, WebP ou um GIF estático até {mb} MB), um desenho do nosso editor de píxeis ou uma área colorida com texto. Pode adicionar um título, um link e o seu nome ou alcunha. Tudo tem de respeitar as <rules>regras de conteúdo</rules>.",
-    "whenQ": "Quando aparecem os meus píxeis na parede?",
-    "whenA": "Depois de uma pessoa verificar a sua imagem, normalmente no prazo de {hours, plural, one {# hora} other {# horas}} após o pagamento. Avisamos por e-mail assim que estiver na parede.",
+    "whenQ": "Quando são publicados os meus píxeis?",
+    "whenA": "Depois de uma pessoa verificar a sua imagem, normalmente no prazo de {hours, plural, one {# hora} other {# horas}} após o pagamento. Avisamos por e-mail assim que estiver publicada.",
     "rejectedQ": "E se rejeitarem o meu conteúdo?",
     "rejectedA": "Recebe um e-mail com o motivo e pode enviar outro conteúdo no prazo de {days, plural, one {# dia} other {# dias}}; até lá, o seu espaço continua reservado. Se não o fizer, reembolsamos o pagamento total e o espaço volta a ficar livre.",
     "changeQ": "Posso alterar a minha imagem mais tarde?",
-    "changeA": "Sim, a qualquer momento na secção Os meus píxeis: a imagem, o título, o link ou o nome. Cada alteração é novamente verificada e, entretanto, a sua imagem atual continua na parede.",
+    "changeA": "Sim, a qualquer momento na secção Os meus píxeis: a imagem, o título, o link ou o nome. Cada alteração é novamente verificada e, entretanto, a sua imagem atual continua publicada.",
     "closeQ": "O que acontece se o site fechar um dia?",
-    "closeA": "Queremos manter a parede online durante muito tempo. Se algum dia tivermos de a encerrar, avisaremos todos os proprietários por e-mail com antecedência. Os pormenores estão nos <terms>termos e condições</terms>.",
+    "closeA": "Queremos manter o site online durante muito tempo. Se algum dia tivermos de a encerrar, avisaremos todos os proprietários por e-mail com antecedência. Os pormenores estão nos <terms>termos e condições</terms>.",
     "blocksQ": "Porque é que os píxeis são vendidos em blocos de 10 × 10?",
-    "blocksA": "Um único píxel seria demasiado pequeno para ser visto ou clicado. Os blocos de 10 × 10 px mantêm a parede organizada e tornam cada espaço clicável e fácil de encontrar. O espaço mais pequeno é um bloco, ou seja, 100 píxeis.",
+    "blocksA": "Um único píxel seria demasiado pequeno para ser visto ou clicado. Os blocos de 10 × 10 px mantêm os píxeis organizados e tornam cada espaço clicável e fácil de encontrar. O espaço mais pequeno é um bloco, ou seja, 100 píxeis.",
     "giftQ": "Posso oferecer os meus píxeis?",
     "giftA": "Sim. Na secção Os meus píxeis, escolha «Oferecer este espaço a outra pessoa» e introduza o endereço de e-mail dessa pessoa. Ela recebe um link e o espaço passa a ser dela assim que o aceitar.",
     "receiptQ": "Recebo um recibo?",
     "receiptA": "Sim. Após o pagamento, enviamos-lhe por e-mail a confirmação com um recibo, e na secção Os meus píxeis pode imprimir cada recibo ou guardá-lo como PDF.",
     "privateQ": "O meu endereço de e-mail vai ficar visível?",
-    "privateA": "Não. Na parede só aparecem o título, o link e o nome público que escolher. O seu endereço de e-mail continua privado."
+    "privateA": "Não. Publicamente só aparecem o título, o link e o nome público que escolher. O seu endereço de e-mail continua privado."
   },
   "latest": {
-    "intro": "As imagens mais recentes da parede. Clique numa para a ver na parede.",
-    "empty": "Ainda não há imagens na parede. A sua pode ser a primeira!",
-    "since": "na parede desde {date}"
+    "intro": "As imagens mais recentes. Clique numa para a ver entre os píxeis.",
+    "empty": "Ainda não há imagens. A sua pode ser a primeira!",
+    "since": "publicado desde {date}"
   },
   "contact": {
     "intro": "Tem perguntas sobre a sua encomenda, ideias ou problemas? Escreva-nos através do formulário ou por e-mail. Normalmente respondemos no prazo de dois dias úteis.",
@@ -752,7 +752,7 @@
     "name": "O seu nome",
     "email": "O seu e-mail",
     "spotNo": "Número do espaço",
-    "spotNoHelp": "se a mensagem for sobre um espaço na parede",
+    "spotNoHelp": "se a mensagem for sobre um espaço concreto",
     "message": "Mensagem",
     "optional": "opcional",
     "send": "Enviar mensagem",
@@ -774,29 +774,29 @@
     "emailLabel": "E-mail",
     "dsaTitle": "Ponto de contacto nos termos do Regulamento dos Serviços Digitais",
     "dsa": "As autoridades dos Estados-Membros da UE, a Comissão Europeia, o Comité Europeu dos Serviços Digitais e os utilizadores podem contactar-nos por via eletrónica através de {email} ou do formulário acima (assunto «Autoridade»). Pode escrever-nos em eslovaco ou em inglês.",
-    "reportHint": "Para denunciar conteúdos ilegais na parede, use o <report>formulário de denúncia</report>: segue diretamente para a moderação."
+    "reportHint": "Para denunciar conteúdos ilegais, use o <report>formulário de denúncia</report>: segue diretamente para a moderação."
   },
   "share": {
     "title": "«{title}» — {site}",
     "ogText": "Tenho o meu próprio espaço em {site}!",
-    "description": "{size} na parede de um milhão de píxeis. Clique para ver.",
-    "see": "Ver na parede",
-    "redirecting": "A abrir a parede…",
-    "gone": "Este espaço não está visível na parede neste momento."
+    "description": "{size} entre um milhão de píxeis. Clique para ver.",
+    "see": "Ver entre os píxeis",
+    "redirecting": "A abrir os píxeis…",
+    "gone": "Este espaço não está visível neste momento."
   },
   "goWarning": {
     "title": "Este link pode ser perigoso",
     "text": "Uma verificação de segurança assinalou a página deste link como perigosa (malware ou phishing). Suspendemos o redirecionamento enquanto um moderador a analisa.",
     "address": "O endereço era:",
-    "back": "Voltar à parede"
+    "back": "Voltar aos píxeis"
   },
   "legal": {
     "todo": "[a completar]",
     "draft": "Este texto é um modelo. As partes assinaladas com «[a completar]» serão preenchidas e todo o texto será revisto por um advogado antes do lançamento do site.",
-    "rules": "Estas regras aplicam-se a tudo o que é apresentado em {site}: imagens, desenhos, textos, títulos, nomes e links. Uma pessoa verifica todo o conteúdo antes de aparecer na parede. Ao encomendar, confirma que o seu conteúdo respeita estas regras.\n\n## Não é permitido\n- nada que seja ilegal;\n- nudez, pornografia e conteúdo sexual;\n- violência, sangue e armas num contexto agressivo;\n- ódio, símbolos extremistas, intimidação e assédio;\n- dados pessoais ou fotografias de outras pessoas sem o seu consentimento;\n- burlas, phishing, malware, esquemas em pirâmide e jogos de azar sem licença;\n- logótipos, personagens e outros conteúdos sobre os quais não tenha direitos;\n- publicidade política;\n- links para sites com esse tipo de conteúdo.\n\n## Limites técnicos\nA parede é uma única imagem estática: não são possíveis animações nem vídeos. Os links têm de começar por http:// ou https://. Podemos recusar conteúdos que não se consigam ler no seu tamanho ou que se façam passar por parte do site (por exemplo, botões falsos).\n\n## Quando o conteúdo viola as regras\n- Antes da aprovação, recusamos o conteúdo e explicamos porquê. Pode enviar outro conteúdo no prazo de {days, plural, one {# dia} other {# dias}}; caso contrário, reembolsamos o pagamento total.\n- Após a aprovação, podemos ocultar o conteúdo de imediato e removê-lo definitivamente se violar estas regras ou a lei. Os conteúdos removidos não são reembolsados (ver os [termos e condições](/terms)). Recebe sempre um e-mail com os motivos.\n- Pode contestar qualquer decisão: responda ao nosso e-mail ou escreva para {email}. Uma pessoa volta a analisar o caso.\n\n## Denúncias\nQualquer pessoa pode denunciar conteúdos com o botão «Denunciar» na janela de cada espaço ou na página [Denunciar conteúdo](/report). Confirmamos cada denúncia e comunicamos a nossa decisão a quem a apresentou.",
-    "terms": "## 1. Quem somos\nO site {site} (o «site») é gerido por {operator}, n.º de identificação {companyId}, com sede em {address}, e-mail {email} (o «operador», «nós»). Registo: {todo}\n\n## 2. O que compra\n- O site apresenta uma parede de {pixels, plural, one {# píxel} many {# de píxeis} other {# píxeis}} dividida em blocos de 10 × 10 px. Compra o direito de apresentar o seu próprio conteúdo (uma imagem, um desenho ou um texto com um link opcional) num retângulo de blocos inteiros que escolher (o «espaço»).\n- O preço é de {price} por píxel. Paga uma única vez; não existem taxas recorrentes. Todos os preços são finais. {vat}\n- O seu conteúdo fica na parede sem limite de tempo, enquanto gerirmos o site. Não adquire a propriedade de qualquer parte do site, do seu software ou da imagem da parede no seu conjunto.\n\n## 3. Como é celebrado o contrato\n- Escolhe um espaço (reservamo-lo para si durante pouco tempo), adiciona o seu conteúdo e os seus dados, aceita estes termos e as [regras de conteúdo](/content-rules) e paga através do prestador de serviços de pagamento Stripe.\n- O contrato é celebrado quando recebemos o seu pagamento. Enviamos-lhe por e-mail uma confirmação com um recibo.\n- Antes de o seu conteúdo aparecer na parede, uma pessoa verifica-o, normalmente no prazo de {hours, plural, one {# hora} other {# horas}}.\n\n## 4. Aprovação e recusa\n- Se não pudermos aprovar o seu conteúdo, explicamos porquê. Pode enviar outro conteúdo no prazo de {days, plural, one {# dia} other {# dias}}; até lá, o espaço continua reservado para si.\n- Se não chegar a tempo um conteúdo aceitável, o contrato cessa e reembolsamos automaticamente o pagamento total.\n\n## 5. O seu conteúdo\n- É responsável pelo seu conteúdo. Confirma que tem todos os direitos sobre ele e que este respeita as regras de conteúdo e a lei.\n- Autoriza-nos a apresentar o seu conteúdo no site, em imagens da parede (por exemplo, em pré-visualizações nas redes sociais) e em materiais sobre o site, enquanto o site existir.\n- Pode alterar o seu conteúdo a qualquer momento na secção Os meus píxeis; cada alteração é novamente verificada.\n- Se o conteúdo violar as regras de conteúdo ou a lei, podemos ocultá-lo de imediato e removê-lo. Os conteúdos removidos por violação das regras não são reembolsados. Comunicamos-lhe sempre os motivos e pode contestar a decisão.\n\n## 6. Oferecer o espaço a outra pessoa\nPode oferecer o seu espaço a outra pessoa na secção Os meus píxeis. Os seus direitos e obrigações decorrentes destes termos passam para o novo proprietário quando este aceitar a oferta.\n\n## 7. Direito de livre resolução\n- Enquanto consumidor, pode resolver um contrato celebrado à distância no prazo de 14 dias, sem indicar o motivo.\n- Ao encomendar, pede-nos que comecemos a prestar o serviço antes do fim desse prazo e reconhece que perde o direito de livre resolução assim que o seu conteúdo for publicado na parede. Até lá, pode resolver o contrato por e-mail para {email}; reembolsamos o pagamento no prazo de 14 dias.\n- Modelo de formulário de livre resolução: {todo}\n\n## 8. Disponibilidade e encerramento do site\n- Procuramos que o site funcione sem interrupções, mas não o podemos garantir em todos os momentos (manutenção, falhas dos nossos fornecedores).\n- Pretendemos gerir o site por tempo indeterminado. Se algum dia decidirmos encerrá-lo, avisaremos todos os proprietários por e-mail com antecedência. Prazo de pré-aviso e o que os proprietários recebem nesse caso: {todo}\n\n## 9. Reclamações\nA forma de apresentar uma reclamação está descrita no [procedimento de reclamações](/complaints).\n\n## 10. Dados pessoais\nTratamos os dados pessoais conforme descrito na [política de privacidade](/privacy).\n\n## 11. Disposições finais\n- Estes termos regem-se pela lei da República Eslovaca. Resolução alternativa de litígios de consumo: {todo}\n- Podemos alterar estes termos para o futuro; à sua compra aplicam-se os termos em vigor no dia do seu pagamento.\n- Estes termos são válidos a partir de {todo}.",
-    "complaints": "Este procedimento explica como apresentar uma reclamação se o nosso serviço não funcionar como deve — por exemplo, se o seu espaço não for apresentado corretamente, se a parede não mostrar o seu conteúdo aprovado ou se um pagamento não tiver sido processado corretamente.\n\n## Como apresentar uma reclamação\n- Escreva para {email} ou use o [formulário de contacto](/contact) (assunto «Reclamação ou questão jurídica»).\n- Indique o número do espaço, o endereço de e-mail da sua encomenda, o que está errado e, se possível, uma captura de ecrã.\n- Confirmamos sem demora a receção da sua reclamação.\n\n## Como tratamos uma reclamação\n- Decidimos sobre a sua reclamação sem demora, o mais tardar no prazo de 30 dias a contar da sua receção, e comunicamos-lhe o resultado por e-mail.\n- Se a reclamação for justificada, resolvemos o problema (por exemplo, voltamos a apresentar corretamente o seu conteúdo); se tal não for possível, reembolsamos o preço ou uma parte adequada do mesmo.\n- Mantemos um registo de cada reclamação e da forma como foi resolvida.\n\n## Contestação de decisões de moderação\nSe não concordar com uma decisão sobre o seu conteúdo (recusa, ocultação ou remoção), responda ao nosso e-mail ou escreva para {email}. Uma pessoa volta a analisar a decisão.\n\n## Resolução alternativa de litígios\nSe discordar da forma como tratámos a sua reclamação, pode pedir-nos que resolvamos a situação. Se recusarmos ou não respondermos no prazo de 30 dias, pode recorrer a uma entidade de resolução alternativa de litígios de consumo: {todo}\n\nEste procedimento é válido a partir de {todo}.",
-    "privacy": "Protegemos os seus dados pessoais e recolhemos apenas o que precisamos para gerir {site}.\n\n## Responsável pelo tratamento\n{operator}, n.º de identificação {companyId}, {address}, e-mail {email}. Encarregado da proteção de dados: {todo}\n\n## Que dados tratamos e porquê\n- Encomendas e pagamentos: o seu endereço de e-mail, o espaço, o seu conteúdo, o título, o link e o nome público, os seus consentimentos e os registos de pagamento — para celebrar e executar o contrato (artigo 6.º, n.º 1, alínea b), do RGPD) e cumprir obrigações contabilísticas (artigo 6.º, n.º 1, alínea c), do RGPD). Os dados do cartão são tratados exclusivamente pelo prestador de serviços de pagamento Stripe; nós nunca os vemos.\n- Conta (Os meus píxeis): o seu endereço de e-mail e os registos de início de sessão — para que possa gerir os seus espaços (artigo 6.º, n.º 1, alínea b), do RGPD).\n- Moderação e denúncias: verificações de conteúdos, denúncias e decisões, incluindo o endereço de e-mail de quem denuncia, se o indicar — para cumprir as obrigações do Regulamento dos Serviços Digitais e manter o site seguro (artigo 6.º, n.º 1, alíneas c) e f), do RGPD).\n- Formulário de contacto: o seu nome, endereço de e-mail e mensagem — para lhe responder (artigo 6.º, n.º 1, alínea f), do RGPD).\n- Segurança: uma forma codificada de sentido único (hash) do seu endereço IP para limitar abusos, por exemplo o número de reservas, e os registos técnicos do servidor (artigo 6.º, n.º 1, alínea f), do RGPD).\n- Novidades por e-mail: apenas com o seu consentimento, que pode retirar a qualquer momento (artigo 6.º, n.º 1, alínea a), do RGPD).\n\n## Conteúdo público\nA sua imagem, o título, o link e o nome público são apresentados publicamente na parede. O seu endereço de e-mail nunca é apresentado.\n\n## Cookies\nUtilizamos apenas os cookies de que o site precisa para funcionar: o seu início de sessão, uma encomenda em curso e o idioma escolhido. Não utilizamos cookies de publicidade nem de rastreamento. As visitas são contadas sem cookies e sem identificar quem nos visita. Serviço de estatísticas: {todo}\n\n## Quem recebe os dados\nApenas os fornecedores que nos ajudam a gerir o site, ao abrigo de acordos de tratamento de dados: alojamento e base de dados {todo}, armazenamento de ficheiros {todo}, pagamentos (Stripe), envio de e-mails {todo}, proteção contra bots (Cloudflare Turnstile) e verificação de links e imagens quanto a conteúdos perigosos {todo}. Alguns estão sediados fora da UE; a transferência está protegida pelas cláusulas contratuais-tipo da UE ou pelo Quadro de Privacidade de Dados UE-EUA (EU-US Data Privacy Framework).\n\n## Durante quanto tempo conservamos os dados\n- Encomendas e recibos: durante o tempo exigido pela legislação contabilística e fiscal (na Eslováquia, em regra, 10 anos).\n- Conta: até a eliminar na secção Os meus píxeis.\n- Mensagens do formulário de contacto: dois anos após o seu tratamento.\n- Denúncias: {todo} após a sua resolução.\n- Registos técnicos e de segurança: pouco tempo, no máximo {todo}.\n\n## Os seus direitos\nTem direito de acesso, retificação, apagamento, limitação do tratamento e portabilidade dos dados, bem como direito de oposição; pode retirar o seu consentimento a qualquer momento. Escreva para {email}. Pode eliminar a sua conta diretamente na secção Os meus píxeis. Pode ainda apresentar reclamação à autoridade de controlo: Úrad na ochranu osobných údajov Slovenskej republiky (Autoridade de Proteção de Dados Pessoais da República Eslovaca), Hraničná 12, 820 07 Bratislava, www.dataprotection.gov.sk.\n\nEsta política é válida a partir de {todo}.",
+    "rules": "Estas regras aplicam-se a tudo o que é apresentado em {site}: imagens, desenhos, textos, títulos, nomes e links. Uma pessoa verifica todo o conteúdo antes da publicação. Ao encomendar, confirma que o seu conteúdo respeita estas regras.\n\n## Não é permitido\n- nada que seja ilegal;\n- nudez, pornografia e conteúdo sexual;\n- violência, sangue e armas num contexto agressivo;\n- ódio, símbolos extremistas, intimidação e assédio;\n- dados pessoais ou fotografias de outras pessoas sem o seu consentimento;\n- burlas, phishing, malware, esquemas em pirâmide e jogos de azar sem licença;\n- logótipos, personagens e outros conteúdos sobre os quais não tenha direitos;\n- publicidade política;\n- links para sites com esse tipo de conteúdo.\n\n## Limites técnicos\nTodos os píxeis formam uma única imagem estática: não são possíveis animações nem vídeos. Os links têm de começar por http:// ou https://. Podemos recusar conteúdos que não se consigam ler no seu tamanho ou que se façam passar por parte do site (por exemplo, botões falsos).\n\n## Quando o conteúdo viola as regras\n- Antes da aprovação, recusamos o conteúdo e explicamos porquê. Pode enviar outro conteúdo no prazo de {days, plural, one {# dia} other {# dias}}; caso contrário, reembolsamos o pagamento total.\n- Após a aprovação, podemos ocultar o conteúdo de imediato e removê-lo definitivamente se violar estas regras ou a lei. Os conteúdos removidos não são reembolsados (ver os [termos e condições](/terms)). Recebe sempre um e-mail com os motivos.\n- Pode contestar qualquer decisão: responda ao nosso e-mail ou escreva para {email}. Uma pessoa volta a analisar o caso.\n\n## Denúncias\nQualquer pessoa pode denunciar conteúdos com o botão «Denunciar» na janela de cada espaço ou na página [Denunciar conteúdo](/report). Confirmamos cada denúncia e comunicamos a nossa decisão a quem a apresentou.",
+    "terms": "## 1. Quem somos\nO site {site} (o «site») é gerido por {operator}, n.º de identificação {companyId}, com sede em {address}, e-mail {email} (o «operador», «nós»). Registo: {todo}\n\n## 2. O que compra\n- O site apresenta {pixels, plural, one {# píxel} many {# de píxeis} other {# píxeis}} divididos em blocos de 10 × 10 px. Compra o direito de apresentar o seu próprio conteúdo (uma imagem, um desenho ou um texto com um link opcional) num retângulo de blocos inteiros que escolher (o «espaço»).\n- O preço é de {price} por píxel. Paga uma única vez; não existem taxas recorrentes. Todos os preços são finais. {vat}\n- O seu conteúdo fica publicado sem limite de tempo, enquanto gerirmos o site. Não adquire a propriedade de qualquer parte do site, do seu software ou da imagem de todos os píxeis no seu conjunto.\n\n## 3. Como é celebrado o contrato\n- Escolhe um espaço (reservamo-lo para si durante pouco tempo), adiciona o seu conteúdo e os seus dados, aceita estes termos e as [regras de conteúdo](/content-rules) e paga através do prestador de serviços de pagamento Stripe.\n- O contrato é celebrado quando recebemos o seu pagamento. Enviamos-lhe por e-mail uma confirmação com um recibo.\n- Antes da publicação, uma pessoa verifica o seu conteúdo, normalmente no prazo de {hours, plural, one {# hora} other {# horas}}.\n\n## 4. Aprovação e recusa\n- Se não pudermos aprovar o seu conteúdo, explicamos porquê. Pode enviar outro conteúdo no prazo de {days, plural, one {# dia} other {# dias}}; até lá, o espaço continua reservado para si.\n- Se não chegar a tempo um conteúdo aceitável, o contrato cessa e reembolsamos automaticamente o pagamento total.\n\n## 5. O seu conteúdo\n- É responsável pelo seu conteúdo. Confirma que tem todos os direitos sobre ele e que este respeita as regras de conteúdo e a lei.\n- Autoriza-nos a apresentar o seu conteúdo no site, em imagens de conjunto dos píxeis (por exemplo, em pré-visualizações nas redes sociais) e em materiais sobre o site, enquanto o site existir.\n- Pode alterar o seu conteúdo a qualquer momento na secção Os meus píxeis; cada alteração é novamente verificada.\n- Se o conteúdo violar as regras de conteúdo ou a lei, podemos ocultá-lo de imediato e removê-lo. Os conteúdos removidos por violação das regras não são reembolsados. Comunicamos-lhe sempre os motivos e pode contestar a decisão.\n\n## 6. Oferecer o espaço a outra pessoa\nPode oferecer o seu espaço a outra pessoa na secção Os meus píxeis. Os seus direitos e obrigações decorrentes destes termos passam para o novo proprietário quando este aceitar a oferta.\n\n## 7. Direito de livre resolução\n- Enquanto consumidor, pode resolver um contrato celebrado à distância no prazo de 14 dias, sem indicar o motivo.\n- Ao encomendar, pede-nos que comecemos a prestar o serviço antes do fim desse prazo e reconhece que perde o direito de livre resolução assim que o seu conteúdo for publicado. Até lá, pode resolver o contrato por e-mail para {email}; reembolsamos o pagamento no prazo de 14 dias.\n- Modelo de formulário de livre resolução: {todo}\n\n## 8. Disponibilidade e encerramento do site\n- Procuramos que o site funcione sem interrupções, mas não o podemos garantir em todos os momentos (manutenção, falhas dos nossos fornecedores).\n- Pretendemos gerir o site por tempo indeterminado. Se algum dia decidirmos encerrá-lo, avisaremos todos os proprietários por e-mail com antecedência. Prazo de pré-aviso e o que os proprietários recebem nesse caso: {todo}\n\n## 9. Reclamações\nA forma de apresentar uma reclamação está descrita no [procedimento de reclamações](/complaints).\n\n## 10. Dados pessoais\nTratamos os dados pessoais conforme descrito na [política de privacidade](/privacy).\n\n## 11. Disposições finais\n- Estes termos regem-se pela lei da República Eslovaca. Resolução alternativa de litígios de consumo: {todo}\n- Podemos alterar estes termos para o futuro; à sua compra aplicam-se os termos em vigor no dia do seu pagamento.\n- Estes termos são válidos a partir de {todo}.",
+    "complaints": "Este procedimento explica como apresentar uma reclamação se o nosso serviço não funcionar como deve — por exemplo, se o seu espaço não for apresentado corretamente, se o seu conteúdo aprovado não for apresentado ou se um pagamento não tiver sido processado corretamente.\n\n## Como apresentar uma reclamação\n- Escreva para {email} ou use o [formulário de contacto](/contact) (assunto «Reclamação ou questão jurídica»).\n- Indique o número do espaço, o endereço de e-mail da sua encomenda, o que está errado e, se possível, uma captura de ecrã.\n- Confirmamos sem demora a receção da sua reclamação.\n\n## Como tratamos uma reclamação\n- Decidimos sobre a sua reclamação sem demora, o mais tardar no prazo de 30 dias a contar da sua receção, e comunicamos-lhe o resultado por e-mail.\n- Se a reclamação for justificada, resolvemos o problema (por exemplo, voltamos a apresentar corretamente o seu conteúdo); se tal não for possível, reembolsamos o preço ou uma parte adequada do mesmo.\n- Mantemos um registo de cada reclamação e da forma como foi resolvida.\n\n## Contestação de decisões de moderação\nSe não concordar com uma decisão sobre o seu conteúdo (recusa, ocultação ou remoção), responda ao nosso e-mail ou escreva para {email}. Uma pessoa volta a analisar a decisão.\n\n## Resolução alternativa de litígios\nSe discordar da forma como tratámos a sua reclamação, pode pedir-nos que resolvamos a situação. Se recusarmos ou não respondermos no prazo de 30 dias, pode recorrer a uma entidade de resolução alternativa de litígios de consumo: {todo}\n\nEste procedimento é válido a partir de {todo}.",
+    "privacy": "Protegemos os seus dados pessoais e recolhemos apenas o que precisamos para gerir {site}.\n\n## Responsável pelo tratamento\n{operator}, n.º de identificação {companyId}, {address}, e-mail {email}. Encarregado da proteção de dados: {todo}\n\n## Que dados tratamos e porquê\n- Encomendas e pagamentos: o seu endereço de e-mail, o espaço, o seu conteúdo, o título, o link e o nome público, os seus consentimentos e os registos de pagamento — para celebrar e executar o contrato (artigo 6.º, n.º 1, alínea b), do RGPD) e cumprir obrigações contabilísticas (artigo 6.º, n.º 1, alínea c), do RGPD). Os dados do cartão são tratados exclusivamente pelo prestador de serviços de pagamento Stripe; nós nunca os vemos.\n- Conta (Os meus píxeis): o seu endereço de e-mail e os registos de início de sessão — para que possa gerir os seus espaços (artigo 6.º, n.º 1, alínea b), do RGPD).\n- Moderação e denúncias: verificações de conteúdos, denúncias e decisões, incluindo o endereço de e-mail de quem denuncia, se o indicar — para cumprir as obrigações do Regulamento dos Serviços Digitais e manter o site seguro (artigo 6.º, n.º 1, alíneas c) e f), do RGPD).\n- Formulário de contacto: o seu nome, endereço de e-mail e mensagem — para lhe responder (artigo 6.º, n.º 1, alínea f), do RGPD).\n- Segurança: uma forma codificada de sentido único (hash) do seu endereço IP para limitar abusos, por exemplo o número de reservas, e os registos técnicos do servidor (artigo 6.º, n.º 1, alínea f), do RGPD).\n- Novidades por e-mail: apenas com o seu consentimento, que pode retirar a qualquer momento (artigo 6.º, n.º 1, alínea a), do RGPD).\n\n## Conteúdo público\nA sua imagem, o título, o link e o nome público são apresentados publicamente no site. O seu endereço de e-mail nunca é apresentado.\n\n## Cookies\nUtilizamos apenas os cookies de que o site precisa para funcionar: o seu início de sessão, uma encomenda em curso e o idioma escolhido. Não utilizamos cookies de publicidade nem de rastreamento. As visitas são contadas sem cookies e sem identificar quem nos visita. Serviço de estatísticas: {todo}\n\n## Quem recebe os dados\nApenas os fornecedores que nos ajudam a gerir o site, ao abrigo de acordos de tratamento de dados: alojamento e base de dados {todo}, armazenamento de ficheiros {todo}, pagamentos (Stripe), envio de e-mails {todo}, proteção contra bots (Cloudflare Turnstile) e verificação de links e imagens quanto a conteúdos perigosos {todo}. Alguns estão sediados fora da UE; a transferência está protegida pelas cláusulas contratuais-tipo da UE ou pelo Quadro de Privacidade de Dados UE-EUA (EU-US Data Privacy Framework).\n\n## Durante quanto tempo conservamos os dados\n- Encomendas e recibos: durante o tempo exigido pela legislação contabilística e fiscal (na Eslováquia, em regra, 10 anos).\n- Conta: até a eliminar na secção Os meus píxeis.\n- Mensagens do formulário de contacto: dois anos após o seu tratamento.\n- Denúncias: {todo} após a sua resolução.\n- Registos técnicos e de segurança: pouco tempo, no máximo {todo}.\n\n## Os seus direitos\nTem direito de acesso, retificação, apagamento, limitação do tratamento e portabilidade dos dados, bem como direito de oposição; pode retirar o seu consentimento a qualquer momento. Escreva para {email}. Pode eliminar a sua conta diretamente na secção Os meus píxeis. Pode ainda apresentar reclamação à autoridade de controlo: Úrad na ochranu osobných údajov Slovenskej republiky (Autoridade de Proteção de Dados Pessoais da República Eslovaca), Hraničná 12, 820 07 Bratislava, www.dataprotection.gov.sk.\n\nEsta política é válida a partir de {todo}.",
     "vatPayer": "Os preços incluem IVA à taxa de {rate}%.",
     "notVatPayer": "Não somos sujeitos passivos de IVA, por isso não é cobrado IVA."
   }

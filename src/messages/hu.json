@@ -1,15 +1,15 @@
 {
   "meta": {
     "title": "{site} — {pixels, number} eladó pixel",
-    "description": "{pixels, number} pixel, pixelenként {price}. Vásárolj örökre egy darabot a falból, és tedd rá a képedet, rajzodat vagy szövegedet egy linkkel.",
+    "description": "{pixels, number} pixel, pixelenként {price}. Vásárolj belőlük örökre, és tedd rájuk a képedet, rajzodat vagy szövegedet egy linkkel.",
     "pageTitle": "{page} — {site}",
     "pages": {
-      "buy": "Válassz egy szabad helyet a falon, tölts fel egy fotót, rajzolj vagy írj szöveget, és fizess egyszer — a pixeleid örökre a falon maradnak.",
-      "how": "{site} – így működik: válassz helyet, tölts fel vagy rajzolj egy képet, fizess egyszer pixelenként {price}, és örökre a falon maradsz.",
+      "buy": "Válassz szabad pixeleket, tölts fel egy fotót, rajzolj vagy írj szöveget, és fizess egyszer — a pixeleid örökre közzétéve maradnak.",
+      "how": "{site} – így működik: válassz helyet, tölts fel vagy rajzolj egy képet, fizess egyszer pixelenként {price}, és a pixeleid örökre közzétéve maradnak.",
       "faq": "{site}: válaszok az árakról, a jóváhagyásról, a módosításokról, az ajándékozásról és a nyugtákról.",
-      "latest": "{site}: a legújabb képek az egymillió pixeles falon.",
+      "latest": "{site}: a legújabb képek – egymillió pixel egy helyen.",
       "contact": "{site} – kapcsolat: kérdések, panaszok és a digitális szolgáltatásokról szóló rendelet szerinti kapcsolattartási pont.",
-      "rules": "{site}: mi jelenhet meg a falon, és mi nem.",
+      "rules": "{site}: mi tehető közzé, és mi nem.",
       "terms": "{site} – általános szerződési feltételek.",
       "complaints": "{site} – így tehetsz panaszt.",
       "privacy": "{site} – így védjük a személyes adataidat.",
@@ -17,10 +17,10 @@
     }
   },
   "common": {
-    "skipToWall": "Ugrás a falhoz",
+    "skipToWall": "Ugrás a pixelekhez",
     "skipToContent": "Ugrás a tartalomhoz",
     "close": "Bezárás",
-    "backToWall": "Vissza a falhoz",
+    "backToWall": "Vissza a pixelekhez",
     "language": "Nyelv",
     "pixels": "{count, plural, one {# pixel} other {# pixel}}",
     "blocks": "{count, plural, one {# blokk} other {# blokk}}",
@@ -29,14 +29,14 @@
   },
   "header": {
     "logoTitle": "{site} — kezdőlap",
-    "statsLabel": "A fal statisztikái",
+    "statsLabel": "Pixelstatisztika",
     "rented": "Eladott pixelek",
     "free": "Szabad",
     "lastRental": "Utolsó vásárlás",
     "lastRentalNone": "még nincs",
     "justNow": "épp most",
     "progress": "{percent} eladva",
-    "progressLabel": "A falból {percent} már elkelt",
+    "progressLabel": "Eladott pixelek aránya: {percent}",
     "slogan": "Hagyd ott a nyomodat az interneten"
   },
   "nav": {
@@ -60,10 +60,10 @@
     "complaints": "Panaszkezelés"
   },
   "wall": {
-    "regionLabel": "A pixelfal",
+    "regionLabel": "Az egymillió pixel",
     "keyboardHelp": "A nyilakkal mozoghatsz, a + és − gombokkal nagyíthatsz, az Enter megnyitja a középen lévő helyet, az Esc pedig bezárja az ablakot.",
-    "imageAlt": "{pixels, number} pixeles fal az összes tulajdonos képeivel",
-    "noscript": "Kapcsold be a JavaScriptet a nagyításhoz, a kereséshez és a pixelek vásárlásához. A falon lévő képekre enélkül is rákattinthatsz.",
+    "imageAlt": "{pixels, number} pixel az összes tulajdonos képeivel",
+    "noscript": "Kapcsold be a JavaScriptet a nagyításhoz, a kereséshez és a pixelek vásárlásához. A képekre enélkül is rákattinthatsz.",
     "zoom": "Nagyítás mértéke",
     "zoomIn": "Nagyítás",
     "zoomOut": "Kicsinyítés",
@@ -72,21 +72,21 @@
     "random": "Véletlen hely",
     "showFree": "Szabad helyek mutatása",
     "search": "Keresés",
-    "searchLabel": "Keresés a falon",
+    "searchLabel": "Keresés a pixelek között",
     "searchPlaceholder": "Cím, név vagy weboldal",
     "searchNone": "Nincs találat erre: „{query}”.",
     "searchMany": "{count, plural, one {# találat} other {# találat}} — válassz egyet:",
     "rent": "Pixelek vásárlása",
     "coords": "blokk {bx}, {by} · px {px}, {py}",
-    "coordsIdle": "Mutass a falra a koordinátákért",
+    "coordsIdle": "Mutass a pixelekre a koordinátákért",
     "position": "x {x0}–{x1}, y {y0}–{y1}",
     "size": "{w} × {h} px",
     "reserved": "Foglalt",
     "rentedPending": "Eladva — jóváhagyásra vár",
-    "updated": "A fal frissült.",
+    "updated": "A pixelek frissültek.",
     "tool": "Egéreszköz",
     "toolSelect": "Terület kijelölése",
-    "toolMove": "Fal mozgatása",
+    "toolMove": "Nézet mozgatása",
     "cornerSet": "Első sarok: blokk {bx}, {by}. Lépj tovább, és nyomj Entert a szemközti sarokhoz.",
     "areaSet": "A terület kijelölve eddig a blokkig: {bx}, {by}."
   },
@@ -103,16 +103,16 @@
     "freeText": "Blokk {bx}, {by} ({position}), ára {price} — egyszer fizetsz, és örökre a tiéd. Nagyobb területet is kijelölhetsz.",
     "rentThis": "Megveszem ezt a helyet",
     "takenTitle": "Ez a hely már elkelt",
-    "takenText": "A tartalom jóváhagyás után jelenik meg a falon.",
+    "takenText": "A tartalmat jóváhagyás után tesszük közzé.",
     "holdTitle": "Ez a hely foglalt",
     "holdText": "Valaki éppen most vásárolja meg. Ha néhány percen belül nem fejezi be, újra szabad lesz.",
-    "since": "{date} óta a falon"
+    "since": "Közzétéve: {date}"
   },
   "pages": {
     "rent": "Pixelek vásárlása",
     "how": "Hogyan működik",
     "faq": "Gyakran ismételt kérdések",
-    "latest": "Legújabbak a falon",
+    "latest": "Legújabb képek",
     "mine": "Pixeleim",
     "contact": "Kapcsolat",
     "rules": "Tartalmi szabályok",
@@ -122,15 +122,15 @@
     "notFoundTitle": "Az oldal nem található",
     "notFoundText": "Sajnáljuk, ezen a címen nincs semmi. Lehet, hogy a link régi, vagy elírták.",
     "complaints": "Panaszkezelési szabályzat",
-    "share": "Hely a falon"
+    "share": "Hely a pixelek között"
   },
   "email": {
-    "footer": "{site} — egy egymillió pixeles fal.",
+    "footer": "{site} — egymillió pixel egy helyen.",
     "greeting": "Üdvözlünk!",
     "position": "x {x0}–{x1}, y {y0}–{y1}",
     "size": "{w} × {h} px",
     "companyId": "cégazonosító: {id}",
-    "item": "{w} × {h} px-es hely a falon ({position}, {no}. számú hely), örökre megjelenítve",
+    "item": "{w} × {h} px-es hely ({position}, {no}. számú hely), örökre megjelenítve",
     "vatIncluded": "Az ár {rate}% áfát tartalmaz: {vat}",
     "notVatPayer": "Az eladó nem áfaalany.",
     "labels": {
@@ -147,16 +147,16 @@
     },
     "paid": {
       "subject": "Megkaptuk a fizetést — a pixeleid jóváhagyásra várnak",
-      "intro": "Köszönjük a rendelésedet. Megkaptuk a fizetésedet ({amount}). A tartalmadat általában {hours, plural, one {# órán} other {# órán}} belül ellenőrizzük, és szólunk, amint a falon van.",
+      "intro": "Köszönjük a rendelésedet. Megkaptuk a fizetésedet ({amount}). A tartalmadat általában {hours, plural, one {# órán} other {# órán}} belül ellenőrizzük, és szólunk, amint közzétettük.",
       "rentalHeading": "A helyed",
       "receiptHeading": "Nyugta",
       "mine": "A helyeidet a Pixeleim oldalon találod:",
-      "forever": "Jóváhagyás után a pixeleid örökre a falon maradnak — amíg az oldal létezik."
+      "forever": "Jóváhagyás után a pixeleid örökre közzétéve maradnak — amíg az oldal létezik."
     },
     "approved": {
-      "subject": "A pixeleid a falon vannak!",
-      "intro": "Jó hír: a tartalmadat („{title}”) jóváhagytuk, és most már a falon van itt: {position}. A pixelek örökre a tieid.",
-      "see": "Megnézem a falon",
+      "subject": "Közzétettük a pixeleidet!",
+      "intro": "Jó hír: a tartalmadat („{title}”) jóváhagytuk, és közzétettük itt: {position}. A pixelek örökre a tieid.",
+      "see": "Megnézem a pixeleimet",
       "share": "Mutasd meg a barátaidnak:",
       "shareText": "Saját helyem van itt: {site}!",
       "shareEmail": "E-mail"
@@ -178,7 +178,7 @@
     },
     "changeApproved": {
       "subject": "A módosításodat jóváhagytuk",
-      "intro": "A tartalmad („{title}”) új változata most már a falon van itt: {position}."
+      "intro": "A tartalmad („{title}”) új változatát közzétettük itt: {position}."
     },
     "rejected": {
       "subject": "A tartalmadat nem hagytuk jóvá",
@@ -189,11 +189,11 @@
     },
     "changesRequested": {
       "subject": "Kérjük, módosítsd a tartalmadat",
-      "intro": "A helyedre ({position}) szánt tartalmadat („{title}”) módosítani kell, mielőtt a falra tehetjük."
+      "intro": "A helyedre ({position}) szánt tartalmadat („{title}”) módosítani kell, mielőtt közzétehetjük."
     },
     "changeRejected": {
       "subject": "A módosításodat nem hagytuk jóvá",
-      "intro": "Nem tudtuk jóváhagyni a tartalmad („{title}”, {position}) módosítását. Az előző tartalmad a falon marad.",
+      "intro": "Nem tudtuk jóváhagyni a tartalmad („{title}”, {position}) módosítását. Az előző tartalmad közzétéve marad.",
       "again": "A Pixeleim oldalon más módosítást küldhetsz.",
       "button": "A Pixeleim megnyitása"
     },
@@ -206,12 +206,12 @@
     },
     "hidden": {
       "subject": "A pixeleidet ideiglenesen elrejtettük",
-      "intro": "A tartalmadat („{title}”, {position}) elrejtettük a falról, amíg megvizsgáljuk.",
-      "next": "Értesítünk az eredményről. Ha a tartalommal minden rendben van, visszakerül a falra."
+      "intro": "A tartalmadat („{title}”, {position}) elrejtettük, amíg megvizsgáljuk.",
+      "next": "Értesítünk az eredményről. Ha a tartalommal minden rendben van, újra közzétesszük."
     },
     "removed": {
-      "subject": "A tartalmadat eltávolítottuk a falról",
-      "intro": "Eltávolítottuk a tartalmadat („{title}”, {position}) a falról, mert sérti a tartalmi szabályainkat.",
+      "subject": "A tartalmadat eltávolítottuk",
+      "intro": "Eltávolítottuk a tartalmadat („{title}”, {position}), mert sérti a tartalmi szabályainkat.",
       "terms": "Ahogy az általános szerződési feltételekben szerepel, a szabálysértés miatt eltávolított tartalomért nem jár visszatérítés."
     },
     "reportReceived": {
@@ -221,9 +221,9 @@
     },
     "reportDecided": {
       "subject": "Döntés a bejelentésedről ({reference})",
-      "actioned": "Megvizsgáltuk a bejelentett tartalmat (hely száma: {no}), és intézkedtünk: már nem látható a falon.",
-      "dismissed": "Megvizsgáltuk a bejelentett tartalmat (hely száma: {no}), és megállapítottuk, hogy nem sérti a tartalmi szabályainkat, ezért a falon marad.",
-      "thanks": "Köszönjük, hogy segítesz barátságosan tartani a falat."
+      "actioned": "Megvizsgáltuk a bejelentett tartalmat (hely száma: {no}), és intézkedtünk: már nem látható.",
+      "dismissed": "Megvizsgáltuk a bejelentett tartalmat (hely száma: {no}), és megállapítottuk, hogy nem sérti a tartalmi szabályainkat, ezért közzétéve marad.",
+      "thanks": "Köszönjük, hogy segítesz barátságosan tartani a pixeleket."
     },
     "transferOffer": {
       "subject": "Valaki egy helyet ajándékoz neked – {site}",
@@ -238,7 +238,7 @@
     "accountDeleted": {
       "subject": "A fiókodat töröltük",
       "intro": "A kérésednek megfelelően töröltük a fiókodat és a személyes adataidat. A nyugtákat addig őrizzük meg, ameddig a törvény előírja.",
-      "rentals": "A pixeleid a falon maradnak, de többé senki sem kezelheti őket."
+      "rentals": "A pixeleid közzétéve maradnak, de többé senki sem kezelheti őket."
     },
     "staffInvite": {
       "subject": "Mostantól használhatod az adminisztrációt – {site}",
@@ -279,7 +279,7 @@
     "backToOrder": "Vissza a rendelésemhez",
     "keepPlace": "Ezt a helyet tartom meg",
     "position": "x {x0}–{x1}, y {y0}–{y1}",
-    "selectHelp": "Húzással jelöld ki a falon a megvásárolni kívánt területet. A kijelölés 10 × 10 px-es blokkokhoz igazodik. A sarkok húzásával átméretezheted, a terület húzásával áthelyezheted. Az egérgörgővel nagyíthatsz; a falat a jobb egérgombbal vagy a „Fal mozgatása” eszközzel mozgathatod.",
+    "selectHelp": "Húzással jelöld ki a pixelek között a megvásárolni kívánt területet. A kijelölés 10 × 10 px-es blokkokhoz igazodik. A sarkok húzásával átméretezheted, a terület húzásával áthelyezheted. Az egérgörgővel nagyíthatsz; a nézetet a jobb egérgombbal vagy a „Nézet mozgatása” eszközzel mozgathatod.",
     "selectHelpTouch": "Telefonon: két ujjal nagyíts, koppints az első sarokra, majd a szemköztire, és a sarkokban lévő fogantyúkkal igazítsd a területet.",
     "yourSelection": "A kijelölésed",
     "noSelection": "Még nincs kijelölés.",
@@ -295,7 +295,7 @@
       "taken": "Valaki az imént lefoglalta ennek a területnek egy részét. Itt vannak a közelben ugyanekkora szabad helyek:",
       "rate_limited": "Már több foglalásod is folyamatban van. Előbb fejezd be vagy töröld valamelyiket.",
       "sales_paused": "Az értékesítés jelenleg szünetel. Próbáld újra később.",
-      "invalid": "Ez a terület nincs a falon.",
+      "invalid": "Ez a terület kívül esik a pixeleken.",
       "too_small": "Ez a terület túl kicsi.",
       "too_large": "Ez a terület túl nagy.",
       "network": "Nem sikerült elérni a szervert. Ellenőrizd a kapcsolatot, és próbáld újra.",
@@ -317,7 +317,7 @@
     "find": "Keresés",
     "noSpots": "Nincs ilyen méretű szabad hely. Próbálj kisebbet.",
     "spotsNear": "A középponthoz legközelebb:",
-    "spotsRandom": "Máshol a falon:",
+    "spotsRandom": "Máshol:",
     "spot": "x {x}, y {y} ({w} × {h} px)",
     "contentTitle": "A képed ({w} × {h} px)",
     "currentContent": "A jelenlegi tartalmad",
@@ -444,7 +444,7 @@
     },
     "back": "Vissza",
     "summaryTitle": "Összegzés",
-    "summaryPreview": "A tartalmad a falon",
+    "summaryPreview": "A pixeleid előnézete",
     "editContent": "Tartalom módosítása",
     "editDetails": "Adatok módosítása",
     "priceTotal": "Összesen",
@@ -452,7 +452,7 @@
     "notVatPayer": "Végső ár. Az eladó nem áfaalany.",
     "pay": "Fizetés: {price}",
     "redirecting": "A fizetés megnyitása…",
-    "payNote": "A következő oldalon fizetsz. A tartalmat általában {hours, plural, one {# órán} other {# órán}} belül ellenőrizzük; ezután a pixeleid örökre a falon vannak.",
+    "payNote": "A következő oldalon fizetsz. A tartalmat általában {hours, plural, one {# órán} other {# órán}} belül ellenőrizzük; ezután a pixeleid örökre közzétéve maradnak.",
     "devPaymentNote": "Tesztmód: nem történik valódi fizetés (a Stripe még nincs csatlakoztatva).",
     "payErrors": {
       "expired": "A foglalásod lejárt. Foglald le újra a helyet.",
@@ -468,10 +468,10 @@
   "thanks": {
     "title": "Köszönjük!",
     "statusReview": "Kifizetve — jóváhagyásra vár",
-    "statusActive": "Jóváhagyva — a pixeleid a falon vannak",
-    "reviewText": "Minden képet ellenőrzünk, mielőtt megjelenik a falon, általában 24 órán belül. Utána örökre ott marad.",
+    "statusActive": "Jóváhagyva — a pixeleidet közzétettük",
+    "reviewText": "Minden képet ellenőrzünk közzététel előtt, általában 24 órán belül. Utána örökre közzétéve marad.",
     "emailSent": "A visszaigazolást és a nyugtát elküldtük erre a címre: {email}.",
-    "seeSpot": "Mutasd a helyemet a falon",
+    "seeSpot": "Mutasd a pixeleimet",
     "refundedTitle": "Sajnáljuk",
     "refundedText": "A fizetésed a foglalás lejárta után érkezett meg, és közben valaki más megvette a helyet. A teljes összeget visszatérítettük.",
     "chooseAnother": "Válassz másik helyet",
@@ -481,7 +481,7 @@
     "noOrderTitle": "Nincs rendelés",
     "noOrderText": "Ebben a böngészőben nincs rendelés.",
     "devEmails": "Fejlesztés: az e-mailek a helyi postafiókban vannak",
-    "backToWall": "Vissza a falhoz"
+    "backToWall": "Vissza a pixelekhez"
   },
   "devCheckout": {
     "title": "Tesztfizetés",
@@ -550,7 +550,7 @@
     "rentNow": "Pixelek vásárlása »",
     "status": {
       "in_review": "Jóváhagyásra vár",
-      "active": "A falon",
+      "active": "Közzétéve",
       "grace": "Türelmi időben",
       "ended": "Lejárt",
       "rejected": "Nincs jóváhagyva: új tartalomra vár",
@@ -563,11 +563,11 @@
     "size": "Méret",
     "sizeValue": "{w} × {h} px ({pixels, number} pixel)",
     "link": "Link",
-    "waitingChange": "Jóváhagyásra vár egy módosítás (elküldve: {date}); addig a jelenlegi tartalom marad a falon.",
+    "waitingChange": "Jóváhagyásra vár egy módosítás (elküldve: {date}); addig a jelenlegi tartalom marad közzétéve.",
     "decision": {
       "rejected": "Nem tudtuk jóváhagyni a tartalmadat.",
       "changes": "Kérjük, módosítsd a tartalmadat.",
-      "changeRejected": "A legutóbbi módosításodat nem hagytuk jóvá; az előző tartalom marad a falon."
+      "changeRejected": "A legutóbbi módosításodat nem hagytuk jóvá; az előző tartalom marad közzétéve."
     },
     "reason": "Indoklás: {reason}",
     "reuploadUntil": "Új tartalmat eddig küldhetsz: {date}. Ellenkező esetben a teljes összeget visszatérítjük, és a helyet felszabadítjuk.",
@@ -590,27 +590,27 @@
     "transferCancel": "Visszavonás",
     "cancel": "Mégse",
     "deleteTitle": "A fiókom és a személyes adataim törlése",
-    "deleteHelp": "A fiókod, az e-mail-címed és a nyilvános neved törlődik. A nyugtákat addig őrizzük meg, ameddig a törvény előírja. A pixeleid a falon maradnak, de többé nem kezelheted őket.",
+    "deleteHelp": "A fiókod, az e-mail-címed és a nyilvános neved törlődik. A nyugtákat addig őrizzük meg, ameddig a törvény előírja. A pixeleid közzétéve maradnak, de többé nem kezelheted őket.",
     "deleteConfirm": "A megerősítéshez írd be az e-mail-címedet ({email})",
     "deleteButton": "Fiók törlése",
     "editTitle": "Tartalom módosítása",
     "notEditable": "Ez a hely már nem módosítható.",
     "backToList": "Vissza a Pixeleim oldalra",
-    "editIntro": "Módosítsd a képet, a címet, a linket vagy a nevet. A módosítás jóváhagyásra kerül; addig a jelenlegi tartalom marad a falon.",
+    "editIntro": "Módosítsd a képet, a címet, a linket vagy a nevet. A módosítás jóváhagyásra kerül; addig a jelenlegi tartalom marad közzétéve.",
     "editRejectedIntro": "Küldj új tartalmat a helyedre. Ismét jóváhagyásra kerül.",
-    "onWallNow": "Most a falon",
+    "onWallNow": "Most közzétéve",
     "waitingApproval": "Jóváhagyásra vár",
     "newPicture": "Új kép (még nincs elküldve)",
     "pictureTitle": "Új kép ({w} × {h} px)",
     "pictureHelp": "Nem kötelező: megtarthatod a jelenlegi képet, és csak a lenti szövegeket módosíthatod.",
     "textsTitle": "Cím, link és név",
     "submit": "Küldés jóváhagyásra",
-    "publish": "Közzététel a falon",
+    "publish": "Közzététel",
     "submitNote": "Minden módosítást ellenőrzünk, általában {hours, plural, one {# órán} other {# órán}} belül.",
     "sentTitle": "Elküldve jóváhagyásra.",
-    "sentKeep": "Általában {hours, plural, one {# órán} other {# órán}} belül ellenőrizzük. Addig a jelenlegi tartalmad marad a falon.",
+    "sentKeep": "Általában {hours, plural, one {# órán} other {# órán}} belül ellenőrizzük. Addig a jelenlegi tartalmad marad közzétéve.",
     "sentNew": "Általában {hours, plural, one {# órán} other {# órán}} belül ellenőrizzük, és e-mailben értesítünk.",
-    "published": "A módosítás a falon van.",
+    "published": "A módosítást közzétettük.",
     "errors": {
       "email_invalid": "Adj meg egy érvényes e-mail-címet.",
       "same_owner": "Ez a saját címed.",
@@ -627,7 +627,7 @@
     },
     "lastVersion": "A legutóbbi változatod (nincs jóváhagyva)",
     "pictureHelpRejected": "Készíts új képet, vagy tartsd meg az előzőt, és a lenti szövegekben csak azt módosítsd, amit a moderátor kért.",
-    "since": "Megjelenés a falon",
+    "since": "Közzététel dátuma",
     "afterApproval": "jóváhagyás után"
   },
   "receipt": {
@@ -638,7 +638,7 @@
     "seller": "Eladó",
     "buyer": "Vevő",
     "item": "Tétel",
-    "itemValue": "{w} × {h} px-es hely a falon (x {x0}–{x1}, y {y0}–{y1}, {no}. számú hely), örökre megjelenítve",
+    "itemValue": "{w} × {h} px-es hely (x {x0}–{x1}, y {y0}–{y1}, {no}. számú hely), örökre megjelenítve",
     "total": "Fizetett összeg",
     "vat": "Áfa",
     "vatIncluded": "Az ár {rate}% áfát tartalmaz: {vat}",
@@ -647,13 +647,13 @@
     "print": "Nyomtatás vagy mentés PDF-ként"
   },
   "transfer": {
-    "title": "Hely elfogadása a falon",
-    "intro": "Valaki egy helyet ajándékozott neked a falon. Fogadd el, és te leszel a tulajdonosa; az e-mail-címeddel bejelentkeztetünk a Pixeleim oldalra.",
+    "title": "Pixelhely elfogadása",
+    "intro": "Valaki egy pixelhelyet ajándékozott neked. Fogadd el, és te leszel a tulajdonosa; az e-mail-címeddel bejelentkeztetünk a Pixeleim oldalra.",
     "accept": "Hely elfogadása",
     "invalid": "Ez a link már nem érvényes (a helyet már elfogadták, az ajánlatot visszavonták, vagy lejárt)."
   },
   "report": {
-    "intro": "Jelezd nekünk, ha a falon olyan tartalmat látsz, amely sérti a törvényt vagy a tartalmi szabályainkat. Minden bejelentést ember ellenőriz.",
+    "intro": "Jelezd nekünk, ha olyan közzétett tartalmat látsz, amely sérti a törvényt vagy a tartalmi szabályainkat. Minden bejelentést ember ellenőriz.",
     "rules": "Hogy mi nem megengedett, azt a <link>tartalmi szabályok</link> sorolják fel.",
     "authoritiesTitle": "Hatóságok számára",
     "authorities": "Kapcsolattartási pont a digitális szolgáltatásokról szóló rendelet (EU 2022/2065) szerint hatóságok és felhasználók számára: {email}. Szlovákul vagy angolul válaszolunk.",
@@ -662,7 +662,7 @@
     "willAnswer": "Visszaigazolást küldtünk az e-mail-címedre, és tájékoztatunk a döntésünkről.",
     "noAnswer": "Nem adtál meg e-mail-címet, így nem tudjuk közölni veled az eredményt.",
     "rentalNo": "A hely száma",
-    "rentalNoHelp": "megjelenik az ablakban, ha a falon a helyre kattintasz",
+    "rentalNoHelp": "megjelenik az ablakban, ha a helyre kattintasz",
     "category": "Mi a probléma",
     "choose": "— válassz —",
     "description": "Részletek",
@@ -675,7 +675,7 @@
     "privacy": "Az e-mail-címedet csak a bejelentés megválaszolására használjuk.",
     "errors": {
       "invalid": "Add meg a hely számát, és hogy mi a probléma.",
-      "rental_not_found": "Ilyen számú hely nincs a falon.",
+      "rental_not_found": "Ilyen számú hely nincs.",
       "description_required": "Írd le a problémát.",
       "email_invalid": "Adj meg egy érvényes e-mail-címet, vagy hagyd üresen a mezőt.",
       "rate_limited": "Túl sok bejelentés érkezett a kapcsolatodról. Próbáld újra később.",
@@ -689,21 +689,21 @@
     "message": "Jó napot, megváltoztathatom a helyem linkjét?"
   },
   "how": {
-    "intro": "{site} – egy {pixels, number} pixelből álló fal. Vásárolj belőle egyszer egy darabot, tedd rá a képedet, és örökre ott marad — amíg az oldal létezik.",
+    "intro": "{site} – {pixels, number} pixel egy helyen. Vásárolj belőlük egyszer, tedd rájuk a képedet, és örökre ott marad — amíg az oldal létezik.",
     "step1Title": "Válaszd ki a helyedet",
-    "step1": "Húzással jelölj ki egy szabad területet a falon. A kijelölés 10 × 10 px-es blokkokhoz igazodik, a méretet és az árat pedig azonnal látod. Nem tudod, hová? A „Keress nekem helyet” funkció a kívánt méretű szabad helyeket ajánl.",
+    "step1": "Húzással jelölj ki egy szabad területet a pixelek között. A kijelölés 10 × 10 px-es blokkokhoz igazodik, a méretet és az árat pedig azonnal látod. Nem tudod, hová? A „Keress nekem helyet” funkció a kívánt méretű szabad helyeket ajánl.",
     "step2Title": "Tölts fel vagy rajzolj",
     "step2": "Tölts fel egy fotót — a pixelszűrőnk pontosan annyi pixellé alakítja, amennyit vásárolsz —, rajzolj a pixelszerkesztőben, vagy írj szöveget. Adj hozzá címet, opcionális linket és a nevedet vagy becenevedet.",
-    "step3Title": "Fizess, és már a falon is vagy",
-    "step3": "Fizess biztonságosan kártyával, Apple Pay-jel vagy Google Pay-jel. Minden képet ember ellenőriz, általában {hours, plural, one {# órán} other {# órán}} belül, és utána a pixeleid örökre a falon vannak.",
+    "step3Title": "Fizess, és a pixeleid megjelennek",
+    "step3": "Fizess biztonságosan kártyával, Apple Pay-jel vagy Google Pay-jel. Minden képet ember ellenőriz, általában {hours, plural, one {# órán} other {# órán}} belül, és utána a pixeleid örökre közzétéve maradnak.",
     "pricesTitle": "Árak",
     "pricesIntro": "Egy pixel ára {price}. Egyszer fizetsz; nincs éves díj.",
     "colSize": "Méret",
     "colPixels": "Pixelek",
     "colPrice": "Ár",
     "blocks": "{count, plural, one {# blokk} other {# blokk}}",
-    "rulesTitle": "Mi kerülhet a falra",
-    "rules": "Képek, rajzok és szövegek, amelyek megfelelnek a <rules>tartalmi szabályainknak</rules>: semmi jogellenes, semmi meztelenség, erőszak, gyűlölet vagy csalás, és csak olyan tartalom, amelyhez jogod van. A fal egyetlen állókép, ezért animációk és videók nem lehetségesek.",
+    "rulesTitle": "Mit lehet közzétenni",
+    "rules": "Képek, rajzok és szövegek, amelyek megfelelnek a <rules>tartalmi szabályainknak</rules>: semmi jogellenes, semmi meztelenség, erőszak, gyűlölet vagy csalás, és csak olyan tartalom, amelyhez jogod van. Az összes pixel egyetlen állóképet alkot, ezért animációk és videók nem lehetségesek.",
     "start": "Pixelek vásárlása",
     "more": "További válaszokat a <faq>GYIK</faq> oldalon találsz."
   },
@@ -711,31 +711,31 @@
     "intro": "Válaszok a leggyakoribb kérdésekre. Más kérdésed van? <contact>Írj nekünk</contact>.",
     "costQ": "Mennyibe kerül?",
     "costA": "Pixelenként {price}, egyszeri fizetéssel. A legkisebb hely egy 10 × 10 px-es blokk, ára {block}; az 50 × 50 px ára {spot50}, a 100 × 100 px ára {spot100}. {vat}",
-    "howLongQ": "Meddig maradnak a pixeleim a falon?",
-    "howLongA": "Örökre. Egyszer fizetsz, és a képed addig marad a falon, amíg az oldal ({site}) létezik. Nincs éves díj, és semmit sem kell megújítani.",
+    "howLongQ": "Meddig maradnak közzétéve a pixeleim?",
+    "howLongA": "Örökre. Egyszer fizetsz, és a képed addig marad közzétéve, amíg az oldal ({site}) létezik. Nincs éves díj, és semmit sem kell megújítani.",
     "whatQ": "Mit tehetek a pixeleimre?",
     "whatA": "Fotót vagy képet (PNG, JPG, WebP vagy állóképes GIF, legfeljebb {mb} MB), a pixelszerkesztőnkben készült rajzot vagy egy színes felületet szöveggel. Hozzáadhatsz címet, linket és a nevedet vagy becenevedet. Mindennek meg kell felelnie a <rules>tartalmi szabályoknak</rules>.",
-    "whenQ": "Mikor jelennek meg a pixeleim a falon?",
-    "whenA": "Miután egy ember ellenőrizte a képedet, általában a fizetéstől számított {hours, plural, one {# órán} other {# órán}} belül. Amint a falon van, e-mailben értesítünk.",
+    "whenQ": "Mikor teszitek közzé a pixeleimet?",
+    "whenA": "Miután egy ember ellenőrizte a képedet, általában a fizetéstől számított {hours, plural, one {# órán} other {# órán}} belül. Amint közzétettük, e-mailben értesítünk.",
     "rejectedQ": "Mi történik, ha elutasítjátok a tartalmamat?",
     "rejectedA": "Kapsz egy e-mailt az indoklással, és {days, plural, one {# napon} other {# napon}} belül más tartalmat küldhetsz; addig a helyed foglalt marad számodra. Ha nem küldesz, a teljes összeget visszatérítjük, és a hely újra szabad lesz.",
     "changeQ": "Megváltoztathatom később a képemet?",
-    "changeA": "Igen, bármikor a Pixeleim oldalon: a képet, a címet, a linket vagy a nevet. Minden módosítást újra ellenőrzünk, és addig a jelenlegi képed marad a falon.",
+    "changeA": "Igen, bármikor a Pixeleim oldalon: a képet, a címet, a linket vagy a nevet. Minden módosítást újra ellenőrzünk, és addig a jelenlegi képed marad közzétéve.",
     "closeQ": "Mi történik, ha az oldal egyszer bezár?",
-    "closeA": "Szeretnénk a falat nagyon sokáig online tartani. Ha valaha be kellene zárnunk, előre értesítünk minden tulajdonost e-mailben. A részleteket az <terms>általános szerződési feltételek</terms> tartalmazzák.",
+    "closeA": "Szeretnénk az oldalt nagyon sokáig online tartani. Ha valaha be kellene zárnunk, előre értesítünk minden tulajdonost e-mailben. A részleteket az <terms>általános szerződési feltételek</terms> tartalmazzák.",
     "blocksQ": "Miért 10 × 10-es blokkokban árulják a pixeleket?",
-    "blocksA": "Egyetlen pixel túl kicsi lenne ahhoz, hogy lássuk vagy rákattintsunk. A 10 × 10 px-es blokkok rendben tartják a falat, és minden hely kattintható és könnyen megtalálható. A legkisebb hely egy blokk, azaz 100 pixel.",
+    "blocksA": "Egyetlen pixel túl kicsi lenne ahhoz, hogy lássuk vagy rákattintsunk. A 10 × 10 px-es blokkok rendben tartják a pixeleket, és minden hely kattintható és könnyen megtalálható. A legkisebb hely egy blokk, azaz 100 pixel.",
     "giftQ": "Elajándékozhatom a pixeleimet?",
     "giftA": "Igen. A Pixeleim oldalon válaszd az „A hely elajándékozása valaki másnak” lehetőséget, és add meg az illető e-mail-címét. Kap egy linket, és miután elfogadta, ő lesz az új tulajdonos.",
     "receiptQ": "Kapok nyugtát?",
     "receiptA": "Igen. A fizetés után e-mailben elküldjük a visszaigazolást a nyugtával együtt, és a Pixeleim oldalon bármelyik nyugtát kinyomtathatod vagy elmentheted PDF-ként.",
     "privateQ": "Látható lesz az e-mail-címem?",
-    "privateA": "Nem. A falon csak a cím, a link és az általad választott nyilvános név jelenik meg. Az e-mail-címed titokban marad."
+    "privateA": "Nem. Nyilvánosan csak a cím, a link és az általad választott nyilvános név jelenik meg. Az e-mail-címed titokban marad."
   },
   "latest": {
-    "intro": "A legújabb képek a falon. Kattints egyre, és megnézheted a falon.",
-    "empty": "A falon még nincsenek képek. A tiéd lehet az első!",
-    "since": "{date} óta a falon"
+    "intro": "A legújabb képek. Kattints egyre, és megnézheted a pixelek között.",
+    "empty": "Még nincsenek képek. A tiéd lehet az első!",
+    "since": "közzétéve: {date}"
   },
   "contact": {
     "intro": "Kérdésed van a rendeléseddel kapcsolatban, ötleted vagy problémád? Írj nekünk az űrlapon vagy e-mailben. Általában két munkanapon belül válaszolunk.",
@@ -752,7 +752,7 @@
     "name": "A neved",
     "email": "Az e-mail-címed",
     "spotNo": "A hely száma",
-    "spotNoHelp": "ha az üzenet egy falon lévő helyre vonatkozik",
+    "spotNoHelp": "ha az üzenet egy adott helyre vonatkozik",
     "message": "Üzenet",
     "optional": "nem kötelező",
     "send": "Üzenet küldése",
@@ -774,29 +774,29 @@
     "emailLabel": "E-mail",
     "dsaTitle": "Kapcsolattartási pont a digitális szolgáltatásokról szóló rendelet szerint",
     "dsa": "Az EU-tagállamok hatóságai, az Európai Bizottság, a Digitális Szolgáltatások Európai Testülete és a felhasználók elektronikusan kapcsolatba léphetnek velünk ezen a címen: {email}, vagy a fenti űrlapon („Hatóság” téma). Szlovákul vagy angolul írhatsz nekünk.",
-    "reportHint": "Ha jogellenes tartalmat szeretnél bejelenteni a falon, használd a <report>bejelentő űrlapot</report>: egyenesen a moderációhoz kerül."
+    "reportHint": "Ha jogellenes tartalmat szeretnél bejelenteni, használd a <report>bejelentő űrlapot</report>: egyenesen a moderációhoz kerül."
   },
   "share": {
     "title": "„{title}” – {site}",
     "ogText": "Saját helyem van itt: {site}!",
-    "description": "{size} az egymillió pixeles falon. Kattints, és nézd meg.",
-    "see": "Megnézem a falon",
-    "redirecting": "A fal megnyitása…",
-    "gone": "Ez a hely jelenleg nem látható a falon."
+    "description": "{size} az egymillió pixel között. Kattints, és nézd meg.",
+    "see": "Megnézem a pixelek között",
+    "redirecting": "A pixelek megnyitása…",
+    "gone": "Ez a hely jelenleg nem látható."
   },
   "goWarning": {
     "title": "Ez a link veszélyes lehet",
     "text": "Egy biztonsági ellenőrzés veszélyesnek (kártevő vagy adathalászat) jelölte a link mögötti oldalt. Az átirányítást leállítottuk, amíg egy moderátor megvizsgálja.",
     "address": "A cím ez volt:",
-    "back": "Vissza a falhoz"
+    "back": "Vissza a pixelekhez"
   },
   "legal": {
     "todo": "[kiegészítendő]",
     "draft": "Ez a szöveg sablon. A „[kiegészítendő]” jelölésű részeket az oldal indulása előtt kitöltjük, és a teljes szöveget ügyvéd ellenőrzi.",
-    "rules": "Ezek a szabályok mindenre vonatkoznak, ami az oldalon ({site}) megjelenik: képekre, rajzokra, szövegekre, címekre, nevekre és linkekre. Minden tartalmat ember ellenőriz, mielőtt megjelenik a falon. A rendeléssel megerősíted, hogy a tartalmad megfelel ezeknek a szabályoknak.\n\n## Nem megengedett\n- bármi, ami jogellenes;\n- meztelenség, pornográfia és szexuális tartalom;\n- erőszak, vér és fegyverek agresszív összefüggésben;\n- gyűlölet, szélsőséges szimbólumok, megfélemlítés és zaklatás;\n- mások személyes adatai vagy fotói a beleegyezésük nélkül;\n- csalás, adathalászat, kártevők, piramisjátékok és engedély nélküli szerencsejáték;\n- logók, szereplők és más tartalmak, amelyekhez nincs jogod;\n- politikai hirdetés;\n- linkek ilyen tartalmú weboldalakra.\n\n## Technikai korlátok\nA fal egyetlen állókép: animációk és videók nem lehetségesek. A linkeknek http:// vagy https:// előtaggal kell kezdődniük. Elutasíthatjuk azt a tartalmat, amely a saját méretében olvashatatlan, vagy amely a weboldal részének adja ki magát (például hamis gombok).\n\n## Ha a tartalom sérti a szabályokat\n- Jóváhagyás előtt elutasítjuk a tartalmat, és megmondjuk, miért. {days, plural, one {# napon} other {# napon}} belül más tartalmat küldhetsz; ellenkező esetben a teljes összeget visszatérítjük.\n- Jóváhagyás után azonnal elrejthetjük, és véglegesen eltávolíthatjuk a tartalmat, ha sérti ezeket a szabályokat vagy a törvényt. Az eltávolított tartalomért nem jár visszatérítés (lásd az [általános szerződési feltételeket](/terms)). Az indoklásról mindig e-mailt kapsz.\n- Bármely döntés ellen kifogással élhetsz: válaszolj az e-mailünkre, vagy írj ide: {email}. Az ügyet egy ember újra megvizsgálja.\n\n## Bejelentés\nBárki bejelentheti a tartalmat az egyes helyek ablakában található „Bejelentés” gombbal vagy a [Tartalom bejelentése](/report) oldalon. Minden bejelentést visszaigazolunk, és a bejelentőt tájékoztatjuk a döntésünkről.",
-    "terms": "## 1. Kik vagyunk\nAz oldalt ({site}, a továbbiakban: „oldal”) üzemelteti: {operator}, cégazonosító: {companyId}, székhely: {address}, e-mail: {email} (a továbbiakban: „üzemeltető”, „mi”). Nyilvántartási adatok: {todo}\n\n## 2. Mit vásárolsz\n- Az oldalon egy {pixels, number} pixelből álló fal látható, amely 10 × 10 px-es blokkokra van osztva. Azt a jogot vásárolod meg, hogy a saját tartalmadat (képet, rajzot vagy szöveget, opcionális linkkel) megjelenítsd egy általad választott, egész blokkokból álló téglalapon (a továbbiakban: „hely”).\n- Az ár pixelenként {price}. Egyszer fizetsz; nincsenek ismétlődő díjak. Minden ár végső ár. {vat}\n- A tartalmad időkorlát nélkül a falon marad, amíg az oldalt üzemeltetjük. Nem válsz az oldal, annak szoftvere vagy a fal egészének képe semmilyen részének tulajdonosává.\n\n## 3. Hogyan jön létre a szerződés\n- Kiválasztasz egy helyet (rövid időre lefoglaljuk neked), hozzáadod a tartalmadat és az adataidat, elfogadod ezeket a feltételeket és a [tartalmi szabályokat](/content-rules), majd a Stripe fizetési szolgáltatón keresztül fizetsz.\n- A szerződés a fizetésed beérkezésével jön létre. A visszaigazolást a nyugtával együtt e-mailben küldjük el.\n- Mielőtt a tartalmad megjelenik a falon, egy ember ellenőrzi, általában {hours, plural, one {# órán} other {# órán}} belül.\n\n## 4. Jóváhagyás és elutasítás\n- Ha nem tudjuk jóváhagyni a tartalmadat, megmondjuk, miért. {days, plural, one {# napon} other {# napon}} belül más tartalmat küldhetsz; addig a hely foglalt marad számodra.\n- Ha addig nem érkezik elfogadható tartalom, a szerződés megszűnik, és a teljes összeget automatikusan visszatérítjük.\n\n## 5. A tartalmad\n- A tartalmadért te felelsz. Megerősíted, hogy minden joggal rendelkezel hozzá, és hogy megfelel a tartalmi szabályoknak és a törvénynek.\n- Hozzájárulsz, hogy a tartalmadat megjelenítsük az oldalon, a falról készült képeken (például a közösségi hálózatokon megjelenő előnézetekben) és az oldalról szóló anyagokban, amíg az oldal létezik.\n- A tartalmadat bármikor módosíthatod a Pixeleim oldalon; minden módosítást újra ellenőrzünk.\n- Ha a tartalom sérti a tartalmi szabályokat vagy a törvényt, azonnal elrejthetjük és eltávolíthatjuk. A szabálysértés miatt eltávolított tartalomért nem jár visszatérítés. Az indokokat mindig közöljük, és kifogással élhetsz.\n\n## 6. A hely elajándékozása\nA helyedet a Pixeleim oldalon elajándékozhatod másnak. Az e feltételekből eredő jogaid és kötelezettségeid akkor szállnak át az új tulajdonosra, amikor elfogadja az ajánlatot.\n\n## 7. Elállási jog\n- Fogyasztóként a távollévők között kötött szerződéstől 14 napon belül indoklás nélkül elállhatsz.\n- A rendeléskor kéred, hogy a szolgáltatás ennek a határidőnek a lejárta előtt kezdődjön meg, és tudomásul veszed, hogy a tartalmad falon való közzétételével elveszíted az elállási jogodat. Addig e-mailben elállhatsz ezen a címen: {email}; a fizetett összeget 14 napon belül visszatérítjük.\n- Elállási nyilatkozatminta: {todo}\n\n## 8. Elérhetőség és az oldal megszűnése\n- Igyekszünk, hogy az oldal megszakítás nélkül működjön, de ezt nem tudjuk minden pillanatban garantálni (karbantartás, szolgáltatóink kiesései).\n- Az oldalt határozatlan ideig kívánjuk üzemeltetni. Ha valaha úgy döntünk, hogy bezárjuk, előre értesítünk minden tulajdonost e-mailben. Az értesítési határidő, és hogy ilyen esetben mit kapnak a tulajdonosok: {todo}\n\n## 9. Panaszok\nA panasztétel módját a [panaszkezelési szabályzat](/complaints) írja le.\n\n## 10. Személyes adatok\nA személyes adatokat az [adatvédelmi tájékoztatóban](/privacy) leírtak szerint kezeljük.\n\n## 11. Záró rendelkezések\n- Ezekre a feltételekre a Szlovák Köztársaság joga az irányadó. Fogyasztói jogviták alternatív rendezése: {todo}\n- Ezeket a feltételeket a jövőre nézve módosíthatjuk; a vásárlásodra a fizetésed napján hatályos feltételek vonatkoznak.\n- Ezek a feltételek ettől a naptól hatályosak: {todo}.",
-    "complaints": "Ez a szabályzat elmagyarázza, hogyan tehetsz panaszt, ha a szolgáltatásunk nem úgy működik, ahogy kellene — például ha a helyed nem megfelelően jelenik meg, a fal nem mutatja a jóváhagyott tartalmadat, vagy egy fizetést nem dolgoztunk fel megfelelően.\n\n## Hogyan tehetsz panaszt\n- Írj ide: {email}, vagy használd a [kapcsolatfelvételi űrlapot](/contact) („Panasz vagy jogi ügy” téma).\n- Add meg a hely számát, a rendelésnél használt e-mail-címet, hogy mi a probléma, és ha lehet, csatolj képernyőképet.\n- A panasz beérkezését haladéktalanul visszaigazoljuk.\n\n## Hogyan kezeljük a panaszt\n- A panaszodról haladéktalanul, de legkésőbb a beérkezésétől számított 30 napon belül döntünk, és az eredményről e-mailben tájékoztatunk.\n- Ha a panasz megalapozott, megoldjuk a problémát (például újra helyesen jelenítjük meg a tartalmadat); ha ez nem lehetséges, visszatérítjük az árat vagy annak méltányos részét.\n- Minden panaszt és annak elintézését nyilvántartjuk.\n\n## Kifogás a moderációs döntések ellen\nHa nem értesz egyet egy, a tartalmadat érintő döntéssel (elutasítás, elrejtés vagy eltávolítás), válaszolj az e-mailünkre, vagy írj ide: {email}. A döntést egy ember újra megvizsgálja.\n\n## Alternatív vitarendezés\nHa nem vagy elégedett a panaszod kezelésével, kérheted tőlünk a helyzet orvoslását. Ha ezt elutasítjuk, vagy 30 napon belül nem válaszolunk, a fogyasztói jogviták alternatív rendezésével foglalkozó szervhez fordulhatsz: {todo}\n\nEz a szabályzat ettől a naptól hatályos: {todo}.",
-    "privacy": "Védjük a személyes adataidat, és csak azt gyűjtjük, amire az oldal ({site}) működtetéséhez szükségünk van.\n\n## Adatkezelő\n{operator}, cégazonosító: {companyId}, {address}, e-mail: {email}. Adatvédelmi tisztviselő: {todo}\n\n## Milyen adatokat kezelünk és miért\n- Rendelések és fizetések: az e-mail-címed, a hely, a tartalmad, a cím, a link és a nyilvános név, a hozzájárulásaid és a fizetési adatok — a szerződés megkötése és teljesítése (GDPR 6. cikk (1) bekezdés b) pont), valamint a számviteli kötelezettségek teljesítése érdekében (GDPR 6. cikk (1) bekezdés c) pont). A kártyaadatokat kizárólag a Stripe fizetési szolgáltató kezeli; mi soha nem látjuk őket.\n- Fiók (Pixeleim): az e-mail-címed és a bejelentkezési adatok — hogy kezelhesd a helyeidet (GDPR 6. cikk (1) bekezdés b) pont).\n- Moderáció és bejelentések: a tartalmak ellenőrzése, a bejelentések és a döntések, beleértve a bejelentő e-mail-címét, ha megadja — a digitális szolgáltatásokról szóló rendelet szerinti kötelezettségek teljesítése és a biztonságos oldal érdekében (GDPR 6. cikk (1) bekezdés c) és f) pont).\n- Kapcsolatfelvételi űrlap: a neved, az e-mail-címed és az üzeneted — hogy válaszolhassunk (GDPR 6. cikk (1) bekezdés f) pont).\n- Biztonság: az IP-címed egyirányúan kódolt (hash-elt) formája a visszaélések korlátozására, például a foglalások számának korlátozására, valamint a szerver technikai naplói (GDPR 6. cikk (1) bekezdés f) pont).\n- Hírek e-mailben: csak ha hozzájárulsz; a hozzájárulásodat bármikor visszavonhatod (GDPR 6. cikk (1) bekezdés a) pont).\n\n## Nyilvános tartalom\nA képed, a cím, a link és a nyilvános név nyilvánosan megjelenik a falon. Az e-mail-címed soha nem jelenik meg.\n\n## Sütik\nCsak olyan sütiket használunk, amelyek az oldal működéséhez szükségesek: a bejelentkezésedhez, a folyamatban lévő rendeléshez és a választott nyelvhez. Hirdetési vagy követő sütiket nem használunk. A látogatásokat sütik nélkül és a személyazonosságod megállapítása nélkül számoljuk. Statisztikai szolgáltatás: {todo}\n\n## Kik kapják meg az adatokat\nCsak azok a szolgáltatók, akik segítenek az oldal működtetésében, adatfeldolgozási szerződések alapján: tárhely és adatbázis {todo}, fájltárolás {todo}, fizetések (Stripe), e-mailek küldése {todo}, botok elleni védelem (Cloudflare Turnstile), valamint a linkek és képek veszélyes tartalomra való ellenőrzése {todo}. Egyesek közülük az EU-n kívül működnek; az adattovábbítást az EU általános adatvédelmi kikötései vagy az EU–USA adatvédelmi keret (EU-US Data Privacy Framework) védi.\n\n## Meddig őrizzük az adatokat\n- Rendelések és nyugták: ameddig a számviteli és adójogszabályok előírják (Szlovákiában általában 10 évig).\n- Fiók: amíg nem törlöd a Pixeleim oldalon.\n- A kapcsolatfelvételi űrlapon érkezett üzenetek: az elintézésüktől számított két évig.\n- Bejelentések: az elbírálásuktól számított {todo}.\n- Technikai naplók és biztonsági adatok: rövid ideig, legfeljebb {todo}.\n\n## A jogaid\nJogod van a hozzáféréshez, a helyesbítéshez, a törléshez, az adatkezelés korlátozásához és az adathordozhatósághoz, valamint a tiltakozáshoz; a hozzájárulásodat bármikor visszavonhatod. Írj ide: {email}. A fiókodat a Pixeleim oldalon magad is törölheted. Panaszt tehetsz a felügyeleti hatóságnál is: Úrad na ochranu osobných údajov Slovenskej republiky (a Szlovák Köztársaság Személyesadat-védelmi Hivatala), Hraničná 12, 820 07 Bratislava, www.dataprotection.gov.sk.\n\nEz a tájékoztató ettől a naptól hatályos: {todo}.",
+    "rules": "Ezek a szabályok mindenre vonatkoznak, ami az oldalon ({site}) megjelenik: képekre, rajzokra, szövegekre, címekre, nevekre és linkekre. Minden tartalmat ember ellenőriz közzététel előtt. A rendeléssel megerősíted, hogy a tartalmad megfelel ezeknek a szabályoknak.\n\n## Nem megengedett\n- bármi, ami jogellenes;\n- meztelenség, pornográfia és szexuális tartalom;\n- erőszak, vér és fegyverek agresszív összefüggésben;\n- gyűlölet, szélsőséges szimbólumok, megfélemlítés és zaklatás;\n- mások személyes adatai vagy fotói a beleegyezésük nélkül;\n- csalás, adathalászat, kártevők, piramisjátékok és engedély nélküli szerencsejáték;\n- logók, szereplők és más tartalmak, amelyekhez nincs jogod;\n- politikai hirdetés;\n- linkek ilyen tartalmú weboldalakra.\n\n## Technikai korlátok\nAz összes pixel egyetlen állóképet alkot: animációk és videók nem lehetségesek. A linkeknek http:// vagy https:// előtaggal kell kezdődniük. Elutasíthatjuk azt a tartalmat, amely a saját méretében olvashatatlan, vagy amely a weboldal részének adja ki magát (például hamis gombok).\n\n## Ha a tartalom sérti a szabályokat\n- Jóváhagyás előtt elutasítjuk a tartalmat, és megmondjuk, miért. {days, plural, one {# napon} other {# napon}} belül más tartalmat küldhetsz; ellenkező esetben a teljes összeget visszatérítjük.\n- Jóváhagyás után azonnal elrejthetjük, és véglegesen eltávolíthatjuk a tartalmat, ha sérti ezeket a szabályokat vagy a törvényt. Az eltávolított tartalomért nem jár visszatérítés (lásd az [általános szerződési feltételeket](/terms)). Az indoklásról mindig e-mailt kapsz.\n- Bármely döntés ellen kifogással élhetsz: válaszolj az e-mailünkre, vagy írj ide: {email}. Az ügyet egy ember újra megvizsgálja.\n\n## Bejelentés\nBárki bejelentheti a tartalmat az egyes helyek ablakában található „Bejelentés” gombbal vagy a [Tartalom bejelentése](/report) oldalon. Minden bejelentést visszaigazolunk, és a bejelentőt tájékoztatjuk a döntésünkről.",
+    "terms": "## 1. Kik vagyunk\nAz oldalt ({site}, a továbbiakban: „oldal”) üzemelteti: {operator}, cégazonosító: {companyId}, székhely: {address}, e-mail: {email} (a továbbiakban: „üzemeltető”, „mi”). Nyilvántartási adatok: {todo}\n\n## 2. Mit vásárolsz\n- Az oldalon {pixels, number} pixel látható, 10 × 10 px-es blokkokra osztva. Azt a jogot vásárolod meg, hogy a saját tartalmadat (képet, rajzot vagy szöveget, opcionális linkkel) megjelenítsd egy általad választott, egész blokkokból álló téglalapon (a továbbiakban: „hely”).\n- Az ár pixelenként {price}. Egyszer fizetsz; nincsenek ismétlődő díjak. Minden ár végső ár. {vat}\n- A tartalmad időkorlát nélkül közzétéve marad, amíg az oldalt üzemeltetjük. Nem válsz az oldal, annak szoftvere vagy az összes pixelből álló kép semmilyen részének tulajdonosává.\n\n## 3. Hogyan jön létre a szerződés\n- Kiválasztasz egy helyet (rövid időre lefoglaljuk neked), hozzáadod a tartalmadat és az adataidat, elfogadod ezeket a feltételeket és a [tartalmi szabályokat](/content-rules), majd a Stripe fizetési szolgáltatón keresztül fizetsz.\n- A szerződés a fizetésed beérkezésével jön létre. A visszaigazolást a nyugtával együtt e-mailben küldjük el.\n- Közzététel előtt a tartalmadat egy ember ellenőrzi, általában {hours, plural, one {# órán} other {# órán}} belül.\n\n## 4. Jóváhagyás és elutasítás\n- Ha nem tudjuk jóváhagyni a tartalmadat, megmondjuk, miért. {days, plural, one {# napon} other {# napon}} belül más tartalmat küldhetsz; addig a hely foglalt marad számodra.\n- Ha addig nem érkezik elfogadható tartalom, a szerződés megszűnik, és a teljes összeget automatikusan visszatérítjük.\n\n## 5. A tartalmad\n- A tartalmadért te felelsz. Megerősíted, hogy minden joggal rendelkezel hozzá, és hogy megfelel a tartalmi szabályoknak és a törvénynek.\n- Hozzájárulsz, hogy a tartalmadat megjelenítsük az oldalon, a pixelekről készült összképeken (például a közösségi hálózatokon megjelenő előnézetekben) és az oldalról szóló anyagokban, amíg az oldal létezik.\n- A tartalmadat bármikor módosíthatod a Pixeleim oldalon; minden módosítást újra ellenőrzünk.\n- Ha a tartalom sérti a tartalmi szabályokat vagy a törvényt, azonnal elrejthetjük és eltávolíthatjuk. A szabálysértés miatt eltávolított tartalomért nem jár visszatérítés. Az indokokat mindig közöljük, és kifogással élhetsz.\n\n## 6. A hely elajándékozása\nA helyedet a Pixeleim oldalon elajándékozhatod másnak. Az e feltételekből eredő jogaid és kötelezettségeid akkor szállnak át az új tulajdonosra, amikor elfogadja az ajánlatot.\n\n## 7. Elállási jog\n- Fogyasztóként a távollévők között kötött szerződéstől 14 napon belül indoklás nélkül elállhatsz.\n- A rendeléskor kéred, hogy a szolgáltatás ennek a határidőnek a lejárta előtt kezdődjön meg, és tudomásul veszed, hogy a tartalmad közzétételével elveszíted az elállási jogodat. Addig e-mailben elállhatsz ezen a címen: {email}; a fizetett összeget 14 napon belül visszatérítjük.\n- Elállási nyilatkozatminta: {todo}\n\n## 8. Elérhetőség és az oldal megszűnése\n- Igyekszünk, hogy az oldal megszakítás nélkül működjön, de ezt nem tudjuk minden pillanatban garantálni (karbantartás, szolgáltatóink kiesései).\n- Az oldalt határozatlan ideig kívánjuk üzemeltetni. Ha valaha úgy döntünk, hogy bezárjuk, előre értesítünk minden tulajdonost e-mailben. Az értesítési határidő, és hogy ilyen esetben mit kapnak a tulajdonosok: {todo}\n\n## 9. Panaszok\nA panasztétel módját a [panaszkezelési szabályzat](/complaints) írja le.\n\n## 10. Személyes adatok\nA személyes adatokat az [adatvédelmi tájékoztatóban](/privacy) leírtak szerint kezeljük.\n\n## 11. Záró rendelkezések\n- Ezekre a feltételekre a Szlovák Köztársaság joga az irányadó. Fogyasztói jogviták alternatív rendezése: {todo}\n- Ezeket a feltételeket a jövőre nézve módosíthatjuk; a vásárlásodra a fizetésed napján hatályos feltételek vonatkoznak.\n- Ezek a feltételek ettől a naptól hatályosak: {todo}.",
+    "complaints": "Ez a szabályzat elmagyarázza, hogyan tehetsz panaszt, ha a szolgáltatásunk nem úgy működik, ahogy kellene — például ha a helyed nem megfelelően jelenik meg, a jóváhagyott tartalmad nem jelenik meg, vagy egy fizetést nem dolgoztunk fel megfelelően.\n\n## Hogyan tehetsz panaszt\n- Írj ide: {email}, vagy használd a [kapcsolatfelvételi űrlapot](/contact) („Panasz vagy jogi ügy” téma).\n- Add meg a hely számát, a rendelésnél használt e-mail-címet, hogy mi a probléma, és ha lehet, csatolj képernyőképet.\n- A panasz beérkezését haladéktalanul visszaigazoljuk.\n\n## Hogyan kezeljük a panaszt\n- A panaszodról haladéktalanul, de legkésőbb a beérkezésétől számított 30 napon belül döntünk, és az eredményről e-mailben tájékoztatunk.\n- Ha a panasz megalapozott, megoldjuk a problémát (például újra helyesen jelenítjük meg a tartalmadat); ha ez nem lehetséges, visszatérítjük az árat vagy annak méltányos részét.\n- Minden panaszt és annak elintézését nyilvántartjuk.\n\n## Kifogás a moderációs döntések ellen\nHa nem értesz egyet egy, a tartalmadat érintő döntéssel (elutasítás, elrejtés vagy eltávolítás), válaszolj az e-mailünkre, vagy írj ide: {email}. A döntést egy ember újra megvizsgálja.\n\n## Alternatív vitarendezés\nHa nem vagy elégedett a panaszod kezelésével, kérheted tőlünk a helyzet orvoslását. Ha ezt elutasítjuk, vagy 30 napon belül nem válaszolunk, a fogyasztói jogviták alternatív rendezésével foglalkozó szervhez fordulhatsz: {todo}\n\nEz a szabályzat ettől a naptól hatályos: {todo}.",
+    "privacy": "Védjük a személyes adataidat, és csak azt gyűjtjük, amire az oldal ({site}) működtetéséhez szükségünk van.\n\n## Adatkezelő\n{operator}, cégazonosító: {companyId}, {address}, e-mail: {email}. Adatvédelmi tisztviselő: {todo}\n\n## Milyen adatokat kezelünk és miért\n- Rendelések és fizetések: az e-mail-címed, a hely, a tartalmad, a cím, a link és a nyilvános név, a hozzájárulásaid és a fizetési adatok — a szerződés megkötése és teljesítése (GDPR 6. cikk (1) bekezdés b) pont), valamint a számviteli kötelezettségek teljesítése érdekében (GDPR 6. cikk (1) bekezdés c) pont). A kártyaadatokat kizárólag a Stripe fizetési szolgáltató kezeli; mi soha nem látjuk őket.\n- Fiók (Pixeleim): az e-mail-címed és a bejelentkezési adatok — hogy kezelhesd a helyeidet (GDPR 6. cikk (1) bekezdés b) pont).\n- Moderáció és bejelentések: a tartalmak ellenőrzése, a bejelentések és a döntések, beleértve a bejelentő e-mail-címét, ha megadja — a digitális szolgáltatásokról szóló rendelet szerinti kötelezettségek teljesítése és a biztonságos oldal érdekében (GDPR 6. cikk (1) bekezdés c) és f) pont).\n- Kapcsolatfelvételi űrlap: a neved, az e-mail-címed és az üzeneted — hogy válaszolhassunk (GDPR 6. cikk (1) bekezdés f) pont).\n- Biztonság: az IP-címed egyirányúan kódolt (hash-elt) formája a visszaélések korlátozására, például a foglalások számának korlátozására, valamint a szerver technikai naplói (GDPR 6. cikk (1) bekezdés f) pont).\n- Hírek e-mailben: csak ha hozzájárulsz; a hozzájárulásodat bármikor visszavonhatod (GDPR 6. cikk (1) bekezdés a) pont).\n\n## Nyilvános tartalom\nA képed, a cím, a link és a nyilvános név nyilvánosan megjelenik az oldalon. Az e-mail-címed soha nem jelenik meg.\n\n## Sütik\nCsak olyan sütiket használunk, amelyek az oldal működéséhez szükségesek: a bejelentkezésedhez, a folyamatban lévő rendeléshez és a választott nyelvhez. Hirdetési vagy követő sütiket nem használunk. A látogatásokat sütik nélkül és a személyazonosságod megállapítása nélkül számoljuk. Statisztikai szolgáltatás: {todo}\n\n## Kik kapják meg az adatokat\nCsak azok a szolgáltatók, akik segítenek az oldal működtetésében, adatfeldolgozási szerződések alapján: tárhely és adatbázis {todo}, fájltárolás {todo}, fizetések (Stripe), e-mailek küldése {todo}, botok elleni védelem (Cloudflare Turnstile), valamint a linkek és képek veszélyes tartalomra való ellenőrzése {todo}. Egyesek közülük az EU-n kívül működnek; az adattovábbítást az EU általános adatvédelmi kikötései vagy az EU–USA adatvédelmi keret (EU-US Data Privacy Framework) védi.\n\n## Meddig őrizzük az adatokat\n- Rendelések és nyugták: ameddig a számviteli és adójogszabályok előírják (Szlovákiában általában 10 évig).\n- Fiók: amíg nem törlöd a Pixeleim oldalon.\n- A kapcsolatfelvételi űrlapon érkezett üzenetek: az elintézésüktől számított két évig.\n- Bejelentések: az elbírálásuktól számított {todo}.\n- Technikai naplók és biztonsági adatok: rövid ideig, legfeljebb {todo}.\n\n## A jogaid\nJogod van a hozzáféréshez, a helyesbítéshez, a törléshez, az adatkezelés korlátozásához és az adathordozhatósághoz, valamint a tiltakozáshoz; a hozzájárulásodat bármikor visszavonhatod. Írj ide: {email}. A fiókodat a Pixeleim oldalon magad is törölheted. Panaszt tehetsz a felügyeleti hatóságnál is: Úrad na ochranu osobných údajov Slovenskej republiky (a Szlovák Köztársaság Személyesadat-védelmi Hivatala), Hraničná 12, 820 07 Bratislava, www.dataprotection.gov.sk.\n\nEz a tájékoztató ettől a naptól hatályos: {todo}.",
     "vatPayer": "Az árak {rate}% áfát tartalmaznak.",
     "notVatPayer": "Nem vagyunk áfaalanyok, ezért áfát nem számítunk fel."
   }

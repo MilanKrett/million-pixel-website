@@ -1,8 +1,8 @@
-# Million Pixel Wall
+# Million Pixel Website
 
-Verejná stena s 1 000 000 pixelov (1000 × 1000), na ktorej si ľudia kupujú miesto po blokoch 10 × 10 px.
+Milión pixelov na jednom mieste (1000 × 1000), z ktorých si ľudia kupujú miesto po blokoch 10 × 10 px.
 Moderná verzia The Million Dollar Homepage (2005): pixel stojí 0,10 €, platí sa raz a obsah ostáva
-na stene navždy (kým stránka beží). Každý obrázok pred zverejnením schvaľuje človek.
+zverejnený navždy (kým stránka beží). Každý obrázok pred zverejnením schvaľuje človek.
 
 Zadanie projektu: [docs/SPEC.md](docs/SPEC.md) (kópia dokumentu „Prompt – Milión pixelov na prenájom“).
 Na jeho začiatku sú zapísané zmeny, o ktorých si rozhodol počas práce: kúpa navždy namiesto prenájmu,
@@ -12,7 +12,7 @@ Na jeho začiatku sú zapísané zmeny, o ktorých si rozhodol počas práce: k�
 
 | Fáza | Obsah | Stav |
 | --- | --- | --- |
-| 1 | Základ, retro dizajn, stena z databázy, zväčšovanie, lupa, mobil, testovacie dáta | hotová |
+| 1 | Základ, retro dizajn, obrázok pixelov z databázy, zväčšovanie, lupa, mobil, testovacie dáta | hotová |
 | 2 | Výber miesta, rezervácie, editor obsahu, platba (zatiaľ testovacia, bez Stripe), e-maily o platbe | hotová |
 | 3 | Prihlásenie odkazom, Moje pixely, administrácia s 2FA, moderácia, automatické kontroly, nahlasovanie | hotová |
 | 4 | Kúpa navždy, 10 jazykov, podstránky, právne šablóny, SEO, zdieľanie, kontakt, ikona na ploche, zálohy | hotová; ostrá prevádzka (hosting, doména, Stripe) neskôr |
@@ -26,14 +26,14 @@ Stránka beží na tvojom počítači ako aplikácia. Potrebuješ len [Node.js 2
 npm run desktop:install
 ```
 
-Na ploche pribudne **Million Pixel Wall**. Dvojklik otvorí okno, ktoré:
+Na ploche pribudne **Million Pixel Website** (staršiu ikonu inštalácia sama nahradí). Dvojklik otvorí okno, ktoré:
 
 1. raz denne zálohuje databázu a obrázky (do `.data/backups`, databázu za posledných 7 dní),
 2. spustí databázu a doplní do nej nové migrácie,
 3. ak sa zmenil kód, zostaví stránku (prvýkrát to trvá pár minút),
 4. spustí stránku na <http://localhost:3000> (ak je port obsadený, zoberie ďalší voľný) a otvorí prehliadač,
 5. každú minútu a raz denne spúšťa naplánované úlohy (uvoľnenie nezaplatených rezervácií, vrátenie
-   peňazí, kontrola odkazov, prekreslenie steny, upratanie starých verzií obrázka steny).
+   peňazí, kontrola odkazov, prekreslenie obrázka pixelov, upratanie jeho starých verzií).
 
 **Zatvorením okna sa stránka aj databáza vypnú.** To isté bez ikony: `npm run desktop`.
 
@@ -98,7 +98,7 @@ ich skript odmietne vytvoriť a `seed:clear` ich vie odstrániť aj tam.
 
 ### Vyskúšanie objednávky
 
-1. Na <http://localhost:3000/buy> vyber miesto ťahaním po stene (na mobile dve ťuknutia na rohy)
+1. Na <http://localhost:3000/buy> vyber miesto ťahaním po pixeloch (na mobile dve ťuknutia na rohy)
    alebo cez „Nájdi mi miesto“ a klikni **Pokračovať**. Miesto sa zarezervuje na 15 minút.
 2. Nahraj fotku (pixelový filter ju premení na presne toľko pixelov, koľko kupuješ), nakresli
    obrázok alebo zvoľ farbu s textom, potom vyplň údaje.
@@ -106,7 +106,7 @@ ich skript odmietne vytvoriť a `seed:clear` ich vie odstrániť aj tam.
    vyber „Zaplatiť (test)“, „Zrušiť a vrátiť sa“ alebo „Nechať platbu vypršať“.
 4. Odoslané e-maily (doklad o platbe, schválenie, odkazy na prihlásenie a správy z kontaktného
    formulára, ak je v Nastaveniach vyplnený kontaktný e-mail) sú na <http://localhost:3000/dev/emails>.
-5. Schváľ obsah v administrácii (nižšie). Po schválení sa do pár sekúnd objaví na stene a pixely
+5. Schváľ obsah v administrácii (nižšie). Po schválení sa do pár sekúnd zverejní a pixely
    patria kupujúcemu natrvalo.
 
 Testovacia platba a schránka `/dev/emails` v ostrej prevádzke (`APP_ENV=production`) nefungujú.
@@ -129,7 +129,7 @@ Testovacia platba a schránka `/dev/emails` v ostrej prevádzke (`APP_ENV=produc
 - <http://localhost:3000/my-pixels>: prihlásenie e-mailom z objednávky, zoznam miest, zmena obsahu
   (ide na schválenie, starý obsah ostáva), doklady, štatistiky, darovanie miesta na iný e-mail,
   zrušenie účtu.
-- Na stene v okne miesta je **Nahlásiť**; formulár je aj na <http://localhost:3000/report>.
+- V okne každého miesta je **Nahlásiť**; formulár je aj na <http://localhost:3000/report>.
 
 ### Podstránky
 
@@ -137,7 +137,7 @@ Testovacia platba a schránka `/dev/emails` v ostrej prevádzke (`APP_ENV=produc
 | --- | --- |
 | `/how-it-works` | Ako to funguje, cenník s príkladmi |
 | `/faq` | Časté otázky |
-| `/latest` | Najnovšie obrázky na stene |
+| `/latest` | Najnovšie obrázky |
 | `/contact` | Kontaktný formulár, údaje prevádzkovateľa, kontaktné miesto podľa DSA |
 | `/content-rules`, `/terms`, `/complaints`, `/privacy` | Pravidlá obsahu, obchodné podmienky, reklamačný poriadok, ochrana súkromia |
 | `/p/<číslo>` | Zdieľacia stránka miesta s náhľadovým obrázkom pre sociálne siete |
@@ -163,7 +163,7 @@ firewall pre Node.js prístup v súkromnej sieti.
 | `npm run db:migrate` | aplikuje migrácie na databázu z `DATABASE_URL` (lokálnu aj Supabase) |
 | `npm run db:reset` | zmaže LOKÁLNU databázu a vytvorí ju znova |
 | `npm run seed` / `npm run seed:clear` | testovacie dáta |
-| `npm run wall:render` | prekreslí zmenené miesta steny (`-- --full` celú stenu) |
+| `npm run wall:render` | prekreslí zmenené miesta obrázka pixelov (`-- --full` celý obrázok) |
 | `npm test` | rýchle testy bez databázy |
 | `npm run test:db` | testy proti skutočnej databáze (vytvorí si vlastnú `pixelwall_test`) |
 | `npm run test:all` | všetky testy |
@@ -172,10 +172,10 @@ firewall pre Node.js prístup v súkromnej sieti.
 
 ## Ako to funguje
 
-- **Stena** je jeden obrázok 1000 × 1000 px (bezstratové WebP + PNG s číslom verzie v adrese).
+- **Všetky pixely** tvoria jeden obrázok 1000 × 1000 px (bezstratové WebP + PNG s číslom verzie v adrese).
   Po každej zmene server prekreslí len zmenené obdĺžniky a uloží novú verziu; databázový trigger
   sám zaznamená, čo treba prekresliť (`wall_dirty`). Staré verzie sa raz denne upracú.
-- **V prehliadači** sa stena kreslí do canvasu bez vyhladzovania, takže pixely sú pri každom
+- **V prehliadači** sa pixely kreslia do canvasu bez vyhladzovania, takže pixely sú pri každom
   zväčšení ostré štvorčeky. Pod canvasom je klasický obrázok s HTML image map, ktorý funguje aj
   bez JavaScriptu a číta ho vyhľadávač.
 - **Obsadenosť** sa stráži v databáze: tabuľka `block_cells` má jeden riadok na blok a primárny
@@ -198,14 +198,14 @@ firewall pre Node.js prístup v súkromnej sieti.
 - **Účty** nemajú heslo: prihlasuje sa odkazom z e-mailu (platí raz, 15 minút). Účet automaticky
   vlastní všetky miesta objednané s tou adresou. Administrátori a moderátori musia mať
   dvojfaktorové prihlásenie (kód z aplikácie, po 12 hodinách znova).
-- **Moderácia**: nič nejde na stenu bez schválenia. Zamietnutá nová objednávka má 7 dní na nový
-  obsah, inak sa peniaze vrátia automaticky. Zmena obsahu na stene ide na schválenie a dovtedy
+- **Moderácia**: nič sa nezverejní bez schválenia. Zamietnutá nová objednávka má 7 dní na nový
+  obsah, inak sa peniaze vrátia automaticky. Zmena zverejneného obsahu ide na schválenie a dovtedy
   ostáva starý obsah. Každé rozhodnutie je v auditnom zázname.
 - **Automatické kontroly** pomáhajú moderátorovi: filter vulgarizmov (SK/CZ/EN), sledovanie
   presmerovaní odkazu a voliteľne Google Web Risk / Safe Browsing a rozpoznávanie obrázkov
-  (Sightengine alebo Google Vision). Bez kľúčov sa preskočia. Odkazy na stene sa kontrolujú znova
+  (Sightengine alebo Google Vision). Bez kľúčov sa preskočia. Zverejnené odkazy sa kontrolujú znova
   každý deň (`/api/cron/daily`); nebezpečný odkaz prestane fungovať a vznikne nahlásenie.
-- **Zdieľanie**: každé miesto má stránku `/p/<číslo>` s náhľadovým obrázkom (výrez steny s názvom),
+- **Zdieľanie**: každé miesto má stránku `/p/<číslo>` s náhľadovým obrázkom (výrez pixelov s názvom),
   ktorý ukážu Facebook, X, WhatsApp a ďalšie siete. Z e-mailu o schválení sa dá zdieľať jedným klikom.
 - **Bezpečnosť**: prísne hlavičky (Content-Security-Policy, zákaz vloženia do cudzej stránky, HSTS
   na https), Cloudflare Turnstile proti robotom a obmedzenie počtu pokusov.
@@ -218,9 +218,9 @@ firewall pre Node.js prístup v súkromnej sieti.
 
 ```
 supabase/migrations/   SQL schéma (rovnaká pre lokálnu databázu aj Supabase)
-scripts/               ikona na ploche, dev server, databáza, zálohy, testovacie dáta, prekreslenie steny
+scripts/               ikona na ploche, dev server, databáza, zálohy, testovacie dáta, prekreslenie obrázka
 src/app/               stránky ([locale]), administrácia (admin), API, náhľadové obrázky (og)
-src/components/wall/   interaktívna stena (canvas, zväčšovanie, lupa, okná, vyhľadávanie, výber)
+src/components/wall/   interaktívne pixely (canvas, zväčšovanie, lupa, okná, vyhľadávanie, výber)
 src/components/rent/   objednávka: výber miesta, nahrávanie, kreslenie, text, údaje, súhrn
 src/components/site/   hlavička, menu, pätička, počítadlá, podstránky, právne texty, kontakt
 src/components/account/ prihlásenie, Moje pixely, zmena obsahu, darovanie
@@ -234,7 +234,7 @@ src/lib/orders/        rezervácie, objednávka, platba, schválenie, e-maily k 
 src/lib/content/       spracovanie obrázkov, redukcia farieb, text v pixelovom písme
 src/lib/payments/      platobná brána (testovacia, neskôr Stripe)
 src/lib/email/         šablóny a odosielanie e-mailov
-src/lib/               databáza, nastavenia, úložisko súborov, skladanie obrázka steny, SEO
+src/lib/               databáza, nastavenia, úložisko súborov, skladanie obrázka pixelov, SEO
 src/messages/          texty v 10 jazykoch, administrácia (admin/) po anglicky a po slovensky
 tests/                 unit testy a databázové testy
 ```

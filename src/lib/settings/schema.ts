@@ -64,7 +64,7 @@ export type Settings = z.infer<typeof settingsSchema>;
 export type SettingKey = keyof Settings;
 
 export const DEFAULT_SETTINGS: Settings = {
-  site_name: "Million Pixel Wall",
+  site_name: "Million Pixel Website",
   tagline: {},
   operator_name: "[operator name or company]",
   operator_id: "[company ID]",

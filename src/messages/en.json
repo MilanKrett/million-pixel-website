@@ -1,13 +1,13 @@
 {
   "meta": {
     "title": "{site} — {pixels, number} pixels for sale",
-    "description": "{pixels, number} pixels, {price} per pixel. Buy a piece of the wall for good and put your picture, drawing or text with a link on it.",
+    "description": "{pixels, number} pixels, {price} per pixel. Buy some of them for good and put your picture, drawing or text with a link on them.",
     "pageTitle": "{page} — {site}",
     "pages": {
-      "buy": "Choose a free spot on the wall, upload a photo, draw or write a text, and pay once — your pixels stay on the wall for good.",
-      "how": "How {site} works: choose a spot, upload or draw your picture, pay {price} per pixel once and stay on the wall for good.",
+      "buy": "Choose free pixels, upload a photo, draw or write a text, and pay once — your pixels stay published for good.",
+      "how": "How {site} works: choose a spot, upload or draw your picture, pay {price} per pixel once and your pixels stay published for good.",
       "faq": "Answers about prices, approval, changes, gifts and receipts on {site}.",
-      "latest": "The newest pictures on {site}, the wall of a million pixels.",
+      "latest": "The newest pictures on {site}: a million pixels in one place.",
       "contact": "Contact {site}: questions, complaints and the point of contact under the Digital Services Act.",
       "rules": "What may and may not appear on {site}.",
       "terms": "Terms of service of {site}.",
@@ -17,10 +17,10 @@
     }
   },
   "common": {
-    "skipToWall": "Skip to the wall",
+    "skipToWall": "Skip to the pixels",
     "skipToContent": "Skip to content",
     "close": "Close",
-    "backToWall": "Back to the wall",
+    "backToWall": "Back to the pixels",
     "language": "Language",
     "pixels": "{count, plural, one {# pixel} other {# pixels}}",
     "blocks": "{count, plural, one {# block} other {# blocks}}",
@@ -29,14 +29,14 @@
   },
   "header": {
     "logoTitle": "{site} — home",
-    "statsLabel": "Wall statistics",
+    "statsLabel": "Pixel statistics",
     "rented": "Sold pixels",
     "free": "Free",
     "lastRental": "Last purchase",
     "lastRentalNone": "none yet",
     "justNow": "just now",
     "progress": "{percent} sold",
-    "progressLabel": "{percent} of the wall is sold",
+    "progressLabel": "{percent} of the pixels are sold",
     "slogan": "Leave your mark on the internet"
   },
   "nav": {
@@ -60,10 +60,10 @@
     "complaints": "Complaints"
   },
   "wall": {
-    "regionLabel": "The pixel wall",
+    "regionLabel": "The million pixels",
     "keyboardHelp": "Use the arrow keys to move, + and − to zoom, Enter to open the spot in the middle and Esc to close a window.",
-    "imageAlt": "The wall of {pixels, number} pixels with the pictures of all owners",
-    "noscript": "Turn on JavaScript to zoom in, search and buy pixels. You can still click the pictures on the wall.",
+    "imageAlt": "{pixels, number} pixels with the pictures of all owners",
+    "noscript": "Turn on JavaScript to zoom in, search and buy pixels. You can still click the pictures.",
     "zoom": "Zoom",
     "zoomIn": "Zoom in",
     "zoomOut": "Zoom out",
@@ -72,21 +72,21 @@
     "random": "Random spot",
     "showFree": "Show free spaces",
     "search": "Search",
-    "searchLabel": "Search the wall",
+    "searchLabel": "Search the pixels",
     "searchPlaceholder": "Title, name or website",
     "searchNone": "Nothing found for “{query}”.",
     "searchMany": "{count, plural, one {# result} other {# results}} — pick one:",
     "rent": "Buy pixels",
     "coords": "block {bx}, {by} · px {px}, {py}",
-    "coordsIdle": "Point at the wall to see coordinates",
+    "coordsIdle": "Point at the pixels to see coordinates",
     "position": "x {x0}–{x1}, y {y0}–{y1}",
     "size": "{w} × {h} px",
     "reserved": "Reserved",
     "rentedPending": "Sold — waiting for approval",
-    "updated": "The wall was updated.",
+    "updated": "The pixels were updated.",
     "tool": "Mouse tool",
     "toolSelect": "Select area",
-    "toolMove": "Move wall",
+    "toolMove": "Move view",
     "cornerSet": "First corner at block {bx}, {by}. Move and press Enter for the opposite corner.",
     "areaSet": "Area chosen up to block {bx}, {by}."
   },
@@ -103,16 +103,16 @@
     "freeText": "Block {bx}, {by} ({position}) costs {price} — paid once, yours for good. You can also select a bigger area.",
     "rentThis": "Buy this spot",
     "takenTitle": "This spot is sold",
-    "takenText": "The content will appear on the wall after it is approved.",
+    "takenText": "The content will be published after it is approved.",
     "holdTitle": "This spot is reserved",
     "holdText": "Someone is buying it right now. If they do not finish within a few minutes, it will be free again.",
-    "since": "On the wall since {date}"
+    "since": "Published since {date}"
   },
   "pages": {
     "rent": "Buy pixels",
     "how": "How it works",
     "faq": "Frequently asked questions",
-    "latest": "Newest on the wall",
+    "latest": "Newest pictures",
     "mine": "My pixels",
     "contact": "Contact",
     "rules": "Content rules",
@@ -122,15 +122,15 @@
     "notFoundTitle": "Page not found",
     "notFoundText": "Sorry, there is nothing at this address. Maybe the link is old or mistyped.",
     "complaints": "Complaints procedure",
-    "share": "Spot on the wall"
+    "share": "Spot among the pixels"
   },
   "email": {
-    "footer": "{site} — a wall of a million pixels.",
+    "footer": "{site} — a million pixels in one place.",
     "greeting": "Hello,",
     "position": "x {x0}–{x1}, y {y0}–{y1}",
     "size": "{w} × {h} px",
     "companyId": "company ID {id}",
-    "item": "Spot of {w} × {h} px on the wall ({position}, spot no. {no}), shown for good",
+    "item": "Spot of {w} × {h} px ({position}, spot no. {no}), shown for good",
     "vatIncluded": "The price includes VAT {rate} %: {vat}",
     "notVatPayer": "The seller is not a VAT payer.",
     "labels": {
@@ -147,16 +147,16 @@
     },
     "paid": {
       "subject": "Payment received — your pixels are waiting for approval",
-      "intro": "Thank you for your order. We received your payment of {amount}. We will check your content, usually within {hours} hours, and let you know when it is on the wall.",
+      "intro": "Thank you for your order. We received your payment of {amount}. We will check your content, usually within {hours} hours, and let you know when it is published.",
       "rentalHeading": "Your spot",
       "receiptHeading": "Receipt",
       "mine": "You can see your spots in My pixels:",
-      "forever": "Once approved, your pixels stay on the wall for good — for as long as the site exists."
+      "forever": "Once approved, your pixels stay published for good — for as long as the site exists."
     },
     "approved": {
-      "subject": "Your pixels are on the wall!",
-      "intro": "Good news: “{title}” was approved and is now on the wall at {position}. The pixels are yours for good.",
-      "see": "See it on the wall",
+      "subject": "Your pixels are published!",
+      "intro": "Good news: “{title}” was approved and is now published at {position}. The pixels are yours for good.",
+      "see": "See your pixels",
       "share": "Show it to your friends:",
       "shareText": "I have my own spot on {site}!",
       "shareEmail": "E-mail"
@@ -178,7 +178,7 @@
     },
     "changeApproved": {
       "subject": "Your change was approved",
-      "intro": "The new version of “{title}” is now on the wall at {position}."
+      "intro": "The new version of “{title}” is now published at {position}."
     },
     "rejected": {
       "subject": "Your content was not approved",
@@ -189,11 +189,11 @@
     },
     "changesRequested": {
       "subject": "Please adjust your content",
-      "intro": "Your content for the spot at {position} (“{title}”) needs a change before we can put it on the wall."
+      "intro": "Your content for the spot at {position} (“{title}”) needs a change before we can publish it."
     },
     "changeRejected": {
       "subject": "Your change was not approved",
-      "intro": "We could not approve the change to “{title}” at {position}. Your previous content stays on the wall.",
+      "intro": "We could not approve the change to “{title}” at {position}. Your previous content stays published.",
       "again": "You can send a different change in My pixels.",
       "button": "Open My pixels"
     },
@@ -206,12 +206,12 @@
     },
     "hidden": {
       "subject": "Your pixels were hidden for now",
-      "intro": "Your content “{title}” at {position} was hidden from the wall while we look into it.",
-      "next": "We will let you know the result. If the content is fine, it will be back on the wall."
+      "intro": "Your content “{title}” at {position} was hidden while we look into it.",
+      "next": "We will let you know the result. If the content is fine, it will be shown again."
     },
     "removed": {
-      "subject": "Your content was removed from the wall",
-      "intro": "We removed “{title}” at {position} from the wall because it breaks our content rules.",
+      "subject": "Your content was removed",
+      "intro": "We removed “{title}” at {position} because it breaks our content rules.",
       "terms": "As stated in the terms of service, content removed for breaking the rules is not refunded."
     },
     "reportReceived": {
@@ -221,9 +221,9 @@
     },
     "reportDecided": {
       "subject": "Decision on your report ({reference})",
-      "actioned": "We checked the content you reported (spot no. {no}) and took action: it is no longer shown on the wall.",
-      "dismissed": "We checked the content you reported (spot no. {no}) and found that it does not break our content rules, so it stays on the wall.",
-      "thanks": "Thank you for helping us keep the wall friendly."
+      "actioned": "We checked the content you reported (spot no. {no}) and took action: it is no longer shown.",
+      "dismissed": "We checked the content you reported (spot no. {no}) and found that it does not break our content rules, so it stays published.",
+      "thanks": "Thank you for helping us keep the pixels friendly."
     },
     "transferOffer": {
       "subject": "Someone is giving you a spot on {site}",
@@ -238,7 +238,7 @@
     "accountDeleted": {
       "subject": "Your account was deleted",
       "intro": "Your account and personal data were deleted as you asked. Receipts are kept for as long as the law requires.",
-      "rentals": "Your pixels stay on the wall, but nobody can manage them any more."
+      "rentals": "Your pixels stay published, but nobody can manage them any more."
     },
     "staffInvite": {
       "subject": "You can now use the administration of {site}",
@@ -279,7 +279,7 @@
     "backToOrder": "Back to my order",
     "keepPlace": "Keep this place",
     "position": "x {x0}–{x1}, y {y0}–{y1}",
-    "selectHelp": "Drag on the wall to select the area you want to buy. It snaps to blocks of 10 × 10 px. Drag the corners to resize it or drag the area to move it. Zoom with the mouse wheel; to move the wall, use the right mouse button or the “Move wall” tool.",
+    "selectHelp": "Drag over the pixels to select the area you want to buy. It snaps to blocks of 10 × 10 px. Drag the corners to resize it or drag the area to move it. Zoom with the mouse wheel; to move the view, use the right mouse button or the “Move view” tool.",
     "selectHelpTouch": "On a phone: zoom in with two fingers, tap the first corner, then the opposite corner, and adjust the area with its corner handles.",
     "yourSelection": "Your selection",
     "noSelection": "Nothing selected yet.",
@@ -295,7 +295,7 @@
       "taken": "Someone reserved part of this area a moment ago. Here are free places of the same size nearby:",
       "rate_limited": "You already have several reservations running. Finish or cancel one of them first.",
       "sales_paused": "Sales are paused at the moment. Please try again later.",
-      "invalid": "This area is not on the wall.",
+      "invalid": "This area is outside the pixels.",
       "too_small": "This area is too small.",
       "too_large": "This area is too large.",
       "network": "We could not reach the server. Check your connection and try again.",
@@ -317,7 +317,7 @@
     "find": "Find",
     "noSpots": "No free place of this size. Try a smaller one.",
     "spotsNear": "Closest to the centre:",
-    "spotsRandom": "Elsewhere on the wall:",
+    "spotsRandom": "Elsewhere:",
     "spot": "x {x}, y {y} ({w} × {h} px)",
     "contentTitle": "Your picture ({w} × {h} px)",
     "currentContent": "Your current content",
@@ -444,7 +444,7 @@
     },
     "back": "Back",
     "summaryTitle": "Summary",
-    "summaryPreview": "Your content on the wall",
+    "summaryPreview": "Preview of your pixels",
     "editContent": "Change content",
     "editDetails": "Change details",
     "priceTotal": "Total",
@@ -452,7 +452,7 @@
     "notVatPayer": "Final price. The seller is not a VAT payer.",
     "pay": "Pay {price}",
     "redirecting": "Opening the payment…",
-    "payNote": "You pay on the next page. We check the content, usually within {hours} hours; then your pixels are on the wall for good.",
+    "payNote": "You pay on the next page. We check the content, usually within {hours} hours; then your pixels are published for good.",
     "devPaymentNote": "Test mode: no real payment is made (Stripe is not connected yet).",
     "payErrors": {
       "expired": "Your reservation has expired. Reserve the place again.",
@@ -468,10 +468,10 @@
   "thanks": {
     "title": "Thank you!",
     "statusReview": "Paid — waiting for approval",
-    "statusActive": "Approved — your pixels are on the wall",
-    "reviewText": "We check every picture before it appears on the wall, usually within 24 hours. Then it stays there for good.",
+    "statusActive": "Approved — your pixels are published",
+    "reviewText": "We check every picture before it is published, usually within 24 hours. Then it stays published for good.",
     "emailSent": "We sent the confirmation and the receipt to {email}.",
-    "seeSpot": "Show my place on the wall",
+    "seeSpot": "Show my pixels",
     "refundedTitle": "We are sorry",
     "refundedText": "Your payment arrived after your reservation had ended and someone else bought the place in the meantime. We refunded the whole amount.",
     "chooseAnother": "Choose another place",
@@ -481,7 +481,7 @@
     "noOrderTitle": "No order",
     "noOrderText": "There is no order in this browser.",
     "devEmails": "Development: the e-mails are in the local mailbox",
-    "backToWall": "Back to the wall"
+    "backToWall": "Back to the pixels"
   },
   "devCheckout": {
     "title": "Test payment",
@@ -550,7 +550,7 @@
     "rentNow": "Buy pixels »",
     "status": {
       "in_review": "Waiting for approval",
-      "active": "On the wall",
+      "active": "Published",
       "grace": "In the grace period",
       "ended": "Ended",
       "rejected": "Not approved: waiting for new content",
@@ -563,11 +563,11 @@
     "size": "Size",
     "sizeValue": "{w} × {h} px ({pixels, number} pixels)",
     "link": "Link",
-    "waitingChange": "A change sent on {date} is waiting for approval; the current content stays on the wall until then.",
+    "waitingChange": "A change sent on {date} is waiting for approval; the current content stays published until then.",
     "decision": {
       "rejected": "We could not approve your content.",
       "changes": "Please adjust your content.",
-      "changeRejected": "Your last change was not approved; the previous content stays on the wall."
+      "changeRejected": "Your last change was not approved; the previous content stays published."
     },
     "reason": "Reason: {reason}",
     "reuploadUntil": "Send new content by {date}. Otherwise we refund the whole payment and release the spot.",
@@ -590,27 +590,27 @@
     "transferCancel": "Cancel",
     "cancel": "Cancel",
     "deleteTitle": "Delete my account and personal data",
-    "deleteHelp": "Your account, e-mail address and public name are deleted. Receipts are kept for as long as the law requires. Your pixels stay on the wall, but you can no longer manage them.",
+    "deleteHelp": "Your account, e-mail address and public name are deleted. Receipts are kept for as long as the law requires. Your pixels stay published, but you can no longer manage them.",
     "deleteConfirm": "Type your e-mail address ({email}) to confirm",
     "deleteButton": "Delete account",
     "editTitle": "Change content",
     "notEditable": "This spot cannot be changed any more.",
     "backToList": "Back to My pixels",
-    "editIntro": "Change the picture, the title, the link or the name. The change goes to approval; until then the current content stays on the wall.",
+    "editIntro": "Change the picture, the title, the link or the name. The change goes to approval; until then the current content stays published.",
     "editRejectedIntro": "Send new content for your spot. It goes to approval again.",
-    "onWallNow": "On the wall now",
+    "onWallNow": "Published now",
     "waitingApproval": "Waiting for approval",
     "newPicture": "New picture (not sent yet)",
     "pictureTitle": "New picture ({w} × {h} px)",
     "pictureHelp": "Optional: keep the current picture and change only the texts below.",
     "textsTitle": "Title, link and name",
     "submit": "Send for approval",
-    "publish": "Publish on the wall",
+    "publish": "Publish",
     "submitNote": "We check every change, usually within {hours, plural, one {# hour} other {# hours}}.",
     "sentTitle": "Sent for approval.",
-    "sentKeep": "We will check it, usually within {hours, plural, one {# hour} other {# hours}}. Until then your current content stays on the wall.",
+    "sentKeep": "We will check it, usually within {hours, plural, one {# hour} other {# hours}}. Until then your current content stays published.",
     "sentNew": "We will check it, usually within {hours, plural, one {# hour} other {# hours}}, and let you know by e-mail.",
-    "published": "The change is on the wall.",
+    "published": "The change is published.",
     "errors": {
       "email_invalid": "Please enter a valid e-mail address.",
       "same_owner": "That is your own address.",
@@ -627,7 +627,7 @@
     },
     "lastVersion": "Your last version (not approved)",
     "pictureHelpRejected": "Make a new picture, or keep the last one and change only what the moderator asked for in the texts below.",
-    "since": "On the wall since",
+    "since": "Published since",
     "afterApproval": "after approval"
   },
   "receipt": {
@@ -638,7 +638,7 @@
     "seller": "Seller",
     "buyer": "Buyer",
     "item": "Item",
-    "itemValue": "Spot of {w} × {h} px on the wall (x {x0}–{x1}, y {y0}–{y1}, spot no. {no}), shown for good",
+    "itemValue": "Spot of {w} × {h} px (x {x0}–{x1}, y {y0}–{y1}, spot no. {no}), shown for good",
     "total": "Total paid",
     "vat": "VAT",
     "vatIncluded": "The price includes VAT {rate} %: {vat}",
@@ -647,13 +647,13 @@
     "print": "Print or save as PDF"
   },
   "transfer": {
-    "title": "Accept a spot on the wall",
-    "intro": "Someone gave you a spot on the wall. Accept it to become its owner; you will be signed in to My pixels with your e-mail address.",
+    "title": "Accept a spot of pixels",
+    "intro": "Someone gave you a spot of pixels. Accept it to become its owner; you will be signed in to My pixels with your e-mail address.",
     "accept": "Accept the spot",
     "invalid": "This link is not valid any more (the spot was accepted already, the offer was cancelled or it expired)."
   },
   "report": {
-    "intro": "Tell us about content on the wall that breaks the law or our content rules. A person checks every report.",
+    "intro": "Tell us about published content that breaks the law or our content rules. A person checks every report.",
     "rules": "What is not allowed is listed in the <link>content rules</link>.",
     "authoritiesTitle": "For authorities",
     "authorities": "Point of contact under the Digital Services Act (EU 2022/2065) for authorities and users: {email}. We answer in Slovak or English.",
@@ -662,7 +662,7 @@
     "willAnswer": "We sent a confirmation to your e-mail and will let you know what we decided.",
     "noAnswer": "You did not leave an e-mail address, so we cannot tell you the result.",
     "rentalNo": "Spot number",
-    "rentalNoHelp": "shown in the window when you click the spot on the wall",
+    "rentalNoHelp": "shown in the window when you click the spot",
     "category": "What is wrong",
     "choose": "— choose —",
     "description": "Details",
@@ -675,7 +675,7 @@
     "privacy": "We use your e-mail address only to answer this report.",
     "errors": {
       "invalid": "Please fill in the spot number and what is wrong.",
-      "rental_not_found": "There is no spot with this number on the wall.",
+      "rental_not_found": "There is no spot with this number.",
       "description_required": "Please describe the problem.",
       "email_invalid": "Please enter a valid e-mail address or leave it empty.",
       "rate_limited": "Too many reports from your connection. Please try again later.",
@@ -689,21 +689,21 @@
     "message": "Hello, can I change the link of my spot?"
   },
   "how": {
-    "intro": "{site} is a wall of {pixels, number} pixels. Buy a piece of it once, put your picture on it, and it stays there for good — for as long as the site exists.",
+    "intro": "{site} is {pixels, number} pixels in one place. Buy some of them once, put your picture on them, and it stays there for good — for as long as the site exists.",
     "step1Title": "Choose your spot",
-    "step1": "Drag over the wall to select a free area. It snaps to blocks of 10 × 10 px, and you see the size and the price right away. Not sure where? “Find me a spot” suggests free places of the size you want.",
+    "step1": "Drag over the pixels to select a free area. It snaps to blocks of 10 × 10 px, and you see the size and the price right away. Not sure where? “Find me a spot” suggests free places of the size you want.",
     "step2Title": "Upload or draw",
     "step2": "Upload a photo — our pixel filter turns it into exactly as many pixels as you buy — draw in the pixel editor or write a text. Add a title, an optional link and your name or nickname.",
-    "step3Title": "Pay and you are on the wall",
-    "step3": "Pay securely by card, Apple Pay or Google Pay. A person checks every picture, usually within {hours, plural, one {# hour} other {# hours}}, and then your pixels are on the wall for good.",
+    "step3Title": "Pay and your pixels go live",
+    "step3": "Pay securely by card, Apple Pay or Google Pay. A person checks every picture, usually within {hours, plural, one {# hour} other {# hours}}, and then your pixels are published for good.",
     "pricesTitle": "Prices",
     "pricesIntro": "One pixel costs {price}. You pay once; there is no yearly fee.",
     "colSize": "Size",
     "colPixels": "Pixels",
     "colPrice": "Price",
     "blocks": "{count, plural, one {# block} other {# blocks}}",
-    "rulesTitle": "What can be on the wall",
-    "rules": "Pictures, drawings and texts that follow our <rules>content rules</rules>: nothing illegal, no nudity, violence, hate or scams, and only content you have the rights to. The wall is one still picture, so animations and videos are not possible.",
+    "rulesTitle": "What can be published",
+    "rules": "Pictures, drawings and texts that follow our <rules>content rules</rules>: nothing illegal, no nudity, violence, hate or scams, and only content you have the rights to. All pixels form one still picture, so animations and videos are not possible.",
     "start": "Buy pixels",
     "more": "More answers are in the <faq>FAQ</faq>."
   },
@@ -711,31 +711,31 @@
     "intro": "Answers to the most common questions. Something else? <contact>Write to us</contact>.",
     "costQ": "How much does it cost?",
     "costA": "{price} per pixel, paid once. The smallest spot is one block of 10 × 10 px for {block}; 50 × 50 px costs {spot50} and 100 × 100 px costs {spot100}. {vat}",
-    "howLongQ": "How long will my pixels stay on the wall?",
-    "howLongA": "For good. You pay once and your picture stays on the wall for as long as {site} exists. There is no yearly fee and nothing to renew.",
+    "howLongQ": "How long will my pixels stay published?",
+    "howLongA": "For good. You pay once and your picture stays published for as long as {site} exists. There is no yearly fee and nothing to renew.",
     "whatQ": "What can I put on my pixels?",
     "whatA": "A photo or a picture (PNG, JPG, WebP or a still GIF up to {mb} MB), a drawing from our pixel editor, or a coloured area with text. You can add a title, a link and your name or nickname. Everything has to follow the <rules>content rules</rules>.",
-    "whenQ": "When will my pixels appear on the wall?",
-    "whenA": "After a person checks your picture, usually within {hours, plural, one {# hour} other {# hours}} of your payment. We let you know by e-mail as soon as it is on the wall.",
+    "whenQ": "When will my pixels be published?",
+    "whenA": "After a person checks your picture, usually within {hours, plural, one {# hour} other {# hours}} of your payment. We let you know by e-mail as soon as it is published.",
     "rejectedQ": "What if you reject my content?",
     "rejectedA": "You get an e-mail with the reason and can send different content within {days, plural, one {# day} other {# days}}; your spot stays reserved for you until then. If you do not, we refund the whole payment and the spot is free again.",
     "changeQ": "Can I change my picture later?",
-    "changeA": "Yes, at any time in My pixels: the picture, the title, the link or the name. Every change is checked again, and until then your current picture stays on the wall.",
+    "changeA": "Yes, at any time in My pixels: the picture, the title, the link or the name. Every change is checked again, and until then your current picture stays published.",
     "closeQ": "What happens if the website closes one day?",
-    "closeA": "We want to keep the wall online for a very long time. If we ever had to close it, we would tell all owners by e-mail in advance. The details are in the <terms>terms of service</terms>.",
+    "closeA": "We want to keep the site online for a very long time. If we ever had to close it, we would tell all owners by e-mail in advance. The details are in the <terms>terms of service</terms>.",
     "blocksQ": "Why are pixels sold in blocks of 10 × 10?",
-    "blocksA": "A single pixel would be too small to see or to click. Blocks of 10 × 10 px keep the wall tidy, make every spot clickable and easy to find. The smallest spot is one block, that is 100 pixels.",
+    "blocksA": "A single pixel would be too small to see or to click. Blocks of 10 × 10 px keep the pixels tidy, make every spot clickable and easy to find. The smallest spot is one block, that is 100 pixels.",
     "giftQ": "Can I give my pixels as a gift?",
     "giftA": "Yes. In My pixels choose “Give this spot to someone else” and enter their e-mail address. They get a link and become the new owner once they accept it.",
     "receiptQ": "Do I get a receipt?",
     "receiptA": "Yes. After the payment we send you the confirmation with a receipt by e-mail, and you can print every receipt or save it as PDF in My pixels.",
     "privateQ": "Will my e-mail address be visible?",
-    "privateA": "No. Only the title, the link and the public name you choose are shown on the wall. Your e-mail address stays private."
+    "privateA": "No. Only the title, the link and the public name you choose are shown publicly. Your e-mail address stays private."
   },
   "latest": {
-    "intro": "The newest pictures on the wall. Click one to see it on the wall.",
-    "empty": "There are no pictures on the wall yet. Yours can be the first!",
-    "since": "on the wall since {date}"
+    "intro": "The newest pictures. Click one to see it among the pixels.",
+    "empty": "There are no pictures yet. Yours can be the first!",
+    "since": "published since {date}"
   },
   "contact": {
     "intro": "Questions about your order, ideas or problems? Write to us with the form or by e-mail. We usually answer within two working days.",
@@ -752,7 +752,7 @@
     "name": "Your name",
     "email": "Your e-mail",
     "spotNo": "Spot number",
-    "spotNoHelp": "if the message is about a spot on the wall",
+    "spotNoHelp": "if the message is about a spot",
     "message": "Message",
     "optional": "optional",
     "send": "Send message",
@@ -774,29 +774,29 @@
     "emailLabel": "E-mail",
     "dsaTitle": "Point of contact under the Digital Services Act",
     "dsa": "Authorities of the EU member states, the European Commission, the European Board for Digital Services and users can contact us electronically at {email} or with the form above (topic “Authority”). You can write to us in Slovak or English.",
-    "reportHint": "To report illegal content on the wall, please use the <report>report form</report>: it goes straight to moderation."
+    "reportHint": "To report illegal content, please use the <report>report form</report>: it goes straight to moderation."
   },
   "share": {
     "title": "“{title}” on {site}",
     "ogText": "I have my own spot on {site}!",
-    "description": "{size} on the wall of a million pixels. Click to see it.",
-    "see": "See it on the wall",
-    "redirecting": "Opening the wall…",
-    "gone": "This spot is not shown on the wall at the moment."
+    "description": "{size} among a million pixels. Click to see it.",
+    "see": "See it among the pixels",
+    "redirecting": "Opening the pixels…",
+    "gone": "This spot is not shown at the moment."
   },
   "goWarning": {
     "title": "This link may be dangerous",
     "text": "A safety check reported the page behind this link as dangerous (malware or phishing). We have stopped the redirect while a moderator looks at it.",
     "address": "The address was:",
-    "back": "Back to the wall"
+    "back": "Back to the pixels"
   },
   "legal": {
     "todo": "[to be completed]",
     "draft": "This text is a template. Parts marked “[to be completed]” will be filled in and the whole text will be checked by a lawyer before the site is launched.",
-    "rules": "These rules apply to everything shown on {site}: pictures, drawings, texts, titles, names and links. A person checks all content before it appears on the wall. By ordering, you confirm that your content follows these rules.\n\n## Not allowed\n- anything illegal;\n- nudity, pornography and sexual content;\n- violence, blood, and weapons in an aggressive context;\n- hate, extremist symbols, bullying and harassment;\n- personal data or photos of other people without their consent;\n- scams, phishing, malware, pyramid schemes and gambling without a licence;\n- logos, characters and other content you do not have the rights to;\n- political advertising;\n- links to websites with such content.\n\n## Technical limits\nThe wall is one still picture: animations and videos are not possible. Links must start with http:// or https://. We may refuse content that cannot be read at its size or that pretends to be part of the website (for example fake buttons).\n\n## When content breaks the rules\n- Before approval we reject the content and tell you why. You can send different content within {days, plural, one {# day} other {# days}}; otherwise we refund the whole payment.\n- After approval we can hide content at once and remove it for good if it breaks these rules or the law. Removed content is not refunded (see the [terms of service](/terms)). You always get an e-mail with the reasons.\n- You can object to any decision: reply to our e-mail or write to {email}. A person looks at it again.\n\n## Reporting\nAnyone can report content with the “Report” button in the window of each spot or on the [Report content](/report) page. We confirm every report and tell the reporter what we decided.",
-    "terms": "## 1. Who we are\nThe website {site} (the “site”) is operated by {operator}, company ID {companyId}, registered office {address}, e-mail {email} (the “operator”, “we”). Registration: {todo}\n\n## 2. What you buy\n- The site shows a wall of {pixels, number} pixels divided into blocks of 10 × 10 px. You buy the right to show your own content (a picture, drawing or text with an optional link) on a rectangle of whole blocks that you choose (the “spot”).\n- The price is {price} per pixel. You pay once; there are no recurring fees. All prices are final. {vat}\n- Your content stays on the wall without a time limit, for as long as we operate the site. You do not become the owner of any part of the site, its software or the picture of the wall as a whole.\n\n## 3. How the contract is made\n- You choose a spot (we reserve it for you for a short time), add your content and details, agree to these terms and to the [content rules](/content-rules) and pay through the payment provider Stripe.\n- The contract is made when your payment is received. We send you a confirmation with a receipt by e-mail.\n- Before your content appears on the wall, a person checks it, usually within {hours, plural, one {# hour} other {# hours}}.\n\n## 4. Approval and rejection\n- If we cannot approve your content, we tell you why. You can send different content within {days, plural, one {# day} other {# days}}; the spot stays reserved for you until then.\n- If no acceptable content arrives in time, the contract ends and we refund the whole payment automatically.\n\n## 5. Your content\n- You are responsible for your content. You confirm that you have all rights to it and that it follows the content rules and the law.\n- You allow us to show your content on the site, in pictures of the wall (for example in previews on social networks) and in materials about the site, for as long as the site exists.\n- You can change your content at any time in My pixels; every change is checked again.\n- If content breaks the content rules or the law, we can hide it at once and remove it. Content removed for breaking the rules is not refunded. We always tell you the reasons and you can object.\n\n## 6. Giving the spot to someone else\nYou can give your spot to another person in My pixels. Your rights and obligations under these terms pass to the new owner when they accept the offer.\n\n## 7. Right of withdrawal\n- As a consumer you can withdraw from a contract made at a distance within 14 days without giving a reason.\n- When ordering, you ask us to start the service before this period ends and you acknowledge that you lose the right of withdrawal once your content is published on the wall. Until then you can withdraw by e-mail to {email}; we refund the payment within 14 days.\n- Model withdrawal form: {todo}\n\n## 8. Availability and the end of the site\n- We take care that the site works without interruption, but we cannot guarantee it at every moment (maintenance, outages of our providers).\n- We intend to run the site for an indefinite time. If we ever decide to close it, we will tell all owners by e-mail in advance. Notice period and what owners receive in that case: {todo}\n\n## 9. Complaints\nHow to make a complaint is described in the [complaints procedure](/complaints).\n\n## 10. Personal data\nWe process personal data as described in the [privacy policy](/privacy).\n\n## 11. Final provisions\n- These terms are governed by the law of the Slovak Republic. Alternative dispute resolution for consumers: {todo}\n- We may change these terms for the future; the terms in force on the day of your payment apply to your purchase.\n- These terms are valid from {todo}.",
-    "complaints": "This procedure explains how to complain if our service does not work as it should — for example if your spot is not shown correctly, the wall does not show your approved content or a payment was not processed properly.\n\n## How to complain\n- Write to {email} or use the [contact form](/contact) (topic “Complaint or legal matter”).\n- Please give the spot number, the e-mail address of your order, what is wrong and, if possible, a screenshot.\n- We confirm without delay that we received your complaint.\n\n## How we handle a complaint\n- We decide about your complaint without delay, at the latest within 30 days of receiving it, and tell you the result by e-mail.\n- If the complaint is justified, we fix the problem (for example we show your content correctly again); if that is not possible, we refund the price or a fair part of it.\n- We keep a record of every complaint and how it was resolved.\n\n## Objections to moderation decisions\nIf you do not agree with a decision about your content (rejection, hiding or removal), reply to our e-mail or write to {email}. A person looks at the decision again.\n\n## Alternative dispute resolution\nIf you are not satisfied with how we handled your complaint, you can ask us for a remedy. If we refuse it or do not answer within 30 days, you can turn to a body for the alternative resolution of consumer disputes: {todo}\n\nThis procedure is valid from {todo}.",
-    "privacy": "We protect your personal data and collect only what we need to run {site}.\n\n## Controller\n{operator}, company ID {companyId}, {address}, e-mail {email}. Data protection officer: {todo}\n\n## What data we process and why\n- Orders and payments: your e-mail address, the spot, your content, title, link and public name, your consents and payment records — to conclude and perform the contract (Art. 6(1)(b) GDPR) and to meet accounting duties (Art. 6(1)(c) GDPR). Card details are handled only by the payment provider Stripe; we never see them.\n- Account (My pixels): your e-mail address and sign-in records — to let you manage your spots (Art. 6(1)(b) GDPR).\n- Moderation and reports: checks of content, reports and decisions, including the e-mail address of a reporter who gives one — to meet the duties of the Digital Services Act and for a safe site (Art. 6(1)(c) and (f) GDPR).\n- Contact form: your name, e-mail address and message — to answer you (Art. 6(1)(f) GDPR).\n- Security: a one-way coded (hashed) form of your IP address to limit abuse, for example the number of reservations, and technical server logs (Art. 6(1)(f) GDPR).\n- News by e-mail: only if you agree; you can withdraw your consent at any time (Art. 6(1)(a) GDPR).\n\n## Public content\nYour picture, title, link and public name are shown publicly on the wall. Your e-mail address is never shown.\n\n## Cookies\nWe use only cookies the site needs to work: your sign-in, an order in progress and the language you chose. We use no advertising or tracking cookies. Visits are counted without cookies and without identifying you. Statistics service: {todo}\n\n## Who receives the data\nOnly providers who help us run the site, under data processing agreements: hosting and database {todo}, file storage {todo}, payments (Stripe), sending e-mails {todo}, protection against bots (Cloudflare Turnstile) and checks of links and pictures for dangerous content {todo}. Some of them are based outside the EU; the transfer is protected by the EU standard contractual clauses or the EU–US Data Privacy Framework.\n\n## How long we keep data\n- Orders and receipts: as long as accounting and tax law requires (in Slovakia generally 10 years).\n- Account: until you delete it in My pixels.\n- Messages from the contact form: two years after they are handled.\n- Reports: {todo} after they are resolved.\n- Technical logs and security records: a short time, at most {todo}.\n\n## Your rights\nYou have the right of access, rectification, erasure, restriction of processing and data portability, and the right to object; consent can be withdrawn at any time. Write to {email}. You can delete your account yourself in My pixels. You can also lodge a complaint with the supervisory authority: the Office for Personal Data Protection of the Slovak Republic, Hraničná 12, 820 07 Bratislava, www.dataprotection.gov.sk.\n\nThis policy is valid from {todo}.",
+    "rules": "These rules apply to everything shown on {site}: pictures, drawings, texts, titles, names and links. A person checks all content before it is published. By ordering, you confirm that your content follows these rules.\n\n## Not allowed\n- anything illegal;\n- nudity, pornography and sexual content;\n- violence, blood, and weapons in an aggressive context;\n- hate, extremist symbols, bullying and harassment;\n- personal data or photos of other people without their consent;\n- scams, phishing, malware, pyramid schemes and gambling without a licence;\n- logos, characters and other content you do not have the rights to;\n- political advertising;\n- links to websites with such content.\n\n## Technical limits\nAll pixels form one still picture: animations and videos are not possible. Links must start with http:// or https://. We may refuse content that cannot be read at its size or that pretends to be part of the website (for example fake buttons).\n\n## When content breaks the rules\n- Before approval we reject the content and tell you why. You can send different content within {days, plural, one {# day} other {# days}}; otherwise we refund the whole payment.\n- After approval we can hide content at once and remove it for good if it breaks these rules or the law. Removed content is not refunded (see the [terms of service](/terms)). You always get an e-mail with the reasons.\n- You can object to any decision: reply to our e-mail or write to {email}. A person looks at it again.\n\n## Reporting\nAnyone can report content with the “Report” button in the window of each spot or on the [Report content](/report) page. We confirm every report and tell the reporter what we decided.",
+    "terms": "## 1. Who we are\nThe website {site} (the “site”) is operated by {operator}, company ID {companyId}, registered office {address}, e-mail {email} (the “operator”, “we”). Registration: {todo}\n\n## 2. What you buy\n- The site shows {pixels, number} pixels divided into blocks of 10 × 10 px. You buy the right to show your own content (a picture, drawing or text with an optional link) on a rectangle of whole blocks that you choose (the “spot”).\n- The price is {price} per pixel. You pay once; there are no recurring fees. All prices are final. {vat}\n- Your content stays published without a time limit, for as long as we operate the site. You do not become the owner of any part of the site, its software or the picture of all pixels as a whole.\n\n## 3. How the contract is made\n- You choose a spot (we reserve it for you for a short time), add your content and details, agree to these terms and to the [content rules](/content-rules) and pay through the payment provider Stripe.\n- The contract is made when your payment is received. We send you a confirmation with a receipt by e-mail.\n- Before your content is published, a person checks it, usually within {hours, plural, one {# hour} other {# hours}}.\n\n## 4. Approval and rejection\n- If we cannot approve your content, we tell you why. You can send different content within {days, plural, one {# day} other {# days}}; the spot stays reserved for you until then.\n- If no acceptable content arrives in time, the contract ends and we refund the whole payment automatically.\n\n## 5. Your content\n- You are responsible for your content. You confirm that you have all rights to it and that it follows the content rules and the law.\n- You allow us to show your content on the site, in pictures of the pixels (for example in previews on social networks) and in materials about the site, for as long as the site exists.\n- You can change your content at any time in My pixels; every change is checked again.\n- If content breaks the content rules or the law, we can hide it at once and remove it. Content removed for breaking the rules is not refunded. We always tell you the reasons and you can object.\n\n## 6. Giving the spot to someone else\nYou can give your spot to another person in My pixels. Your rights and obligations under these terms pass to the new owner when they accept the offer.\n\n## 7. Right of withdrawal\n- As a consumer you can withdraw from a contract made at a distance within 14 days without giving a reason.\n- When ordering, you ask us to start the service before this period ends and you acknowledge that you lose the right of withdrawal once your content is published. Until then you can withdraw by e-mail to {email}; we refund the payment within 14 days.\n- Model withdrawal form: {todo}\n\n## 8. Availability and the end of the site\n- We take care that the site works without interruption, but we cannot guarantee it at every moment (maintenance, outages of our providers).\n- We intend to run the site for an indefinite time. If we ever decide to close it, we will tell all owners by e-mail in advance. Notice period and what owners receive in that case: {todo}\n\n## 9. Complaints\nHow to make a complaint is described in the [complaints procedure](/complaints).\n\n## 10. Personal data\nWe process personal data as described in the [privacy policy](/privacy).\n\n## 11. Final provisions\n- These terms are governed by the law of the Slovak Republic. Alternative dispute resolution for consumers: {todo}\n- We may change these terms for the future; the terms in force on the day of your payment apply to your purchase.\n- These terms are valid from {todo}.",
+    "complaints": "This procedure explains how to complain if our service does not work as it should — for example if your spot is not shown correctly, your approved content is not shown or a payment was not processed properly.\n\n## How to complain\n- Write to {email} or use the [contact form](/contact) (topic “Complaint or legal matter”).\n- Please give the spot number, the e-mail address of your order, what is wrong and, if possible, a screenshot.\n- We confirm without delay that we received your complaint.\n\n## How we handle a complaint\n- We decide about your complaint without delay, at the latest within 30 days of receiving it, and tell you the result by e-mail.\n- If the complaint is justified, we fix the problem (for example we show your content correctly again); if that is not possible, we refund the price or a fair part of it.\n- We keep a record of every complaint and how it was resolved.\n\n## Objections to moderation decisions\nIf you do not agree with a decision about your content (rejection, hiding or removal), reply to our e-mail or write to {email}. A person looks at the decision again.\n\n## Alternative dispute resolution\nIf you are not satisfied with how we handled your complaint, you can ask us for a remedy. If we refuse it or do not answer within 30 days, you can turn to a body for the alternative resolution of consumer disputes: {todo}\n\nThis procedure is valid from {todo}.",
+    "privacy": "We protect your personal data and collect only what we need to run {site}.\n\n## Controller\n{operator}, company ID {companyId}, {address}, e-mail {email}. Data protection officer: {todo}\n\n## What data we process and why\n- Orders and payments: your e-mail address, the spot, your content, title, link and public name, your consents and payment records — to conclude and perform the contract (Art. 6(1)(b) GDPR) and to meet accounting duties (Art. 6(1)(c) GDPR). Card details are handled only by the payment provider Stripe; we never see them.\n- Account (My pixels): your e-mail address and sign-in records — to let you manage your spots (Art. 6(1)(b) GDPR).\n- Moderation and reports: checks of content, reports and decisions, including the e-mail address of a reporter who gives one — to meet the duties of the Digital Services Act and for a safe site (Art. 6(1)(c) and (f) GDPR).\n- Contact form: your name, e-mail address and message — to answer you (Art. 6(1)(f) GDPR).\n- Security: a one-way coded (hashed) form of your IP address to limit abuse, for example the number of reservations, and technical server logs (Art. 6(1)(f) GDPR).\n- News by e-mail: only if you agree; you can withdraw your consent at any time (Art. 6(1)(a) GDPR).\n\n## Public content\nYour picture, title, link and public name are shown publicly on the site. Your e-mail address is never shown.\n\n## Cookies\nWe use only cookies the site needs to work: your sign-in, an order in progress and the language you chose. We use no advertising or tracking cookies. Visits are counted without cookies and without identifying you. Statistics service: {todo}\n\n## Who receives the data\nOnly providers who help us run the site, under data processing agreements: hosting and database {todo}, file storage {todo}, payments (Stripe), sending e-mails {todo}, protection against bots (Cloudflare Turnstile) and checks of links and pictures for dangerous content {todo}. Some of them are based outside the EU; the transfer is protected by the EU standard contractual clauses or the EU–US Data Privacy Framework.\n\n## How long we keep data\n- Orders and receipts: as long as accounting and tax law requires (in Slovakia generally 10 years).\n- Account: until you delete it in My pixels.\n- Messages from the contact form: two years after they are handled.\n- Reports: {todo} after they are resolved.\n- Technical logs and security records: a short time, at most {todo}.\n\n## Your rights\nYou have the right of access, rectification, erasure, restriction of processing and data portability, and the right to object; consent can be withdrawn at any time. Write to {email}. You can delete your account yourself in My pixels. You can also lodge a complaint with the supervisory authority: the Office for Personal Data Protection of the Slovak Republic, Hraničná 12, 820 07 Bratislava, www.dataprotection.gov.sk.\n\nThis policy is valid from {todo}.",
     "vatPayer": "Prices include VAT at {rate} %.",
     "notVatPayer": "We are not a VAT payer, so no VAT is charged."
   }

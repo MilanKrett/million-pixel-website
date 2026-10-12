@@ -1,6 +1,6 @@
 @AGENTS.md
 
-# Million Pixel Wall — notes for coding agents
+# Million Pixel Website — notes for coding agents
 
 - The full product spec (Slovak) is in `docs/SPEC.md`; the user's original is the Claude Docs document
   "Prompt – Milión pixelov na prenájom". Work in the phases of section 14 and stop after each phase
@@ -11,6 +11,10 @@
   bought forever at a one-time price (no periods, reminders, grace period or extensions; only places
   reserved in the admin may end), the site has 10 languages, and there is no hosting or domain yet
   (the site runs from a desktop icon). Code and database still call a bought place a "rental".
+- Since 2026-10-12 the site is called "Million Pixel Website" and user-facing texts never call the pixels
+  a "wall" in any language (say "the pixels", "published"); a test in `tests/unit/i18n.test.ts` checks it.
+  Code identifiers (`wall`, `wall_dirty`, `/api/wall.json`) keep their names. The logo is our own pixel
+  drawing in `src/lib/logo.ts`; after changing it run `npm run logo` to rewrite the icon files.
 
 ## Stack and conventions
 

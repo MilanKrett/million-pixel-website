@@ -43,7 +43,7 @@ describe("two-factor codes (RFC 6238)", () => {
     const data = Buffer.from([0, 1, 2, 250, 251, 252, 253, 254, 255]);
     expect(base32Decode(base32Encode(data))).toEqual(data);
     expect(generateSecret()).not.toBe(generateSecret());
-    expect(otpauthUri("ABC", "a@b.sk", "Million Pixel Wall")).toMatch(/^otpauth:\/\/totp\/Million%20Pixel%20Wall%3Aa%40b\.sk\?secret=ABC&issuer=/);
+    expect(otpauthUri("ABC", "a@b.sk", "Million Pixel Website")).toMatch(/^otpauth:\/\/totp\/Million%20Pixel%20Website%3Aa%40b\.sk\?secret=ABC&issuer=/);
   });
 
   it("stores the secret encrypted and notices tampering", () => {
