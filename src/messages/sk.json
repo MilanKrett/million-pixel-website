@@ -2,7 +2,19 @@
   "meta": {
     "title": "{site} — {pixels, number} pixelov na predaj",
     "description": "{pixels, number} pixelov, {price} za pixel. Kúp si navždy kúsok steny a vlož doň svoj obrázok, kresbu alebo text s odkazom.",
-    "pageTitle": "{page} — {site}"
+    "pageTitle": "{page} — {site}",
+    "pages": {
+      "buy": "Vyber si voľné miesto na stene, nahraj fotku, nakresli obrázok alebo napíš text a zaplať raz — tvoje pixely ostanú na stene navždy.",
+      "how": "Ako funguje {site}: vyber si miesto, nahraj alebo nakresli obrázok, zaplať raz {price} za pixel a ostaň na stene navždy.",
+      "faq": "Odpovede o cenách, schvaľovaní, zmenách, darovaní a dokladoch na {site}.",
+      "latest": "Najnovšie obrázky na {site}, stene s miliónom pixelov.",
+      "contact": "Kontakt na {site}: otázky, reklamácie a kontaktné miesto podľa aktu o digitálnych službách.",
+      "rules": "Čo smie a čo nesmie byť na {site}.",
+      "terms": "Obchodné podmienky {site}.",
+      "complaints": "Ako reklamovať službu {site}.",
+      "privacy": "Ako {site} chráni tvoje osobné údaje.",
+      "report": "Nahlás obsah na {site}, ktorý porušuje zákon alebo pravidlá obsahu."
+    }
   },
   "common": {
     "skipToWall": "Preskočiť na stenu",
@@ -44,7 +56,8 @@
     "report": "Nahlásiť obsah",
     "contact": "Kontakt",
     "inspired": "Inšpirované The Million Dollar Homepage (2005). Nie sme s ňou nijako spojení.",
-    "operator": "Prevádzkovateľ: {name}, IČO {id}, {address}"
+    "operator": "Prevádzkovateľ: {name}, IČO {id}, {address}",
+    "complaints": "Reklamácie"
   },
   "wall": {
     "regionLabel": "Pixelová stena",
@@ -106,10 +119,10 @@
     "terms": "Obchodné podmienky",
     "privacy": "Ochrana osobných údajov",
     "report": "Nahlásiť obsah",
-    "underConstruction": "Táto stránka je vo výstavbe.",
-    "comingInPhase": "Bude hotová vo fáze {phase} projektu.",
     "notFoundTitle": "Stránka sa nenašla",
-    "notFoundText": "Prepáč, na tejto adrese nič nie je. Odkaz je možno starý alebo v ňom je preklep."
+    "notFoundText": "Prepáč, na tejto adrese nič nie je. Odkaz je možno starý alebo v ňom je preklep.",
+    "complaints": "Reklamačný poriadok",
+    "share": "Miesto na stene"
   },
   "email": {
     "footer": "{site} — stena s miliónom pixelov.",
@@ -231,6 +244,14 @@
       "subject": "Máš prístup do administrácie {site}",
       "intro": "Bola ti pridelená rola {role, select, admin {administrátor} other {moderátor}}. Prihlás sa touto e-mailovou adresou a nastav si dvojfaktorové prihlásenie aplikáciou na overovanie.",
       "button": "Otvoriť administráciu"
+    },
+    "contactNotice": {
+      "subject": "Kontaktný formulár: {topic}",
+      "intro": "Cez kontaktný formulár na {site} prišla nová správa. Odpovedz na tento e-mail a odpoveď pôjde priamo odosielateľovi.",
+      "from": "Od",
+      "topic": "Téma",
+      "spot": "Miesto",
+      "message": "Správa"
     }
   },
   "rent": {
@@ -664,6 +685,119 @@
   },
   "emailSample": {
     "title": "Pekáreň u Jany",
-    "note": "Logo patrí inej firme."
+    "note": "Logo patrí inej firme.",
+    "message": "Dobrý deň, môžem zmeniť odkaz svojho miesta?"
+  },
+  "how": {
+    "intro": "{site} je stena s {pixels, number} pixelmi. Kúp si jej kúsok raz, vlož naň svoj obrázok a ostane tam navždy — kým stránka existuje.",
+    "step1Title": "Vyber si miesto",
+    "step1": "Ťahaním na stene vyber voľnú plochu. Prichytáva sa na bloky 10 × 10 px a hneď vidíš rozmer aj cenu. Nevieš kam? Pomocník „Nájdi mi miesto“ ti ponúkne voľné miesta v rozmere, aký chceš.",
+    "step2Title": "Nahraj alebo nakresli",
+    "step2": "Nahraj fotku — náš pixelový filter z nej urobí presne toľko pixelov, koľko si kúpiš —, nakresli obrázok v pixelovom editore alebo napíš text. Pridaj názov, voliteľný odkaz a svoje meno alebo prezývku.",
+    "step3Title": "Zaplať a si na stene",
+    "step3": "Zaplať bezpečne kartou, cez Apple Pay alebo Google Pay. Každý obrázok skontroluje človek, zvyčajne do {hours, plural, one {# hodiny} few {# hodín} other {# hodín}}, a potom sú tvoje pixely na stene navždy.",
+    "pricesTitle": "Cenník",
+    "pricesIntro": "Jeden pixel stojí {price}. Platíš raz, žiadny ročný poplatok.",
+    "colSize": "Rozmer",
+    "colPixels": "Pixely",
+    "colPrice": "Cena",
+    "blocks": "{count, plural, one {# blok} few {# bloky} many {# bloku} other {# blokov}}",
+    "rulesTitle": "Čo môže byť na stene",
+    "rules": "Obrázky, kresby a texty, ktoré dodržiavajú naše <rules>pravidlá obsahu</rules>: nič nezákonné, žiadna nahota, násilie, nenávisť ani podvody a len obsah, na ktorý máš práva. Stena je jeden nehybný obrázok, preto animácie a videá nie sú možné.",
+    "start": "Kúpiť pixely",
+    "more": "Ďalšie odpovede nájdeš v <faq>častých otázkach</faq>."
+  },
+  "faq": {
+    "intro": "Odpovede na najčastejšie otázky. Niečo iné? <contact>Napíš nám</contact>.",
+    "costQ": "Koľko to stojí?",
+    "costA": "{price} za pixel, platíš raz. Najmenšie miesto je jeden blok 10 × 10 px za {block}; 50 × 50 px stojí {spot50} a 100 × 100 px stojí {spot100}. {vat}",
+    "howLongQ": "Ako dlho budú moje pixely na stene?",
+    "howLongA": "Navždy. Zaplatíš raz a tvoj obrázok ostane na stene, kým {site} existuje. Žiadny ročný poplatok, nič sa nepredlžuje.",
+    "whatQ": "Čo môžem dať na svoje pixely?",
+    "whatA": "Fotku alebo obrázok (PNG, JPG, WebP alebo nehybný GIF do {mb} MB), kresbu z nášho pixelového editora alebo farebnú plochu s textom. Pridať môžeš názov, odkaz a svoje meno alebo prezývku. Všetko musí dodržiavať <rules>pravidlá obsahu</rules>.",
+    "whenQ": "Kedy sa moje pixely objavia na stene?",
+    "whenA": "Keď tvoj obrázok skontroluje človek, zvyčajne do {hours, plural, one {# hodiny} few {# hodín} other {# hodín}} od platby. Hneď ako bude na stene, dáme ti vedieť e-mailom.",
+    "rejectedQ": "Čo ak môj obsah zamietnete?",
+    "rejectedA": "Dostaneš e-mail s dôvodom a do {days, plural, one {# dňa} few {# dní} other {# dní}} môžeš poslať iný obsah; dovtedy ti miesto ostáva rezervované. Ak to neurobíš, vrátime ti celú platbu a miesto sa uvoľní.",
+    "changeQ": "Môžem obrázok neskôr zmeniť?",
+    "changeA": "Áno, kedykoľvek v sekcii Moje pixely: obrázok, názov, odkaz aj meno. Každá zmena ide znova na kontrolu a dovtedy ostáva na stene tvoj doterajší obrázok.",
+    "closeQ": "Čo ak stránka raz skončí?",
+    "closeA": "Chceme, aby stena bola na internete veľmi dlho. Ak by sme ju niekedy museli zrušiť, všetkým majiteľom to vopred oznámime e-mailom. Podrobnosti sú v <terms>obchodných podmienkach</terms>.",
+    "blocksQ": "Prečo sa pixely predávajú po blokoch 10 × 10?",
+    "blocksA": "Jeden pixel by bol príliš malý na to, aby sa dal vidieť alebo naň kliknúť. Bloky 10 × 10 px udržia stenu prehľadnú a každé miesto sa dá ľahko nájsť a kliknúť. Najmenšie miesto je jeden blok, teda 100 pixelov.",
+    "giftQ": "Môžem pixely darovať?",
+    "giftA": "Áno. V sekcii Moje pixely vyber „Darovať toto miesto niekomu inému“ a zadaj jeho e-mailovú adresu. Dostane odkaz a keď ho prijme, stane sa novým majiteľom.",
+    "receiptQ": "Dostanem doklad?",
+    "receiptA": "Áno. Po zaplatení ti e-mailom pošleme potvrdenie s dokladom a každý doklad si môžeš v sekcii Moje pixely vytlačiť alebo uložiť ako PDF.",
+    "privateQ": "Bude moja e-mailová adresa viditeľná?",
+    "privateA": "Nie. Na stene sa zobrazí len názov, odkaz a verejné meno, ktoré si zvolíš. Tvoja e-mailová adresa ostáva súkromná."
+  },
+  "latest": {
+    "intro": "Najnovšie obrázky na stene. Klikni na obrázok a ukážeme ti ho na stene.",
+    "empty": "Na stene zatiaľ nie sú žiadne obrázky. Tvoj môže byť prvý!",
+    "since": "na stene od {date}"
+  },
+  "contact": {
+    "intro": "Otázky k objednávke, nápady alebo problémy? Napíš nám cez formulár alebo e-mailom. Zvyčajne odpovedáme do dvoch pracovných dní.",
+    "formTitle": "Napíš nám",
+    "topic": "Téma",
+    "topics": {
+      "general": "Všeobecná otázka",
+      "order": "Moja objednávka alebo moje pixely",
+      "payment": "Platba alebo doklad",
+      "legal": "Reklamácia alebo právna vec",
+      "authority": "Úrad (akt o digitálnych službách)",
+      "press": "Médiá"
+    },
+    "name": "Tvoje meno",
+    "email": "Tvoj e-mail",
+    "spotNo": "Číslo miesta",
+    "spotNoHelp": "ak sa správa týka miesta na stene",
+    "message": "Správa",
+    "optional": "nepovinné",
+    "send": "Odoslať správu",
+    "sending": "Odosielam…",
+    "sent": "Ďakujeme! Správu sme dostali a odpovieme na {email}.",
+    "privacy": "Tvoje údaje použijeme len na odpoveď na túto správu.",
+    "errors": {
+      "email_invalid": "Zadaj, prosím, platnú e-mailovú adresu.",
+      "message_required": "Napíš, prosím, svoju správu.",
+      "too_long": "Správa je príliš dlhá (najviac 5 000 znakov).",
+      "rate_limited": "Za krátky čas si poslal(a) viac správ. Skús to, prosím, neskôr.",
+      "captcha": "Potvrď, prosím, že nie si robot, a skús to znova.",
+      "error": "Niečo sa pokazilo. Skús to znova alebo nám napíš e-mailom."
+    },
+    "operatorTitle": "Prevádzkovateľ",
+    "operator": "Prevádzkovateľ",
+    "companyId": "IČO",
+    "address": "Sídlo",
+    "emailLabel": "E-mail",
+    "dsaTitle": "Kontaktné miesto podľa aktu o digitálnych službách",
+    "dsa": "Orgány členských štátov EÚ, Európska komisia, Európska rada pre digitálne služby aj používatelia nás môžu kontaktovať elektronicky na {email} alebo formulárom vyššie (téma „Úrad“). Písať nám môžete po slovensky alebo po anglicky.",
+    "reportHint": "Nezákonný obsah na stene nahlás, prosím, cez <report>formulár na nahlásenie</report>: ide priamo moderátorom."
+  },
+  "share": {
+    "title": "„{title}“ na {site}",
+    "ogText": "Mám svoje miesto na {site}!",
+    "description": "{size} na stene s miliónom pixelov. Klikni a pozri sa.",
+    "see": "Pozrieť na stene",
+    "redirecting": "Otváram stenu…",
+    "gone": "Toto miesto sa teraz na stene nezobrazuje."
+  },
+  "goWarning": {
+    "title": "Tento odkaz môže byť nebezpečný",
+    "text": "Bezpečnostná kontrola označila stránku za týmto odkazom ako nebezpečnú (malvér alebo phishing). Presmerovanie sme zastavili, kým ju preverí moderátor.",
+    "address": "Adresa bola:",
+    "back": "Späť na stenu"
+  },
+  "legal": {
+    "todo": "[doplniť]",
+    "draft": "Tento text je šablóna. Časti označené „[doplniť]“ budú doplnené a celý text pred spustením stránky skontroluje právnik.",
+    "rules": "Tieto pravidlá platia pre všetko, čo sa zobrazuje na {site}: obrázky, kresby, texty, názvy, mená a odkazy. Všetok obsah pred zverejnením skontroluje človek. Objednávkou potvrdzuješ, že tvoj obsah tieto pravidlá dodržiava.\n\n## Zakázané je\n- čokoľvek nezákonné;\n- nahota, pornografia a sexuálny obsah;\n- násilie, krv a zbrane v útočnom kontexte;\n- nenávisť, extrémistické symboly, šikanovanie a obťažovanie;\n- osobné údaje alebo fotky iných ľudí bez ich súhlasu;\n- podvody, phishing, malvér, pyramídové schémy a hazard bez licencie;\n- cudzie logá, postavičky a iný obsah, na ktorý nemáš práva;\n- politická reklama;\n- odkazy na stránky s takýmto obsahom.\n\n## Technické obmedzenia\nStena je jeden nehybný obrázok: animácie a videá nie sú možné. Odkazy musia začínať http:// alebo https://. Môžeme odmietnuť obsah, ktorý v danej veľkosti nie je čitateľný, alebo ktorý sa vydáva za súčasť stránky (napríklad falošné tlačidlá).\n\n## Keď obsah porušuje pravidlá\n- Pred schválením obsah zamietneme a povieme ti prečo. Do {days, plural, one {# dňa} few {# dní} other {# dní}} môžeš poslať iný obsah; inak ti vrátime celú platbu.\n- Po schválení môžeme obsah okamžite skryť a natrvalo odstrániť, ak porušuje tieto pravidlá alebo zákon. Za odstránený obsah sa peniaze nevracajú (pozri [obchodné podmienky](/terms)). Vždy dostaneš e-mail s odôvodnením.\n- Proti každému rozhodnutiu sa môžeš ohradiť: odpovedz na náš e-mail alebo napíš na {email}. Človek to posúdi znova.\n\n## Nahlasovanie\nKtokoľvek môže nahlásiť obsah tlačidlom „Nahlásiť“ v okne každého miesta alebo na stránke [Nahlásiť obsah](/report). Každé nahlásenie potvrdíme a nahlasovateľovi oznámime, ako sme rozhodli.",
+    "terms": "## 1. Kto sme\nWebovú stránku {site} („stránka“) prevádzkuje {operator}, IČO {companyId}, sídlo {address}, e-mail {email} („prevádzkovateľ“, „my“). Zápis v registri: {todo}\n\n## 2. Čo kupuješ\n- Stránka zobrazuje stenu s {pixels, number} pixelmi rozdelenú na bloky 10 × 10 px. Kupuješ si právo zobrazovať vlastný obsah (obrázok, kresbu alebo text s voliteľným odkazom) na obdĺžniku z celých blokov, ktorý si zvolíš („miesto“).\n- Cena je {price} za pixel. Platíš raz, nijaké opakované poplatky. Všetky ceny sú konečné. {vat}\n- Tvoj obsah ostáva na stene bez časového obmedzenia, kým stránku prevádzkujeme. Nestávaš sa vlastníkom žiadnej časti stránky, jej softvéru ani obrázka steny ako celku.\n\n## 3. Uzavretie zmluvy\n- Vyberieš si miesto (na krátky čas ti ho rezervujeme), pridáš obsah a údaje, súhlasíš s týmito podmienkami a s [pravidlami obsahu](/content-rules) a zaplatíš cez platobnú bránu Stripe.\n- Zmluva je uzavretá prijatím platby. Potvrdenie s dokladom ti pošleme e-mailom.\n- Kým sa obsah objaví na stene, skontroluje ho človek, zvyčajne do {hours, plural, one {# hodiny} few {# hodín} other {# hodín}}.\n\n## 4. Schválenie a zamietnutie\n- Ak tvoj obsah nemôžeme schváliť, povieme ti prečo. Do {days, plural, one {# dňa} few {# dní} other {# dní}} môžeš poslať iný obsah; dovtedy ti miesto ostáva rezervované.\n- Ak dovtedy nepríde obsah, ktorý sa dá schváliť, zmluva zaniká a celú platbu ti automaticky vrátime.\n\n## 5. Tvoj obsah\n- Za svoj obsah zodpovedáš ty. Potvrdzuješ, že naň máš všetky práva a že dodržiava pravidlá obsahu a zákon.\n- Dovoľuješ nám zobrazovať tvoj obsah na stránke, na obrázkoch steny (napríklad v náhľadoch na sociálnych sieťach) a v materiáloch o stránke, kým stránka existuje.\n- Obsah môžeš kedykoľvek zmeniť v sekcii Moje pixely; každá zmena ide znova na kontrolu.\n- Ak obsah porušuje pravidlá obsahu alebo zákon, môžeme ho okamžite skryť a odstrániť. Za obsah odstránený pre porušenie pravidiel sa peniaze nevracajú. Dôvody ti vždy oznámime a môžeš sa ohradiť.\n\n## 6. Darovanie miesta\nSvoje miesto môžeš v sekcii Moje pixely darovať inej osobe. Tvoje práva a povinnosti podľa týchto podmienok prechádzajú na nového majiteľa prijatím ponuky.\n\n## 7. Odstúpenie od zmluvy\n- Ako spotrebiteľ môžeš od zmluvy uzavretej na diaľku odstúpiť do 14 dní bez udania dôvodu.\n- Pri objednávke žiadaš, aby sme so službou začali pred uplynutím tejto lehoty, a berieš na vedomie, že zverejnením obsahu na stene právo na odstúpenie strácaš. Dovtedy môžeš odstúpiť e-mailom na {email}; platbu ti vrátime do 14 dní.\n- Vzorový formulár na odstúpenie: {todo}\n\n## 8. Dostupnosť a koniec stránky\n- Staráme sa o to, aby stránka fungovala bez prerušenia, no nemôžeme to zaručiť v každom okamihu (údržba, výpadky našich dodávateľov).\n- Stránku chceme prevádzkovať na dobu neurčitú. Ak by sme sa ju niekedy rozhodli zrušiť, všetkým majiteľom to vopred oznámime e-mailom. Lehota oznámenia a čo v takom prípade majitelia dostanú: {todo}\n\n## 9. Reklamácie\nAko reklamovať, opisuje [reklamačný poriadok](/complaints).\n\n## 10. Osobné údaje\nOsobné údaje spracúvame podľa [zásad ochrany osobných údajov](/privacy).\n\n## 11. Záverečné ustanovenia\n- Tieto podmienky sa riadia právom Slovenskej republiky. Alternatívne riešenie spotrebiteľských sporov: {todo}\n- Podmienky môžeme do budúcna meniť; na tvoj nákup sa vzťahujú podmienky platné v deň platby.\n- Tieto podmienky platia od {todo}.",
+    "complaints": "Tento poriadok vysvetľuje, ako reklamovať, keď naša služba nefunguje, ako má — napríklad keď sa tvoje miesto nezobrazuje správne, stena neukazuje tvoj schválený obsah alebo platba nebola spracovaná správne.\n\n## Ako reklamovať\n- Napíš na {email} alebo použi [kontaktný formulár](/contact) (téma „Reklamácia alebo právna vec“).\n- Uveď číslo miesta, e-mailovú adresu z objednávky, čo nie je v poriadku a ak sa dá, aj snímku obrazovky.\n- Prijatie reklamácie ti bez zbytočného odkladu potvrdíme.\n\n## Ako reklamáciu vybavíme\n- O reklamácii rozhodneme bez zbytočného odkladu, najneskôr do 30 dní od jej prijatia, a výsledok ti oznámime e-mailom.\n- Ak je reklamácia oprávnená, problém odstránime (napríklad tvoj obsah opäť správne zobrazíme); ak to nie je možné, vrátime ti cenu alebo jej primeranú časť.\n- O každej reklamácii a jej vybavení vedieme záznam.\n\n## Námietky proti rozhodnutiam moderátorov\nAk nesúhlasíš s rozhodnutím o svojom obsahu (zamietnutie, skrytie alebo odstránenie), odpovedz na náš e-mail alebo napíš na {email}. Rozhodnutie človek posúdi znova.\n\n## Alternatívne riešenie sporov\nAk nie si spokojný(á) s vybavením reklamácie, môžeš nás požiadať o nápravu. Ak žiadosť zamietneme alebo na ňu do 30 dní neodpovieme, môžeš sa obrátiť na subjekt alternatívneho riešenia spotrebiteľských sporov: {todo}\n\nTento poriadok platí od {todo}.",
+    "privacy": "Tvoje osobné údaje chránime a zbierame len tie, ktoré potrebujeme na prevádzku {site}.\n\n## Prevádzkovateľ\n{operator}, IČO {companyId}, {address}, e-mail {email}. Zodpovedná osoba: {todo}\n\n## Aké údaje spracúvame a prečo\n- Objednávky a platby: tvoja e-mailová adresa, miesto, obsah, názov, odkaz a verejné meno, tvoje súhlasy a záznamy o platbách — na uzavretie a plnenie zmluvy (čl. 6 ods. 1 písm. b) GDPR) a na splnenie účtovných povinností (čl. 6 ods. 1 písm. c) GDPR). Údaje o platobnej karte spracúva len platobná brána Stripe; my ich nikdy nevidíme.\n- Účet (Moje pixely): tvoja e-mailová adresa a záznamy o prihláseniach — aby si mohol(a) spravovať svoje miesta (čl. 6 ods. 1 písm. b) GDPR).\n- Moderácia a nahlásenia: kontroly obsahu, nahlásenia a rozhodnutia vrátane e-mailovej adresy nahlasovateľa, ak ju uvedie — na plnenie povinností podľa aktu o digitálnych službách a pre bezpečnú stránku (čl. 6 ods. 1 písm. c) a f) GDPR).\n- Kontaktný formulár: tvoje meno, e-mailová adresa a správa — aby sme ti mohli odpovedať (čl. 6 ods. 1 písm. f) GDPR).\n- Bezpečnosť: jednosmerne zakódovaná (hašovaná) podoba tvojej IP adresy na obmedzenie zneužitia, napríklad počtu rezervácií, a technické záznamy serverov (čl. 6 ods. 1 písm. f) GDPR).\n- Novinky e-mailom: len ak s tým súhlasíš; súhlas môžeš kedykoľvek odvolať (čl. 6 ods. 1 písm. a) GDPR).\n\n## Verejný obsah\nTvoj obrázok, názov, odkaz a verejné meno sa na stene zobrazujú verejne. Tvoja e-mailová adresa sa nezobrazuje nikdy.\n\n## Cookies\nPoužívame len cookies, ktoré stránka potrebuje na fungovanie: tvoje prihlásenie, rozpracovanú objednávku a zvolený jazyk. Reklamné ani sledovacie cookies nepoužívame. Návštevy počítame bez cookies a bez toho, aby sme ťa identifikovali. Služba na štatistiky: {todo}\n\n## Komu údaje poskytujeme\nLen dodávateľom, ktorí nám pomáhajú stránku prevádzkovať, na základe zmlúv o spracúvaní: hosting a databáza {todo}, úložisko súborov {todo}, platby (Stripe), odosielanie e-mailov {todo}, ochrana pred robotmi (Cloudflare Turnstile) a kontrola odkazov a obrázkov na nebezpečný obsah {todo}. Niektorí z nich sídlia mimo EÚ; prenos chránia štandardné zmluvné doložky EÚ alebo rámec ochrany údajov EÚ – USA.\n\n## Ako dlho údaje uchovávame\n- Objednávky a doklady: tak dlho, ako vyžadujú účtovné a daňové predpisy (na Slovensku spravidla 10 rokov).\n- Účet: kým ho v sekcii Moje pixely nezrušíš.\n- Správy z kontaktného formulára: dva roky od ich vybavenia.\n- Nahlásenia: {todo} od ich vybavenia.\n- Technické a bezpečnostné záznamy: krátko, najviac {todo}.\n\n## Tvoje práva\nMáš právo na prístup, opravu, vymazanie, obmedzenie spracúvania a prenosnosť údajov a právo namietať; súhlas môžeš kedykoľvek odvolať. Napíš na {email}. Účet si môžeš sám(a) zrušiť v sekcii Moje pixely. Máš tiež právo podať sťažnosť dozornému orgánu: Úrad na ochranu osobných údajov Slovenskej republiky, Hraničná 12, 820 07 Bratislava, www.dataprotection.gov.sk.\n\nTieto zásady platia od {todo}.",
+    "vatPayer": "Ceny obsahujú DPH {rate} %.",
+    "notVatPayer": "Nie sme platiteľ DPH, preto sa DPH neúčtuje."
   }
 }

@@ -2,7 +2,19 @@
   "meta": {
     "title": "{site} — {pixels, number} pixels for sale",
     "description": "{pixels, number} pixels, {price} per pixel. Buy a piece of the wall for good and put your picture, drawing or text with a link on it.",
-    "pageTitle": "{page} — {site}"
+    "pageTitle": "{page} — {site}",
+    "pages": {
+      "buy": "Choose a free spot on the wall, upload a photo, draw or write a text, and pay once — your pixels stay on the wall for good.",
+      "how": "How {site} works: choose a spot, upload or draw your picture, pay {price} per pixel once and stay on the wall for good.",
+      "faq": "Answers about prices, approval, changes, gifts and receipts on {site}.",
+      "latest": "The newest pictures on {site}, the wall of a million pixels.",
+      "contact": "Contact {site}: questions, complaints and the point of contact under the Digital Services Act.",
+      "rules": "What may and may not appear on {site}.",
+      "terms": "Terms of service of {site}.",
+      "complaints": "How to make a complaint about {site}.",
+      "privacy": "How {site} protects your personal data.",
+      "report": "Report content on {site} that breaks the law or the content rules."
+    }
   },
   "common": {
     "skipToWall": "Skip to the wall",
@@ -44,7 +56,8 @@
     "report": "Report content",
     "contact": "Contact",
     "inspired": "Inspired by The Million Dollar Homepage (2005). We are not affiliated with it in any way.",
-    "operator": "Operator: {name}, company ID {id}, {address}"
+    "operator": "Operator: {name}, company ID {id}, {address}",
+    "complaints": "Complaints"
   },
   "wall": {
     "regionLabel": "The pixel wall",
@@ -106,10 +119,10 @@
     "terms": "Terms of service",
     "privacy": "Privacy policy",
     "report": "Report content",
-    "underConstruction": "This page is under construction.",
-    "comingInPhase": "It will be ready in phase {phase} of the project.",
     "notFoundTitle": "Page not found",
-    "notFoundText": "Sorry, there is nothing at this address. Maybe the link is old or mistyped."
+    "notFoundText": "Sorry, there is nothing at this address. Maybe the link is old or mistyped.",
+    "complaints": "Complaints procedure",
+    "share": "Spot on the wall"
   },
   "email": {
     "footer": "{site} — a wall of a million pixels.",
@@ -231,6 +244,14 @@
       "subject": "You can now use the administration of {site}",
       "intro": "You were given the role of {role, select, admin {administrator} other {moderator}}. Sign in with this e-mail address and set up two-factor login with an authenticator app.",
       "button": "Open the administration"
+    },
+    "contactNotice": {
+      "subject": "Contact form: {topic}",
+      "intro": "A new message arrived through the contact form on {site}. Reply to this e-mail to answer the sender directly.",
+      "from": "From",
+      "topic": "Topic",
+      "spot": "Spot",
+      "message": "Message"
     }
   },
   "rent": {
@@ -664,6 +685,119 @@
   },
   "emailSample": {
     "title": "Jane’s Bakery",
-    "note": "The logo belongs to another company."
+    "note": "The logo belongs to another company.",
+    "message": "Hello, can I change the link of my spot?"
+  },
+  "how": {
+    "intro": "{site} is a wall of {pixels, number} pixels. Buy a piece of it once, put your picture on it, and it stays there for good — for as long as the site exists.",
+    "step1Title": "Choose your spot",
+    "step1": "Drag over the wall to select a free area. It snaps to blocks of 10 × 10 px, and you see the size and the price right away. Not sure where? “Find me a spot” suggests free places of the size you want.",
+    "step2Title": "Upload or draw",
+    "step2": "Upload a photo — our pixel filter turns it into exactly as many pixels as you buy — draw in the pixel editor or write a text. Add a title, an optional link and your name or nickname.",
+    "step3Title": "Pay and you are on the wall",
+    "step3": "Pay securely by card, Apple Pay or Google Pay. A person checks every picture, usually within {hours, plural, one {# hour} other {# hours}}, and then your pixels are on the wall for good.",
+    "pricesTitle": "Prices",
+    "pricesIntro": "One pixel costs {price}. You pay once; there is no yearly fee.",
+    "colSize": "Size",
+    "colPixels": "Pixels",
+    "colPrice": "Price",
+    "blocks": "{count, plural, one {# block} other {# blocks}}",
+    "rulesTitle": "What can be on the wall",
+    "rules": "Pictures, drawings and texts that follow our <rules>content rules</rules>: nothing illegal, no nudity, violence, hate or scams, and only content you have the rights to. The wall is one still picture, so animations and videos are not possible.",
+    "start": "Buy pixels",
+    "more": "More answers are in the <faq>FAQ</faq>."
+  },
+  "faq": {
+    "intro": "Answers to the most common questions. Something else? <contact>Write to us</contact>.",
+    "costQ": "How much does it cost?",
+    "costA": "{price} per pixel, paid once. The smallest spot is one block of 10 × 10 px for {block}; 50 × 50 px costs {spot50} and 100 × 100 px costs {spot100}. {vat}",
+    "howLongQ": "How long will my pixels stay on the wall?",
+    "howLongA": "For good. You pay once and your picture stays on the wall for as long as {site} exists. There is no yearly fee and nothing to renew.",
+    "whatQ": "What can I put on my pixels?",
+    "whatA": "A photo or a picture (PNG, JPG, WebP or a still GIF up to {mb} MB), a drawing from our pixel editor, or a coloured area with text. You can add a title, a link and your name or nickname. Everything has to follow the <rules>content rules</rules>.",
+    "whenQ": "When will my pixels appear on the wall?",
+    "whenA": "After a person checks your picture, usually within {hours, plural, one {# hour} other {# hours}} of your payment. We let you know by e-mail as soon as it is on the wall.",
+    "rejectedQ": "What if you reject my content?",
+    "rejectedA": "You get an e-mail with the reason and can send different content within {days, plural, one {# day} other {# days}}; your spot stays reserved for you until then. If you do not, we refund the whole payment and the spot is free again.",
+    "changeQ": "Can I change my picture later?",
+    "changeA": "Yes, at any time in My pixels: the picture, the title, the link or the name. Every change is checked again, and until then your current picture stays on the wall.",
+    "closeQ": "What happens if the website closes one day?",
+    "closeA": "We want to keep the wall online for a very long time. If we ever had to close it, we would tell all owners by e-mail in advance. The details are in the <terms>terms of service</terms>.",
+    "blocksQ": "Why are pixels sold in blocks of 10 × 10?",
+    "blocksA": "A single pixel would be too small to see or to click. Blocks of 10 × 10 px keep the wall tidy, make every spot clickable and easy to find. The smallest spot is one block, that is 100 pixels.",
+    "giftQ": "Can I give my pixels as a gift?",
+    "giftA": "Yes. In My pixels choose “Give this spot to someone else” and enter their e-mail address. They get a link and become the new owner once they accept it.",
+    "receiptQ": "Do I get a receipt?",
+    "receiptA": "Yes. After the payment we send you the confirmation with a receipt by e-mail, and you can print every receipt or save it as PDF in My pixels.",
+    "privateQ": "Will my e-mail address be visible?",
+    "privateA": "No. Only the title, the link and the public name you choose are shown on the wall. Your e-mail address stays private."
+  },
+  "latest": {
+    "intro": "The newest pictures on the wall. Click one to see it on the wall.",
+    "empty": "There are no pictures on the wall yet. Yours can be the first!",
+    "since": "on the wall since {date}"
+  },
+  "contact": {
+    "intro": "Questions about your order, ideas or problems? Write to us with the form or by e-mail. We usually answer within two working days.",
+    "formTitle": "Write to us",
+    "topic": "Topic",
+    "topics": {
+      "general": "General question",
+      "order": "My order or my pixels",
+      "payment": "Payment or receipt",
+      "legal": "Complaint or legal matter",
+      "authority": "Authority (Digital Services Act)",
+      "press": "Press"
+    },
+    "name": "Your name",
+    "email": "Your e-mail",
+    "spotNo": "Spot number",
+    "spotNoHelp": "if the message is about a spot on the wall",
+    "message": "Message",
+    "optional": "optional",
+    "send": "Send message",
+    "sending": "Sending…",
+    "sent": "Thank you! We received your message and will reply to {email}.",
+    "privacy": "We use your details only to answer your message.",
+    "errors": {
+      "email_invalid": "Please enter a valid e-mail address.",
+      "message_required": "Please write your message.",
+      "too_long": "The message is too long (at most 5,000 characters).",
+      "rate_limited": "You have sent several messages in a short time. Please try again later.",
+      "captcha": "Please confirm that you are not a robot and try again.",
+      "error": "Something went wrong. Please try again or write to us by e-mail."
+    },
+    "operatorTitle": "Operator",
+    "operator": "Operator",
+    "companyId": "Company ID",
+    "address": "Registered office",
+    "emailLabel": "E-mail",
+    "dsaTitle": "Point of contact under the Digital Services Act",
+    "dsa": "Authorities of the EU member states, the European Commission, the European Board for Digital Services and users can contact us electronically at {email} or with the form above (topic “Authority”). You can write to us in Slovak or English.",
+    "reportHint": "To report illegal content on the wall, please use the <report>report form</report>: it goes straight to moderation."
+  },
+  "share": {
+    "title": "“{title}” on {site}",
+    "ogText": "I have my own spot on {site}!",
+    "description": "{size} on the wall of a million pixels. Click to see it.",
+    "see": "See it on the wall",
+    "redirecting": "Opening the wall…",
+    "gone": "This spot is not shown on the wall at the moment."
+  },
+  "goWarning": {
+    "title": "This link may be dangerous",
+    "text": "A safety check reported the page behind this link as dangerous (malware or phishing). We have stopped the redirect while a moderator looks at it.",
+    "address": "The address was:",
+    "back": "Back to the wall"
+  },
+  "legal": {
+    "todo": "[to be completed]",
+    "draft": "This text is a template. Parts marked “[to be completed]” will be filled in and the whole text will be checked by a lawyer before the site is launched.",
+    "rules": "These rules apply to everything shown on {site}: pictures, drawings, texts, titles, names and links. A person checks all content before it appears on the wall. By ordering, you confirm that your content follows these rules.\n\n## Not allowed\n- anything illegal;\n- nudity, pornography and sexual content;\n- violence, blood, and weapons in an aggressive context;\n- hate, extremist symbols, bullying and harassment;\n- personal data or photos of other people without their consent;\n- scams, phishing, malware, pyramid schemes and gambling without a licence;\n- logos, characters and other content you do not have the rights to;\n- political advertising;\n- links to websites with such content.\n\n## Technical limits\nThe wall is one still picture: animations and videos are not possible. Links must start with http:// or https://. We may refuse content that cannot be read at its size or that pretends to be part of the website (for example fake buttons).\n\n## When content breaks the rules\n- Before approval we reject the content and tell you why. You can send different content within {days, plural, one {# day} other {# days}}; otherwise we refund the whole payment.\n- After approval we can hide content at once and remove it for good if it breaks these rules or the law. Removed content is not refunded (see the [terms of service](/terms)). You always get an e-mail with the reasons.\n- You can object to any decision: reply to our e-mail or write to {email}. A person looks at it again.\n\n## Reporting\nAnyone can report content with the “Report” button in the window of each spot or on the [Report content](/report) page. We confirm every report and tell the reporter what we decided.",
+    "terms": "## 1. Who we are\nThe website {site} (the “site”) is operated by {operator}, company ID {companyId}, registered office {address}, e-mail {email} (the “operator”, “we”). Registration: {todo}\n\n## 2. What you buy\n- The site shows a wall of {pixels, number} pixels divided into blocks of 10 × 10 px. You buy the right to show your own content (a picture, drawing or text with an optional link) on a rectangle of whole blocks that you choose (the “spot”).\n- The price is {price} per pixel. You pay once; there are no recurring fees. All prices are final. {vat}\n- Your content stays on the wall without a time limit, for as long as we operate the site. You do not become the owner of any part of the site, its software or the picture of the wall as a whole.\n\n## 3. How the contract is made\n- You choose a spot (we reserve it for you for a short time), add your content and details, agree to these terms and to the [content rules](/content-rules) and pay through the payment provider Stripe.\n- The contract is made when your payment is received. We send you a confirmation with a receipt by e-mail.\n- Before your content appears on the wall, a person checks it, usually within {hours, plural, one {# hour} other {# hours}}.\n\n## 4. Approval and rejection\n- If we cannot approve your content, we tell you why. You can send different content within {days, plural, one {# day} other {# days}}; the spot stays reserved for you until then.\n- If no acceptable content arrives in time, the contract ends and we refund the whole payment automatically.\n\n## 5. Your content\n- You are responsible for your content. You confirm that you have all rights to it and that it follows the content rules and the law.\n- You allow us to show your content on the site, in pictures of the wall (for example in previews on social networks) and in materials about the site, for as long as the site exists.\n- You can change your content at any time in My pixels; every change is checked again.\n- If content breaks the content rules or the law, we can hide it at once and remove it. Content removed for breaking the rules is not refunded. We always tell you the reasons and you can object.\n\n## 6. Giving the spot to someone else\nYou can give your spot to another person in My pixels. Your rights and obligations under these terms pass to the new owner when they accept the offer.\n\n## 7. Right of withdrawal\n- As a consumer you can withdraw from a contract made at a distance within 14 days without giving a reason.\n- When ordering, you ask us to start the service before this period ends and you acknowledge that you lose the right of withdrawal once your content is published on the wall. Until then you can withdraw by e-mail to {email}; we refund the payment within 14 days.\n- Model withdrawal form: {todo}\n\n## 8. Availability and the end of the site\n- We take care that the site works without interruption, but we cannot guarantee it at every moment (maintenance, outages of our providers).\n- We intend to run the site for an indefinite time. If we ever decide to close it, we will tell all owners by e-mail in advance. Notice period and what owners receive in that case: {todo}\n\n## 9. Complaints\nHow to make a complaint is described in the [complaints procedure](/complaints).\n\n## 10. Personal data\nWe process personal data as described in the [privacy policy](/privacy).\n\n## 11. Final provisions\n- These terms are governed by the law of the Slovak Republic. Alternative dispute resolution for consumers: {todo}\n- We may change these terms for the future; the terms in force on the day of your payment apply to your purchase.\n- These terms are valid from {todo}.",
+    "complaints": "This procedure explains how to complain if our service does not work as it should — for example if your spot is not shown correctly, the wall does not show your approved content or a payment was not processed properly.\n\n## How to complain\n- Write to {email} or use the [contact form](/contact) (topic “Complaint or legal matter”).\n- Please give the spot number, the e-mail address of your order, what is wrong and, if possible, a screenshot.\n- We confirm without delay that we received your complaint.\n\n## How we handle a complaint\n- We decide about your complaint without delay, at the latest within 30 days of receiving it, and tell you the result by e-mail.\n- If the complaint is justified, we fix the problem (for example we show your content correctly again); if that is not possible, we refund the price or a fair part of it.\n- We keep a record of every complaint and how it was resolved.\n\n## Objections to moderation decisions\nIf you do not agree with a decision about your content (rejection, hiding or removal), reply to our e-mail or write to {email}. A person looks at the decision again.\n\n## Alternative dispute resolution\nIf you are not satisfied with how we handled your complaint, you can ask us for a remedy. If we refuse it or do not answer within 30 days, you can turn to a body for the alternative resolution of consumer disputes: {todo}\n\nThis procedure is valid from {todo}.",
+    "privacy": "We protect your personal data and collect only what we need to run {site}.\n\n## Controller\n{operator}, company ID {companyId}, {address}, e-mail {email}. Data protection officer: {todo}\n\n## What data we process and why\n- Orders and payments: your e-mail address, the spot, your content, title, link and public name, your consents and payment records — to conclude and perform the contract (Art. 6(1)(b) GDPR) and to meet accounting duties (Art. 6(1)(c) GDPR). Card details are handled only by the payment provider Stripe; we never see them.\n- Account (My pixels): your e-mail address and sign-in records — to let you manage your spots (Art. 6(1)(b) GDPR).\n- Moderation and reports: checks of content, reports and decisions, including the e-mail address of a reporter who gives one — to meet the duties of the Digital Services Act and for a safe site (Art. 6(1)(c) and (f) GDPR).\n- Contact form: your name, e-mail address and message — to answer you (Art. 6(1)(f) GDPR).\n- Security: a one-way coded (hashed) form of your IP address to limit abuse, for example the number of reservations, and technical server logs (Art. 6(1)(f) GDPR).\n- News by e-mail: only if you agree; you can withdraw your consent at any time (Art. 6(1)(a) GDPR).\n\n## Public content\nYour picture, title, link and public name are shown publicly on the wall. Your e-mail address is never shown.\n\n## Cookies\nWe use only cookies the site needs to work: your sign-in, an order in progress and the language you chose. We use no advertising or tracking cookies. Visits are counted without cookies and without identifying you. Statistics service: {todo}\n\n## Who receives the data\nOnly providers who help us run the site, under data processing agreements: hosting and database {todo}, file storage {todo}, payments (Stripe), sending e-mails {todo}, protection against bots (Cloudflare Turnstile) and checks of links and pictures for dangerous content {todo}. Some of them are based outside the EU; the transfer is protected by the EU standard contractual clauses or the EU–US Data Privacy Framework.\n\n## How long we keep data\n- Orders and receipts: as long as accounting and tax law requires (in Slovakia generally 10 years).\n- Account: until you delete it in My pixels.\n- Messages from the contact form: two years after they are handled.\n- Reports: {todo} after they are resolved.\n- Technical logs and security records: a short time, at most {todo}.\n\n## Your rights\nYou have the right of access, rectification, erasure, restriction of processing and data portability, and the right to object; consent can be withdrawn at any time. Write to {email}. You can delete your account yourself in My pixels. You can also lodge a complaint with the supervisory authority: the Office for Personal Data Protection of the Slovak Republic, Hraničná 12, 820 07 Bratislava, www.dataprotection.gov.sk.\n\nThis policy is valid from {todo}.",
+    "vatPayer": "Prices include VAT at {rate} %.",
+    "notVatPayer": "We are not a VAT payer, so no VAT is charged."
   }
 }

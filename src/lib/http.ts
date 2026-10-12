@@ -39,8 +39,17 @@ export function orderCookieOptions() {
   return {
     httpOnly: true,
     sameSite: "lax" as const,
-    secure: process.env.NODE_ENV === "production",
+    secure: secureCookies(),
     path: "/",
     maxAge: ORDER_COOKIE_MAX_AGE,
   };
+}
+/**
+ * Cookies are "Secure" whenever the site runs on https (always on the live
+ * site). The local computer serves plain http, also as a production build
+ * (desktop icon), where Secure cookies would not reach other devices.
+ */
+export function secureCookies(): boolean {
+  const site = process.env.SITE_URL;
+  return site ? site.startsWith("https://") : process.env.NODE_ENV === "production";
 }

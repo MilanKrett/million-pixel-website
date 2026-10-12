@@ -58,3 +58,13 @@ export function dedupeRects(rects: readonly Rect[]): Rect[] {
 export function pixelRange(r: Rect, block: number) {
   return { x0: r.x * block, x1: (r.x + r.w) * block - 1, y0: r.y * block, y1: (r.y + r.h) * block - 1 };
 }
+/** Zoom for a link to a place on the wall: small places close up, big ones whole. */
+export function spotZoom(r: Rect, block: number): number {
+  const side = Math.max(r.w, r.h) * block;
+  return side <= 60 ? 4 : side <= 150 ? 2 : 1;
+}
+
+/** "/?x=34&y=12&zoom=4": the wall centred on a place, with its window open. */
+export function spotPath(r: Rect, block: number): string {
+  return `/?x=${r.x}&y=${r.y}&zoom=${spotZoom(r, block)}`;
+}

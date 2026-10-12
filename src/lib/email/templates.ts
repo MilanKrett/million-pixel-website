@@ -1,7 +1,7 @@
 import { createTranslator } from "use-intl/core";
 import { intlLocale, localePath, TIME_ZONE, type Locale, type Messages } from "@/i18n/config";
 import { getMessages } from "@/i18n/messages";
-import { pixelRange, type Rect } from "@/lib/geometry";
+import { pixelRange, spotPath, type Rect } from "@/lib/geometry";
 import { formatMoney } from "@/lib/money";
 import type { Settings } from "@/lib/settings/schema";
 import type { ReasonCode } from "./reasons";
@@ -98,7 +98,7 @@ function context(env: EmailEnv, locale: Locale, rect?: Rect) {
   const date = (d: Date) => new Intl.DateTimeFormat(il, { dateStyle: "long", timeZone: TIME_ZONE }).format(d);
   const base = siteUrl();
   const page = (path: string) => `${base}${localePath(locale, path)}`;
-  const spotUrl = rect ? `${page("/")}?x=${rect.x}&y=${rect.y}&zoom=4` : page("/");
+  const spotUrl = page(rect ? spotPath(rect, block) : "/");
   return { t, position, size, money, date, base, page, spotUrl };
 }
 
@@ -251,11 +251,13 @@ function shareLinks(env: EmailEnv, locale: Locale, spotUrl: string): [string, st
 
 /** Content of a new rental approved: the pixels are on the wall. */
 export function approvedEmail(env: EmailEnv, data: RentalEmailData): BuiltEmail {
-  const { t, position, spotUrl } = context(env, data.locale, data.rect);
+  const { t, position, spotUrl, page } = context(env, data.locale, data.rect);
+  // The share page shows a picture of the place on social networks, then opens the wall there.
+  const shareUrl = data.no ? page(`/p/${data.no}`) : spotUrl;
   return compose(env, data.locale, t("approved.subject"), [
     { p: t("approved.intro", { title: data.title, position }) },
     { button: t("approved.see"), href: spotUrl },
-    { label: t("approved.share"), links: shareLinks(env, data.locale, spotUrl) },
+    { label: t("approved.share"), links: shareLinks(env, data.locale, shareUrl) },
   ]);
 }
 
@@ -388,6 +390,27 @@ export function staffInviteEmail(env: EmailEnv, d: { locale: Locale; role: "mode
   ]);
 }
 
+/** A message from the contact form, to the operator; a reply goes straight to the sender. */
+export function contactNoticeEmail(
+  env: EmailEnv,
+  d: { locale: Locale; topic: string; name: string | null; email: string; rentalNo: number | null; message: string },
+): BuiltEmail {
+  const { t } = context(env, d.locale);
+  const topics = getMessages(d.locale).contact.topics as Record<string, string>;
+  const topic = topics[d.topic] ?? d.topic;
+  const rows: [string, string][] = [
+    [t("contactNotice.from"), d.name ? `${d.name} <${d.email}>` : d.email],
+    [t("contactNotice.topic"), topic],
+  ];
+  if (d.rentalNo) rows.push([t("contactNotice.spot"), `#${d.rentalNo}`]);
+  return compose(env, d.locale, t("contactNotice.subject", { topic }), [
+    { p: t("contactNotice.intro", { site: env.settings.site_name }) },
+    { table: rows },
+    { h: t("contactNotice.message") },
+    { quote: d.message },
+  ]);
+}
+
 // ---------------------------------------------------------------------------
 // Catalogue (admin preview and editing)
 // ---------------------------------------------------------------------------
@@ -410,6 +433,7 @@ export const EMAIL_TEMPLATES = [
   "transferDone",
   "accountDeleted",
   "staffInvite",
+  "contactNotice",
 ] as const;
 export type EmailTemplate = (typeof EMAIL_TEMPLATES)[number];
 
@@ -470,5 +494,7 @@ export function sampleEmail(env: EmailEnv, template: EmailTemplate, locale: Loca
       return accountDeletedEmail(env, { locale });
     case "staffInvite":
       return staffInviteEmail(env, { locale, role: "moderator" });
+    case "contactNotice":
+      return contactNoticeEmail(env, { locale, topic: "order", name: "Jana", email: "jana@example.com", rentalNo: 1234, message: sample.message });
   }
 }

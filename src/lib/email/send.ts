@@ -8,6 +8,8 @@ export interface EmailMessage {
   html: string;
   text: string;
   rentalId?: string | null;
+  /** Where replies go (the sender of a contact message). */
+  replyTo?: string | null;
 }
 
 /**
@@ -48,7 +50,14 @@ async function sendWithResend(message: EmailMessage): Promise<string> {
   const res = await fetch("https://api.resend.com/emails", {
     method: "POST",
     headers: { Authorization: `Bearer ${key}`, "Content-Type": "application/json" },
-    body: JSON.stringify({ from, to: [message.to], subject: message.subject, html: message.html, text: message.text }),
+    body: JSON.stringify({
+      from,
+      to: [message.to],
+      subject: message.subject,
+      html: message.html,
+      text: message.text,
+      ...(message.replyTo ? { reply_to: [message.replyTo] } : {}),
+    }),
     signal: AbortSignal.timeout(15_000),
   });
   if (!res.ok) throw new Error(`Resend ${res.status}: ${await res.text()}`);

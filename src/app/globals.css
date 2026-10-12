@@ -1538,3 +1538,136 @@ kbd {
     grid-template-columns: minmax(0, 1fr);
   }
 }
+
+/* ------------------------------------------------------- phase 4 pages */
+
+/* A piece of the wall image cut out with CSS (Latest, share page). */
+.wall-crop {
+  display: inline-block;
+  vertical-align: middle;
+  border: 1px solid var(--border);
+  background-color: #f4f4f4;
+  background-repeat: no-repeat;
+  image-rendering: pixelated;
+}
+
+.how-steps {
+  margin: 0 0 16px;
+  padding: 0;
+  list-style: none;
+}
+
+.how-steps li {
+  margin: 0 0 10px;
+  padding: 6px 10px;
+  border: 1px solid var(--border);
+}
+
+.how-steps h2 {
+  margin: 0 0 4px;
+}
+
+.how-steps p {
+  margin: 0;
+}
+
+.faq section {
+  margin: 0 0 14px;
+}
+
+.faq h2 {
+  margin: 0 0 4px;
+  font-size: 13px;
+}
+
+.faq p {
+  margin: 0;
+}
+
+.legal h2 {
+  margin: 18px 0 6px;
+  font-size: 13px;
+}
+
+.legal ul {
+  margin: 0 0 10px;
+  padding-left: 22px;
+}
+
+.legal li {
+  margin: 0 0 4px;
+}
+
+/* "[to be completed]" in the legal templates: plain highlight, removed once the texts are final. */
+mark.todo {
+  padding: 0 2px;
+  background: #ffff99;
+  color: #000000;
+}
+
+.latest {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 12px;
+  margin: 0 0 16px;
+  padding: 0;
+  list-style: none;
+}
+
+.latest li {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.latest-link {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.latest-preview {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 104px;
+  border: 1px solid var(--border);
+  background: var(--panel);
+}
+
+.latest-preview .wall-crop {
+  border: 0;
+}
+
+.latest-title {
+  overflow-wrap: anywhere;
+}
+
+.contact-form select,
+.contact-form textarea {
+  width: 100%;
+  max-width: 520px;
+}
+
+.localized-texts th {
+  width: 36px;
+}
+
+.localized-texts input[type="text"],
+.localized-texts textarea {
+  width: 100%;
+  max-width: 480px;
+}
+
+.share-spot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 12px;
+  margin: 0 0 12px;
+}
+
+.not-found-art {
+  display: block;
+  margin: 8px 0 12px;
+}

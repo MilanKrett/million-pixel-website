@@ -1,4 +1,6 @@
 import { after, type NextRequest } from "next/server";
+import { DEFAULT_LOCALE, localePath, matchLocale, type Locale } from "@/i18n/config";
+import { getMessages } from "@/i18n/messages";
 import { isBot } from "@/lib/bots";
 import { db } from "@/lib/db";
 import { normalizeUrl } from "@/lib/url";
@@ -23,7 +25,7 @@ export async function GET(request: NextRequest, ctx: RouteContext<"/go/[no]">) {
   `;
   const target = row?.url ? normalizeUrl(row.url) : null;
   if (!row || !target) return Response.redirect(home, 302);
-  if (row.flagged) return warningPage(target);
+  if (row.flagged) return warningPage(target, matchLocale(request.headers.get("accept-language")) ?? DEFAULT_LOCALE);
 
   if (!isBot(request.headers.get("user-agent"))) {
     after(async () => {
@@ -48,17 +50,16 @@ export async function GET(request: NextRequest, ctx: RouteContext<"/go/[no]">) {
 
 const esc = (s: string) => s.replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]!);
 
-/** Plain page in both languages; the address is shown as text, not as a link. */
-function warningPage(target: string): Response {
-  const html = `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width">
-<meta name="robots" content="noindex"><title>Warning / Upozornenie</title></head>
-<body style="font:13px/1.5 Verdana,Tahoma,Arial,sans-serif;max-width:640px;margin:24px auto;padding:0 16px;">
-<h1 style="font-size:16px;">This link may be dangerous</h1>
-<p>A safety check reported the page behind this link as dangerous (malware or phishing). We have stopped the redirect while a moderator looks at it.</p>
-<h1 style="font-size:16px;">Tento odkaz môže byť nebezpečný</h1>
-<p>Bezpečnostná kontrola označila stránku za týmto odkazom ako nebezpečnú (malvér alebo phishing). Presmerovanie sme zastavili, kým ju preverí moderátor.</p>
-<p style="color:#555;word-break:break-all;">${esc(target)}</p>
-<p><a href="/" style="color:#0000ee;">« Back to the wall / Späť na stenu</a></p>
+/** Plain page in the visitor's language; the address is shown as text, not as a link. */
+function warningPage(target: string, locale: Locale): Response {
+  const t = getMessages(locale).goWarning;
+  const html = `<!doctype html><html lang="${locale}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width">
+<meta name="robots" content="noindex"><title>${esc(t.title)}</title></head>
+<body style="font:13px/1.5 Verdana,Tahoma,Arial,sans-serif;max-width:640px;margin:24px auto;padding:0 16px;background:#fff;color:#000;">
+<h1 style="font-size:16px;">${esc(t.title)}</h1>
+<p>${esc(t.text)}</p>
+<p style="color:#555;word-break:break-all;">${esc(t.address)} ${esc(target)}</p>
+<p><a href="${esc(localePath(locale, "/"))}" style="color:#0000ee;">« ${esc(t.back)}</a></p>
 </body></html>`;
   return new Response(html, {
     status: 200,

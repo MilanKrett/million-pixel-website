@@ -1,4 +1,5 @@
 import { pruneSessions } from "@/lib/auth/session";
+import { pruneContactMessages } from "@/lib/contact";
 import type { Sql } from "@/lib/db";
 import { notifyRefunded } from "@/lib/orders/notify";
 import { refundRental } from "@/lib/payments/refund";
@@ -30,8 +31,9 @@ export async function refundMissedReuploads(sql: Sql, limit = 50): Promise<numbe
   return refunded;
 }
 
-/** Old sessions, sign-in links and request counters. */
+/** Old sessions, sign-in links, request counters and handled contact messages. */
 export async function pruneOldRows(sql: Sql): Promise<void> {
   await pruneSessions(sql);
   await pruneRateLimits(sql);
+  await pruneContactMessages(sql);
 }

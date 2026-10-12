@@ -5,6 +5,8 @@
   "scripts": {
     "dev": "tsx scripts/dev.ts",
     "dev:next": "next dev",
+    "desktop": "node --import tsx scripts/desktop.ts",
+    "desktop:install": "tsx scripts/desktop-install.ts",
     "build": "next build",
     "start": "next start",
     "vercel-build": "npm run db:migrate && next build",

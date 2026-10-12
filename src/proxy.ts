@@ -42,6 +42,9 @@ export function proxy(request: NextRequest) {
     }
   }
 
+  // Note for self-hosting: `next start -H 127.0.0.1` makes Next.js treat this
+  // rewrite as external and run the proxy again for "/en/…" (redirect loop).
+  // Bind to "localhost" (as scripts/desktop.ts does) or to all interfaces.
   const url = request.nextUrl.clone();
   url.pathname = pathname === "/" ? `/${DEFAULT_LOCALE}` : `/${DEFAULT_LOCALE}${pathname}`;
   return NextResponse.rewrite(url);

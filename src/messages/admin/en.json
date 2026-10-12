@@ -16,7 +16,8 @@
       "reserve": "Reserved places",
       "settings": "Settings",
       "emails": "E-mails",
-      "tools": "Tools"
+      "tools": "Tools",
+      "messages": "Messages"
     },
     "status": {
       "hold": "reserved (order)",
@@ -364,7 +365,8 @@
         "transferDone": "Transfer done",
         "accountDeleted": "Account deleted",
         "staffInvite": "Admin access",
-        "common": "Common texts"
+        "common": "Common texts",
+        "contactNotice": "Contact form (to you)"
       },
       "language": "Language:",
       "preview": "Preview (sample data)",
@@ -423,6 +425,22 @@
       "expired": "not paid (expired)",
       "refunded": "refunded",
       "partially_refunded": "partly refunded"
+    },
+    "messages": {
+      "title": "Messages from the contact form",
+      "intro": "Every message is also sent to the contact e-mail from the settings; reply from your mailbox. Mark a message as handled when it is done.",
+      "new": "New",
+      "done": "Handled",
+      "empty": "No messages.",
+      "from": "From",
+      "topic": "Topic",
+      "spot": "Spot",
+      "language": "Language",
+      "reply": "Reply by e-mail",
+      "markDone": "Mark as handled",
+      "reopen": "Open again",
+      "handled": "handled {date}",
+      "error": "Something went wrong. Please reload the page."
     }
   }
 }

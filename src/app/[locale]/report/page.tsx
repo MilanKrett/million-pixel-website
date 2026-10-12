@@ -1,16 +1,14 @@
-import type { Metadata } from "next";
 import { Suspense } from "react";
 import { ReportForm } from "@/components/site/ReportForm";
 import { ClientMessages } from "@/i18n/client-messages";
 import { localePath } from "@/i18n/config";
 import { getLocale, getTranslator } from "@/i18n/server";
 import { getSiteSettings } from "@/lib/data";
+import { pageMetadata } from "@/lib/seo";
+import { operatorDetails } from "@/lib/site-info";
 import { turnstileSiteKey } from "@/lib/turnstile";
 
-export async function generateMetadata(): Promise<Metadata> {
-  const t = await getTranslator();
-  return { title: t("pages.report") };
-}
+export const generateMetadata = () => pageMetadata("report", "/report");
 
 /** "Report content" (EU Digital Services Act: notice and action). */
 export default async function ReportPage() {
@@ -39,7 +37,7 @@ async function ReportSection() {
         <ReportForm siteKey={turnstileSiteKey()} />
       </ClientMessages>
       <h2>{t("report.authoritiesTitle")}</h2>
-      <p>{t("report.authorities", { email: settings.contact_email })}</p>
+      <p>{t("report.authorities", { email: operatorDetails(settings, t("legal.todo")).email })}</p>
     </>
   );
 }

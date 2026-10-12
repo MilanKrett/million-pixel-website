@@ -56,10 +56,11 @@ export async function dashboardStats(sql: Sql, settings: Settings): Promise<Dash
 }
 
 /** Counters shown in the admin menu. */
-export async function menuCounts(sql: Sql): Promise<{ pending: number; reports: number }> {
-  const [row] = await sql<{ pending: number; reports: number }[]>`
+export async function menuCounts(sql: Sql): Promise<{ pending: number; reports: number; messages: number }> {
+  const [row] = await sql<{ pending: number; reports: number; messages: number }[]>`
     select (select count(*) from content_versions where status = 'pending')::int as pending,
-           (select count(*) from reports where status = 'open')::int as reports
+           (select count(*) from reports where status = 'open')::int as reports,
+           (select count(*) from contact_messages where status = 'new')::int as messages
   `;
   return row;
 }

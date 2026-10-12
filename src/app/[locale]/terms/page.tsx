@@ -1,8 +1,8 @@
-import { underConstructionMetadata } from "@/components/site/page-metadata";
-import { UnderConstruction } from "@/components/site/UnderConstruction";
+import { LegalPage } from "@/components/site/LegalPage";
+import { pageMetadata } from "@/lib/seo";
 
-export const generateMetadata = () => underConstructionMetadata("terms");
+export const generateMetadata = () => pageMetadata("terms", "/terms");
 
 export default function Page() {
-  return <UnderConstruction page="terms" phase={4} />;
+  return <LegalPage doc="terms" />;
 }

@@ -3,7 +3,7 @@ import { cookies } from "next/headers";
 import { notFound, redirect } from "next/navigation";
 import type { NextRequest } from "next/server";
 import { db } from "@/lib/db";
-import { isSameOrigin, jsonError } from "@/lib/http";
+import { isSameOrigin, jsonError, secureCookies } from "@/lib/http";
 import { isStaff, type Role } from "./accounts";
 import { findSession, hasFreshMfa, parseSessionToken, SESSION_COOKIE, type SessionInfo } from "./session";
 
@@ -26,7 +26,7 @@ export function sessionCookieOptions(expires: Date) {
   return {
     httpOnly: true,
     sameSite: "lax" as const,
-    secure: process.env.NODE_ENV === "production",
+    secure: secureCookies(),
     path: "/",
     expires,
   };

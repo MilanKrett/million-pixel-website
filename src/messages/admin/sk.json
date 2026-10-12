@@ -16,7 +16,8 @@
       "reserve": "Rezervované miesta",
       "settings": "Nastavenia",
       "emails": "E-maily",
-      "tools": "Nástroje"
+      "tools": "Nástroje",
+      "messages": "Správy"
     },
     "status": {
       "hold": "rezervované (objednávka)",
@@ -364,7 +365,8 @@
         "transferDone": "Prevod dokončený",
         "accountDeleted": "Účet zrušený",
         "staffInvite": "Prístup do administrácie",
-        "common": "Spoločné texty"
+        "common": "Spoločné texty",
+        "contactNotice": "Kontaktný formulár (tebe)"
       },
       "language": "Jazyk:",
       "preview": "Náhľad (vzorové údaje)",
@@ -423,6 +425,22 @@
       "expired": "nezaplatené (vypršalo)",
       "refunded": "vrátené",
       "partially_refunded": "čiastočne vrátené"
+    },
+    "messages": {
+      "title": "Správy z kontaktného formulára",
+      "intro": "Každá správa prišla aj na kontaktný e-mail z nastavení; odpovedaj zo svojej schránky. Vybavenú správu označ ako vybavenú.",
+      "new": "Nové",
+      "done": "Vybavené",
+      "empty": "Žiadne správy.",
+      "from": "Od",
+      "topic": "Téma",
+      "spot": "Miesto",
+      "language": "Jazyk",
+      "reply": "Odpovedať e-mailom",
+      "markDone": "Označiť ako vybavenú",
+      "reopen": "Znova otvoriť",
+      "handled": "vybavené {date}",
+      "error": "Niečo sa pokazilo. Obnov, prosím, stránku."
     }
   }
 }

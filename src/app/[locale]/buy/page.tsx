@@ -1,18 +1,14 @@
-import type { Metadata } from "next";
 import { Suspense } from "react";
 import { RentWizard } from "@/components/rent/RentWizard";
 import { WallPlaceholder } from "@/components/wall/WallPlaceholder";
 import { ClientMessages } from "@/i18n/client-messages";
-import { getTranslator } from "@/i18n/server";
 import { getSiteSettings, getWallSnapshot } from "@/lib/data";
 import { rentConfig } from "@/lib/rent-config";
+import { pageMetadata } from "@/lib/seo";
 
-export async function generateMetadata(): Promise<Metadata> {
-  const t = await getTranslator();
-  return { title: t("pages.rent") };
-}
+export const generateMetadata = () => pageMetadata("buy", "/buy");
 
-export default function RentPage() {
+export default function BuyPage() {
   return (
     <Suspense fallback={<WallPlaceholder />}>
       <RentSection />

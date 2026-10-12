@@ -2,11 +2,15 @@ import type { Metadata } from "next";
 import { Suspense } from "react";
 import { Wall } from "@/components/wall/Wall";
 import { WallPlaceholder } from "@/components/wall/WallPlaceholder";
+import { getLocale } from "@/i18n/server";
 import { getSiteSettings, getWallSnapshot } from "@/lib/data";
+import { alternates } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  alternates: { languages: { en: "/", sk: "/sk", "x-default": "/" } },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  // Title, description and the wall picture for social networks come from the
+  // layout (a page that sets openGraph would replace all of it).
+  return { alternates: alternates(await getLocale(), "/") };
+}
 
 export default function HomePage() {
   return (

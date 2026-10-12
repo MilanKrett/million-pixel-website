@@ -8,7 +8,7 @@ import { db } from "@/lib/db";
 import { AdminI18n } from "./AdminI18n";
 import { LocaleSwitch } from "./LocaleSwitch";
 
-export type AdminSection = "overview" | "moderation" | "reports" | "rentals" | "reserve" | "settings" | "emails" | "tools";
+export type AdminSection = "overview" | "moderation" | "reports" | "messages" | "rentals" | "reserve" | "settings" | "emails" | "tools";
 
 /** Header, menu (with waiting counts) and language switch around every admin page. */
 export async function AdminShell({ session, active, children }: { session: SessionInfo; active: AdminSection; children: React.ReactNode }) {
@@ -22,6 +22,7 @@ export async function AdminShell({ session, active, children }: { session: Sessi
     { key: "reports", href: "/admin/reports", label: `${t("nav.reports")} (${counts.reports})` },
     ...(isAdmin
       ? [
+          { key: "messages" as const, href: "/admin/messages", label: `${t("nav.messages")} (${counts.messages})` },
           { key: "rentals" as const, href: "/admin/rentals", label: t("nav.rentals") },
           { key: "reserve" as const, href: "/admin/reserve", label: t("nav.reserve") },
           { key: "settings" as const, href: "/admin/settings", label: t("nav.settings") },

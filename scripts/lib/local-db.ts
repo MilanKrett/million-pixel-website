@@ -105,11 +105,14 @@ export async function startLocalDb(): Promise<LocalDbHandle> {
   return { alreadyRunning: false, stop: stopLocalDb };
 }
 
-/** Clean ("fast") shutdown of the local server. */
+/**
+ * Clean ("fast") shutdown of the local server. pg_ctl runs detached, so it
+ * finishes even when it was started because the console window is closing.
+ */
 export async function stopLocalDb(): Promise<void> {
   if (!existsSync(path.join(LOCAL_DB.dir, "postmaster.pid"))) return;
   const pgCtl = await pgCtlPath();
-  await run(pgCtl, ["stop", "-D", LOCAL_DB.dir, "-m", "fast", "-w", "-t", "60"]);
+  await run(pgCtl, ["stop", "-D", LOCAL_DB.dir, "-m", "fast", "-w", "-t", "60"], { detached: true });
 }
 
 function adminClient() {
