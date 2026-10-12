@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useSyncExternalStore } from "react";
 import { useFormatter, useLocale, useTranslations } from "use-intl/react";
+import { labelSeparator } from "@/i18n/config";
 import type { WallStats } from "@/lib/wall/snapshot";
 
 const POLL_MS = 60_000;
@@ -42,6 +43,7 @@ export function StatsBox({ initial }: { initial: WallStats }) {
   const t = useTranslations("header");
   const format = useFormatter();
   const intlLocale = useLocale();
+  const colon = labelSeparator(intlLocale);
   const [stats, setStats] = useState(initial);
   const now = useNow();
 
@@ -67,11 +69,15 @@ export function StatsBox({ initial }: { initial: WallStats }) {
   return (
     <div className="stats" aria-label={t("statsLabel")} role="group">
       <div className="stats-row">
-        {t("rented")}: <b>{format.number(stats.rentedPixels)}</b> <span className="sep">|</span> {t("free")}:{" "}
+        {t("rented")}
+        {colon}
+        <b>{format.number(stats.rentedPixels)}</b> <span className="sep">|</span> {t("free")}
+        {colon}
         <b>{format.number(stats.freePixels)}</b>
       </div>
       <div className="stats-row">
-        {t("lastRental")}:{" "}
+        {t("lastRental")}
+        {colon}
         <b>
           {stats.lastRentalAt
             ? now === null

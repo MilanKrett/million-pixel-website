@@ -1,5 +1,15 @@
 # Prompt – Milión pixelov na prenájom
 > Kópia zadania z Claude Docs dokumentu „Prompt – Milión pixelov na prenájom“ (stav k 2026-10-10). Pôvodný dokument je zdroj pravdy.
+>
+> **Zmeny, o ktorých rozhodol zadávateľ počas práce** (platia namiesto textu nižšie):
+> - **Kúpa navždy namiesto prenájmu** (2026-10-11): pixel stojí 0,10 € a platí sa raz. Nie sú doby 1/3/5 rokov,
+>   zľavy, pripomienky, ochranná lehota ani predĺženie (časti 2, 3, 6, 8 a 14). „Navždy“ znamená, kým stránka
+>   beží; čo dostanú majitelia pri prípadnom zatvorení, doplní do podmienok právnik. Dátum konca môžu mať len
+>   miesta, ktoré si rezervuje administrátor.
+> - **10 jazykov namiesto EN + SK** (2026-10-11): angličtina, slovenčina, čeština, nemčina, poľština, maďarčina,
+>   francúzština, španielčina, taliančina a portugalčina. Administrácia ostáva po anglicky a po slovensky.
+> - **Zatiaľ bez hostingu a domény** (2026-10-11): stránka beží na počítači zadávateľa z ikony na ploche
+>   (databáza, server a prehliadač naraz, denné zálohy). Ostrý Stripe, hosting a doména prídu neskôr.
 
 ## 1. Zadanie a spôsob práce
 Postav kompletnú, produkčne pripravenú webovú aplikáciu: verejnú stenu s presne 1 000 000 pixelov (1000 × 1000), ktorú si ktokoľvek môže po kúskoch prenajať za symbolický poplatok a vložiť do svojho kúska vlastný obrázok, fotku, kresbu alebo text s odkazom. Je to moderná verzia legendárnej The Million Dollar Homepage z roku 2005, s rovnakým princípom, rozmermi aj jednoduchým retro vzhľadom. Rozdiely: namiesto trvalého predaja je prenájom na dobu určitú, obsah pred zverejnením schvaľujeme a stránka má vlastnú značku.

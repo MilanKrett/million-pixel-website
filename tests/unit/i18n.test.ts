@@ -42,6 +42,31 @@ function tagsOf(message: string): string[] {
   return [...new Set([...message.matchAll(/<([a-zA-Z][a-zA-Z0-9]*)>/g)].map((m) => m[1]))].sort();
 }
 
+/** Text outside ICU arguments, e.g. "x {x0}–{x1} px" → "x – px". */
+function literalText(message: string): string {
+  let text = "";
+  let depth = 0;
+  for (const char of message) {
+    if (char === "{") depth++;
+    else if (char === "}") depth--;
+    else if (depth === 0) text += char;
+  }
+  return text;
+}
+
+/** Texts that are correct in a language although they equal the English ones. */
+const SAME_AS_ENGLISH: Record<Exclude<Locale, "en">, string[]> = {
+  sk: ["E-mail", "FAQ", "Text"],
+  cs: ["E-mail", "Text"],
+  de: ["Details", "FAQ", "Link", "Palette", "Position", "Status", "Text", "Zoom"],
+  pl: ["E-mail", "FAQ", "Link", "Operator", "VAT"],
+  hu: ["E-mail", "Link"],
+  fr: ["Centre", "Contact", "Date", "E-mail", "FAQ", "Message", "Palette", "Pixels", "Position", "Rectangle", "Saturation", "Style", "Total", "Zoom"],
+  es: ["FAQ", "Total", "Zoom"],
+  it: ["E-mail", "FAQ", "Home", "Link", "Zoom", "{price} per pixel", "{site} — home"],
+  pt: ["E-mail", "FAQ", "Link", "Total", "Zoom"],
+};
+
 const translator = (locale: Locale) => createTranslator({ locale: intlLocale(locale), messages: getMessages(locale), timeZone: "Europe/Bratislava" });
 
 describe("translations", () => {
@@ -78,8 +103,34 @@ describe("translations", () => {
           expect(() => t.markup(key as never, values as never), `${locale}: ${key}`).not.toThrow();
         }
       });
+
+      it("translates every text (only words the language shares with English may stay)", () => {
+        const allowed = new Set(SAME_AS_ENGLISH[locale as Exclude<Locale, "en">]);
+        const untranslated = Object.keys(flatEn).filter(
+          (key) => flat[key] === flatEn[key] && /\p{L}{3,}/u.test(literalText(flatEn[key])) && !allowed.has(flatEn[key]),
+        );
+        expect(untranslated).toEqual([]);
+      });
     });
   }
+
+  it("uses each language's plural forms for the wall", () => {
+    const million = (locale: Locale) => plain(translator(locale)("common.pixels", { count: 1_000_000 }));
+    expect(million("cs")).toBe("1 000 000 pixelů");
+    expect(million("de")).toBe("1.000.000 Pixel");
+    expect(million("pl")).toBe("1 000 000 pikseli");
+    expect(million("hu")).toBe("1 000 000 pixel");
+    expect(million("fr")).toBe("1 000 000 de pixels");
+    expect(million("es")).toBe("1.000.000 de píxeles");
+    expect(million("it")).toBe("1.000.000 di pixel");
+    expect(million("pt")).toBe("1 000 000 de píxeis");
+    const pl = translator("pl");
+    expect(pl("common.blocks", { count: 1 })).toBe("1 blok");
+    expect(pl("common.blocks", { count: 3 })).toBe("3 bloki");
+    expect(pl("common.blocks", { count: 12 })).toBe("12 bloków");
+    expect(pl("common.blocks", { count: 22 })).toBe("22 bloki");
+    expect(translator("fr")("common.pricePerPixel", { cents: 10 })).toBe("10 centimes le pixel");
+  });
 
   it("no message is empty", () => {
     for (const locale of LOCALES) {

@@ -16,3 +16,9 @@ export function operatorDetails(settings: Settings, missing: string) {
     email: pick(settings.contact_email),
   };
 }
+
+/** The seller on receipts: "Name, company ID 123, address, e-mail"; unfilled parts become `missing`. */
+export function sellerLine(settings: Settings, companyId: (id: string) => string, missing: string): string {
+  const d = operatorDetails(settings, missing);
+  return [d.operator, companyId(d.companyId), d.address, d.email].join(", ");
+}

@@ -1,4 +1,5 @@
 import { describe, expect, it, vi } from "vitest";
+import { LOCALES } from "@/i18n/config";
 import { placeholders, toCsv } from "@/lib/admin/manage";
 import { EMAIL_TEMPLATES, sampleEmail } from "@/lib/email/templates";
 import { checkImage, checkLinkReputation, sightengineScores } from "@/lib/moderation/providers";
@@ -71,13 +72,13 @@ describe("outside check services", () => {
 });
 
 describe("e-mail templates", () => {
-  it("builds every e-mail in both languages", () => {
-    for (const locale of ["en", "sk"] as const) {
+  it("builds every e-mail in every language", () => {
+    for (const locale of LOCALES) {
       for (const template of EMAIL_TEMPLATES) {
         const mail = sampleEmail({ settings: DEFAULT_SETTINGS }, template, locale);
-        expect(mail.subject.length).toBeGreaterThan(3);
-        expect(mail.html).toContain(DEFAULT_SETTINGS.site_name);
-        expect(mail.text).not.toMatch(/\{[a-z]+\}/i);
+        expect(mail.subject.length, `${locale} ${template}`).toBeGreaterThan(3);
+        expect(mail.html, `${locale} ${template}`).toContain(DEFAULT_SETTINGS.site_name);
+        expect(mail.text, `${locale} ${template}`).not.toMatch(/\{[a-z]+\}/i);
       }
     }
   });

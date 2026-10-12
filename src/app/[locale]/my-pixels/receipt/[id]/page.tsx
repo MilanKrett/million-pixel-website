@@ -9,6 +9,7 @@ import { getSiteSettings } from "@/lib/data";
 import { db } from "@/lib/db";
 import { pixelRange } from "@/lib/geometry";
 import { formatMoney } from "@/lib/money";
+import { sellerLine } from "@/lib/site-info";
 
 export const instant = false;
 
@@ -47,9 +48,7 @@ async function Receipt({ params }: { params: PageProps<"/[locale]/my-pixels/rece
   const range = pixelRange(p, block);
   const money = (cents: number) => formatMoney(cents, settings.currency, il);
   const vat = settings.vat_payer ? Math.round((p.amount_cents * settings.vat_rate_pct) / (100 + settings.vat_rate_pct)) : 0;
-  const seller = [settings.operator_name, settings.operator_id && t("receipt.companyId", { id: settings.operator_id }), settings.operator_address, settings.contact_email]
-    .filter(Boolean)
-    .join(", ");
+  const seller = sellerLine(settings, (id) => t("receipt.companyId", { id }), t("legal.todo"));
   const rows: [string, string][] = [
     [t("receipt.number"), p.invoice_number ?? "—"],
     [t("receipt.date"), p.paid_at ? new Intl.DateTimeFormat(il, { dateStyle: "long", timeZone: "Europe/Bratislava" }).format(p.paid_at) : "—"],

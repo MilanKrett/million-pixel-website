@@ -56,6 +56,11 @@ export function intlLocale(locale: Locale): string {
   return INTL_LOCALES[locale];
 }
 
+/** Between a label and its value ("Total: 10 €"); French puts a no-break space before the colon. */
+export function labelSeparator(locale: string): string {
+  return locale.startsWith("fr") ? " : " : ": ";
+}
+
 /** Language of the admin for a staff member whose account language may be any site language. */
 export function adminLocale(locale: string | null | undefined): AdminLocale {
   return locale === "sk" ? "sk" : "en";

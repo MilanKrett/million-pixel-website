@@ -1,9 +1,10 @@
 import { createTranslator } from "use-intl/core";
-import { intlLocale, localePath, TIME_ZONE, type Locale, type Messages } from "@/i18n/config";
+import { intlLocale, labelSeparator, localePath, TIME_ZONE, type Locale, type Messages } from "@/i18n/config";
 import { getMessages } from "@/i18n/messages";
 import { pixelRange, spotPath, type Rect } from "@/lib/geometry";
 import { formatMoney } from "@/lib/money";
 import type { Settings } from "@/lib/settings/schema";
+import { sellerLine } from "@/lib/site-info";
 import type { ReasonCode } from "./reasons";
 
 /**
@@ -141,11 +142,11 @@ function blockHtml(b: Block): string {
   return `<p style="margin:0 0 10px;">${esc(b.p)}</p>`;
 }
 
-function blockText(b: Block): string {
-  if ("button" in b) return `${b.button}: ${b.href}`;
+function blockText(b: Block, colon: string): string {
+  if ("button" in b) return `${b.button}${colon}${b.href}`;
   if ("h" in b) return `\n${b.h}`;
-  if ("table" in b) return b.table.map(([k, v]) => `${k}: ${v}`).join("\n");
-  if ("links" in b) return [b.label, ...b.links.map(([name, href]) => `${name}: ${href}`)].join("\n");
+  if ("table" in b) return b.table.map(([k, v]) => `${k}${colon}${v}`).join("\n");
+  if ("links" in b) return [b.label, ...b.links.map(([name, href]) => `${name}${colon}${href}`)].join("\n");
   if ("quote" in b) return b.quote.split("\n").map((l) => `> ${l}`).join("\n");
   if ("url" in b) return `${b.p} ${b.url}`;
   return b.p;
@@ -168,7 +169,8 @@ ${all.map(blockHtml).join("\n")}
 </td></tr>
 <tr><td style="padding:8px 0 0;border-top:1px solid #cccccc;color:#555555;font-size:11px;">${esc(footer)}<br><a href="${esc(base)}" style="color:#0000ee;">${esc(base)}</a></td></tr>
 </table></td></tr></table></body></html>`;
-  const text = [...all.map(blockText), "", footer].join("\n\n").replace(/\n{3,}/g, "\n\n");
+  const colon = labelSeparator(locale);
+  const text = [...all.map((b) => blockText(b, colon)), "", footer].join("\n\n").replace(/\n{3,}/g, "\n\n");
   return { subject, html, text };
 }
 
@@ -206,10 +208,7 @@ function receiptRows(env: EmailEnv, data: RentalEmailData, item: string): [strin
   return [
     [t("labels.number"), data.invoiceNumber ?? "—"],
     [t("labels.date"), date(data.paidAt ?? new Date())],
-    [
-      t("labels.seller"),
-      [s.operator_name, s.operator_id && t("companyId", { id: s.operator_id }), s.operator_address, s.contact_email].filter(Boolean).join(", "),
-    ],
+    [t("labels.seller"), sellerLine(s, (id) => t("companyId", { id }), getMessages(data.locale).legal.todo)],
     [t("labels.buyer"), data.to],
     [t("labels.item"), item],
     [t("labels.total"), money(data.amountCents)],
